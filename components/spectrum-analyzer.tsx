@@ -64,6 +64,8 @@ const COLORS = {
 export function SpectrumAnalyzer() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [audioFile, setAudioFile] = useState<string | null>(null)
+  const [currentTime, setCurrentTime] = useState(0)
+  const [duration, setDuration] = useState(0)
   
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const audioRef = useRef<HTMLAudioElement>(null)
@@ -295,6 +297,24 @@ export function SpectrumAnalyzer() {
     drawSpectrum()
   }, [isPlaying])
 
+  useEffect(() => {
+    const audio = audioRef.current
+    if (!audio) return
+
+    const updateTime = () => setCurrentTime(audio.currentTime)
+    const updateDuration = () => setDuration(audio.duration)
+
+    audio.addEventListener('timeupdate', updateTime)
+    audio.addEventListener('loadedmetadata', updateDuration)
+    audio.addEventListener('durationchange', updateDuration)
+
+    return () => {
+      audio.removeEventListener('timeupdate', updateTime)
+      audio.removeEventListener('loadedmetadata', updateDuration)
+      audio.removeEventListener('durationchange', updateDuration)
+    }
+  }, [audioFile])
+
   const handlePlay = async () => {
     if (!audioRef.current) return
 
@@ -323,6 +343,12 @@ export function SpectrumAnalyzer() {
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (file) {
+      if (audioRef.current) {
+        audioRef.current.pause()
+        audioRef.current.currentTime = 0
+      }
+      setIsPlaying(false)
+      
       if (audioContextRef.current && audioContextRef.current.state !== 'closed') {
         audioContextRef.current.close().catch(() => {})
       }
@@ -331,11 +357,33 @@ export function SpectrumAnalyzer() {
       sourceRef.current = null
       audioInitializedRef.current = false
       
+      if (audioFile) {
+        URL.revokeObjectURL(audioFile)
+      }
+      
       const url = URL.createObjectURL(file)
       setAudioFile(url)
-      setIsPlaying(false)
       previousLevelsRef.current = new Array(SPECTRUM_CONFIG.numBands).fill(0)
+      setCurrentTime(0)
+      setDuration(0)
+      
+      e.target.value = ''
     }
+  }
+
+  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const time = parseFloat(e.target.value)
+    if (audioRef.current) {
+      audioRef.current.currentTime = time
+      setCurrentTime(time)
+    }
+  }
+
+  const formatTime = (seconds: number) => {
+    if (!isFinite(seconds)) return '0:00'
+    const mins = Math.floor(seconds / 60)
+    const secs = Math.floor(seconds % 60)
+    return `${mins}:${secs.toString().padStart(2, '0')}`
   }
 
   return (
@@ -349,38 +397,88 @@ export function SpectrumAnalyzer() {
         />
       </div>
 
-      <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-4">
-        <div className="flex gap-3">
-          <input
-            type="file"
-            accept="audio/*"
-            onChange={handleFileUpload}
-            className="hidden"
-            id="audio-upload"
-          />
-          <label htmlFor="audio-upload">
-            <Button variant="outline" size="sm" asChild>
-              <span className="cursor-pointer flex items-center gap-2">
-                <Upload className="h-4 w-4" />
-                Upload Audio
-              </span>
+      <div className="bg-zinc-900/50 border border-zinc-700/50 rounded-lg p-6 backdrop-blur-sm">
+        <div className="flex flex-col gap-4">
+          <div className="flex items-center gap-3">
+            <input
+              type="file"
+              accept="audio/*"
+              onChange={handleFileUpload}
+              className="hidden"
+              id="audio-upload"
+            />
+            <label htmlFor="audio-upload">
+              <Button 
+                variant="outline" 
+                size="sm" 
+                asChild
+                className="bg-zinc-800 border-zinc-600 hover:bg-zinc-700 hover:border-zinc-500 text-zinc-100"
+              >
+                <span className="cursor-pointer flex items-center gap-2">
+                  <Upload className="h-4 w-4" />
+                  Upload Audio
+                </span>
+              </Button>
+            </label>
+            
+            <Button 
+              onClick={handlePlay} 
+              size="sm"
+              disabled={!audioFile}
+              className="bg-cyan-600 hover:bg-cyan-500 text-white disabled:opacity-30 disabled:cursor-not-allowed"
+            >
+              <Play className="h-4 w-4 mr-2" />
+              Play
             </Button>
-          </label>
-          {audioFile && (
-            <>
-              {!isPlaying ? (
-                <Button onClick={handlePlay} size="sm">
-                  <Play className="h-4 w-4 mr-2" />
-                  Play
-                </Button>
-              ) : (
-                <Button onClick={handlePause} size="sm" variant="secondary">
-                  <Pause className="h-4 w-4 mr-2" />
-                  Pause
-                </Button>
-              )}
-            </>
-          )}
+            
+            <Button 
+              onClick={handlePause} 
+              size="sm"
+              className="bg-zinc-700 hover:bg-zinc-600 text-white"
+            >
+              <Pause className="h-4 w-4 mr-2" />
+              Pause
+            </Button>
+            
+            <div className="text-sm text-zinc-400 font-mono ml-auto">
+              {formatTime(currentTime)} / {formatTime(duration)}
+            </div>
+          </div>
+          
+          <div className="flex items-center gap-3">
+            <input
+              type="range"
+              min="0"
+              max={duration || 0}
+              value={currentTime}
+              onChange={handleSeek}
+              disabled={!audioFile}
+              className="flex-1 h-2 bg-zinc-800 rounded-lg appearance-none cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed
+                [&::-webkit-slider-thumb]:appearance-none
+                [&::-webkit-slider-thumb]:w-4
+                [&::-webkit-slider-thumb]:h-4
+                [&::-webkit-slider-thumb]:rounded-full
+                [&::-webkit-slider-thumb]:bg-cyan-500
+                [&::-webkit-slider-thumb]:cursor-pointer
+                [&::-webkit-slider-thumb]:hover:bg-cyan-400
+                [&::-webkit-slider-thumb]:transition-colors
+                [&::-moz-range-thumb]:w-4
+                [&::-moz-range-thumb]:h-4
+                [&::-moz-range-thumb]:rounded-full
+                [&::-moz-range-thumb]:bg-cyan-500
+                [&::-moz-range-thumb]:border-0
+                [&::-moz-range-thumb]:cursor-pointer
+                [&::-moz-range-thumb]:hover:bg-cyan-400
+                [&::-moz-range-thumb]:transition-colors
+                [&::-webkit-slider-runnable-track]:bg-zinc-700
+                [&::-webkit-slider-runnable-track]:rounded-lg
+                [&::-moz-range-track]:bg-zinc-700
+                [&::-moz-range-track]:rounded-lg"
+              style={{
+                background: `linear-gradient(to right, rgb(8 145 178) 0%, rgb(8 145 178) ${(currentTime / duration) * 100}%, rgb(63 63 70) ${(currentTime / duration) * 100}%, rgb(63 63 70) 100%)`
+              }}
+            />
+          </div>
         </div>
       </div>
 

@@ -1543,10 +1543,6 @@
     }
   }
 
-  .border-zinc-800 {
-    border-color: var(--color-zinc-800);
-  }
-
   .border-t-transparent {
     border-top-color: #0000;
   }
@@ -1663,10 +1659,6 @@
 
   .bg-zinc-800 {
     background-color: var(--color-zinc-800);
-  }
-
-  .bg-zinc-900 {
-    background-color: var(--color-zinc-900);
   }
 
   .bg-zinc-900\/50 {
