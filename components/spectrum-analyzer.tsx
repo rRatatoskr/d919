@@ -105,6 +105,7 @@ interface PeakHold {
 }
 
 export function SpectrumAnalyzer() {
+  const [imageLoaded, setImageLoaded] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
   const [audioFile, setAudioFile] = useState<string | null>(null)
   const [currentTime, setCurrentTime] = useState(0)
@@ -129,9 +130,10 @@ export function SpectrumAnalyzer() {
     const img = new Image()
     img.crossOrigin = 'anonymous'
     const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
-    img.src=`${basePath}/images/design-mode/guide.png` // パスは環境に合わせて確認してください
+    img.src=`${basePath}/images/guide.png` // パスは環境に合わせて確認してください
     img.onload = () => {
       guideImageRef.current = img
+      setImageLoaded(true)
     }
     
     return () => {
@@ -466,7 +468,7 @@ export function SpectrumAnalyzer() {
       animationRef.current = null
     }
     drawSpectrum()
-  }, [isPlaying])
+  }, [isPlaying, imageLoaded])
 
   useEffect(() => {
     const audio = audioRef.current
