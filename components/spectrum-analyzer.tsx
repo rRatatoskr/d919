@@ -20,32 +20,61 @@ const SPECTRUM_CONFIG = {
   blockHeight: 6.0,          // 各ブロックの高さ（ピクセル）
   
   // 間隔調整
-  gapX: 43.61,                  // バンド間の水平方向の間隔
+  gapX: 43.61,               // バンド間の水平方向の間隔
   gapY1: 3.1,                // 奇数セグメント間の垂直方向の間隔
-  gapY2: 6,                // 偶数セグメント間の垂直方向の間隔
+  gapY2: 6,                  // 偶数セグメント間の垂直方向の間隔
   
   // スラント・傾斜調整
   slantLR: 2.0,              // 各ブロックの左右方向の傾き
   slopeTB: 5.0,              // 各ブロックの上下方向の傾き
-  stackSlant: 3.35,           // セグメントの積み重ね時の水平方向のオフセット
+  stackSlant: 3.35,          // セグメントの積み重ね時の水平方向のオフセット
   
   // 位置調整
-  offsetX: 186.6,              // キャンバス左端からのオフセット
-  offsetY: 8.2,                // キャンバス下端からのオフセット
+  offsetX: 186.6,            // キャンバス左端からのオフセット
+  offsetY: 8.2,              // キャンバス下端からのオフセット
   
   // 音声解析パラメータ
-  divisor: 2,              // 音声レベルの感度（大きいほど敏感）
+  divisor: 2,                // 音声レベルの感度（大きいほど敏感）
   fallSpeed: 0.15,           // バーが下がる速度（0.0〜1.0）
   fadeAlpha: 0,              // フェードエフェクトの透明度（0〜255、0で無効）
     
   fftSize: 8192,             // FFTサイズ（大きいほど周波数分解能が高い: 2048, 4096, 8192, 16384）
-  smoothing: 0,            // スムージング（0.0〜1.0、小さいほど反応が速い）
+  smoothing: 0.1,            // スムージング（0.0〜1.0、小さいほど反応が速い）
   minDecibels: -90,          // 最小デシベル
-  maxDecibels: -7,          // 最大デシベル
+  maxDecibels: -7,           // 最大デシベル
   
   // ガイド画像設定
-  showGuide: true,          // ガイド画像を表示するか（true/false）
-  guideAlpha: 0.1,           // ガイド画像の透明度（0.0〜1.0）
+  showGuide: true,           // ガイド画像を表示するか（true/false）
+  guideAlpha: 0.5,           // ガイド画像の透明度（0.0〜1.0）
+}
+
+const SIDE_BAND_CONFIG = {
+  // サイドバンド設定
+  enabled: true,             // サイドバンドを表示するか（true/false）
+  segmentsPerBand: 26,       // 各サイドバンドのセグメント数
+  levelsPerBand: 13,         // 音量レベルの段階数（2セグメントで1レベル）
+  
+  // ブロックの寸法
+  blockWidth: 7.5,            // 各ブロックの幅（メインより小さい）
+  blockHeight: 6.0,          // 各ブロックの高さ（メインより小さい）
+  
+  // 間隔調整
+  gapY1: 3.1,                // 奇数セグメント間の垂直方向の間隔
+  gapY2: 6.0,                // 偶数セグメント間の垂直方向の間隔
+  
+  // スラント・傾斜調整
+  slantLR: 2.0,              // 各ブロックの左右方向の傾き
+  slopeTB: 2.0,              // 各ブロックの上下方向の傾き
+  stackSlant: 3.35,           // セグメントの積み重ね時の水平方向のオフセット
+  
+  // 位置調整（メインバンドからの相対位置）
+  leftOffsetX: -11,          // 左サイドバンドのX方向オフセット（負の値で左に配置）
+  rightOffsetX: 25,          // 右サイドバンドのX方向オフセット（正の値で右に配置）
+  offsetY: -2.5,               // Y方向のオフセット（メインバンドのoffsetYからの追加オフセット）
+  
+  // 連動設定
+  linkToBand: 'same',        // メインバンドとの連動方法: 'same'=同じバンドと連動, 'adjacent'=隣接バンドと連動
+  levelMultiplier: 1,      // メインバンドのレベルに対する倍率（0.0〜1.0）
 }
 
 // 色設定（RGB値）
@@ -57,6 +86,13 @@ const COLORS = {
   // 非アクティブなセグメントの色（グラデーション）
   inactiveBottom: [0, 40, 30] as [number, number, number],  // 下部の色（暗いシアン系）
   inactiveTop: [10, 10, 50] as [number, number, number],    // 上部の色（暗い青系）
+  
+  // サイドバンド用の色設定を追加
+  // サイドバンド用の色（メインと同じでも、別の色でも調整可能）
+  sideActiveBottom: [0, 255, 200] as [number, number, number],
+  sideActiveTop: [50, 50, 255] as [number, number, number],
+  sideInactiveBottom: [0, 40, 30] as [number, number, number],
+  sideInactiveTop: [10, 10, 50] as [number, number, number],
 }
 
 // ============================================================================
@@ -169,17 +205,14 @@ export function SpectrumAnalyzer() {
     const levels: number[] = []
     const totalBins = dataArray.length / 2
     
-    // 人間の聴覚特性に合わせた周波数分布を実現
-    const minFreq = 10 // 最小周波数ビン（0を避ける）
+    const minFreq = 10
     const maxFreq = totalBins
     
-    // 対数スケールでバンドの境界を計算
     const logMin = Math.log(minFreq)
     const logMax = Math.log(maxFreq)
     const logStep = (logMax - logMin) / SPECTRUM_CONFIG.numBands
 
     for (let i = 0; i < SPECTRUM_CONFIG.numBands; i++) {
-      // 等比数列で各バンドの開始・終了位置を決定
       const start = Math.floor(Math.exp(logMin + i * logStep))
       const end = Math.floor(Math.exp(logMin + (i + 1) * logStep))
       
@@ -197,8 +230,54 @@ export function SpectrumAnalyzer() {
       levels.push(val)
     }
     
-    console.log('[v0] Audio levels sample:', levels.slice(0, 3).map(v => v.toFixed(3)))
     return levels
+  }
+
+  const drawSideBand = (
+    ctx: CanvasRenderingContext2D,
+    bandIdx: number,
+    displayLevels: number[],
+    baseX: number,
+    baseY: number,
+    isSide: 'left' | 'right'
+  ) => {
+    if (!SIDE_BAND_CONFIG.enabled) return
+    
+    // メインバンドと連動するレベルを取得
+    const level = (displayLevels[bandIdx] || 0) * SIDE_BAND_CONFIG.levelMultiplier
+    const activeLevel = Math.floor(level * SIDE_BAND_CONFIG.levelsPerBand)
+    const activeSegments = activeLevel * 2
+    
+    let currentYBottom = baseY
+
+    for (let segIdx = 0; segIdx < SIDE_BAND_CONFIG.segmentsPerBand; segIdx++) {
+      const xOffset = segIdx * SIDE_BAND_CONFIG.stackSlant
+      const xDraw = baseX + xOffset
+      const yDraw = currentYBottom
+
+      const ratio = segIdx / SIDE_BAND_CONFIG.segmentsPerBand
+
+      let color: string
+      if (segIdx < activeSegments) {
+        color = getGradientColor(COLORS.sideActiveBottom, COLORS.sideActiveTop, ratio)
+      } else {
+        color = getGradientColor(COLORS.sideInactiveBottom, COLORS.sideInactiveTop, ratio)
+      }
+
+      drawDoubleSlantedPolygon(
+        ctx,
+        color,
+        xDraw,
+        yDraw,
+        SIDE_BAND_CONFIG.blockWidth,
+        SIDE_BAND_CONFIG.blockHeight,
+        SIDE_BAND_CONFIG.slantLR,
+        SIDE_BAND_CONFIG.slopeTB
+      )
+
+      const currentGapY = segIdx % 2 === 0 ? SIDE_BAND_CONFIG.gapY1 : SIDE_BAND_CONFIG.gapY2
+      currentYBottom -= (SIDE_BAND_CONFIG.blockHeight + currentGapY)
+    }
   }
 
   const drawSpectrum = () => {
@@ -247,6 +326,7 @@ export function SpectrumAnalyzer() {
 
     const startX = SPECTRUM_CONFIG.offsetX
     const startYBottom = canvas.height - SPECTRUM_CONFIG.offsetY
+    const sideYBottom = canvas.height - SPECTRUM_CONFIG.offsetY - SIDE_BAND_CONFIG.offsetY
 
     for (let bandIdx = 0; bandIdx < SPECTRUM_CONFIG.numBands; bandIdx++) {
       const level = displayLevels[bandIdx] || 0
@@ -254,6 +334,18 @@ export function SpectrumAnalyzer() {
       const activeSegments = activeLevel * 2
       
       const bandXBase = startX + bandIdx * (SPECTRUM_CONFIG.blockWidth + SPECTRUM_CONFIG.gapX)
+      
+      // サイドバンド（左）を描画
+      drawSideBand(
+        ctx,
+        bandIdx,
+        displayLevels,
+        bandXBase + SIDE_BAND_CONFIG.leftOffsetX,
+        sideYBottom,
+        'left'
+      )
+      
+      // メインバンドを描画
       let currentYBottom = startYBottom
 
       for (let segIdx = 0; segIdx < SPECTRUM_CONFIG.segmentsPerBand; segIdx++) {
@@ -284,6 +376,16 @@ export function SpectrumAnalyzer() {
         const currentGapY = segIdx % 2 === 0 ? SPECTRUM_CONFIG.gapY1 : SPECTRUM_CONFIG.gapY2
         currentYBottom -= (SPECTRUM_CONFIG.blockHeight + currentGapY)
       }
+      
+      // サイドバンド（右）を描画
+      drawSideBand(
+        ctx,
+        bandIdx,
+        displayLevels,
+        bandXBase + SIDE_BAND_CONFIG.rightOffsetX,
+        sideYBottom,
+        'right'
+      )
     }
 
     animationRef.current = requestAnimationFrame(drawSpectrum)
@@ -483,7 +585,13 @@ export function SpectrumAnalyzer() {
       </div>
 
       {audioFile && (
-        <audio ref={audioRef} src={audioFile} className="hidden" loop />
+        <audio 
+        key={audioFile}
+          ref={audioRef}
+          src={audioFile}
+          className="hidden"
+          loop 
+        />
       )}
     </div>
   )
