@@ -691,7 +691,7 @@ export function SpectrumAnalyzer() {
 
       {/* ... SpectrumAnalyzerコンポーネント ... */}
       <div style={{ color: 'white', fontSize: '10px' }}>
-        DEPLOYED VERSION 1.1
+        DEPLOYED VERSION 0.1.1
       </div>
     </div>
   )
