@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { Play, Pause, Upload } from 'lucide-react'
+import { Play, Pause, Upload, Eye, EyeOff } from 'lucide-react'
 
 // ============================================================================
 // 🎨 スペクトラムアナライザーの調整用パラメータ
@@ -110,6 +110,7 @@ export function SpectrumAnalyzer() {
   const [audioFile, setAudioFile] = useState<string | null>(null)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
+  const [showGuide, setShowGuide] = useState(SPECTRUM_CONFIG.showGuide)
   
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const audioRef = useRef<HTMLAudioElement>(null)
@@ -339,7 +340,7 @@ export function SpectrumAnalyzer() {
       ctx.fillRect(0, 0, canvas.width, canvas.height)
     }
 
-    if (SPECTRUM_CONFIG.showGuide && guideImageRef.current) {
+    if (showGuide && guideImageRef.current) {
       ctx.globalAlpha = SPECTRUM_CONFIG.guideAlpha
       ctx.drawImage(guideImageRef.current, 0, 0, canvas.width, canvas.height)
       ctx.globalAlpha = 1.0
@@ -468,7 +469,7 @@ export function SpectrumAnalyzer() {
       animationRef.current = null
     }
     drawSpectrum()
-  }, [isPlaying, imageLoaded])
+  }, [isPlaying, imageLoaded, showGuide])
 
   useEffect(() => {
     const audio = audioRef.current
@@ -560,8 +561,8 @@ export function SpectrumAnalyzer() {
   }
 
   return (
-    <div className="w-full max-w-[1400px] space-y-4">
-      <div className="bg-black border-2 border-white/20 rounded-lg overflow-hidden">
+     <div className="w-full max-w-[1400px] mx-auto space-y-4">
+      <div className="bg-black border border-white/10 rounded-none overflow-hidden shadow-2xl">
         <canvas
           ref={canvasRef}
           width={1400}
@@ -570,69 +571,112 @@ export function SpectrumAnalyzer() {
         />
       </div>
 
-      <div className="bg-zinc-900/50 border border-zinc-700/50 rounded-lg p-6 backdrop-blur-sm">
-        <div className="flex flex-col gap-4">
-          <div className="flex items-center gap-3">
-            <input
-              type="file"
-              accept="audio/*"
-              onChange={handleFileUpload}
-              className="hidden"
-              id="audio-upload"
-            />
-            <label htmlFor="audio-upload">
-              <Button 
-                variant="outline" 
-                size="sm" 
-                asChild
-                className="bg-zinc-800 border-zinc-600 hover:bg-zinc-700 hover:border-zinc-500 text-zinc-100"
-              >
-                <span className="cursor-pointer flex items-center gap-2">
-                  <Upload className="h-4 w-4" />
-                  Upload Audio
-                </span>
-              </Button>
-            </label>
-            
-            <Button 
-              onClick={handlePlay} 
-              size="sm"
-              disabled={!audioFile}
-              className="bg-cyan-600 hover:bg-cyan-500 text-white disabled:opacity-30 disabled:cursor-not-allowed"
-            >
-              <Play className="h-4 w-4 mr-2" />
-              Play
-            </Button>
-            
-            <Button 
-              onClick={handlePause} 
-              size="sm"
-              className="bg-zinc-700 hover:bg-zinc-600 text-white"
-            >
-              <Pause className="h-4 w-4 mr-2" />
-              Pause
-            </Button>
-            
-            <div className="text-sm text-zinc-400 font-mono ml-auto">
-              {formatTime(currentTime)} / {formatTime(duration)}
-            </div>
-          </div>
-          
-          <div className="flex items-center gap-3">
-            <input
-              type="range"
-              min="0"
-              max={duration || 0}
-              value={currentTime}
-              onChange={handleSeek}
-              disabled={!audioFile}
-              className="flex-1 h-2 bg-zinc-800 rounded-lg appearance-none cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
-              style={{
-                background: `linear-gradient(to right, rgb(8 145 178) 0%, rgb(8 145 178) ${(currentTime / duration) * 100}%, rgb(63 63 70) ${(currentTime / duration) * 100}%, rgb(63 63 70) 100%)`
-              }}
-            />
+      <div className="w-full space-y-2">
+        <div className="relative w-full">
+          <input
+            type="range"
+            min="0"
+            max={duration || 0}
+            value={currentTime}
+            onChange={handleSeek}
+            disabled={!audioFile}
+            className="w-full h-0.5 bg-white/10 rounded-full appearance-none cursor-pointer disabled:opacity-20 disabled:cursor-not-allowed seek-slider"
+          />
+          <style jsx>{`
+            .seek-slider::-webkit-slider-thumb {
+              appearance: none;
+              width: 0;
+              height: 0;
+            }
+            .seek-slider::-moz-range-thumb {
+              width: 0;
+              height: 0;
+              border: none;
+            }
+            .seek-slider::-webkit-slider-runnable-track {
+              height: 2px;
+              background: linear-gradient(to right, 
+                rgba(255, 255, 255, 0.8) 0%, 
+                rgba(255, 255, 255, 0.8) ${(currentTime / (duration || 1)) * 100}%, 
+                rgba(255, 255, 255, 0.1) ${(currentTime / (duration || 1)) * 100}%, 
+                rgba(255, 255, 255, 0.1) 100%);
+            }
+            .seek-slider::-moz-range-track {
+              height: 2px;
+              background: rgba(255, 255, 255, 0.1);
+            }
+            .seek-slider::-moz-range-progress {
+              height: 2px;
+              background: rgba(255, 255, 255, 0.8);
+            }
+          `}</style>
+        </div>
+        
+        <div className="flex justify-end">
+          <div className="text-xs text-white/50 font-mono tracking-wider">
+            {formatTime(currentTime)} / {formatTime(duration)}
           </div>
         </div>
+      </div>
+
+      <div className="flex items-center gap-3">
+        <input
+          type="file"
+          accept="audio/*"
+          onChange={handleFileUpload}
+          className="hidden"
+          id="audio-upload"
+        />
+        <label htmlFor="audio-upload">
+          <Button 
+            variant="outline" 
+            size="sm"
+            asChild
+            className="bg-black border-white/20 hover:bg-white/5 hover:border-white/40 text-white transition-all duration-200"
+          >
+            <span className="cursor-pointer flex items-center gap-2 font-light tracking-wide text-xs px-4 py-2">
+              <Upload className="h-4 w-4" />
+              UPLOAD AUDIO
+            </span>
+          </Button>
+        </label>
+        
+        <Button 
+          onClick={isPlaying ? handlePause : handlePlay} 
+          size="sm"
+          disabled={!audioFile}
+          className="bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/40 text-white disabled:opacity-20 disabled:cursor-not-allowed transition-all duration-200 font-light tracking-wide text-xs px-4 py-2"
+        >
+          {isPlaying ? (
+            <>
+              <Pause className="h-4 w-4 mr-2" />
+              PAUSE
+            </>
+          ) : (
+            <>
+              <Play className="h-4 w-4 mr-2" />
+              PLAY
+            </>
+          )}
+        </Button>
+        
+        <Button 
+          onClick={() => setShowGuide(!showGuide)} 
+          size="sm"
+          className="bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/40 text-white transition-all duration-200 font-light tracking-wide text-xs px-4 py-2"
+        >
+          {showGuide ? (
+            <>
+              <EyeOff className="h-4 w-4 mr-2" />
+              GUIDE OFF
+            </>
+          ) : (
+            <>
+              <Eye className="h-4 w-4 mr-2" />
+              GUIDE ON
+            </>
+          )}
+        </Button>
       </div>
 
       {audioFile && (
