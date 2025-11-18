@@ -129,7 +129,7 @@ export function SpectrumAnalyzer() {
     const img = new Image()
     img.crossOrigin = 'anonymous'
     const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
-    img.src="${basePath}/images/design-mode/guide.png" // パスは環境に合わせて確認してください
+    img.src=`${basePath}/images/design-mode/guide.png` // パスは環境に合わせて確認してください
     img.onload = () => {
       guideImageRef.current = img
     }
