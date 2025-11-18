@@ -128,7 +128,8 @@ export function SpectrumAnalyzer() {
   useEffect(() => {
     const img = new Image()
     img.crossOrigin = 'anonymous'
-    img.src="/images/design-mode/guide.png" // パスは環境に合わせて確認してください
+    const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+    img.src="${basePath}/images/design-mode/guide.png" // パスは環境に合わせて確認してください
     img.onload = () => {
       guideImageRef.current = img
     }
