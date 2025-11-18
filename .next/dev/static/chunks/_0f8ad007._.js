@@ -129,13 +129,13 @@ const SPECTRUM_CONFIG = {
     offsetX: 186.6,
     offsetY: 8.2,
     // 音声解析パラメータ
-    divisor: 2,
-    fallSpeed: 0.01,
+    divisor: 1.8,
+    fallSpeed: 0.03,
     fadeAlpha: 0,
     fftSize: 8192,
-    smoothing: 0.1,
-    minDecibels: -90,
-    maxDecibels: -10,
+    smoothing: 0.3,
+    minDecibels: -75,
+    maxDecibels: -20,
     peakHoldTime: 200,
     // ガイド画像設定
     showGuide: true,
@@ -217,6 +217,8 @@ function SpectrumAnalyzer() {
     const [imageLoaded, setImageLoaded] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [isPlaying, setIsPlaying] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [audioFile, setAudioFile] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    // ファイル名用のStateを追加
+    const [fileName, setFileName] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
     const [currentTime, setCurrentTime] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
     const [duration, setDuration] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
     const [showGuide, setShowGuide] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(SPECTRUM_CONFIG.showGuide);
@@ -421,6 +423,10 @@ function SpectrumAnalyzer() {
             const bufferLength = analyzerRef.current.frequencyBinCount;
             const dataArray = new Uint8Array(bufferLength);
             analyzerRef.current.getByteFrequencyData(dataArray);
+            // 【修正4】シークバーをぬるぬるにするため、アニメーションフレーム内で時間を更新
+            if (audioRef.current) {
+                setCurrentTime(audioRef.current.currentTime);
+            }
             const rawLevels = getAudioLevels(dataArray);
             for(let i = 0; i < SPECTRUM_CONFIG.numBands; i++){
                 const newVal = rawLevels[i];
@@ -546,6 +552,8 @@ function SpectrumAnalyzer() {
     const handleFileUpload = (e)=>{
         const file = e.target.files?.[0];
         if (file) {
+            // 【修正2】ファイル名を取得してセット
+            setFileName(file.name);
             if (audioRef.current) {
                 audioRef.current.pause();
                 audioRef.current.currentTime = 0;
@@ -586,7 +594,7 @@ function SpectrumAnalyzer() {
         className: "w-full max-w-[1400px] mx-auto space-y-4",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "bg-black border border-white/10 rounded-none overflow-hidden shadow-2xl",
+                className: "bg-black rounded-none overflow-hidden",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("canvas", {
                     ref: canvasRef,
                     width: 1400,
@@ -594,12 +602,12 @@ function SpectrumAnalyzer() {
                     className: "w-full h-auto block"
                 }, void 0, false, {
                     fileName: "[project]/components/spectrum-analyzer.tsx",
-                    lineNumber: 566,
+                    lineNumber: 578,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/spectrum-analyzer.tsx",
-                lineNumber: 565,
+                lineNumber: 577,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -634,7 +642,7 @@ function SpectrumAnalyzer() {
                                 ]) + " " + "w-full h-0.5 bg-white/10 rounded-full appearance-none cursor-pointer disabled:opacity-20 disabled:cursor-not-allowed seek-slider"
                             }, void 0, false, {
                                 fileName: "[project]/components/spectrum-analyzer.tsx",
-                                lineNumber: 576,
+                                lineNumber: 588,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -648,7 +656,7 @@ function SpectrumAnalyzer() {
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/spectrum-analyzer.tsx",
-                        lineNumber: 575,
+                        lineNumber: 587,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -662,18 +670,26 @@ function SpectrumAnalyzer() {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/spectrum-analyzer.tsx",
-                            lineNumber: 616,
+                            lineNumber: 628,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/spectrum-analyzer.tsx",
-                        lineNumber: 615,
+                        lineNumber: 627,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/spectrum-analyzer.tsx",
-                lineNumber: 574,
+                lineNumber: 586,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "flex justify-center items-center h-6 text-sm font-light tracking-widest text-white/70 font-mono",
+                children: fileName
+            }, void 0, false, {
+                fileName: "[project]/components/spectrum-analyzer.tsx",
+                lineNumber: 635,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -687,41 +703,40 @@ function SpectrumAnalyzer() {
                         id: "audio-upload"
                     }, void 0, false, {
                         fileName: "[project]/components/spectrum-analyzer.tsx",
-                        lineNumber: 623,
+                        lineNumber: 640,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                         htmlFor: "audio-upload",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                            variant: "outline",
                             size: "sm",
                             asChild: true,
-                            className: "bg-black border-white/20 hover:bg-white/5 hover:border-white/40 text-white transition-all duration-200",
+                            className: "bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/40 text-white transition-all duration-200 font-light tracking-wide text-xs px-4 py-2 cursor-pointer",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "cursor-pointer flex items-center gap-2 font-light tracking-wide text-xs px-4 py-2",
+                                className: "flex items-center gap-2",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$upload$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Upload$3e$__["Upload"], {
                                         className: "h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/components/spectrum-analyzer.tsx",
-                                        lineNumber: 638,
+                                        lineNumber: 655,
                                         columnNumber: 15
                                     }, this),
                                     "UPLOAD AUDIO"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/spectrum-analyzer.tsx",
-                                lineNumber: 637,
+                                lineNumber: 654,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/spectrum-analyzer.tsx",
-                            lineNumber: 631,
+                            lineNumber: 649,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/spectrum-analyzer.tsx",
-                        lineNumber: 630,
+                        lineNumber: 647,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -735,7 +750,7 @@ function SpectrumAnalyzer() {
                                     className: "h-4 w-4 mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/components/spectrum-analyzer.tsx",
-                                    lineNumber: 652,
+                                    lineNumber: 669,
                                     columnNumber: 15
                                 }, this),
                                 "PAUSE"
@@ -746,7 +761,7 @@ function SpectrumAnalyzer() {
                                     className: "h-4 w-4 mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/components/spectrum-analyzer.tsx",
-                                    lineNumber: 657,
+                                    lineNumber: 674,
                                     columnNumber: 15
                                 }, this),
                                 "PLAY"
@@ -754,20 +769,20 @@ function SpectrumAnalyzer() {
                         }, void 0, true)
                     }, void 0, false, {
                         fileName: "[project]/components/spectrum-analyzer.tsx",
-                        lineNumber: 644,
+                        lineNumber: 661,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                         onClick: ()=>setShowGuide(!showGuide),
                         size: "sm",
-                        className: "bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/40 text-white transition-all duration-200 font-light tracking-wide text-xs px-4 py-2",
+                        className: "bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/40 text-white transition-all duration-200 font-light tracking-wide text-xs px-4 py-2 cursor-pointer",
                         children: showGuide ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2d$off$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__EyeOff$3e$__["EyeOff"], {
                                     className: "h-4 w-4 mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/components/spectrum-analyzer.tsx",
-                                    lineNumber: 670,
+                                    lineNumber: 687,
                                     columnNumber: 15
                                 }, this),
                                 "GUIDE OFF"
@@ -778,7 +793,7 @@ function SpectrumAnalyzer() {
                                     className: "h-4 w-4 mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/components/spectrum-analyzer.tsx",
-                                    lineNumber: 675,
+                                    lineNumber: 692,
                                     columnNumber: 15
                                 }, this),
                                 "GUIDE ON"
@@ -786,13 +801,13 @@ function SpectrumAnalyzer() {
                         }, void 0, true)
                     }, void 0, false, {
                         fileName: "[project]/components/spectrum-analyzer.tsx",
-                        lineNumber: 663,
+                        lineNumber: 680,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/spectrum-analyzer.tsx",
-                lineNumber: 622,
+                lineNumber: 639,
                 columnNumber: 7
             }, this),
             audioFile && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("audio", {
@@ -802,7 +817,7 @@ function SpectrumAnalyzer() {
                 loop: true
             }, audioFile, false, {
                 fileName: "[project]/components/spectrum-analyzer.tsx",
-                lineNumber: 683,
+                lineNumber: 700,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -810,20 +825,20 @@ function SpectrumAnalyzer() {
                     color: 'white',
                     fontSize: '10px'
                 },
-                children: "DEPLOYED VERSION 1.1"
+                children: "DEPLOYED VERSION 0.1.2"
             }, void 0, false, {
                 fileName: "[project]/components/spectrum-analyzer.tsx",
-                lineNumber: 693,
+                lineNumber: 709,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/spectrum-analyzer.tsx",
-        lineNumber: 564,
-        columnNumber: 5
+        lineNumber: 575,
+        columnNumber: 6
     }, this);
 }
-_s(SpectrumAnalyzer, "x8DnEaQ5LCgioDgGM52I5nHjMeM=");
+_s(SpectrumAnalyzer, "5OklsxRUeXQ7maYPU6iNwAW7l0o=");
 _c = SpectrumAnalyzer;
 var _c;
 __turbopack_context__.k.register(_c, "SpectrumAnalyzer");

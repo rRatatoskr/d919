@@ -33,14 +33,14 @@ const SPECTRUM_CONFIG = {
   offsetY: 8.2,              // キャンバス下端からのオフセット
   
   // 音声解析パラメータ
-  divisor: 2,                // 音声レベルの感度（大きいほど敏感）
-  fallSpeed: 0.01,           // バーが下がる速度（0.0〜1.0）
+  divisor: 1.8,                // 音声レベルの感度（大きいほど敏感）
+  fallSpeed: 0.03,           // バーが下がる速度（0.0〜1.0）
   fadeAlpha: 0,              // フェードエフェクトの透明度（0〜255、0で無効）
     
   fftSize: 8192,             // FFTサイズ（大きいほど周波数分解能が高い: 2048, 4096, 8192, 16384）
-  smoothing: 0.1,            // スムージング（0.0〜1.0、小さいほど反応が速い）
-  minDecibels: -90,          // 最小デシベル
-  maxDecibels: -10,           // 最大デシベル
+  smoothing: 0.3,            // スムージング（0.0〜1.0、小さいほど反応が速い）
+  minDecibels: -75,          // 最小デシベル
+  maxDecibels: -20,           // 最大デシベル
   
   peakHoldTime: 200,        // ピークが残る時間（ミリ秒）
   
@@ -108,6 +108,9 @@ export function SpectrumAnalyzer() {
   const [imageLoaded, setImageLoaded] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
   const [audioFile, setAudioFile] = useState<string | null>(null)
+  // ファイル名用のStateを追加
+  const [fileName, setFileName] = useState<string>('')
+  
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
   const [showGuide, setShowGuide] = useState(SPECTRUM_CONFIG.showGuide)
@@ -353,6 +356,11 @@ export function SpectrumAnalyzer() {
       const bufferLength = analyzerRef.current.frequencyBinCount
       const dataArray = new Uint8Array(bufferLength)
       analyzerRef.current.getByteFrequencyData(dataArray)
+      
+      // 【修正4】シークバーをぬるぬるにするため、アニメーションフレーム内で時間を更新
+      if (audioRef.current) {
+        setCurrentTime(audioRef.current.currentTime)
+      }
 
       const rawLevels = getAudioLevels(dataArray)
       
@@ -517,6 +525,9 @@ export function SpectrumAnalyzer() {
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (file) {
+      // 【修正2】ファイル名を取得してセット
+      setFileName(file.name)
+
       if (audioRef.current) {
         audioRef.current.pause()
         audioRef.current.currentTime = 0
@@ -561,8 +572,9 @@ export function SpectrumAnalyzer() {
   }
 
   return (
-    <div className="w-full max-w-[1400px] mx-auto space-y-4">
-      <div className="bg-black border border-white/10 rounded-none overflow-hidden shadow-2xl">
+     <div className="w-full max-w-[1400px] mx-auto space-y-4">
+      {/* 【修正3】枠線(border)と影(shadow-2xl)を削除 */}
+      <div className="bg-black rounded-none overflow-hidden">
         <canvas
           ref={canvasRef}
           width={1400}
@@ -619,6 +631,11 @@ export function SpectrumAnalyzer() {
         </div>
       </div>
 
+      {/* 【修正2】ファイル名を表示するエリアを追加 */}
+      <div className="flex justify-center items-center h-6 text-sm font-light tracking-widest text-white/70 font-mono">
+        {fileName}
+      </div>
+
       <div className="flex items-center gap-3">
         <input
           type="file"
@@ -628,13 +645,13 @@ export function SpectrumAnalyzer() {
           id="audio-upload"
         />
         <label htmlFor="audio-upload">
+          {/* 【修正1】ボタンのスタイルをPLAYボタンと完全に統一 */}
           <Button 
-            variant="outline" 
             size="sm"
             asChild
-            className="bg-black border-white/20 hover:bg-white/5 hover:border-white/40 text-white transition-all duration-200"
+            className="bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/40 text-white transition-all duration-200 font-light tracking-wide text-xs px-4 py-2 cursor-pointer"
           >
-            <span className="cursor-pointer flex items-center gap-2 font-light tracking-wide text-xs px-4 py-2">
+            <span className="flex items-center gap-2">
               <Upload className="h-4 w-4" />
               UPLOAD AUDIO
             </span>
@@ -663,7 +680,7 @@ export function SpectrumAnalyzer() {
         <Button 
           onClick={() => setShowGuide(!showGuide)} 
           size="sm"
-          className="bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/40 text-white transition-all duration-200 font-light tracking-wide text-xs px-4 py-2"
+          className="bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/40 text-white transition-all duration-200 font-light tracking-wide text-xs px-4 py-2 cursor-pointer"
         >
           {showGuide ? (
             <>
@@ -689,9 +706,8 @@ export function SpectrumAnalyzer() {
         />
       )}
 
-      {/* ... SpectrumAnalyzerコンポーネント ... */}
       <div style={{ color: 'white', fontSize: '10px' }}>
-        DEPLOYED VERSION 0.1.1
+        DEPLOYED VERSION 0.1.2
       </div>
     </div>
   )
