@@ -7,7 +7,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  trailingSlash: true,
   basePath: process.env.NODE_ENV === 'production' ? '/d919' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/d919' : '',
 };
 
 export default nextConfig;
