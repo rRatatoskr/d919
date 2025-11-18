@@ -1,12 +1,20 @@
 import type { Metadata } from 'next'
-
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-import { Geist_Mono, Geist_Mono as V0_Font_Geist_Mono } from 'next/font/google'
+// 1. 必要なフォント（GeistとGeist_Mono）だけをシンプルにインポート
+import { Geist, Geist_Mono } from 'next/font/google'
 
-// Initialize fonts
-const _geistMono = V0_Font_Geist_Mono({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
+// 2. フォントの設定
+const geistSans = Geist({
+  subsets: ['latin'],
+  variable: '--font-sans',
+})
+
+const geistMono = Geist_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+})
 
 export const metadata: Metadata = {
   title: 'KENWOOD D919 Spectrum Analyzer',
@@ -38,7 +46,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>

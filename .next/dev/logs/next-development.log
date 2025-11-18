@@ -1,36 +1,130 @@
-[00:00:00.960] Server  LOG      ✓ Ready in 659ms
-[00:00:11.478] Server  WARN     ⚠ Cross origin request detected from 192.168.64.70 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+[00:00:00.861] Server  LOG      ✓ Ready in 543ms
+[00:00:03.799] Server  WARN     ⚠ Cross origin request detected from 192.168.64.70 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
 Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
-[00:00:11.511] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:11.685] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:11.685] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:00:11.685] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763497339620}
-[00:02:37.014] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:02:37.014] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:02:37.014] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763497484946}
-[00:05:38.162] Server  LOG      ✓ Compiled in 54ms
-[00:06:45.391] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:06:45.571] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:06:45.572] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:06:45.572] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763497733501}
-[00:07:02.466] Server  LOG      ✓ Compiled in 43ms
-[00:07:04.087] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:07:04.248] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:07:04.248] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:07:04.248] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763497752178}
-[00:09:35.176] Server  LOG      ✓ Compiled in 61ms
-[00:09:38.160] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:09:38.318] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:09:38.318] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:09:38.318] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763497906246}
-[00:18:52.450] Server  LOG      ✓ Compiled in 55ms
-[00:19:15.423] Server  LOG      ✓ Compiled in 37ms
-[00:19:20.944] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:19:21.099] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:19:21.099] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:19:21.099] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763498489060}
-[00:20:05.057] Server  LOG      ✓ Compiled in 36ms
-[00:20:07.089] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:20:07.239] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:20:07.239] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:20:07.239] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763498535199}
+[00:00:03.830] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:04.003] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:04.003] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:04.003] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763508905221}
+[00:00:18.144] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:18.144] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:18.144] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763508919361}
+[00:00:21.771] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:21.771] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:21.771] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763508922989}
+[00:00:34.955] Server  LOG      ✓ Compiled in 52ms
+[00:03:20.473] Server  LOG      ✓ Compiled in 320ms
+[00:03:21.241] Browser ERROR   ./app/layout.tsx:8:10
+Ecmascript file had an error
+   6 | import { Geist, Geist_Mono } from 'next/font/google'
+   7 |
+>  8 | import { Geist_Mono, Geist_Mono as V0_Font_Geist_Mono } from 'next/font/google'
+     |          ^^^^^^^^^^
+   9 |
+  10 | // Initialize fonts
+  11 | const _geistMono = V0_Font_Geist_Mono({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
+
+the name `Geist_Mono` is defined multiple times
+[00:03:32.428] Server  ERROR    ⨯ ./app/layout.tsx:8:10
+Ecmascript file had an error
+   6 | import { Geist, Geist_Mono } from 'next/font/google'
+   7 |
+>  8 | import { Geist_Mono, Geist_Mono as V0_Font_Geist_Mono } from 'next/font/google'
+     |          ^^^^^^^^^^
+   9 |
+  10 | // Initialize fonts
+  11 | const _geistMono = V0_Font_Geist_Mono({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
+
+the name `Geist_Mono` is defined multiple times
+
+
+[00:03:32.546] Browser ERROR   ./app/layout.tsx:8:10
+Ecmascript file had an error
+   6 | import { Geist, Geist_Mono } from 'next/font/google'
+   7 |
+>  8 | import { Geist_Mono, Geist_Mono as V0_Font_Geist_Mono } from 'next/font/google'
+     |          ^^^^^^^^^^
+   9 |
+  10 | // Initialize fonts
+  11 | const _geistMono = V0_Font_Geist_Mono({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
+
+the name `Geist_Mono` is defined multiple times
+[00:03:33.107] Browser ERROR   ./app/layout.tsx:8:10
+Ecmascript file had an error
+   6 | import { Geist, Geist_Mono } from 'next/font/google'
+   7 |
+>  8 | import { Geist_Mono, Geist_Mono as V0_Font_Geist_Mono } from 'next/font/google'
+     |          ^^^^^^^^^^
+   9 |
+  10 | // Initialize fonts
+  11 | const _geistMono = V0_Font_Geist_Mono({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
+
+the name `Geist_Mono` is defined multiple times
+[00:03:33.107] Browser ERROR   ./app/layout.tsx:8:10
+Ecmascript file had an error
+   6 | import { Geist, Geist_Mono } from 'next/font/google'
+   7 |
+>  8 | import { Geist_Mono, Geist_Mono as V0_Font_Geist_Mono } from 'next/font/google'
+     |          ^^^^^^^^^^
+   9 |
+  10 | // Initialize fonts
+  11 | const _geistMono = V0_Font_Geist_Mono({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
+
+the name `Geist_Mono` is defined multiple times
+[00:03:33.589] Browser ERROR   uncaughtError: Error: ./app/layout.tsx:8:10
+Ecmascript file had an error
+   6 | import { Geist, Geist_Mono } from 'next/font/google'
+   7 |
+>  8 | import { Geist_Mono, Geist_Mono as V0_Font_Geist_Mono } from 'next/font/google'
+     |          ^^^^^^^^^^
+   9 |
+  10 | // Initialize fonts
+  11 | const _geistMono = V0_Font_Geist_Mono({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
+
+the name `Geist_Mono` is defined multiple times
+
+
+[00:03:33.727] Browser ERROR   ./app/layout.tsx:8:10
+Ecmascript file had an error
+   6 | import { Geist, Geist_Mono } from 'next/font/google'
+   7 |
+>  8 | import { Geist_Mono, Geist_Mono as V0_Font_Geist_Mono } from 'next/font/google'
+     |          ^^^^^^^^^^
+   9 |
+  10 | // Initialize fonts
+  11 | const _geistMono = V0_Font_Geist_Mono({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
+
+the name `Geist_Mono` is defined multiple times
+[00:03:33.829] Browser ERROR   ./app/layout.tsx:8:10
+Ecmascript file had an error
+   6 | import { Geist, Geist_Mono } from 'next/font/google'
+   7 |
+>  8 | import { Geist_Mono, Geist_Mono as V0_Font_Geist_Mono } from 'next/font/google'
+     |          ^^^^^^^^^^
+   9 |
+  10 | // Initialize fonts
+  11 | const _geistMono = V0_Font_Geist_Mono({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
+
+the name `Geist_Mono` is defined multiple times
+[00:04:51.991] Server  LOG      ✓ Compiled in 199ms
+[00:04:52.296] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:53.241] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:04:53.241] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:04:53.241] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763509193693}
+[00:05:09.726] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:05:09.726] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:05:09.726] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763509210946}
+[00:07:04.623] Server  ERROR    ⨯ ReferenceError: Geist is not defined
+[00:07:04.807] Server  ERROR    ⨯ ReferenceError: Geist is not defined
+[00:07:05.021] Server  ERROR    ⨯ ReferenceError: Geist is not defined
+[00:07:05.215] Server  ERROR    ⨯ ReferenceError: Geist is not defined
+[00:07:05.396] Server  ERROR    ⨯ ReferenceError: Geist is not defined
+[00:07:05.532] Server  ERROR    ⨯ ReferenceError: Geist is not defined
+[00:07:05.713] Browser ERROR   uncaughtError: ReferenceError: Geist is not defined
+[00:08:01.036] Server  LOG      ✓ Compiled in 45ms
+[00:08:01.328] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:02.242] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:08:02.242] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:08:02.242] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763509382708}
+[00:08:25.419] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:08:25.419] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:08:25.419] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763509406614}

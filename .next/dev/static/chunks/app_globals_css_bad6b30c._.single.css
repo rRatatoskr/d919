@@ -87,6 +87,8 @@
 
 @layer theme {
   :root, :host {
+    --font-sans: "Geist", "Geist Fallback";
+    --font-mono: "Geist Mono", "Geist Mono Fallback";
     --color-red-50: #fef2f2;
     --color-red-300: #ffa3a3;
     --color-red-400: #ff6568;
@@ -3206,6 +3208,12 @@
   @media (hover: hover) {
     .hover\:text-sidebar-accent-foreground:hover {
       color: var(--sidebar-accent-foreground);
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:text-white:hover {
+      color: var(--color-white);
     }
   }
 
