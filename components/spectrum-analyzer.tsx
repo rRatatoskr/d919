@@ -7,7 +7,6 @@ import { Play, Pause, Upload } from 'lucide-react'
 // ============================================================================
 // 🎨 スペクトラムアナライザーの調整用パラメータ
 // ============================================================================
-// このセクションのパラメータを変更して、KENWOOD D919のUIを再現してください
 
 const SPECTRUM_CONFIG = {
   // バンド設定
@@ -35,17 +34,19 @@ const SPECTRUM_CONFIG = {
   
   // 音声解析パラメータ
   divisor: 2,                // 音声レベルの感度（大きいほど敏感）
-  fallSpeed: 0.15,           // バーが下がる速度（0.0〜1.0）
+  fallSpeed: 0.01,           // バーが下がる速度（0.0〜1.0）
   fadeAlpha: 0,              // フェードエフェクトの透明度（0〜255、0で無効）
     
   fftSize: 8192,             // FFTサイズ（大きいほど周波数分解能が高い: 2048, 4096, 8192, 16384）
   smoothing: 0.1,            // スムージング（0.0〜1.0、小さいほど反応が速い）
   minDecibels: -90,          // 最小デシベル
-  maxDecibels: -7,           // 最大デシベル
+  maxDecibels: -10,           // 最大デシベル
+  
+  peakHoldTime: 200,        // ピークが残る時間（ミリ秒）
   
   // ガイド画像設定
   showGuide: true,           // ガイド画像を表示するか（true/false）
-  guideAlpha: 0.5,           // ガイド画像の透明度（0.0〜1.0）
+  guideAlpha: 0.2,           // ガイド画像の透明度（0.0〜1.0）
 }
 
 const SIDE_BAND_CONFIG = {
@@ -69,8 +70,9 @@ const SIDE_BAND_CONFIG = {
   
   // 位置調整（メインバンドからの相対位置）
   leftOffsetX: -11,          // 左サイドバンドのX方向オフセット（負の値で左に配置）
-  rightOffsetX: 25,          // 右サイドバンドのX方向オフセット（正の値で右に配置）
-  offsetY: -2.5,               // Y方向のオフセット（メインバンドのoffsetYからの追加オフセット）
+  rightOffsetX: 28,          // 右サイドバンドのX方向オフセット（正の値で右に配置）
+  leftOffsetY: -2.5,         // 左サイドバンドのY方向オフセット（メインバンドのoffsetYからの追加オフセット）
+  rightOffsetY: 5,        // 右サイドバンドのY方向オフセット（メインバンドのoffsetYからの追加オフセット）
   
   // 連動設定
   linkToBand: 'same',        // メインバンドとの連動方法: 'same'=同じバンドと連動, 'adjacent'=隣接バンドと連動
@@ -97,6 +99,11 @@ const COLORS = {
 
 // ============================================================================
 
+interface PeakHold {
+  level: number
+  timestamp: number
+}
+
 export function SpectrumAnalyzer() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [audioFile, setAudioFile] = useState<string | null>(null)
@@ -110,13 +117,18 @@ export function SpectrumAnalyzer() {
   const sourceRef = useRef<MediaElementAudioSourceNode | null>(null)
   const animationRef = useRef<number | null>(null)
   const previousLevelsRef = useRef<number[]>(new Array(SPECTRUM_CONFIG.numBands).fill(0))
+  
+  // ピークホールド用のRef
+  const peakHoldsRef = useRef<PeakHold[]>(new Array(SPECTRUM_CONFIG.numBands).fill(null).map(() => ({ level: 0, timestamp: 0 })))
+  const sidePeakHoldsRef = useRef<PeakHold[]>(new Array(SPECTRUM_CONFIG.numBands).fill(null).map(() => ({ level: 0, timestamp: 0 })))
+  
   const guideImageRef = useRef<HTMLImageElement | null>(null)
   const audioInitializedRef = useRef<boolean>(false)
 
   useEffect(() => {
     const img = new Image()
     img.crossOrigin = 'anonymous'
-    img.src="/images/design-mode/guide.png"
+    img.src="/images/design-mode/guide.png" // パスは環境に合わせて確認してください
     img.onload = () => {
       guideImageRef.current = img
     }
@@ -158,8 +170,6 @@ export function SpectrumAnalyzer() {
       analyzerRef.current = analyzer
       sourceRef.current = source
       audioInitializedRef.current = true
-
-      console.log('[v0] Audio initialized with FFT size:', analyzer.fftSize)
     } catch (error) {
       console.error('Failed to initialize audio:', error)
     }
@@ -233,20 +243,29 @@ export function SpectrumAnalyzer() {
     return levels
   }
 
+  // サイドバンド描画関数（計算ロジックを除去し、描画のみに専念）
   const drawSideBand = (
     ctx: CanvasRenderingContext2D,
     bandIdx: number,
-    displayLevels: number[],
+    currentLevelRatio: number, // 計算済みのレベル比率を受け取る
+    peakHold: PeakHold,        // 計算済みのピーク情報を受け取る
     baseX: number,
     baseY: number,
-    isSide: 'left' | 'right'
+    now: number
   ) => {
     if (!SIDE_BAND_CONFIG.enabled) return
     
-    // メインバンドと連動するレベルを取得
-    const level = (displayLevels[bandIdx] || 0) * SIDE_BAND_CONFIG.levelMultiplier
-    const activeLevel = Math.floor(level * SIDE_BAND_CONFIG.levelsPerBand)
+    const activeLevel = Math.floor(currentLevelRatio * SIDE_BAND_CONFIG.levelsPerBand)
     const activeSegments = activeLevel * 2
+    
+    // ピーク表示判定
+    let peakLevel = 0
+    let showPeak = false
+    
+    if (now - peakHold.timestamp < SPECTRUM_CONFIG.peakHoldTime) {
+      peakLevel = Math.floor(peakHold.level * SIDE_BAND_CONFIG.levelsPerBand)
+      showPeak = peakLevel > activeLevel
+    }
     
     let currentYBottom = baseY
 
@@ -256,9 +275,12 @@ export function SpectrumAnalyzer() {
       const yDraw = currentYBottom
 
       const ratio = segIdx / SIDE_BAND_CONFIG.segmentsPerBand
+      const currentSegLevel = Math.floor(segIdx / 2)
 
       let color: string
-      if (segIdx < activeSegments) {
+      const isPeakSegment = showPeak && currentSegLevel === peakLevel
+      
+      if (segIdx < activeSegments || isPeakSegment) {
         color = getGradientColor(COLORS.sideActiveBottom, COLORS.sideActiveTop, ratio)
       } else {
         color = getGradientColor(COLORS.sideInactiveBottom, COLORS.sideInactiveTop, ratio)
@@ -278,6 +300,25 @@ export function SpectrumAnalyzer() {
       const currentGapY = segIdx % 2 === 0 ? SIDE_BAND_CONFIG.gapY1 : SIDE_BAND_CONFIG.gapY2
       currentYBottom -= (SIDE_BAND_CONFIG.blockHeight + currentGapY)
     }
+  }
+
+  const updatePeakHold = (
+    currentLevel: number, 
+    peakHold: PeakHold, 
+    now: number, 
+    configLevels: number
+  ) => {
+    // ピークホールドのロジック（要件に準拠）
+    if (currentLevel > peakHold.level) {
+      // 上昇時：ピーク更新 & タイマーリセット
+      peakHold.level = currentLevel
+      peakHold.timestamp = now
+    } else if (now - peakHold.timestamp >= SPECTRUM_CONFIG.peakHoldTime) {
+      // 時間切れ時：現在値に追従（ホールド解除）
+      // ここを '0' にすると再上昇と判定されてしまうため 'currentLevel' にする
+      peakHold.level = currentLevel
+    }
+    // 時間内（下降中）は peakHold.level を維持
   }
 
   const drawSpectrum = () => {
@@ -302,6 +343,7 @@ export function SpectrumAnalyzer() {
     }
 
     let displayLevels: number[] = []
+    const now = performance.now()
 
     if (analyzerRef.current && isPlaying) {
       const bufferLength = analyzerRef.current.frequencyBinCount
@@ -326,26 +368,48 @@ export function SpectrumAnalyzer() {
 
     const startX = SPECTRUM_CONFIG.offsetX
     const startYBottom = canvas.height - SPECTRUM_CONFIG.offsetY
-    const sideYBottom = canvas.height - SPECTRUM_CONFIG.offsetY - SIDE_BAND_CONFIG.offsetY
+    const sideLeftYBottom = canvas.height - SPECTRUM_CONFIG.offsetY - SIDE_BAND_CONFIG.leftOffsetY
+    const sideRightYBottom = canvas.height - SPECTRUM_CONFIG.offsetY - SIDE_BAND_CONFIG.rightOffsetY
 
     for (let bandIdx = 0; bandIdx < SPECTRUM_CONFIG.numBands; bandIdx++) {
-      const level = displayLevels[bandIdx] || 0
-      const activeLevel = Math.floor(level * SPECTRUM_CONFIG.levelsPerBand)
-      const activeSegments = activeLevel * 2
+      // 1. メインバンドのレベル計算
+      const mainLevel = displayLevels[bandIdx] || 0
       
+      // 2. サイドバンドのレベル計算
+      const sideLevel = mainLevel * SIDE_BAND_CONFIG.levelMultiplier
+
+      // 3. メインバンドのピーク更新
+      updatePeakHold(mainLevel, peakHoldsRef.current[bandIdx], now, SPECTRUM_CONFIG.levelsPerBand)
+      
+      // 4. サイドバンドのピーク更新（ここで計算を一回だけ行う）
+      updatePeakHold(sideLevel, sidePeakHoldsRef.current[bandIdx], now, SIDE_BAND_CONFIG.levelsPerBand)
+
       const bandXBase = startX + bandIdx * (SPECTRUM_CONFIG.blockWidth + SPECTRUM_CONFIG.gapX)
       
-      // サイドバンド（左）を描画
+      // 5. サイドバンド（左）描画
       drawSideBand(
         ctx,
         bandIdx,
-        displayLevels,
+        sideLevel,
+        sidePeakHoldsRef.current[bandIdx], // 計算済みの状態を渡す
         bandXBase + SIDE_BAND_CONFIG.leftOffsetX,
-        sideYBottom,
-        'left'
+        sideLeftYBottom,
+        now
       )
       
-      // メインバンドを描画
+      // 6. メインバンド描画
+      const activeLevel = Math.floor(mainLevel * SPECTRUM_CONFIG.levelsPerBand)
+      const activeSegments = activeLevel * 2
+      
+      const mainPeakHold = peakHoldsRef.current[bandIdx]
+      let peakLevel = 0
+      let showPeak = false
+      
+      if (now - mainPeakHold.timestamp < SPECTRUM_CONFIG.peakHoldTime) {
+        peakLevel = Math.floor(mainPeakHold.level * SPECTRUM_CONFIG.levelsPerBand)
+        showPeak = peakLevel > activeLevel
+      }
+
       let currentYBottom = startYBottom
 
       for (let segIdx = 0; segIdx < SPECTRUM_CONFIG.segmentsPerBand; segIdx++) {
@@ -354,9 +418,12 @@ export function SpectrumAnalyzer() {
         const yDraw = currentYBottom
 
         const ratio = segIdx / SPECTRUM_CONFIG.segmentsPerBand
+        const currentSegLevel = Math.floor(segIdx / 2)
 
         let color: string
-        if (segIdx < activeSegments) {
+        const isPeakSegment = showPeak && currentSegLevel === peakLevel
+        
+        if (segIdx < activeSegments || isPeakSegment) {
           color = getGradientColor(COLORS.activeBottom, COLORS.activeTop, ratio)
         } else {
           color = getGradientColor(COLORS.inactiveBottom, COLORS.inactiveTop, ratio)
@@ -377,14 +444,15 @@ export function SpectrumAnalyzer() {
         currentYBottom -= (SPECTRUM_CONFIG.blockHeight + currentGapY)
       }
       
-      // サイドバンド（右）を描画
+      // 7. サイドバンド（右）描画
       drawSideBand(
         ctx,
         bandIdx,
-        displayLevels,
+        sideLevel,
+        sidePeakHoldsRef.current[bandIdx], // 計算済みの状態を渡す
         bandXBase + SIDE_BAND_CONFIG.rightOffsetX,
-        sideYBottom,
-        'right'
+        sideRightYBottom,
+        now
       )
     }
 
@@ -555,27 +623,7 @@ export function SpectrumAnalyzer() {
               value={currentTime}
               onChange={handleSeek}
               disabled={!audioFile}
-              className="flex-1 h-2 bg-zinc-800 rounded-lg appearance-none cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed
-                [&::-webkit-slider-thumb]:appearance-none
-                [&::-webkit-slider-thumb]:w-4
-                [&::-webkit-slider-thumb]:h-4
-                [&::-webkit-slider-thumb]:rounded-full
-                [&::-webkit-slider-thumb]:bg-cyan-500
-                [&::-webkit-slider-thumb]:cursor-pointer
-                [&::-webkit-slider-thumb]:hover:bg-cyan-400
-                [&::-webkit-slider-thumb]:transition-colors
-                [&::-moz-range-thumb]:w-4
-                [&::-moz-range-thumb]:h-4
-                [&::-moz-range-thumb]:rounded-full
-                [&::-moz-range-thumb]:bg-cyan-500
-                [&::-moz-range-thumb]:border-0
-                [&::-moz-range-thumb]:cursor-pointer
-                [&::-moz-range-thumb]:hover:bg-cyan-400
-                [&::-moz-range-thumb]:transition-colors
-                [&::-webkit-slider-runnable-track]:bg-zinc-700
-                [&::-webkit-slider-runnable-track]:rounded-lg
-                [&::-moz-range-track]:bg-zinc-700
-                [&::-moz-range-track]:rounded-lg"
+              className="flex-1 h-2 bg-zinc-800 rounded-lg appearance-none cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
               style={{
                 background: `linear-gradient(to right, rgb(8 145 178) 0%, rgb(8 145 178) ${(currentTime / duration) * 100}%, rgb(63 63 70) ${(currentTime / duration) * 100}%, rgb(63 63 70) 100%)`
               }}
@@ -586,7 +634,7 @@ export function SpectrumAnalyzer() {
 
       {audioFile && (
         <audio 
-        key={audioFile}
+          key={audioFile}
           ref={audioRef}
           src={audioFile}
           className="hidden"
