@@ -561,7 +561,7 @@ export function SpectrumAnalyzer() {
   }
 
   return (
-     <div className="w-full max-w-[1400px] mx-auto space-y-4">
+    <div className="w-full max-w-[1400px] mx-auto space-y-4">
       <div className="bg-black border border-white/10 rounded-none overflow-hidden shadow-2xl">
         <canvas
           ref={canvasRef}
@@ -688,6 +688,11 @@ export function SpectrumAnalyzer() {
           loop 
         />
       )}
+
+      {/* ... SpectrumAnalyzerコンポーネント ... */}
+      <div style={{ color: 'white', fontSize: '10px' }}>
+        DEPLOYED VERSION 1.1
+      </div>
     </div>
   )
 }
