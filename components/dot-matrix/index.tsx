@@ -24,7 +24,7 @@ export function DotMatrixDisplay({
   const SCROLL_CONFIG = {
     startPause: 2000, // 停止時間 (ms)
     speed: 20,        // スクロール速度 (列/秒) 
-    charGap: 2,       // 文字と文字の間の空白列数（これを増やすと文字間が広がります）
+    charGap: 1,       // 文字と文字の間の空白列数（これを増やすと文字間が広がります）
   }
 
   // 状態管理

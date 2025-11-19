@@ -21,7 +21,7 @@ export const DOT_MATRIX_CONFIG = {
   cellGap: 25, // セル（文字）間の隙間
 
   // 見た目の設定
-  color: "#b0f5ffff", // ドットの色
+  color: "#1fd7f0ff", // ドットの色
   offColor: "#231e2dff", // 消灯時のドットの色
   glowBlur: 0, // 発光エフェクトの強さ
 

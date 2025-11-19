@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { Play, Pause, Upload, Eye, EyeOff, Monitor } from 'lucide-react' // Added Monitor icon for DISP
-import { DotMatrixDisplay } from './dot-matrix' // Import DotMatrixDisplay
+import { Play, Pause, Upload, Eye, EyeOff, Monitor } from 'lucide-react' 
+import { DotMatrixDisplay } from './dot-matrix' 
 
 // ============================================================================
 // 🎨 スペクトラムアナライザー設定
@@ -73,23 +73,73 @@ const SIDE_BAND_CONFIG = {
 }
 
 // ============================================================================
-// 🎨 色設定（単色・ソリッドカラーに変更）
+// ★追加: アイコン表示設定
+// ============================================================================
+type DisplayMode = 'UPLOAD_PROMPT' | 'PEAK_HOLD' | 'ANIMATION' | 'MUSIC'
+
+interface IconConfigItem {
+  name: string;
+  offsetX: number; // ガイド画像左上からのXオフセット
+  offsetY: number; // ガイド画像左上からのYオフセット
+  width: number;   // 点灯領域の幅
+  height: number;  // 点灯領域の高さ
+  // このアイコンが点灯するdisplayModeの配列
+  activeModes: DisplayMode[]; 
+  // その他の条件 (例: 音楽再生中か)
+  condition?: (isPlaying: boolean, audioFile: string | null) => boolean;
+}
+
+const ICON_CONFIG: IconConfigItem[] = [
+  { 
+    name: 'S.A', 
+    offsetX: 285, 
+    offsetY: 82, 
+    width: 25, 
+    height: 10, 
+    activeModes: ['PEAK_HOLD', 'ANIMATION', 'MUSIC'],
+    condition: (isPlaying) => isPlaying, // 再生中のみ点灯
+  },
+  { 
+    name: 'MP3', 
+    offsetX: 320, 
+    offsetY: 82, 
+    width: 30, 
+    height: 10, 
+    activeModes: ['PEAK_HOLD', 'ANIMATION', 'MUSIC'],
+    condition: (_, audioFile) => !!audioFile, // ファイルがロードされている場合点灯
+  },
+  { 
+    name: 'Note1', 
+    offsetX: 370, 
+    offsetY: 82, 
+    width: 15, 
+    height: 10, 
+    activeModes: ['PEAK_HOLD', 'ANIMATION', 'MUSIC'],
+    condition: (isPlaying) => isPlaying, // 再生中のみ点灯
+  },
+  { 
+    name: 'Note2', 
+    offsetX: 395, 
+    offsetY: 82, 
+    width: 15, 
+    height: 10, 
+    activeModes: ['ANIMATION'], // アニメーションモードのみ点灯
+  },
+  // 必要に応じて他のアイコンも追加
+];
+
+
+// ============================================================================
+// 🎨 色設定（単色・ソリッドカラー）
 // ============================================================================
 const COLORS = {
-  // ① 光っていない時の色（VFDの消灯色：暗い紫/グレー）
   inactive: '#231e2dff',
-
-  // ③ 真ん中より下の色（水色）
   activeBottom: '#1fd7f0ff', 
-  
-  // ② 真ん中の色（黄緑）
   activeMiddle: '#baff75',
-  
-  // ④ 真ん中より上の色（青）
   activeTop: '#1876eaff',
-  
-  // ⑤ サイドの色（③と同じ水色）
   sideActive: '#b0f5ffff',
+  iconActive: '#1fd7f0ff', // ★追加: アイコン点灯時の色
+  iconInactive: '#231e2d00', // ★追加: アイコン消灯時の色（透明）
 }
 
 // ============================================================================
@@ -108,7 +158,8 @@ export function SpectrumAnalyzer() {
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
   const [showGuide, setShowGuide] = useState(SPECTRUM_CONFIG.showGuide)
-  const [displayMode, setDisplayMode] = useState<'DEFAULT' | 'ANIMATION' | 'MUSIC'>('DEFAULT')
+
+  const [displayMode, setDisplayMode] = useState<DisplayMode>('UPLOAD_PROMPT')
   
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const audioRef = useRef<HTMLAudioElement>(null)
@@ -161,44 +212,15 @@ export function SpectrumAnalyzer() {
     }
   }
 
-  // 【変更点】グラデーション関数を廃止し、位置に応じた単色を返す関数を作成
   const getSegmentColor = (levelIndex: number): string => {
-    const middleLevel = 6; // 0始まりの13レベル中、7番目(index 6)を真ん中とする
-
+    const middleLevel = 6;
     if (levelIndex < middleLevel) {
-      return COLORS.activeBottom; // 水色
+      return COLORS.activeBottom;
     } else if (levelIndex === middleLevel) {
-      return COLORS.activeMiddle; // 黄緑
+      return COLORS.activeMiddle;
     } else {
-      return COLORS.activeTop;    // 青
+      return COLORS.activeTop;
     }
-  }
-
-  const handleDispClick = () => {
-    // 3つの状態をループさせる
-    if (displayMode === 'DEFAULT') {
-      setDisplayMode('ANIMATION')
-    } else if (displayMode === 'ANIMATION') {
-      setDisplayMode('MUSIC')
-    } else {
-      setDisplayMode('DEFAULT')
-    }
-  }
-
-  let matrixText = "PEAK HOLD"
-  let matrixMode: 'TEXT' | 'ANIMATION' = 'TEXT'
-
-  if (displayMode === 'ANIMATION') {
-    matrixMode = 'ANIMATION'
-  } else if (displayMode === 'MUSIC') {
-    matrixMode = 'TEXT'
-    // 拡張子 (.mp3, .wav など) を削除する正規表現
-    // 最後のドット以降を削除。ファイル名がない場合は "NO FILE"
-    matrixText = fileName ? fileName.replace(/\.[^/.]+$/, "") : "NO FILE"
-  } else {
-    // DEFAULT
-    matrixMode = 'TEXT'
-    matrixText = "PEAK HOLD"
   }
 
   const drawDoubleSlantedPolygon = (
@@ -278,7 +300,6 @@ export function SpectrumAnalyzer() {
       
       let color: string
       if (segIdx < activeSegments || isPeakSegment) {
-        // サイドは③と同じ（水色）単色
         color = COLORS.sideActive
       } else {
         color = COLORS.inactive
@@ -304,6 +325,37 @@ export function SpectrumAnalyzer() {
     }
   }
 
+  // ★追加: アイコン描画関数
+  const drawIcon = (
+    ctx: CanvasRenderingContext2D, 
+    icon: IconConfigItem, 
+    currentDisplayMode: DisplayMode, 
+    isPlaying: boolean,
+    audioFile: string | null
+  ) => {
+    const isActiveMode = icon.activeModes.includes(currentDisplayMode);
+    const meetsCondition = icon.condition ? icon.condition(isPlaying, audioFile) : true;
+    
+    const isLit = isActiveMode && meetsCondition;
+
+    // ガイド画像全体の高さと幅を考慮して、アイコンのY座標を調整
+    // ガイド画像がcanvasにフィットするように描画されていると仮定
+    const scaleX = ctx.canvas.width / 1400; // 元の画像幅1400px
+    const scaleY = ctx.canvas.height / 400; // 元の画像高さ400px
+
+    const x = icon.offsetX * scaleX;
+    const y = icon.offsetY * scaleY;
+    const w = icon.width * scaleX;
+    const h = icon.height * scaleY;
+
+    ctx.fillStyle = isLit ? COLORS.iconActive : COLORS.iconInactive;
+    ctx.shadowBlur = isLit ? 10 : 0; // 点灯時は光をぼかす
+    ctx.shadowColor = COLORS.iconActive;
+    ctx.fillRect(x, y, w, h);
+    ctx.shadowBlur = 0; // 他の描画に影響しないようリセット
+  };
+
+
   const drawSpectrum = () => {
     if (!canvasRef.current) return
     const canvas = canvasRef.current
@@ -313,6 +365,7 @@ export function SpectrumAnalyzer() {
     ctx.fillStyle = '#000000'
     ctx.fillRect(0, 0, canvas.width, canvas.height)
 
+    // ガイド画像を先に描画
     if (showGuide && guideImageRef.current) {
       ctx.globalAlpha = SPECTRUM_CONFIG.guideAlpha
       ctx.drawImage(guideImageRef.current, 0, 0, canvas.width, canvas.height)
@@ -381,7 +434,6 @@ export function SpectrumAnalyzer() {
         
         let color: string
         if (segIdx < activeSegments || isPeakSegment) {
-          // 【修正】セグメントの高さ（レベル）に応じて、単色を取得
           color = getSegmentColor(currentSegLevel)
         } else {
           color = COLORS.inactive
@@ -402,6 +454,12 @@ export function SpectrumAnalyzer() {
         bandXBase + SIDE_BAND_CONFIG.rightOffsetX, sideRightYBottom, now
       )
     }
+
+    // ★追加: アイコン描画
+    ICON_CONFIG.forEach(icon => {
+      drawIcon(ctx, icon, displayMode, isPlaying, audioFile);
+    });
+
     animationRef.current = requestAnimationFrame(drawSpectrum)
   }
 
@@ -411,7 +469,7 @@ export function SpectrumAnalyzer() {
       animationRef.current = null
     }
     drawSpectrum()
-  }, [isPlaying, imageLoaded, showGuide])
+  }, [isPlaying, imageLoaded, showGuide, displayMode, audioFile]) // displayModeとaudioFileも依存配列に追加
 
   useEffect(() => {
     const audio = audioRef.current
@@ -456,6 +514,8 @@ export function SpectrumAnalyzer() {
       setCurrentTime(0)
       setDuration(0)
       e.target.value = ''
+      
+      setDisplayMode('PEAK_HOLD') // 音楽選択時はPEAK_HOLDへ
     }
   }
 
@@ -474,9 +534,52 @@ export function SpectrumAnalyzer() {
     return `${mins}:${secs.toString().padStart(2, '0')}`
   }
 
+  const handleDispClick = () => {
+    if (!audioFile) {
+      switch (displayMode) {
+        case 'UPLOAD_PROMPT': setDisplayMode('ANIMATION'); break;
+        case 'ANIMATION': setDisplayMode('MUSIC'); break;
+        case 'MUSIC': setDisplayMode('PEAK_HOLD'); break;
+        case 'PEAK_HOLD': setDisplayMode('UPLOAD_PROMPT'); break;
+        default: setDisplayMode('UPLOAD_PROMPT'); break;
+      }
+    } else {
+      switch (displayMode) {
+        case 'PEAK_HOLD': setDisplayMode('ANIMATION'); break;
+        case 'ANIMATION': setDisplayMode('MUSIC'); break;
+        case 'MUSIC': setDisplayMode('PEAK_HOLD'); break;
+        // 音楽ファイルがある場合は、UPLOAD_PROMPTには戻らない
+        case 'UPLOAD_PROMPT': setDisplayMode('PEAK_HOLD'); break; // もしUPLOAD_PROMPTになってたらPEAK_HOLDに戻す
+        default: setDisplayMode('PEAK_HOLD'); break;
+      }
+    }
+  }
+
+  let matrixText = "UPLOAD AUDIO"
+  let matrixMode: 'TEXT' | 'ANIMATION' = 'TEXT'
+
+  switch (displayMode) {
+    case 'ANIMATION':
+      matrixMode = 'ANIMATION'
+      break
+    case 'MUSIC':
+      matrixMode = 'TEXT'
+      matrixText = fileName ? fileName.replace(/\.[^/.]+$/, "") : "NO FILE"
+      break
+    case 'PEAK_HOLD':
+      matrixMode = 'TEXT'
+      matrixText = "PEAK HOLD"
+      break
+    case 'UPLOAD_PROMPT':
+    default:
+      matrixMode = 'TEXT'
+      matrixText = "UPLOAD AUDIO"
+      break
+  }
+
   return (
      <div className="w-full max-w-[1400px] mx-auto space-y-4">
-      <div className="bg-black rounded-none overflow-hidden relative"> {/* Add relative positioning */}
+      <div className="bg-black rounded-none overflow-hidden relative">
         <canvas ref={canvasRef} width={1400} height={400} className="w-full h-auto block" />
         
         <DotMatrixDisplay 
