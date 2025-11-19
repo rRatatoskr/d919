@@ -108,6 +108,8 @@ export function SpectrumAnalyzer() {
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
   const [showGuide, setShowGuide] = useState(SPECTRUM_CONFIG.showGuide)
+  const [displayMode, setDisplayMode] = useState<'TEXT' | 'ANIMATION'>('TEXT')
+  const [displayText, setDisplayText] = useState("PEAK HOLD")
   
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const audioRef = useRef<HTMLAudioElement>(null)
@@ -446,6 +448,15 @@ export function SpectrumAnalyzer() {
     return `${mins}:${secs.toString().padStart(2, '0')}`
   }
 
+  const handleDispClick = () => {
+    if (displayMode === 'TEXT') {
+      setDisplayMode('ANIMATION')
+    } else {
+      setDisplayMode('TEXT')
+      setDisplayText("PEAK HOLD") // Reset text just in case
+    }
+  }
+
   return (
      <div className="w-full max-w-[1400px] mx-auto space-y-4">
       <div className="bg-black rounded-none overflow-hidden relative"> {/* Add relative positioning */}
@@ -455,6 +466,8 @@ export function SpectrumAnalyzer() {
           width={1400} 
           height={400} 
           className="absolute top-0 left-0 w-full h-full pointer-events-none z-10" 
+          text={displayText}
+          mode={displayMode}
         />
       </div>
 
@@ -501,13 +514,13 @@ export function SpectrumAnalyzer() {
             <span className="flex items-center gap-2"><Upload className="h-4 w-4" /> UPLOAD AUDIO</span>
           </Button>
         </label>
-        <Button onClick={isPlaying ? handlePause : handlePlay} size="sm" disabled={!audioFile} className="bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2">
+        <Button onClick={isPlaying ? handlePause : handlePlay} size="sm" disabled={!audioFile} className="bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer">
           {isPlaying ? <><Pause className="h-4 w-4 mr-2" /> PAUSE</> : <><Play className="h-4 w-4 mr-2" /> PLAY</>}
         </Button>
-        <Button size="sm" className="bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2">
+        <Button onClick={handleDispClick} size="sm" className="bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer">
           <Monitor className="h-4 w-4 mr-2" /> DISP
         </Button>
-        <Button onClick={() => setShowGuide(!showGuide)} size="sm" className="bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2">
+        <Button onClick={() => setShowGuide(!showGuide)} size="sm" className="bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer">
           {showGuide ? <><EyeOff className="h-4 w-4 mr-2" /> GUIDE OFF</> : <><Eye className="h-4 w-4 mr-2" /> GUIDE ON</>}
         </Button>
       </div>
