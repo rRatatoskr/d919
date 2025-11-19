@@ -5643,3 +5643,2198 @@ https://nextjs.org/docs/messages/module-not-found
 [20:53:54.738] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
 [20:53:54.738] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
 [20:53:54.738] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763588508331}
+[20:57:59.447] Server  LOG      ✓ Compiled in 39ms
+[20:58:11.066] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.066] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.067] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.067] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.068] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.068] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.069] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.070] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.071] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.073] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.074] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.074] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.075] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.075] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.076] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.077] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.078] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.078] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.078] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.079] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.080] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.080] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.080] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.080] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.081] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.082] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.083] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.083] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:11.099] Server  LOG      ✓ Compiled in 38ms
+[20:58:11.287] Browser ERROR   ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[20:58:36.880] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:37.028] Browser ERROR   uncaughtError: Error: ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[20:58:37.216] Browser ERROR   ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[20:58:37.216] Browser ERROR   ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[21:00:07.287] Browser ERROR   ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[21:00:16.286] Browser ERROR   ./components/spectrum-analyzer/icons-layer.tsx:5:1
+Module not found: Can't resolve './icon-definitions'
+  3 |
+  4 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 5 | import { CUSTOM_ICONS } from './icon-definitions' // ファイル名注意（複数形推奨）
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { DisplayMode } from './types'
+  7 | import { COLORS } from './config'
+  8 |
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[21:00:37.571] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:4:1
+Module not found: Can't resolve './icon-definitions'
+  2 |
+  3 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 4 | import { CUSTOM_ICONS } from './icon-definitions'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { DisplayMode } from './types'
+  6 | import { COLORS } from './config'
+  7 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:00:37.572] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:4:1
+Module not found: Can't resolve './icon-definitions'
+  2 |
+  3 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 4 | import { CUSTOM_ICONS } from './icon-definitions'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { DisplayMode } from './types'
+  6 | import { COLORS } from './config'
+  7 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:00:37.573] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:4:1
+Module not found: Can't resolve './icon-definitions'
+  2 |
+  3 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 4 | import { CUSTOM_ICONS } from './icon-definitions'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { DisplayMode } from './types'
+  6 | import { COLORS } from './config'
+  7 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:00:37.573] Server  ERROR    ⨯ ./components/spectrum-analyzer/icons-layer.tsx:4:1
+Module not found: Can't resolve './icon-definitions'
+  2 |
+  3 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 4 | import { CUSTOM_ICONS } from './icon-definitions'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { DisplayMode } from './types'
+  6 | import { COLORS } from './config'
+  7 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:00:38.286] Browser ERROR   ./components/spectrum-analyzer/icons-layer.tsx:4:1
+Module not found: Can't resolve './icon-definitions'
+  2 |
+  3 | import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
+> 4 | import { CUSTOM_ICONS } from './icon-definitions'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import { DisplayMode } from './types'
+  6 | import { COLORS } from './config'
+  7 |
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[21:08:01.376] Server  LOG      ✓ Compiled in 76ms
+[21:08:01.800] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[21:08:02.289] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[21:08:02.289] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[21:08:02.289] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763589355674}
+[21:08:05.823] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[21:08:05.956] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[21:08:05.956] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[21:08:05.956] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763589359618}
+[21:16:03.872] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[21:16:04.055] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[21:16:04.055] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[21:16:04.055] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763589837714}
+[21:30:31.871] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[21:30:32.065] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[21:30:32.065] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[21:30:32.065] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763590705718}
+[21:37:03.739] Server  LOG      ✓ Compiled in 66ms
+[21:37:25.201] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.202] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.203] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.203] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.204] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.205] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.205] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.206] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.208] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.208] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.208] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.208] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.209] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.209] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.210] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.211] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.212] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.212] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.213] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.213] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.214] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.214] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.215] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.215] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.215] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.216] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.216] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.217] Server  ERROR    ⨯ ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[21:37:25.235] Server  LOG      ✓ Compiled in 41ms
+[21:37:26.287] Browser ERROR   ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[21:37:45.286] Browser ERROR   ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[21:37:48.287] Browser ERROR   ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Module not found: Can't resolve '@/components/icons/mp3-logo'
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+Import map: aliased to relative './components/icons/mp3-logo' inside of [project]/
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[21:37:53.704] Server  LOG      ✓ Compiled in 41ms
+[21:37:54.302] Browser ERROR   ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Export Mp3Logo doesn't exist in target module
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+The export Mp3Logo was not found in module [project]/components/icons/mp3-logo [app-client] (ecmascript).
+The module has no exports at all.
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[21:37:54.302] Browser ERROR   ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Export Mp3Logo doesn't exist in target module
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+The export Mp3Logo was not found in module [project]/components/icons/mp3-logo [app-ssr] (ecmascript).
+The module has no exports at all.
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[21:37:58.895] Server  LOG      ✓ Compiled in 33ms
+[21:37:59.287] Browser ERROR   ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Export Mp3Logo doesn't exist in target module
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+The export Mp3Logo was not found in module [project]/components/icons/mp3-logo.tsx [app-client] (ecmascript).
+The module has no exports at all.
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[21:37:59.287] Browser ERROR   ./components/spectrum-analyzer/icon-definitions.tsx:4:1
+Export Mp3Logo doesn't exist in target module
+  2 |
+  3 | import { IconDefinition } from './types'
+> 4 | import { Mp3Logo } from '@/components/icons/mp3-logo' // ★さっき作ったコンポーネント
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+  7 |
+
+The export Mp3Logo was not found in module [project]/components/icons/mp3-logo.tsx [app-ssr] (ecmascript).
+The module has no exports at all.
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component Browser]
+    ./components/spectrum-analyzer/index.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer/icon-definitions.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/icons-layer.tsx [Client Component SSR]
+    ./components/spectrum-analyzer/index.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[21:38:23.072] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[21:38:23.250] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[21:38:23.250] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[21:38:23.250] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763591176967}
+[21:40:04.038] Server  LOG      ✓ Compiled in 50ms
+[21:46:47.760] Server  LOG      ✓ Compiled in 64ms
+[21:47:05.574] Server  LOG      ✓ Compiled in 37ms
+[21:47:14.179] Server  LOG      ✓ Compiled in 35ms
+[21:47:21.799] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[21:47:21.974] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[21:47:21.974] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[21:47:21.974] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763591715696}

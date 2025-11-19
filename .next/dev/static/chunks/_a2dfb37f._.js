@@ -25056,21 +25056,116 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
 }),
+"[project]/components/icons/mp3-logo.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "Mp3Logo",
+    ()=>Mp3Logo
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+;
+function Mp3Logo({ color, active, width, height }) {
+    // 点灯時は指定色、消灯時は暗いグレーにする
+    const fillColor = active ? color : '#333333';
+    // 点灯時だけ光るエフェクト(ドロップシャドウ)をつける
+    const filterStyle = active ? `drop-shadow(0 0 5px ${color})` : 'none';
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        width: width,
+        height: height,
+        viewBox: "0 0 100 40",
+        fill: "none",
+        xmlns: "http://www.w3.org/2000/svg",
+        style: {
+            transition: 'all 0.2s ease',
+            filter: filterStyle
+        },
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+            d: "M10 30 V10 L20 20 L30 10 V30 M45 30 V10 H55 C65 10 65 20 55 20 H45 M55 30 H65 C75 30 75 20 65 20 C75 20 75 10 65 10 H55",
+            stroke: fillColor,
+            strokeWidth: "3",
+            strokeLinecap: "round",
+            strokeLinejoin: "round"
+        }, void 0, false, {
+            fileName: "[project]/components/icons/mp3-logo.tsx",
+            lineNumber: 23,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/components/icons/mp3-logo.tsx",
+        lineNumber: 11,
+        columnNumber: 5
+    }, this);
+}
+_c = Mp3Logo;
+var _c;
+__turbopack_context__.k.register(_c, "Mp3Logo");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+"[project]/components/spectrum-analyzer/icon-definitions.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "CUSTOM_ICONS",
+    ()=>CUSTOM_ICONS
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$icons$2f$mp3$2d$logo$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/icons/mp3-logo.tsx [app-client] (ecmascript)"); // ★手順1で作ったファイルを読み込む
+;
+const basePath = ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : '';
+const CUSTOM_ICONS = [
+    {
+        id: 'mp3-logo',
+        name: 'MP3',
+        type: 'COMPONENT',
+        component: __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$icons$2f$mp3$2d$logo$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Mp3Logo"],
+        activeModes: [
+            'PEAK_HOLD',
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: (_, hasFile)=>hasFile,
+        // 位置とサイズと色
+        x: 1180,
+        y: 45,
+        width: 80,
+        height: 40,
+        color: '#ff0055' // ピンク色に発光
+    },
+    // 他のドット絵アイコン（今まで通り）
+    {
+        id: 'note-1',
+        name: '音符1',
+        type: 'DOT_MATRIX',
+        maskSrc: `${basePath}/images/masks/icon-note1.png`,
+        activeModes: [
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: (isPlaying)=>isPlaying,
+        x: 370,
+        y: 82,
+        width: 15,
+        height: 10,
+        color: '#1fd7f0'
+    }
+];
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
 "[project]/components/spectrum-analyzer/icons-layer.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// components/spectrum-analyzer/icons-layer.tsx
 __turbopack_context__.s([
     "IconsLayer",
     ()=>IconsLayer
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$masked$2d$display$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/dot-matrix/masked-display.tsx [app-client] (ecmascript)");
-(()=>{
-    const e = new Error("Cannot find module './icon-definitions'");
-    e.code = 'MODULE_NOT_FOUND';
-    throw e;
-})();
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$icon$2d$definitions$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/spectrum-analyzer/icon-definitions.tsx [app-client] (ecmascript)"); // ★ファイル名を複数形(.tsx)に合わせる
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/spectrum-analyzer/config.ts [app-client] (ecmascript)");
 'use client';
 ;
@@ -25081,31 +25176,63 @@ function IconsLayer({ displayMode, isPlaying, audioFile, width, height }) {
     const hasFile = !!audioFile;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "absolute top-0 left-0 w-full h-full pointer-events-none z-20",
-        children: CUSTOM_ICONS.map((icon)=>{
+        children: __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$icon$2d$definitions$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CUSTOM_ICONS"].map((icon)=>{
             const isModeActive = icon.activeModes.includes(displayMode);
             const isConditionMet = icon.condition ? icon.condition(isPlaying, hasFile) : true;
             const isActive = isModeActive && isConditionMet;
-            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$masked$2d$display$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MaskedDotMatrix"], {
-                width: width,
-                height: height,
-                maskSrc: icon.maskSrc,
-                active: isActive,
-                // ★ここが変更点：定義ファイルから位置・サイズ・色を渡す
-                iconX: icon.x,
-                iconY: icon.y,
-                iconWidth: icon.width,
-                iconHeight: icon.height,
-                color: icon.color || __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["COLORS"].iconActive,
-                className: "absolute top-0 left-0 w-full h-full"
-            }, icon.id, false, {
-                fileName: "[project]/components/spectrum-analyzer/icons-layer.tsx",
-                lineNumber: 34,
-                columnNumber: 11
-            }, this);
+            // 位置合わせ用スタイル
+            const stylePos = {
+                position: 'absolute',
+                left: `${icon.x}px`,
+                top: `${icon.y}px`,
+                width: `${icon.width}px`,
+                height: `${icon.height}px`
+            };
+            // ★ SVGコンポーネントの場合
+            if (icon.type === 'COMPONENT' && icon.component) {
+                const SvgComponent = icon.component;
+                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: stylePos,
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(SvgComponent, {
+                        color: icon.color || __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["COLORS"].iconActive,
+                        active: isActive,
+                        width: icon.width,
+                        height: icon.height
+                    }, void 0, false, {
+                        fileName: "[project]/components/spectrum-analyzer/icons-layer.tsx",
+                        lineNumber: 46,
+                        columnNumber: 21
+                    }, this)
+                }, icon.id, false, {
+                    fileName: "[project]/components/spectrum-analyzer/icons-layer.tsx",
+                    lineNumber: 45,
+                    columnNumber: 17
+                }, this);
+            }
+            // ★ ドット絵の場合（従来通り）
+            if (icon.type === 'DOT_MATRIX' && icon.maskSrc) {
+                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$masked$2d$display$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MaskedDotMatrix"], {
+                    width: icon.width,
+                    height: icon.height,
+                    maskSrc: icon.maskSrc,
+                    active: isActive,
+                    iconX: icon.x,
+                    iconY: icon.y,
+                    iconWidth: icon.width,
+                    iconHeight: icon.height,
+                    color: icon.color || __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["COLORS"].iconActive,
+                    className: "absolute top-0 left-0 w-full h-full"
+                }, icon.id, false, {
+                    fileName: "[project]/components/spectrum-analyzer/icons-layer.tsx",
+                    lineNumber: 59,
+                    columnNumber: 13
+                }, this);
+            }
+            return null;
         })
     }, void 0, false, {
         fileName: "[project]/components/spectrum-analyzer/icons-layer.tsx",
-        lineNumber: 27,
+        lineNumber: 26,
         columnNumber: 5
     }, this);
 }
@@ -25769,4 +25896,4 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 }),
 ]);
 
-//# sourceMappingURL=_5e1b83f4._.js.map
+//# sourceMappingURL=_a2dfb37f._.js.map

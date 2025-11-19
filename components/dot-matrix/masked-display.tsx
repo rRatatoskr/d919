@@ -1,3 +1,4 @@
+// components/dot-matrix/masked-display.tsx
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
@@ -7,6 +8,13 @@ interface MaskedDotMatrixProps {
   height: number
   maskSrc: string
   active: boolean
+  
+  // 追加プロパティ
+  iconX?: number
+  iconY?: number
+  iconWidth?: number
+  iconHeight?: number
+  
   color?: string
   inactiveColor?: string
   dotSize?: number
@@ -24,9 +32,13 @@ export function MaskedDotMatrix({
   height,
   maskSrc,
   active,
+  iconX = 0,
+  iconY = 0,
+  iconWidth,
+  iconHeight,
   color = '#1fd7f0',
-  inactiveColor = 'rgba(35, 30, 45, 0.0)', // デフォルトは消灯時透明
-  dotSize = 3, // ドットサイズ調整
+  inactiveColor = 'rgba(35, 30, 45, 0.0)',
+  dotSize = 3,
   gap = 2,
   className
 }: MaskedDotMatrixProps) {
@@ -34,7 +46,6 @@ export function MaskedDotMatrix({
   const [points, setPoints] = useState<Point[]>([])
   const [isLoaded, setIsLoaded] = useState(false)
 
-  // マスク画像の解析（初回のみ）
   useEffect(() => {
     const img = new Image()
     img.src = maskSrc
@@ -47,18 +58,31 @@ export function MaskedDotMatrix({
       const ctx = offCanvas.getContext('2d')
       if (!ctx) return
 
-      // 画像を描画してピクセルデータを取得
-      ctx.drawImage(img, 0, 0, width, height)
+      // 描画エリアをクリア
+      ctx.clearRect(0, 0, width, height)
+
+      // ★指定された位置とサイズでマスク画像を描画
+      const drawW = iconWidth || width
+      const drawH = iconHeight || height
+      ctx.drawImage(img, iconX, iconY, drawW, drawH)
+
       const imageData = ctx.getImageData(0, 0, width, height).data
       
       const validPoints: Point[] = []
       const step = dotSize + gap
 
-      // グリッドスキャン
-      for (let y = 0; y < height; y += step) {
-        for (let x = 0; x < width; x += step) {
-          const index = (y * width + x) * 4 + 3 // アルファ値
-          if (imageData[index] > 128) { // 不透明度50%以上を有効ドットとする
+      // 画像が描画された範囲だけを重点的にスキャン（パフォーマンス最適化）
+      // ※念のため全体スキャンでも良いが、範囲指定した方が軽い
+      const startX = Math.max(0, Math.floor(iconX / step) * step)
+      const endX = Math.min(width, startX + drawW + step)
+      const startY = Math.max(0, Math.floor(iconY / step) * step)
+      const endY = Math.min(height, startY + drawH + step)
+
+      for (let y = startY; y < endY; y += step) {
+        for (let x = startX; x < endX; x += step) {
+          const index = (y * width + x) * 4 + 3 // アルファチャンネル
+          // 不透明度が一定以上なら「光るドット」とみなす
+          if (imageData[index] > 100) {
             validPoints.push({ x, y })
           }
         }
@@ -66,9 +90,8 @@ export function MaskedDotMatrix({
       setPoints(validPoints)
       setIsLoaded(true)
     }
-  }, [maskSrc, width, height, dotSize, gap])
+  }, [maskSrc, width, height, dotSize, gap, iconX, iconY, iconWidth, iconHeight])
 
-  // 描画処理
   useEffect(() => {
     const canvas = canvasRef.current
     const ctx = canvas?.getContext('2d')
@@ -76,10 +99,9 @@ export function MaskedDotMatrix({
 
     ctx.clearRect(0, 0, width, height)
     
-    // 点灯状態に応じた色設定
+    // 点灯時は指定色、消灯時は透明(または指定色)
     ctx.fillStyle = active ? color : inactiveColor
     
-    // 影（光る演出）
     if (active) {
       ctx.shadowBlur = 5
       ctx.shadowColor = color
@@ -87,7 +109,6 @@ export function MaskedDotMatrix({
       ctx.shadowBlur = 0
     }
 
-    // ドット描画
     points.forEach(p => {
       ctx.fillRect(p.x, p.y, dotSize, dotSize)
     })

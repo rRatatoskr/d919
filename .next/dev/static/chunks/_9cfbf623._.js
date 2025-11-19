@@ -25056,21 +25056,71 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
 }),
+"[project]/components/icons/mp3-logo [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+
+}),
+"[project]/components/spectrum-analyzer/icon-definitions.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+// components/spectrum-analyzer/icon-definitions.tsx
+__turbopack_context__.s([
+    "CUSTOM_ICONS",
+    ()=>CUSTOM_ICONS
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$icons$2f$mp3$2d$logo__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/icons/mp3-logo [app-client] (ecmascript)"); // ★さっき作ったコンポーネント
+;
+const basePath = ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : '';
+const CUSTOM_ICONS = [
+    {
+        id: 'mp3-logo',
+        name: 'MP3',
+        type: 'COMPONENT',
+        component: __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$icons$2f$mp3$2d$logo__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Mp3Logo"],
+        activeModes: [
+            'PEAK_HOLD',
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: (_, hasFile)=>hasFile,
+        x: 1180,
+        y: 45,
+        width: 80,
+        height: 40,
+        color: '#ff0055' // ★ここで指定した色がSVGに渡されます
+    },
+    // ... 他のアイコン（DOT_MATRIXなど）はそのまま ...
+    {
+        id: 'note-1',
+        name: '音符1',
+        type: 'DOT_MATRIX',
+        maskSrc: `${basePath}/images/masks/icon-note1.png`,
+        activeModes: [
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: (isPlaying)=>isPlaying,
+        x: 370,
+        y: 82,
+        width: 15,
+        height: 10,
+        color: '#1fd7f0'
+    }
+];
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
 "[project]/components/spectrum-analyzer/icons-layer.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// components/spectrum-analyzer/icons-layer.tsx
 __turbopack_context__.s([
     "IconsLayer",
     ()=>IconsLayer
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$masked$2d$display$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/dot-matrix/masked-display.tsx [app-client] (ecmascript)");
-(()=>{
-    const e = new Error("Cannot find module './icon-definitions'");
-    e.code = 'MODULE_NOT_FOUND';
-    throw e;
-})();
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$icon$2d$definitions$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/spectrum-analyzer/icon-definitions.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/spectrum-analyzer/config.ts [app-client] (ecmascript)");
 'use client';
 ;
@@ -25081,7 +25131,7 @@ function IconsLayer({ displayMode, isPlaying, audioFile, width, height }) {
     const hasFile = !!audioFile;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "absolute top-0 left-0 w-full h-full pointer-events-none z-20",
-        children: CUSTOM_ICONS.map((icon)=>{
+        children: __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$icon$2d$definitions$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CUSTOM_ICONS"].map((icon)=>{
             const isModeActive = icon.activeModes.includes(displayMode);
             const isConditionMet = icon.condition ? icon.condition(isPlaying, hasFile) : true;
             const isActive = isModeActive && isConditionMet;
@@ -25090,7 +25140,7 @@ function IconsLayer({ displayMode, isPlaying, audioFile, width, height }) {
                 height: height,
                 maskSrc: icon.maskSrc,
                 active: isActive,
-                // ★ここが変更点：定義ファイルから位置・サイズ・色を渡す
+                // ★位置・サイズ・色を渡す
                 iconX: icon.x,
                 iconY: icon.y,
                 iconWidth: icon.width,
@@ -25099,13 +25149,13 @@ function IconsLayer({ displayMode, isPlaying, audioFile, width, height }) {
                 className: "absolute top-0 left-0 w-full h-full"
             }, icon.id, false, {
                 fileName: "[project]/components/spectrum-analyzer/icons-layer.tsx",
-                lineNumber: 34,
+                lineNumber: 33,
                 columnNumber: 11
             }, this);
         })
     }, void 0, false, {
         fileName: "[project]/components/spectrum-analyzer/icons-layer.tsx",
-        lineNumber: 27,
+        lineNumber: 26,
         columnNumber: 5
     }, this);
 }
@@ -25769,4 +25819,4 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 }),
 ]);
 
-//# sourceMappingURL=_5e1b83f4._.js.map
+//# sourceMappingURL=_9cfbf623._.js.map

@@ -1,23 +1,20 @@
-(globalThis.TURBOPACK || (globalThis.TURBOPACK = [])).push([typeof document === "object" ? document.currentScript : undefined,
-"[project]/lib/utils.ts [app-client] (ecmascript)", ((__turbopack_context__) => {
+module.exports = [
+"[project]/lib/utils.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s([
     "cn",
     ()=>cn
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/clsx/dist/clsx.mjs [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$tailwind$2d$merge$2f$dist$2f$bundle$2d$mjs$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/tailwind-merge/dist/bundle-mjs.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/clsx/dist/clsx.mjs [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$tailwind$2d$merge$2f$dist$2f$bundle$2d$mjs$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/tailwind-merge/dist/bundle-mjs.mjs [app-ssr] (ecmascript)");
 ;
 ;
 function cn(...inputs) {
-    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$tailwind$2d$merge$2f$dist$2f$bundle$2d$mjs$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["twMerge"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["clsx"])(inputs));
-}
-if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
-    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$tailwind$2d$merge$2f$dist$2f$bundle$2d$mjs$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["twMerge"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["clsx"])(inputs));
 }
 }),
-"[project]/components/ui/button.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"[project]/components/ui/button.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s([
@@ -26,15 +23,15 @@ __turbopack_context__.s([
     "buttonVariants",
     ()=>buttonVariants
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@radix-ui/react-slot/dist/index.mjs [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$class$2d$variance$2d$authority$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/class-variance-authority/dist/index.mjs [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/utils.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@radix-ui/react-slot/dist/index.mjs [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$class$2d$variance$2d$authority$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/class-variance-authority/dist/index.mjs [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/utils.ts [app-ssr] (ecmascript)");
 ;
 ;
 ;
 ;
-const buttonVariants = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$class$2d$variance$2d$authority$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cva"])("inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive", {
+const buttonVariants = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$class$2d$variance$2d$authority$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cva"])("inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive", {
     variants: {
         variant: {
             default: 'bg-primary text-primary-foreground hover:bg-primary/90',
@@ -59,10 +56,10 @@ const buttonVariants = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_
     }
 });
 function Button({ className, variant, size, asChild = false, ...props }) {
-    const Comp = asChild ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Slot"] : 'button';
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Comp, {
+    const Comp = asChild ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Slot"] : 'button';
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Comp, {
         "data-slot": "button",
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])(buttonVariants({
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])(buttonVariants({
             variant,
             size,
             className
@@ -74,15 +71,9 @@ function Button({ className, variant, size, asChild = false, ...props }) {
         columnNumber: 5
     }, this);
 }
-_c = Button;
 ;
-var _c;
-__turbopack_context__.k.register(_c, "Button");
-if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
-    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
-}
 }),
-"[project]/components/dot-matrix/config.ts [app-client] (ecmascript)", ((__turbopack_context__) => {
+"[project]/components/dot-matrix/config.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 // 設定をエクスポート
@@ -117,11 +108,8 @@ const DOT_MATRIX_CONFIG = {
     // デバッグ用: 全点灯させるかどうか
     debugAllOn: false
 };
-if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
-    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
-}
 }),
-"[project]/components/dot-matrix/frames.ts [app-client] (ecmascript)", ((__turbopack_context__) => {
+"[project]/components/dot-matrix/frames.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s([
@@ -22350,11 +22338,8 @@ const DOLPHIN_CUSTOM_FRAMES = [
         ]
     ]
 ];
-if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
-    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
-}
 }),
-"[project]/components/dot-matrix/patterns.ts [app-client] (ecmascript)", ((__turbopack_context__) => {
+"[project]/components/dot-matrix/patterns.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s([
@@ -24505,32 +24490,27 @@ const CHAR_PATTERNS = {
         ]
     ]
 };
-if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
-    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
-}
 }),
-"[project]/components/dot-matrix/index.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"[project]/components/dot-matrix/index.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s([
     "DotMatrixDisplay",
     ()=>DotMatrixDisplay
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/dot-matrix/config.ts [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$frames$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/dot-matrix/frames.ts [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$patterns$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/dot-matrix/patterns.ts [app-client] (ecmascript)");
-;
-var _s = __turbopack_context__.k.signature();
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/dot-matrix/config.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$frames$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/dot-matrix/frames.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$patterns$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/dot-matrix/patterns.ts [app-ssr] (ecmascript)");
 "use client";
 ;
 ;
 ;
 ;
+;
 function DotMatrixDisplay({ width = 600, height = 100, className, text = "PEAK HOLD", mode = 'TEXT' }) {
-    _s();
-    const canvasRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const canvasRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     // ==========================================
     // ⚙️ スクロール動作の設定
     // ==========================================
@@ -24540,174 +24520,166 @@ function DotMatrixDisplay({ width = 600, height = 100, className, text = "PEAK H
         charGap: 1
     };
     // 状態管理
-    const stateRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])('STATIC');
-    const stateStartTimeRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(0);
-    const scrollOffsetRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(0);
-    const lastTimeRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(0);
-    const frameIndexRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(0);
-    const lastFrameTimeRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(0);
+    const stateRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])('STATIC');
+    const stateStartTimeRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(0);
+    const scrollOffsetRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(0);
+    const lastTimeRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(0);
+    const frameIndexRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(0);
+    const lastFrameTimeRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(0);
     const ANIMATION_SPEED = 30;
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "DotMatrixDisplay.useEffect": ()=>{
-            stateRef.current = 'STATIC';
-            stateStartTimeRef.current = 0;
-            scrollOffsetRef.current = 0;
-            frameIndexRef.current = 0;
-            lastTimeRef.current = 0;
-        }
-    }["DotMatrixDisplay.useEffect"], [
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        stateRef.current = 'STATIC';
+        stateStartTimeRef.current = 0;
+        scrollOffsetRef.current = 0;
+        frameIndexRef.current = 0;
+        lastTimeRef.current = 0;
+    }, [
         mode,
         text
     ]);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "DotMatrixDisplay.useEffect": ()=>{
-            const canvas = canvasRef.current;
-            if (!canvas) return;
-            const ctx = canvas.getContext("2d");
-            if (!ctx) return;
-            let animationFrameId;
-            const render = {
-                "DotMatrixDisplay.useEffect.render": (timestamp)=>{
-                    if (!lastTimeRef.current) lastTimeRef.current = timestamp;
-                    if (!stateStartTimeRef.current) stateStartTimeRef.current = timestamp;
-                    const dt = (timestamp - lastTimeRef.current) / 1000;
-                    lastTimeRef.current = timestamp;
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    // --- 設定値 ---
-                    const { position, rows, cols, numCells, pixel, dotGapX, dotGapY, cellGap, color, offColor, glowBlur, debugAllOn } = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DOT_MATRIX_CONFIG"];
-                    const dotPitch = pixel.width + dotGapX;
-                    const cellWidth = cols * dotPitch - dotGapX;
-                    const cellPitch = cellWidth + cellGap;
-                    // ★ここが修正点: 論理的な1文字の幅（ドット列数）
-                    // 文字データ(cols) + 設定した空白(charGap)
-                    const CHAR_COLS = cols + SCROLL_CONFIG.charGap;
-                    // 画面全体の論理列数も空白分を含めて広げる
-                    const screenCols = numCells * CHAR_COLS;
-                    const textCols = (text ? text.length : 0) * CHAR_COLS;
-                    // -------------------------------------------------------
-                    // 状態更新
-                    // -------------------------------------------------------
-                    if (mode === 'ANIMATION') {
-                        if (timestamp - lastFrameTimeRef.current > ANIMATION_SPEED) {
-                            frameIndexRef.current = (frameIndexRef.current + 1) % __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$frames$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DOLPHIN_CUSTOM_FRAMES"].length;
-                            lastFrameTimeRef.current = timestamp;
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
+        let animationFrameId;
+        const render = (timestamp)=>{
+            if (!lastTimeRef.current) lastTimeRef.current = timestamp;
+            if (!stateStartTimeRef.current) stateStartTimeRef.current = timestamp;
+            const dt = (timestamp - lastTimeRef.current) / 1000;
+            lastTimeRef.current = timestamp;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            // --- 設定値 ---
+            const { position, rows, cols, numCells, pixel, dotGapX, dotGapY, cellGap, color, offColor, glowBlur, debugAllOn } = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DOT_MATRIX_CONFIG"];
+            const dotPitch = pixel.width + dotGapX;
+            const cellWidth = cols * dotPitch - dotGapX;
+            const cellPitch = cellWidth + cellGap;
+            // ★ここが修正点: 論理的な1文字の幅（ドット列数）
+            // 文字データ(cols) + 設定した空白(charGap)
+            const CHAR_COLS = cols + SCROLL_CONFIG.charGap;
+            // 画面全体の論理列数も空白分を含めて広げる
+            const screenCols = numCells * CHAR_COLS;
+            const textCols = (text ? text.length : 0) * CHAR_COLS;
+            // -------------------------------------------------------
+            // 状態更新
+            // -------------------------------------------------------
+            if (mode === 'ANIMATION') {
+                if (timestamp - lastFrameTimeRef.current > ANIMATION_SPEED) {
+                    frameIndexRef.current = (frameIndexRef.current + 1) % __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$frames$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DOLPHIN_CUSTOM_FRAMES"].length;
+                    lastFrameTimeRef.current = timestamp;
+                }
+            } else if (mode === 'TEXT' && text) {
+                const isOverflow = text.length > numCells;
+                if (!isOverflow) {
+                    stateRef.current = 'STATIC';
+                    scrollOffsetRef.current = 0;
+                } else {
+                    if (stateRef.current === 'STATIC') {
+                        // 待機中
+                        scrollOffsetRef.current = 0;
+                        if (timestamp - stateStartTimeRef.current > SCROLL_CONFIG.startPause) {
+                            stateRef.current = 'SCROLLING';
                         }
-                    } else if (mode === 'TEXT' && text) {
-                        const isOverflow = text.length > numCells;
-                        if (!isOverflow) {
-                            stateRef.current = 'STATIC';
+                    } else if (stateRef.current === 'SCROLLING') {
+                        const moveAmount = SCROLL_CONFIG.speed * dt;
+                        const prevOffset = scrollOffsetRef.current;
+                        scrollOffsetRef.current += moveAmount;
+                        // ループ判定
+                        if (scrollOffsetRef.current > textCols) {
+                            scrollOffsetRef.current = -screenCols;
+                        }
+                        // 停止判定
+                        if (prevOffset < 0 && scrollOffsetRef.current >= 0) {
                             scrollOffsetRef.current = 0;
-                        } else {
-                            if (stateRef.current === 'STATIC') {
-                                // 待機中
-                                scrollOffsetRef.current = 0;
-                                if (timestamp - stateStartTimeRef.current > SCROLL_CONFIG.startPause) {
-                                    stateRef.current = 'SCROLLING';
-                                }
-                            } else if (stateRef.current === 'SCROLLING') {
-                                const moveAmount = SCROLL_CONFIG.speed * dt;
-                                const prevOffset = scrollOffsetRef.current;
-                                scrollOffsetRef.current += moveAmount;
-                                // ループ判定
-                                if (scrollOffsetRef.current > textCols) {
-                                    scrollOffsetRef.current = -screenCols;
-                                }
-                                // 停止判定
-                                if (prevOffset < 0 && scrollOffsetRef.current >= 0) {
-                                    scrollOffsetRef.current = 0;
-                                    stateRef.current = 'STATIC';
-                                    stateStartTimeRef.current = timestamp;
-                                }
-                            }
+                            stateRef.current = 'STATIC';
+                            stateStartTimeRef.current = timestamp;
                         }
                     }
-                    // -------------------------------------------------------
-                    // 描画
-                    // -------------------------------------------------------
-                    ctx.shadowBlur = glowBlur;
-                    ctx.shadowColor = color;
-                    const totalHeight = rows * (pixel.height + dotGapY) - dotGapY;
-                    for(let cellIndex = 0; cellIndex < numCells; cellIndex++){
-                        const cellStartX = position.x + cellIndex * cellPitch;
-                        const cellStartY = position.y - totalHeight;
-                        for(let r = 0; r < rows; r++){
-                            const rowIndexFromBottom = rows - 1 - r;
-                            const stackShift = rowIndexFromBottom * pixel.stackSlant;
-                            for(let c = 0; c < cols; c++){
-                                const x = cellStartX + c * dotPitch + stackShift;
-                                const y = cellStartY + r * (pixel.height + dotGapY);
-                                let isOn = debugAllOn;
-                                if (!isOn) {
-                                    if (mode === 'ANIMATION') {
-                                        const currentFrame = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$frames$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DOLPHIN_CUSTOM_FRAMES"][frameIndexRef.current];
-                                        if (currentFrame) {
-                                            const cellString = currentFrame[r][cellIndex];
-                                            if (cellString && cellString[c] === '1') isOn = true;
-                                        }
-                                    } else if (mode === 'TEXT' && text) {
-                                        // 論理座標マッピング
-                                        // 各セルも、空白分(charGap)を含んだ幅を持っているとみなして計算
-                                        const logicalCol = cellIndex * CHAR_COLS + c;
-                                        const targetDataCol = Math.floor(logicalCol + scrollOffsetRef.current);
-                                        if (targetDataCol >= 0 && targetDataCol < textCols) {
-                                            const charIndex = Math.floor(targetDataCol / CHAR_COLS);
-                                            const colIndex = targetDataCol % CHAR_COLS;
-                                            // 文字データの範囲内（空白部分でない）場合のみ描画
-                                            if (colIndex < cols) {
-                                                const char = text[charIndex];
-                                                const pattern = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$patterns$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CHAR_PATTERNS"][char.toUpperCase()] || __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$patterns$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CHAR_PATTERNS"][' '];
-                                                if (pattern && pattern[r] && pattern[r][colIndex]) {
-                                                    isOn = true;
-                                                }
-                                            }
+                }
+            }
+            // -------------------------------------------------------
+            // 描画
+            // -------------------------------------------------------
+            ctx.shadowBlur = glowBlur;
+            ctx.shadowColor = color;
+            const totalHeight = rows * (pixel.height + dotGapY) - dotGapY;
+            for(let cellIndex = 0; cellIndex < numCells; cellIndex++){
+                const cellStartX = position.x + cellIndex * cellPitch;
+                const cellStartY = position.y - totalHeight;
+                for(let r = 0; r < rows; r++){
+                    const rowIndexFromBottom = rows - 1 - r;
+                    const stackShift = rowIndexFromBottom * pixel.stackSlant;
+                    for(let c = 0; c < cols; c++){
+                        const x = cellStartX + c * dotPitch + stackShift;
+                        const y = cellStartY + r * (pixel.height + dotGapY);
+                        let isOn = debugAllOn;
+                        if (!isOn) {
+                            if (mode === 'ANIMATION') {
+                                const currentFrame = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$frames$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DOLPHIN_CUSTOM_FRAMES"][frameIndexRef.current];
+                                if (currentFrame) {
+                                    const cellString = currentFrame[r][cellIndex];
+                                    if (cellString && cellString[c] === '1') isOn = true;
+                                }
+                            } else if (mode === 'TEXT' && text) {
+                                // 論理座標マッピング
+                                // 各セルも、空白分(charGap)を含んだ幅を持っているとみなして計算
+                                const logicalCol = cellIndex * CHAR_COLS + c;
+                                const targetDataCol = Math.floor(logicalCol + scrollOffsetRef.current);
+                                if (targetDataCol >= 0 && targetDataCol < textCols) {
+                                    const charIndex = Math.floor(targetDataCol / CHAR_COLS);
+                                    const colIndex = targetDataCol % CHAR_COLS;
+                                    // 文字データの範囲内（空白部分でない）場合のみ描画
+                                    if (colIndex < cols) {
+                                        const char = text[charIndex];
+                                        const pattern = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$patterns$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CHAR_PATTERNS"][char.toUpperCase()] || __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$patterns$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CHAR_PATTERNS"][' '];
+                                        if (pattern && pattern[r] && pattern[r][colIndex]) {
+                                            isOn = true;
                                         }
                                     }
                                 }
-                                ctx.fillStyle = isOn ? color : offColor;
-                                ctx.shadowBlur = isOn ? glowBlur : 0;
-                                const drawX = x;
-                                const drawY = y + pixel.height;
-                                const p4 = {
-                                    x: drawX,
-                                    y: drawY
-                                };
-                                const p3 = {
-                                    x: drawX + pixel.width,
-                                    y: drawY - pixel.slopeTB
-                                };
-                                const p1 = {
-                                    x: drawX + pixel.slantLR,
-                                    y: drawY - pixel.height
-                                };
-                                const p2 = {
-                                    x: drawX + pixel.width + pixel.slantLR,
-                                    y: drawY - pixel.height - pixel.slopeTB
-                                };
-                                ctx.beginPath();
-                                ctx.moveTo(p1.x, p1.y);
-                                ctx.lineTo(p2.x, p2.y);
-                                ctx.lineTo(p3.x, p3.y);
-                                ctx.lineTo(p4.x, p4.y);
-                                ctx.closePath();
-                                ctx.fill();
                             }
                         }
+                        ctx.fillStyle = isOn ? color : offColor;
+                        ctx.shadowBlur = isOn ? glowBlur : 0;
+                        const drawX = x;
+                        const drawY = y + pixel.height;
+                        const p4 = {
+                            x: drawX,
+                            y: drawY
+                        };
+                        const p3 = {
+                            x: drawX + pixel.width,
+                            y: drawY - pixel.slopeTB
+                        };
+                        const p1 = {
+                            x: drawX + pixel.slantLR,
+                            y: drawY - pixel.height
+                        };
+                        const p2 = {
+                            x: drawX + pixel.width + pixel.slantLR,
+                            y: drawY - pixel.height - pixel.slopeTB
+                        };
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.lineTo(p3.x, p3.y);
+                        ctx.lineTo(p4.x, p4.y);
+                        ctx.closePath();
+                        ctx.fill();
                     }
-                    animationFrameId = requestAnimationFrame(render);
                 }
-            }["DotMatrixDisplay.useEffect.render"];
-            render(0);
-            return ({
-                "DotMatrixDisplay.useEffect": ()=>{
-                    cancelAnimationFrame(animationFrameId);
-                }
-            })["DotMatrixDisplay.useEffect"];
-        }
-    }["DotMatrixDisplay.useEffect"], [
+            }
+            animationFrameId = requestAnimationFrame(render);
+        };
+        render(0);
+        return ()=>{
+            cancelAnimationFrame(animationFrameId);
+        };
+    }, [
         mode,
         text
     ]);
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("canvas", {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("canvas", {
         ref: canvasRef,
         width: width,
         height: height,
@@ -24718,15 +24690,8 @@ function DotMatrixDisplay({ width = 600, height = 100, className, text = "PEAK H
         columnNumber: 10
     }, this);
 }
-_s(DotMatrixDisplay, "7UWkMAcADd09QYUAnrUhS6Bedqg=");
-_c = DotMatrixDisplay;
-var _c;
-__turbopack_context__.k.register(_c, "DotMatrixDisplay");
-if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
-    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
-}
 }),
-"[project]/components/spectrum-analyzer/config.ts [app-client] (ecmascript)", ((__turbopack_context__) => {
+"[project]/components/spectrum-analyzer/config.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 // components/spectrum-analyzer/config.ts
@@ -24790,11 +24755,8 @@ const COLORS = {
     iconActive: '#1fd7f0ff',
     iconInactive: '#231e2d00'
 };
-if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
-    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
-}
 }),
-"[project]/components/spectrum-analyzer/utils.ts [app-client] (ecmascript)", ((__turbopack_context__) => {
+"[project]/components/spectrum-analyzer/utils.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s([
@@ -24813,7 +24775,7 @@ __turbopack_context__.s([
     "updatePeakHold",
     ()=>updatePeakHold
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/spectrum-analyzer/config.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/spectrum-analyzer/config.ts [app-ssr] (ecmascript)");
 ;
 const formatTime = (seconds)=>{
     if (!isFinite(seconds)) return '0:00';
@@ -24824,11 +24786,11 @@ const formatTime = (seconds)=>{
 const getSegmentColor = (levelIndex)=>{
     const middleLevel = 6;
     if (levelIndex < middleLevel) {
-        return __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["COLORS"].activeBottom;
+        return __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["COLORS"].activeBottom;
     } else if (levelIndex === middleLevel) {
-        return __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["COLORS"].activeMiddle;
+        return __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["COLORS"].activeMiddle;
     } else {
-        return __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["COLORS"].activeTop;
+        return __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["COLORS"].activeTop;
     }
 };
 const drawDoubleSlantedPolygon = (ctx, color, x, y, w, h, slantLR, slopeTB)=>{
@@ -24862,8 +24824,8 @@ const getAudioLevels = (dataArray)=>{
     const totalBins = dataArray.length / 2;
     const logMin = Math.log(10);
     const logMax = Math.log(totalBins);
-    const logStep = (logMax - logMin) / __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].numBands;
-    for(let i = 0; i < __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].numBands; i++){
+    const logStep = (logMax - logMin) / __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].numBands;
+    for(let i = 0; i < __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].numBands; i++){
         const start = Math.floor(Math.exp(logMin + i * logStep));
         const end = Math.floor(Math.exp(logMin + (i + 1) * logStep));
         let sum = 0, count = 0;
@@ -24871,7 +24833,7 @@ const getAudioLevels = (dataArray)=>{
             sum += dataArray[j];
             count++;
         }
-        const val = count > 0 ? sum / count / 255.0 * __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].divisor : 0;
+        const val = count > 0 ? sum / count / 255.0 * __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].divisor : 0;
         levels.push(Math.max(0.0, Math.min(val, 1.0)));
     }
     return levels;
@@ -24880,36 +24842,36 @@ const updatePeakHold = (level, peakHold, now)=>{
     if (level > peakHold.level) {
         peakHold.level = level;
         peakHold.timestamp = now;
-    } else if (now - peakHold.timestamp >= __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].peakHoldTime) {
+    } else if (now - peakHold.timestamp >= __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].peakHoldTime) {
         peakHold.level = level;
     }
 };
 const drawSideBand = (ctx, currentLevelRatio, peakHold, baseX, baseY, now)=>{
-    if (!__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].enabled) return;
-    const activeLevel = Math.floor(currentLevelRatio * __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].levelsPerBand);
+    if (!__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].enabled) return;
+    const activeLevel = Math.floor(currentLevelRatio * __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].levelsPerBand);
     const activeSegments = activeLevel * 2;
     let peakLevel = 0;
     let showPeak = false;
-    if (now - peakHold.timestamp < __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].peakHoldTime) {
-        peakLevel = Math.floor(peakHold.level * __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].levelsPerBand);
+    if (now - peakHold.timestamp < __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].peakHoldTime) {
+        peakLevel = Math.floor(peakHold.level * __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].levelsPerBand);
         showPeak = peakLevel > activeLevel;
     }
     let currentYBottom = baseY;
-    for(let segIdx = 0; segIdx < __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].segmentsPerBand; segIdx++){
-        const xOffset = segIdx * __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].stackSlant;
+    for(let segIdx = 0; segIdx < __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].segmentsPerBand; segIdx++){
+        const xOffset = segIdx * __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].stackSlant;
         const xDraw = baseX + xOffset;
         const yDraw = currentYBottom;
         const currentSegLevel = Math.floor(segIdx / 2);
         const isPeakSegment = showPeak && currentSegLevel === peakLevel;
         let color;
         if (segIdx < activeSegments || isPeakSegment) {
-            color = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["COLORS"].sideActive;
+            color = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["COLORS"].sideActive;
         } else {
-            color = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["COLORS"].inactive;
+            color = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["COLORS"].inactive;
         }
-        drawDoubleSlantedPolygon(ctx, color, xDraw, yDraw, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].blockWidth, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].blockHeight, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].slantLR, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].slopeTB);
-        const currentGapY = segIdx % 2 === 0 ? __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].gapY1 : __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].gapY2;
-        currentYBottom -= __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].blockHeight + currentGapY;
+        drawDoubleSlantedPolygon(ctx, color, xDraw, yDraw, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].blockWidth, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].blockHeight, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].slantLR, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].slopeTB);
+        const currentGapY = segIdx % 2 === 0 ? __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].gapY1 : __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].gapY2;
+        currentYBottom -= __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].blockHeight + currentGapY;
     }
 };
 const drawIcon = (ctx, icon, currentDisplayMode, isPlaying, audioFile)=>{
@@ -24922,17 +24884,14 @@ const drawIcon = (ctx, icon, currentDisplayMode, isPlaying, audioFile)=>{
     const y = icon.offsetY * scaleY;
     const w = icon.width * scaleX;
     const h = icon.height * scaleY;
-    ctx.fillStyle = isLit ? __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["COLORS"].iconActive : __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["COLORS"].iconInactive;
+    ctx.fillStyle = isLit ? __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["COLORS"].iconActive : __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["COLORS"].iconInactive;
     ctx.shadowBlur = isLit ? 10 : 0;
-    ctx.shadowColor = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["COLORS"].iconActive;
+    ctx.shadowColor = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["COLORS"].iconActive;
     ctx.fillRect(x, y, w, h);
     ctx.shadowBlur = 0;
 };
-if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
-    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
-}
 }),
-"[project]/components/dot-matrix/masked-display.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"[project]/components/dot-matrix/masked-display.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 // components/dot-matrix/masked-display.tsx
@@ -24940,63 +24899,57 @@ __turbopack_context__.s([
     "MaskedDotMatrix",
     ()=>MaskedDotMatrix
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
-;
-var _s = __turbopack_context__.k.signature();
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 'use client';
 ;
+;
 function MaskedDotMatrix({ width, height, maskSrc, active, iconX = 0, iconY = 0, iconWidth, iconHeight, color = '#1fd7f0', inactiveColor = 'rgba(35, 30, 45, 0.0)', dotSize = 3, gap = 2, className }) {
-    _s();
-    const canvasRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const [points, setPoints] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
-    const [isLoaded, setIsLoaded] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "MaskedDotMatrix.useEffect": ()=>{
-            const img = new Image();
-            img.src = maskSrc;
-            img.crossOrigin = 'anonymous';
-            img.onload = ({
-                "MaskedDotMatrix.useEffect": ()=>{
-                    const offCanvas = document.createElement('canvas');
-                    offCanvas.width = width;
-                    offCanvas.height = height;
-                    const ctx = offCanvas.getContext('2d');
-                    if (!ctx) return;
-                    // 描画エリアをクリア
-                    ctx.clearRect(0, 0, width, height);
-                    // ★指定された位置とサイズでマスク画像を描画
-                    const drawW = iconWidth || width;
-                    const drawH = iconHeight || height;
-                    ctx.drawImage(img, iconX, iconY, drawW, drawH);
-                    const imageData = ctx.getImageData(0, 0, width, height).data;
-                    const validPoints = [];
-                    const step = dotSize + gap;
-                    // 画像が描画された範囲だけを重点的にスキャン（パフォーマンス最適化）
-                    // ※念のため全体スキャンでも良いが、範囲指定した方が軽い
-                    const startX = Math.max(0, Math.floor(iconX / step) * step);
-                    const endX = Math.min(width, startX + drawW + step);
-                    const startY = Math.max(0, Math.floor(iconY / step) * step);
-                    const endY = Math.min(height, startY + drawH + step);
-                    for(let y = startY; y < endY; y += step){
-                        for(let x = startX; x < endX; x += step){
-                            const index = (y * width + x) * 4 + 3 // アルファチャンネル
-                            ;
-                            // 不透明度が一定以上なら「光るドット」とみなす
-                            if (imageData[index] > 100) {
-                                validPoints.push({
-                                    x,
-                                    y
-                                });
-                            }
-                        }
+    const canvasRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const [points, setPoints] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [isLoaded, setIsLoaded] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const img = new Image();
+        img.src = maskSrc;
+        img.crossOrigin = 'anonymous';
+        img.onload = ()=>{
+            const offCanvas = document.createElement('canvas');
+            offCanvas.width = width;
+            offCanvas.height = height;
+            const ctx = offCanvas.getContext('2d');
+            if (!ctx) return;
+            // 描画エリアをクリア
+            ctx.clearRect(0, 0, width, height);
+            // ★指定された位置とサイズでマスク画像を描画
+            const drawW = iconWidth || width;
+            const drawH = iconHeight || height;
+            ctx.drawImage(img, iconX, iconY, drawW, drawH);
+            const imageData = ctx.getImageData(0, 0, width, height).data;
+            const validPoints = [];
+            const step = dotSize + gap;
+            // 画像が描画された範囲だけを重点的にスキャン（パフォーマンス最適化）
+            // ※念のため全体スキャンでも良いが、範囲指定した方が軽い
+            const startX = Math.max(0, Math.floor(iconX / step) * step);
+            const endX = Math.min(width, startX + drawW + step);
+            const startY = Math.max(0, Math.floor(iconY / step) * step);
+            const endY = Math.min(height, startY + drawH + step);
+            for(let y = startY; y < endY; y += step){
+                for(let x = startX; x < endX; x += step){
+                    const index = (y * width + x) * 4 + 3 // アルファチャンネル
+                    ;
+                    // 不透明度が一定以上なら「光るドット」とみなす
+                    if (imageData[index] > 100) {
+                        validPoints.push({
+                            x,
+                            y
+                        });
                     }
-                    setPoints(validPoints);
-                    setIsLoaded(true);
                 }
-            })["MaskedDotMatrix.useEffect"];
-        }
-    }["MaskedDotMatrix.useEffect"], [
+            }
+            setPoints(validPoints);
+            setIsLoaded(true);
+        };
+    }, [
         maskSrc,
         width,
         height,
@@ -25007,27 +24960,23 @@ function MaskedDotMatrix({ width, height, maskSrc, active, iconX = 0, iconY = 0,
         iconWidth,
         iconHeight
     ]);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "MaskedDotMatrix.useEffect": ()=>{
-            const canvas = canvasRef.current;
-            const ctx = canvas?.getContext('2d');
-            if (!canvas || !ctx || !isLoaded) return;
-            ctx.clearRect(0, 0, width, height);
-            // 点灯時は指定色、消灯時は透明(または指定色)
-            ctx.fillStyle = active ? color : inactiveColor;
-            if (active) {
-                ctx.shadowBlur = 5;
-                ctx.shadowColor = color;
-            } else {
-                ctx.shadowBlur = 0;
-            }
-            points.forEach({
-                "MaskedDotMatrix.useEffect": (p)=>{
-                    ctx.fillRect(p.x, p.y, dotSize, dotSize);
-                }
-            }["MaskedDotMatrix.useEffect"]);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const canvas = canvasRef.current;
+        const ctx = canvas?.getContext('2d');
+        if (!canvas || !ctx || !isLoaded) return;
+        ctx.clearRect(0, 0, width, height);
+        // 点灯時は指定色、消灯時は透明(または指定色)
+        ctx.fillStyle = active ? color : inactiveColor;
+        if (active) {
+            ctx.shadowBlur = 5;
+            ctx.shadowColor = color;
+        } else {
+            ctx.shadowBlur = 0;
         }
-    }["MaskedDotMatrix.useEffect"], [
+        points.forEach((p)=>{
+            ctx.fillRect(p.x, p.y, dotSize, dotSize);
+        });
+    }, [
         active,
         points,
         isLoaded,
@@ -25037,7 +24986,7 @@ function MaskedDotMatrix({ width, height, maskSrc, active, iconX = 0, iconY = 0,
         height,
         dotSize
     ]);
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("canvas", {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("canvas", {
         ref: canvasRef,
         width: width,
         height: height,
@@ -25048,30 +24997,69 @@ function MaskedDotMatrix({ width, height, maskSrc, active, iconX = 0, iconY = 0,
         columnNumber: 10
     }, this);
 }
-_s(MaskedDotMatrix, "w82FlFxIsle1AKCOOUjjEo3/YRU=");
-_c = MaskedDotMatrix;
-var _c;
-__turbopack_context__.k.register(_c, "MaskedDotMatrix");
-if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
-    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
-}
 }),
-"[project]/components/spectrum-analyzer/icons-layer.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"[project]/components/icons/mp3-logo [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
+
+}),
+"[project]/components/spectrum-analyzer/icon-definitions.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// components/spectrum-analyzer/icons-layer.tsx
+// components/spectrum-analyzer/icon-definitions.tsx
+__turbopack_context__.s([
+    "CUSTOM_ICONS",
+    ()=>CUSTOM_ICONS
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$icons$2f$mp3$2d$logo__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/icons/mp3-logo [app-ssr] (ecmascript)"); // ★さっき作ったコンポーネント
+;
+const basePath = ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : '';
+const CUSTOM_ICONS = [
+    {
+        id: 'mp3-logo',
+        name: 'MP3',
+        type: 'COMPONENT',
+        component: __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$icons$2f$mp3$2d$logo__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Mp3Logo"],
+        activeModes: [
+            'PEAK_HOLD',
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: (_, hasFile)=>hasFile,
+        x: 1180,
+        y: 45,
+        width: 80,
+        height: 40,
+        color: '#ff0055' // ★ここで指定した色がSVGに渡されます
+    },
+    // ... 他のアイコン（DOT_MATRIXなど）はそのまま ...
+    {
+        id: 'note-1',
+        name: '音符1',
+        type: 'DOT_MATRIX',
+        maskSrc: `${basePath}/images/masks/icon-note1.png`,
+        activeModes: [
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: (isPlaying)=>isPlaying,
+        x: 370,
+        y: 82,
+        width: 15,
+        height: 10,
+        color: '#1fd7f0'
+    }
+];
+}),
+"[project]/components/spectrum-analyzer/icons-layer.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
 __turbopack_context__.s([
     "IconsLayer",
     ()=>IconsLayer
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$masked$2d$display$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/dot-matrix/masked-display.tsx [app-client] (ecmascript)");
-(()=>{
-    const e = new Error("Cannot find module './icon-definitions'");
-    e.code = 'MODULE_NOT_FOUND';
-    throw e;
-})();
-var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/spectrum-analyzer/config.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$masked$2d$display$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/dot-matrix/masked-display.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$icon$2d$definitions$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/spectrum-analyzer/icon-definitions.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/spectrum-analyzer/config.ts [app-ssr] (ecmascript)");
 'use client';
 ;
 ;
@@ -25079,68 +25067,60 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$an
 ;
 function IconsLayer({ displayMode, isPlaying, audioFile, width, height }) {
     const hasFile = !!audioFile;
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "absolute top-0 left-0 w-full h-full pointer-events-none z-20",
-        children: CUSTOM_ICONS.map((icon)=>{
+        children: __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$icon$2d$definitions$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CUSTOM_ICONS"].map((icon)=>{
             const isModeActive = icon.activeModes.includes(displayMode);
             const isConditionMet = icon.condition ? icon.condition(isPlaying, hasFile) : true;
             const isActive = isModeActive && isConditionMet;
-            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$masked$2d$display$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MaskedDotMatrix"], {
+            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$masked$2d$display$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["MaskedDotMatrix"], {
                 width: width,
                 height: height,
                 maskSrc: icon.maskSrc,
                 active: isActive,
-                // ★ここが変更点：定義ファイルから位置・サイズ・色を渡す
+                // ★位置・サイズ・色を渡す
                 iconX: icon.x,
                 iconY: icon.y,
                 iconWidth: icon.width,
                 iconHeight: icon.height,
-                color: icon.color || __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["COLORS"].iconActive,
+                color: icon.color || __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["COLORS"].iconActive,
                 className: "absolute top-0 left-0 w-full h-full"
             }, icon.id, false, {
                 fileName: "[project]/components/spectrum-analyzer/icons-layer.tsx",
-                lineNumber: 34,
+                lineNumber: 33,
                 columnNumber: 11
             }, this);
         })
     }, void 0, false, {
         fileName: "[project]/components/spectrum-analyzer/icons-layer.tsx",
-        lineNumber: 27,
+        lineNumber: 26,
         columnNumber: 5
     }, this);
 }
-_c = IconsLayer;
-var _c;
-__turbopack_context__.k.register(_c, "IconsLayer");
-if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
-    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
-}
 }),
-"[project]/components/spectrum-analyzer/index.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"[project]/components/spectrum-analyzer/index.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s([
     "SpectrumAnalyzer",
     ()=>SpectrumAnalyzer
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-jsx/style.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/button.tsx [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$play$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Play$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/play.js [app-client] (ecmascript) <export default as Play>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$pause$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Pause$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/pause.js [app-client] (ecmascript) <export default as Pause>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$upload$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Upload$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/upload.js [app-client] (ecmascript) <export default as Upload>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Eye$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/eye.js [app-client] (ecmascript) <export default as Eye>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2d$off$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__EyeOff$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/eye-off.js [app-client] (ecmascript) <export default as EyeOff>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$monitor$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Monitor$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/monitor.js [app-client] (ecmascript) <export default as Monitor>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$index$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/dot-matrix/index.tsx [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/spectrum-analyzer/config.ts [app-client] (ecmascript)"); // ICON_CONFIG削除済み
-var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/spectrum-analyzer/utils.ts [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$icons$2d$layer$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/spectrum-analyzer/icons-layer.tsx [app-client] (ecmascript)"); // 新規レイヤー読み込み
-;
-var _s = __turbopack_context__.k.signature();
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-jsx/style.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/button.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$play$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Play$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/play.js [app-ssr] (ecmascript) <export default as Play>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$pause$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Pause$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/pause.js [app-ssr] (ecmascript) <export default as Pause>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$upload$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Upload$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/upload.js [app-ssr] (ecmascript) <export default as Upload>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Eye$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/eye.js [app-ssr] (ecmascript) <export default as Eye>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2d$off$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__EyeOff$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/eye-off.js [app-ssr] (ecmascript) <export default as EyeOff>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$monitor$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Monitor$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/monitor.js [app-ssr] (ecmascript) <export default as Monitor>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$index$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/dot-matrix/index.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/spectrum-analyzer/config.ts [app-ssr] (ecmascript)"); // ICON_CONFIG削除済み
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/spectrum-analyzer/utils.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$icons$2d$layer$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/spectrum-analyzer/icons-layer.tsx [app-ssr] (ecmascript)"); // 新規レイヤー読み込み
 'use client';
+;
 ;
 ;
 ;
@@ -25150,67 +25130,56 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 function SpectrumAnalyzer() {
-    _s();
     // ... (状態定義などは変更なし)
-    const [imageLoaded, setImageLoaded] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [isPlaying, setIsPlaying] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [audioFile, setAudioFile] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [fileName, setFileName] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
-    const [currentTime, setCurrentTime] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
-    const [duration, setDuration] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
-    const [showGuide, setShowGuide] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].showGuide);
-    const [displayMode, setDisplayMode] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('UPLOAD_PROMPT');
-    const canvasRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const audioRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const audioContextRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const analyzerRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const sourceRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const animationRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const previousLevelsRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(new Array(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].numBands).fill(0));
-    const peakHoldsRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(new Array(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].numBands).fill(null).map({
-        "SpectrumAnalyzer.useRef[peakHoldsRef]": ()=>({
-                level: 0,
-                timestamp: 0
-            })
-    }["SpectrumAnalyzer.useRef[peakHoldsRef]"]));
-    const sidePeakHoldsRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(new Array(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].numBands).fill(null).map({
-        "SpectrumAnalyzer.useRef[sidePeakHoldsRef]": ()=>({
-                level: 0,
-                timestamp: 0
-            })
-    }["SpectrumAnalyzer.useRef[sidePeakHoldsRef]"]));
-    const guideImageRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const audioInitializedRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(false);
+    const [imageLoaded, setImageLoaded] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [isPlaying, setIsPlaying] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [audioFile, setAudioFile] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [fileName, setFileName] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
+    const [currentTime, setCurrentTime] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(0);
+    const [duration, setDuration] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(0);
+    const [showGuide, setShowGuide] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].showGuide);
+    const [displayMode, setDisplayMode] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('UPLOAD_PROMPT');
+    const canvasRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const audioRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const audioContextRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const analyzerRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const sourceRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const animationRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const previousLevelsRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(new Array(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].numBands).fill(0));
+    const peakHoldsRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(new Array(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].numBands).fill(null).map(()=>({
+            level: 0,
+            timestamp: 0
+        })));
+    const sidePeakHoldsRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(new Array(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].numBands).fill(null).map(()=>({
+            level: 0,
+            timestamp: 0
+        })));
+    const guideImageRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const audioInitializedRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(false);
     // ... (useEffect, initializeAudio など変更なし) ...
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "SpectrumAnalyzer.useEffect": ()=>{
-            const img = new Image();
-            img.crossOrigin = 'anonymous';
-            const basePath = ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : '';
-            img.src = `${basePath}/images/guide.png`;
-            img.onload = ({
-                "SpectrumAnalyzer.useEffect": ()=>{
-                    guideImageRef.current = img;
-                    setImageLoaded(true);
-                }
-            })["SpectrumAnalyzer.useEffect"];
-            return ({
-                "SpectrumAnalyzer.useEffect": ()=>{
-                    if (animationRef.current) cancelAnimationFrame(animationRef.current);
-                    if (audioContextRef.current?.state !== 'closed') audioContextRef.current?.close();
-                }
-            })["SpectrumAnalyzer.useEffect"];
-        }
-    }["SpectrumAnalyzer.useEffect"], []);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        const basePath = ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : '';
+        img.src = `${basePath}/images/guide.png`;
+        img.onload = ()=>{
+            guideImageRef.current = img;
+            setImageLoaded(true);
+        };
+        return ()=>{
+            if (animationRef.current) cancelAnimationFrame(animationRef.current);
+            if (audioContextRef.current?.state !== 'closed') audioContextRef.current?.close();
+        };
+    }, []);
     const initializeAudio = ()=>{
         if (!audioRef.current || audioInitializedRef.current) return;
         try {
             const audioContext = new AudioContext();
             const analyzer = audioContext.createAnalyser();
-            analyzer.fftSize = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].fftSize;
-            analyzer.smoothingTimeConstant = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].smoothing;
-            analyzer.minDecibels = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].minDecibels;
-            analyzer.maxDecibels = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].maxDecibels;
+            analyzer.fftSize = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].fftSize;
+            analyzer.smoothingTimeConstant = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].smoothing;
+            analyzer.minDecibels = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].minDecibels;
+            analyzer.maxDecibels = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].maxDecibels;
             const source = audioContext.createMediaElementSource(audioRef.current);
             source.connect(analyzer);
             analyzer.connect(audioContext.destination);
@@ -25232,7 +25201,7 @@ function SpectrumAnalyzer() {
         ctx.fillStyle = '#000000';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         if (showGuide && guideImageRef.current) {
-            ctx.globalAlpha = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].guideAlpha;
+            ctx.globalAlpha = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].guideAlpha;
             ctx.drawImage(guideImageRef.current, 0, 0, canvas.width, canvas.height);
             ctx.globalAlpha = 1.0;
         }
@@ -25244,11 +25213,11 @@ function SpectrumAnalyzer() {
             const dataArray = new Uint8Array(bufferLength);
             analyzerRef.current.getByteFrequencyData(dataArray);
             if (audioRef.current) setCurrentTime(audioRef.current.currentTime);
-            const rawLevels = (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getAudioLevels"])(dataArray);
-            for(let i = 0; i < __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].numBands; i++){
+            const rawLevels = (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getAudioLevels"])(dataArray);
+            for(let i = 0; i < __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].numBands; i++){
                 const newVal = rawLevels[i];
                 const prevVal = previousLevelsRef.current[i] || 0;
-                displayLevels[i] = newVal > prevVal ? newVal : Math.max(0.0, prevVal - __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].fallSpeed);
+                displayLevels[i] = newVal > prevVal ? newVal : Math.max(0.0, prevVal - __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].fallSpeed);
             }
             previousLevelsRef.current = displayLevels;
         } else {
@@ -25256,58 +25225,56 @@ function SpectrumAnalyzer() {
                 ...previousLevelsRef.current
             ];
         }
-        const startX = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].offsetX;
-        const startYBottom = canvas.height - __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].offsetY;
-        const sideLeftYBottom = canvas.height - __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].offsetY - __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].leftOffsetY;
-        const sideRightYBottom = canvas.height - __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].offsetY - __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].rightOffsetY;
-        for(let bandIdx = 0; bandIdx < __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].numBands; bandIdx++){
+        const startX = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].offsetX;
+        const startYBottom = canvas.height - __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].offsetY;
+        const sideLeftYBottom = canvas.height - __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].offsetY - __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].leftOffsetY;
+        const sideRightYBottom = canvas.height - __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].offsetY - __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].rightOffsetY;
+        for(let bandIdx = 0; bandIdx < __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].numBands; bandIdx++){
             // ... (バンド描画ロジック変更なし) ...
             const mainLevel = displayLevels[bandIdx] || 0;
-            const sideLevel = mainLevel * __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].levelMultiplier;
-            (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["updatePeakHold"])(mainLevel, peakHoldsRef.current[bandIdx], now);
-            (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["updatePeakHold"])(sideLevel, sidePeakHoldsRef.current[bandIdx], now);
-            const bandXBase = startX + bandIdx * (__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].blockWidth + __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].gapX);
-            (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["drawSideBand"])(ctx, sideLevel, sidePeakHoldsRef.current[bandIdx], bandXBase + __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].leftOffsetX, sideLeftYBottom, now);
-            const activeLevel = Math.floor(mainLevel * __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].levelsPerBand);
+            const sideLevel = mainLevel * __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].levelMultiplier;
+            (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["updatePeakHold"])(mainLevel, peakHoldsRef.current[bandIdx], now);
+            (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["updatePeakHold"])(sideLevel, sidePeakHoldsRef.current[bandIdx], now);
+            const bandXBase = startX + bandIdx * (__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].blockWidth + __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].gapX);
+            (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["drawSideBand"])(ctx, sideLevel, sidePeakHoldsRef.current[bandIdx], bandXBase + __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].leftOffsetX, sideLeftYBottom, now);
+            const activeLevel = Math.floor(mainLevel * __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].levelsPerBand);
             const activeSegments = activeLevel * 2;
             const mainPeakHold = peakHoldsRef.current[bandIdx];
             let peakLevel = 0;
             let showPeak = false;
-            if (now - mainPeakHold.timestamp < __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].peakHoldTime) {
-                peakLevel = Math.floor(mainPeakHold.level * __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].levelsPerBand);
+            if (now - mainPeakHold.timestamp < __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].peakHoldTime) {
+                peakLevel = Math.floor(mainPeakHold.level * __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].levelsPerBand);
                 showPeak = peakLevel > activeLevel;
             }
             let currentYBottom = startYBottom;
-            for(let segIdx = 0; segIdx < __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].segmentsPerBand; segIdx++){
-                const xOffset = segIdx * __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].stackSlant;
+            for(let segIdx = 0; segIdx < __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].segmentsPerBand; segIdx++){
+                const xOffset = segIdx * __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].stackSlant;
                 const xDraw = bandXBase + xOffset;
                 const yDraw = currentYBottom;
                 const currentSegLevel = Math.floor(segIdx / 2);
                 const isPeakSegment = showPeak && currentSegLevel === peakLevel;
                 let color;
                 if (segIdx < activeSegments || isPeakSegment) {
-                    color = (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getSegmentColor"])(currentSegLevel);
+                    color = (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getSegmentColor"])(currentSegLevel);
                 } else {
-                    color = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["COLORS"].inactive;
+                    color = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["COLORS"].inactive;
                 }
-                (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["drawDoubleSlantedPolygon"])(ctx, color, xDraw, yDraw, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].blockWidth, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].blockHeight, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].slantLR, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].slopeTB);
-                const currentGapY = segIdx % 2 === 0 ? __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].gapY1 : __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].gapY2;
-                currentYBottom -= __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].blockHeight + currentGapY;
+                (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["drawDoubleSlantedPolygon"])(ctx, color, xDraw, yDraw, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].blockWidth, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].blockHeight, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].slantLR, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].slopeTB);
+                const currentGapY = segIdx % 2 === 0 ? __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].gapY1 : __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].gapY2;
+                currentYBottom -= __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].blockHeight + currentGapY;
             }
-            (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["drawSideBand"])(ctx, sideLevel, sidePeakHoldsRef.current[bandIdx], bandXBase + __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].rightOffsetX, sideRightYBottom, now);
+            (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["drawSideBand"])(ctx, sideLevel, sidePeakHoldsRef.current[bandIdx], bandXBase + __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SIDE_BAND_CONFIG"].rightOffsetX, sideRightYBottom, now);
         }
         // ICONの描画ループは削除 (IconsLayerコンポーネント側で行うため)
         animationRef.current = requestAnimationFrame(drawSpectrum);
     };
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "SpectrumAnalyzer.useEffect": ()=>{
-            if (animationRef.current) {
-                cancelAnimationFrame(animationRef.current);
-                animationRef.current = null;
-            }
-            drawSpectrum();
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        if (animationRef.current) {
+            cancelAnimationFrame(animationRef.current);
+            animationRef.current = null;
         }
-    }["SpectrumAnalyzer.useEffect"], [
+        drawSpectrum();
+    }, [
         isPlaying,
         imageLoaded,
         showGuide,
@@ -25315,28 +25282,20 @@ function SpectrumAnalyzer() {
         audioFile
     ]);
     // ... (以下イベントハンドラなどは元のまま) ...
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "SpectrumAnalyzer.useEffect": ()=>{
-            const audio = audioRef.current;
-            if (!audio) return;
-            const updateTime = {
-                "SpectrumAnalyzer.useEffect.updateTime": ()=>setCurrentTime(audio.currentTime)
-            }["SpectrumAnalyzer.useEffect.updateTime"];
-            const updateDuration = {
-                "SpectrumAnalyzer.useEffect.updateDuration": ()=>setDuration(audio.duration)
-            }["SpectrumAnalyzer.useEffect.updateDuration"];
-            audio.addEventListener('timeupdate', updateTime);
-            audio.addEventListener('loadedmetadata', updateDuration);
-            audio.addEventListener('durationchange', updateDuration);
-            return ({
-                "SpectrumAnalyzer.useEffect": ()=>{
-                    audio.removeEventListener('timeupdate', updateTime);
-                    audio.removeEventListener('loadedmetadata', updateDuration);
-                    audio.removeEventListener('durationchange', updateDuration);
-                }
-            })["SpectrumAnalyzer.useEffect"];
-        }
-    }["SpectrumAnalyzer.useEffect"], [
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const audio = audioRef.current;
+        if (!audio) return;
+        const updateTime = ()=>setCurrentTime(audio.currentTime);
+        const updateDuration = ()=>setDuration(audio.duration);
+        audio.addEventListener('timeupdate', updateTime);
+        audio.addEventListener('loadedmetadata', updateDuration);
+        audio.addEventListener('durationchange', updateDuration);
+        return ()=>{
+            audio.removeEventListener('timeupdate', updateTime);
+            audio.removeEventListener('loadedmetadata', updateDuration);
+            audio.removeEventListener('durationchange', updateDuration);
+        };
+    }, [
         audioFile
     ]);
     const handlePlay = async ()=>{
@@ -25361,7 +25320,7 @@ function SpectrumAnalyzer() {
             setIsPlaying(false);
             if (audioFile) URL.revokeObjectURL(audioFile);
             setAudioFile(URL.createObjectURL(file));
-            previousLevelsRef.current = new Array(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].numBands).fill(0);
+            previousLevelsRef.current = new Array(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SPECTRUM_CONFIG"].numBands).fill(0);
             setCurrentTime(0);
             setDuration(0);
             e.target.value = '';
@@ -25435,13 +25394,13 @@ function SpectrumAnalyzer() {
             matrixText = "UPLOAD AUDIO";
             break;
     }
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "w-full max-w-[1400px] mx-auto space-y-4",
         children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "bg-black rounded-none overflow-hidden relative",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("canvas", {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("canvas", {
                         ref: canvasRef,
                         width: 1400,
                         height: 400,
@@ -25451,7 +25410,7 @@ function SpectrumAnalyzer() {
                         lineNumber: 305,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$index$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DotMatrixDisplay"], {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$index$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DotMatrixDisplay"], {
                         width: 1400,
                         height: 400,
                         className: "absolute top-0 left-0 w-full h-full pointer-events-none z-10",
@@ -25462,7 +25421,7 @@ function SpectrumAnalyzer() {
                         lineNumber: 308,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$icons$2d$layer$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["IconsLayer"], {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$icons$2d$layer$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["IconsLayer"], {
                         displayMode: displayMode,
                         isPlaying: isPlaying,
                         audioFile: audioFile,
@@ -25479,11 +25438,11 @@ function SpectrumAnalyzer() {
                 lineNumber: 303,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "w-full space-y-2",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].dynamic([
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
                             [
                                 "47cfbccbfea67f55",
                                 [
@@ -25493,14 +25452,14 @@ function SpectrumAnalyzer() {
                             ]
                         ]) + " " + "relative w-full",
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                 type: "range",
                                 min: "0",
                                 max: duration || 0,
                                 value: currentTime,
                                 onChange: handleSeek,
                                 disabled: !audioFile,
-                                className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
                                     [
                                         "47cfbccbfea67f55",
                                         [
@@ -25514,7 +25473,7 @@ function SpectrumAnalyzer() {
                                 lineNumber: 329,
                                 columnNumber: 11
                             }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                                 id: "47cfbccbfea67f55",
                                 dynamic: [
                                     currentTime / (duration || 1) * 100,
@@ -25528,14 +25487,14 @@ function SpectrumAnalyzer() {
                         lineNumber: 328,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex justify-end",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "text-xs text-white/50 font-mono tracking-wider",
                             children: [
-                                (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["formatTime"])(currentTime),
+                                (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["formatTime"])(currentTime),
                                 " / ",
-                                (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["formatTime"])(duration)
+                                (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["formatTime"])(duration)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/spectrum-analyzer/index.tsx",
@@ -25553,7 +25512,7 @@ function SpectrumAnalyzer() {
                 lineNumber: 327,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex justify-center items-center h-6 text-sm font-light tracking-widest text-white/70 font-mono",
                 children: fileName
             }, void 0, false, {
@@ -25561,10 +25520,10 @@ function SpectrumAnalyzer() {
                 lineNumber: 359,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex items-center gap-3",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                         type: "file",
                         accept: "audio/*",
                         onChange: handleFileUpload,
@@ -25575,16 +25534,16 @@ function SpectrumAnalyzer() {
                         lineNumber: 364,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                         htmlFor: "audio-upload",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                             size: "sm",
                             asChild: true,
                             className: "bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer",
-                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "flex items-center gap-2",
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$upload$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Upload$3e$__["Upload"], {
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$upload$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Upload$3e$__["Upload"], {
                                         className: "h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/components/spectrum-analyzer/index.tsx",
@@ -25608,14 +25567,14 @@ function SpectrumAnalyzer() {
                         lineNumber: 365,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                         onClick: isPlaying ? handlePause : handlePlay,
                         size: "sm",
                         disabled: !audioFile,
                         className: "bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer",
-                        children: isPlaying ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                        children: isPlaying ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$pause$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Pause$3e$__["Pause"], {
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$pause$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Pause$3e$__["Pause"], {
                                     className: "h-4 w-4 mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/components/spectrum-analyzer/index.tsx",
@@ -25624,9 +25583,9 @@ function SpectrumAnalyzer() {
                                 }, this),
                                 " PAUSE"
                             ]
-                        }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                        }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$play$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Play$3e$__["Play"], {
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$play$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Play$3e$__["Play"], {
                                     className: "h-4 w-4 mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/components/spectrum-analyzer/index.tsx",
@@ -25641,12 +25600,12 @@ function SpectrumAnalyzer() {
                         lineNumber: 370,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                         onClick: handleDispClick,
                         size: "sm",
                         className: "bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer",
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$monitor$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Monitor$3e$__["Monitor"], {
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$monitor$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Monitor$3e$__["Monitor"], {
                                 className: "h-4 w-4 mr-2"
                             }, void 0, false, {
                                 fileName: "[project]/components/spectrum-analyzer/index.tsx",
@@ -25660,13 +25619,13 @@ function SpectrumAnalyzer() {
                         lineNumber: 373,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                         onClick: ()=>setShowGuide(!showGuide),
                         size: "sm",
                         className: "bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer",
-                        children: showGuide ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                        children: showGuide ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2d$off$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__EyeOff$3e$__["EyeOff"], {
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2d$off$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__EyeOff$3e$__["EyeOff"], {
                                     className: "h-4 w-4 mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/components/spectrum-analyzer/index.tsx",
@@ -25675,9 +25634,9 @@ function SpectrumAnalyzer() {
                                 }, this),
                                 " GUIDE OFF"
                             ]
-                        }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                        }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Eye$3e$__["Eye"], {
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Eye$3e$__["Eye"], {
                                     className: "h-4 w-4 mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/components/spectrum-analyzer/index.tsx",
@@ -25698,7 +25657,7 @@ function SpectrumAnalyzer() {
                 lineNumber: 363,
                 columnNumber: 7
             }, this),
-            audioFile && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("audio", {
+            audioFile && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("audio", {
                 ref: audioRef,
                 src: audioFile,
                 className: "hidden",
@@ -25708,7 +25667,7 @@ function SpectrumAnalyzer() {
                 lineNumber: 380,
                 columnNumber: 21
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 style: {
                     color: 'white',
                     fontSize: '10px'
@@ -25726,30 +25685,23 @@ function SpectrumAnalyzer() {
         columnNumber: 6
     }, this);
 }
-_s(SpectrumAnalyzer, "ONJCINRwmV7K1cQQAFTsGrQZaSc=");
-_c = SpectrumAnalyzer;
-var _c;
-__turbopack_context__.k.register(_c, "SpectrumAnalyzer");
-if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
-    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
-}
 }),
-"[project]/app/page.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"[project]/app/page.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s([
     "default",
     ()=>Home
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$index$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/spectrum-analyzer/index.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$index$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/spectrum-analyzer/index.tsx [app-ssr] (ecmascript)");
 'use client';
 ;
 ;
 function Home() {
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
         className: "min-h-screen bg-black flex items-center justify-center p-4",
-        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$index$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SpectrumAnalyzer"], {}, void 0, false, {
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$index$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SpectrumAnalyzer"], {}, void 0, false, {
             fileName: "[project]/app/page.tsx",
             lineNumber: 8,
             columnNumber: 7
@@ -25760,13 +25712,7 @@ function Home() {
         columnNumber: 5
     }, this);
 }
-_c = Home;
-var _c;
-__turbopack_context__.k.register(_c, "Home");
-if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
-    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
-}
 }),
-]);
+];
 
-//# sourceMappingURL=_5e1b83f4._.js.map
+//# sourceMappingURL=_eae90788._.js.map
