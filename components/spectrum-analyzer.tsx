@@ -108,8 +108,7 @@ export function SpectrumAnalyzer() {
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
   const [showGuide, setShowGuide] = useState(SPECTRUM_CONFIG.showGuide)
-  const [displayMode, setDisplayMode] = useState<'TEXT' | 'ANIMATION'>('TEXT')
-  const [displayText, setDisplayText] = useState("PEAK HOLD")
+  const [displayMode, setDisplayMode] = useState<'DEFAULT' | 'ANIMATION' | 'MUSIC'>('DEFAULT')
   
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const audioRef = useRef<HTMLAudioElement>(null)
@@ -173,6 +172,33 @@ export function SpectrumAnalyzer() {
     } else {
       return COLORS.activeTop;    // 青
     }
+  }
+
+  const handleDispClick = () => {
+    // 3つの状態をループさせる
+    if (displayMode === 'DEFAULT') {
+      setDisplayMode('ANIMATION')
+    } else if (displayMode === 'ANIMATION') {
+      setDisplayMode('MUSIC')
+    } else {
+      setDisplayMode('DEFAULT')
+    }
+  }
+
+  let matrixText = "PEAK HOLD"
+  let matrixMode: 'TEXT' | 'ANIMATION' = 'TEXT'
+
+  if (displayMode === 'ANIMATION') {
+    matrixMode = 'ANIMATION'
+  } else if (displayMode === 'MUSIC') {
+    matrixMode = 'TEXT'
+    // 拡張子 (.mp3, .wav など) を削除する正規表現
+    // 最後のドット以降を削除。ファイル名がない場合は "NO FILE"
+    matrixText = fileName ? fileName.replace(/\.[^/.]+$/, "") : "NO FILE"
+  } else {
+    // DEFAULT
+    matrixMode = 'TEXT'
+    matrixText = "PEAK HOLD"
   }
 
   const drawDoubleSlantedPolygon = (
@@ -448,15 +474,6 @@ export function SpectrumAnalyzer() {
     return `${mins}:${secs.toString().padStart(2, '0')}`
   }
 
-  const handleDispClick = () => {
-    if (displayMode === 'TEXT') {
-      setDisplayMode('ANIMATION')
-    } else {
-      setDisplayMode('TEXT')
-      setDisplayText("PEAK HOLD") // Reset text just in case
-    }
-  }
-
   return (
      <div className="w-full max-w-[1400px] mx-auto space-y-4">
       <div className="bg-black rounded-none overflow-hidden relative"> {/* Add relative positioning */}
@@ -466,8 +483,8 @@ export function SpectrumAnalyzer() {
           width={1400} 
           height={400} 
           className="absolute top-0 left-0 w-full h-full pointer-events-none z-10" 
-          text={displayText}
-          mode={displayMode}
+          text={matrixText}
+          mode={matrixMode}
         />
       </div>
 

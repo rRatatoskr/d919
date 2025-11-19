@@ -24350,6 +24350,57 @@ const CHAR_PATTERNS = {
             0,
             0
         ]
+    ],
+    '\'': [
+        [
+            0,
+            1,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            1,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
     ]
 };
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
@@ -24378,71 +24429,140 @@ var _s = __turbopack_context__.k.signature();
 function DotMatrixDisplay({ width = 600, height = 100, className, text = "PEAK HOLD", mode = 'TEXT' }) {
     _s();
     const canvasRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    // ==========================================
+    // ⚙️ スクロール動作の設定
+    // ==========================================
+    const SCROLL_CONFIG = {
+        startPause: 2000,
+        speed: 20,
+        charGap: 2
+    };
+    // 状態管理
+    const stateRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])('STATIC');
+    const stateStartTimeRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(0);
+    const scrollOffsetRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(0);
+    const lastTimeRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(0);
     const frameIndexRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(0);
     const lastFrameTimeRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(0);
-    const ANIMATION_SPEED = 30 // ms per frame
-    ;
+    const ANIMATION_SPEED = 30;
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "DotMatrixDisplay.useEffect": ()=>{
+            stateRef.current = 'STATIC';
+            stateStartTimeRef.current = 0;
+            scrollOffsetRef.current = 0;
+            frameIndexRef.current = 0;
+            lastTimeRef.current = 0;
+        }
+    }["DotMatrixDisplay.useEffect"], [
+        mode,
+        text
+    ]);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "DotMatrixDisplay.useEffect": ()=>{
             const canvas = canvasRef.current;
             if (!canvas) return;
             const ctx = canvas.getContext("2d");
             if (!ctx) return;
-            // 描画ループ
             let animationFrameId;
             const render = {
                 "DotMatrixDisplay.useEffect.render": (timestamp)=>{
-                    // キャンバスをクリア
+                    if (!lastTimeRef.current) lastTimeRef.current = timestamp;
+                    if (!stateStartTimeRef.current) stateStartTimeRef.current = timestamp;
+                    const dt = (timestamp - lastTimeRef.current) / 1000;
+                    lastTimeRef.current = timestamp;
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    // 設定の読み込み
+                    // --- 設定値 ---
                     const { position, rows, cols, numCells, pixel, dotGapX, dotGapY, cellGap, color, offColor, glowBlur, debugAllOn } = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DOT_MATRIX_CONFIG"];
+                    const dotPitch = pixel.width + dotGapX;
+                    const cellWidth = cols * dotPitch - dotGapX;
+                    const cellPitch = cellWidth + cellGap;
+                    // ★ここが修正点: 論理的な1文字の幅（ドット列数）
+                    // 文字データ(cols) + 設定した空白(charGap)
+                    const CHAR_COLS = cols + SCROLL_CONFIG.charGap;
+                    // 画面全体の論理列数も空白分を含めて広げる
+                    const screenCols = numCells * CHAR_COLS;
+                    const textCols = (text ? text.length : 0) * CHAR_COLS;
+                    // -------------------------------------------------------
+                    // 状態更新
+                    // -------------------------------------------------------
                     if (mode === 'ANIMATION') {
                         if (timestamp - lastFrameTimeRef.current > ANIMATION_SPEED) {
                             frameIndexRef.current = (frameIndexRef.current + 1) % __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$frames$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DOLPHIN_CUSTOM_FRAMES"].length;
                             lastFrameTimeRef.current = timestamp;
                         }
-                    } else {
-                        frameIndexRef.current = 0; // Reset animation when in text mode
+                    } else if (mode === 'TEXT' && text) {
+                        const isOverflow = text.length > numCells;
+                        if (!isOverflow) {
+                            stateRef.current = 'STATIC';
+                            scrollOffsetRef.current = 0;
+                        } else {
+                            if (stateRef.current === 'STATIC') {
+                                // 待機中
+                                scrollOffsetRef.current = 0;
+                                if (timestamp - stateStartTimeRef.current > SCROLL_CONFIG.startPause) {
+                                    stateRef.current = 'SCROLLING';
+                                }
+                            } else if (stateRef.current === 'SCROLLING') {
+                                const moveAmount = SCROLL_CONFIG.speed * dt;
+                                const prevOffset = scrollOffsetRef.current;
+                                scrollOffsetRef.current += moveAmount;
+                                // ループ判定
+                                if (scrollOffsetRef.current > textCols) {
+                                    scrollOffsetRef.current = -screenCols;
+                                }
+                                // 停止判定
+                                if (prevOffset < 0 && scrollOffsetRef.current >= 0) {
+                                    scrollOffsetRef.current = 0;
+                                    stateRef.current = 'STATIC';
+                                    stateStartTimeRef.current = timestamp;
+                                }
+                            }
+                        }
                     }
+                    // -------------------------------------------------------
+                    // 描画
+                    // -------------------------------------------------------
                     ctx.shadowBlur = glowBlur;
                     ctx.shadowColor = color;
-                    const cellWidth = cols * (pixel.width + dotGapX) - dotGapX;
                     const totalHeight = rows * (pixel.height + dotGapY) - dotGapY;
-                    // 全セルを描画
                     for(let cellIndex = 0; cellIndex < numCells; cellIndex++){
-                        const cellStartX = position.x + cellIndex * (cellWidth + cellGap);
+                        const cellStartX = position.x + cellIndex * cellPitch;
                         const cellStartY = position.y - totalHeight;
-                        // セル内のドットを描画 (5x7)
                         for(let r = 0; r < rows; r++){
-                            // 下からの行インデックス（0始まり）を計算
                             const rowIndexFromBottom = rows - 1 - r;
-                            // stackSlantによるX座標のズレを計算
                             const stackShift = rowIndexFromBottom * pixel.stackSlant;
                             for(let c = 0; c < cols; c++){
-                                const x = cellStartX + c * (pixel.width + dotGapX) + stackShift;
+                                const x = cellStartX + c * dotPitch + stackShift;
                                 const y = cellStartY + r * (pixel.height + dotGapY);
-                                // 点灯状態の判定
                                 let isOn = debugAllOn;
                                 if (!isOn) {
-                                    if (mode === 'TEXT' && text) {
-                                        const char = text[cellIndex] || ' ';
-                                        const pattern = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$patterns$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CHAR_PATTERNS"][char.toUpperCase()] || __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$patterns$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CHAR_PATTERNS"][' '];
-                                        if (pattern && pattern[r] && pattern[r][c]) {
-                                            isOn = true;
-                                        }
-                                    } else if (mode === 'ANIMATION') {
+                                    if (mode === 'ANIMATION') {
                                         const currentFrame = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$frames$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DOLPHIN_CUSTOM_FRAMES"][frameIndexRef.current];
                                         if (currentFrame) {
                                             const cellString = currentFrame[r][cellIndex];
-                                            if (cellString && cellString[c] === '1') {
-                                                isOn = true;
+                                            if (cellString && cellString[c] === '1') isOn = true;
+                                        }
+                                    } else if (mode === 'TEXT' && text) {
+                                        // 論理座標マッピング
+                                        // 各セルも、空白分(charGap)を含んだ幅を持っているとみなして計算
+                                        const logicalCol = cellIndex * CHAR_COLS + c;
+                                        const targetDataCol = Math.floor(logicalCol + scrollOffsetRef.current);
+                                        if (targetDataCol >= 0 && targetDataCol < textCols) {
+                                            const charIndex = Math.floor(targetDataCol / CHAR_COLS);
+                                            const colIndex = targetDataCol % CHAR_COLS;
+                                            // 文字データの範囲内（空白部分でない）場合のみ描画
+                                            if (colIndex < cols) {
+                                                const char = text[charIndex];
+                                                const pattern = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$patterns$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CHAR_PATTERNS"][char.toUpperCase()] || __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$patterns$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CHAR_PATTERNS"][' '];
+                                                if (pattern && pattern[r] && pattern[r][colIndex]) {
+                                                    isOn = true;
+                                                }
                                             }
                                         }
                                     }
                                 }
                                 ctx.fillStyle = isOn ? color : offColor;
                                 ctx.shadowBlur = isOn ? glowBlur : 0;
-                                // ダブルスラントの描画ロジック
                                 const drawX = x;
                                 const drawY = y + pixel.height;
                                 const p4 = {
@@ -24492,11 +24612,11 @@ function DotMatrixDisplay({ width = 600, height = 100, className, text = "PEAK H
         className: className
     }, void 0, false, {
         fileName: "[project]/components/dot-matrix/index.tsx",
-        lineNumber: 140,
+        lineNumber: 210,
         columnNumber: 10
     }, this);
 }
-_s(DotMatrixDisplay, "rOY4ue/sMZ3jAKeCBeR30CTC58U=");
+_s(DotMatrixDisplay, "7UWkMAcADd09QYUAnrUhS6Bedqg=");
 _c = DotMatrixDisplay;
 var _c;
 __turbopack_context__.k.register(_c, "DotMatrixDisplay");
@@ -24606,8 +24726,7 @@ function SpectrumAnalyzer() {
     const [currentTime, setCurrentTime] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
     const [duration, setDuration] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
     const [showGuide, setShowGuide] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(SPECTRUM_CONFIG.showGuide);
-    const [displayMode, setDisplayMode] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('TEXT');
-    const [displayText, setDisplayText] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("PEAK HOLD");
+    const [displayMode, setDisplayMode] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('DEFAULT');
     const canvasRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const audioRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const audioContextRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
@@ -24680,6 +24799,30 @@ function SpectrumAnalyzer() {
             return COLORS.activeTop; // 青
         }
     };
+    const handleDispClick = ()=>{
+        // 3つの状態をループさせる
+        if (displayMode === 'DEFAULT') {
+            setDisplayMode('ANIMATION');
+        } else if (displayMode === 'ANIMATION') {
+            setDisplayMode('MUSIC');
+        } else {
+            setDisplayMode('DEFAULT');
+        }
+    };
+    let matrixText = "PEAK HOLD";
+    let matrixMode = 'TEXT';
+    if (displayMode === 'ANIMATION') {
+        matrixMode = 'ANIMATION';
+    } else if (displayMode === 'MUSIC') {
+        matrixMode = 'TEXT';
+        // 拡張子 (.mp3, .wav など) を削除する正規表現
+        // 最後のドット以降を削除。ファイル名がない場合は "NO FILE"
+        matrixText = fileName ? fileName.replace(/\.[^/.]+$/, "") : "NO FILE";
+    } else {
+        // DEFAULT
+        matrixMode = 'TEXT';
+        matrixText = "PEAK HOLD";
+    }
     const drawDoubleSlantedPolygon = (ctx, color, x, y, w, h, slantLR, slopeTB)=>{
         const p4 = {
             x,
@@ -24916,14 +25059,6 @@ function SpectrumAnalyzer() {
         const secs = Math.floor(seconds % 60);
         return `${mins}:${secs.toString().padStart(2, '0')}`;
     };
-    const handleDispClick = ()=>{
-        if (displayMode === 'TEXT') {
-            setDisplayMode('ANIMATION');
-        } else {
-            setDisplayMode('TEXT');
-            setDisplayText("PEAK HOLD"); // Reset text just in case
-        }
-    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "w-full max-w-[1400px] mx-auto space-y-4",
         children: [
@@ -24938,24 +25073,24 @@ function SpectrumAnalyzer() {
                         className: "w-full h-auto block"
                     }, void 0, false, {
                         fileName: "[project]/components/spectrum-analyzer.tsx",
-                        lineNumber: 463,
+                        lineNumber: 480,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$index$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DotMatrixDisplay"], {
                         width: 1400,
                         height: 400,
                         className: "absolute top-0 left-0 w-full h-full pointer-events-none z-10",
-                        text: displayText,
-                        mode: displayMode
+                        text: matrixText,
+                        mode: matrixMode
                     }, void 0, false, {
                         fileName: "[project]/components/spectrum-analyzer.tsx",
-                        lineNumber: 465,
+                        lineNumber: 482,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/spectrum-analyzer.tsx",
-                lineNumber: 462,
+                lineNumber: 479,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -24990,7 +25125,7 @@ function SpectrumAnalyzer() {
                                 ]) + " " + "w-full h-0.5 bg-white/10 rounded-full appearance-none cursor-pointer disabled:opacity-20 disabled:cursor-not-allowed seek-slider"
                             }, void 0, false, {
                                 fileName: "[project]/components/spectrum-analyzer.tsx",
-                                lineNumber: 476,
+                                lineNumber: 493,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -25004,7 +25139,7 @@ function SpectrumAnalyzer() {
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/spectrum-analyzer.tsx",
-                        lineNumber: 475,
+                        lineNumber: 492,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -25018,18 +25153,18 @@ function SpectrumAnalyzer() {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/spectrum-analyzer.tsx",
-                            lineNumber: 500,
+                            lineNumber: 517,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/spectrum-analyzer.tsx",
-                        lineNumber: 499,
+                        lineNumber: 516,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/spectrum-analyzer.tsx",
-                lineNumber: 474,
+                lineNumber: 491,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -25037,7 +25172,7 @@ function SpectrumAnalyzer() {
                 children: fileName
             }, void 0, false, {
                 fileName: "[project]/components/spectrum-analyzer.tsx",
-                lineNumber: 506,
+                lineNumber: 523,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -25051,7 +25186,7 @@ function SpectrumAnalyzer() {
                         id: "audio-upload"
                     }, void 0, false, {
                         fileName: "[project]/components/spectrum-analyzer.tsx",
-                        lineNumber: 511,
+                        lineNumber: 528,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -25067,24 +25202,24 @@ function SpectrumAnalyzer() {
                                         className: "h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/components/spectrum-analyzer.tsx",
-                                        lineNumber: 514,
+                                        lineNumber: 531,
                                         columnNumber: 55
                                     }, this),
                                     " UPLOAD AUDIO"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/spectrum-analyzer.tsx",
-                                lineNumber: 514,
+                                lineNumber: 531,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/spectrum-analyzer.tsx",
-                            lineNumber: 513,
+                            lineNumber: 530,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/spectrum-analyzer.tsx",
-                        lineNumber: 512,
+                        lineNumber: 529,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -25098,7 +25233,7 @@ function SpectrumAnalyzer() {
                                     className: "h-4 w-4 mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/components/spectrum-analyzer.tsx",
-                                    lineNumber: 518,
+                                    lineNumber: 535,
                                     columnNumber: 26
                                 }, this),
                                 " PAUSE"
@@ -25109,7 +25244,7 @@ function SpectrumAnalyzer() {
                                     className: "h-4 w-4 mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/components/spectrum-analyzer.tsx",
-                                    lineNumber: 518,
+                                    lineNumber: 535,
                                     columnNumber: 74
                                 }, this),
                                 " PLAY"
@@ -25117,7 +25252,7 @@ function SpectrumAnalyzer() {
                         }, void 0, true)
                     }, void 0, false, {
                         fileName: "[project]/components/spectrum-analyzer.tsx",
-                        lineNumber: 517,
+                        lineNumber: 534,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -25129,14 +25264,14 @@ function SpectrumAnalyzer() {
                                 className: "h-4 w-4 mr-2"
                             }, void 0, false, {
                                 fileName: "[project]/components/spectrum-analyzer.tsx",
-                                lineNumber: 521,
+                                lineNumber: 538,
                                 columnNumber: 11
                             }, this),
                             " DISP"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/spectrum-analyzer.tsx",
-                        lineNumber: 520,
+                        lineNumber: 537,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -25149,7 +25284,7 @@ function SpectrumAnalyzer() {
                                     className: "h-4 w-4 mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/components/spectrum-analyzer.tsx",
-                                    lineNumber: 524,
+                                    lineNumber: 541,
                                     columnNumber: 26
                                 }, this),
                                 " GUIDE OFF"
@@ -25160,7 +25295,7 @@ function SpectrumAnalyzer() {
                                     className: "h-4 w-4 mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/components/spectrum-analyzer.tsx",
-                                    lineNumber: 524,
+                                    lineNumber: 541,
                                     columnNumber: 79
                                 }, this),
                                 " GUIDE ON"
@@ -25168,13 +25303,13 @@ function SpectrumAnalyzer() {
                         }, void 0, true)
                     }, void 0, false, {
                         fileName: "[project]/components/spectrum-analyzer.tsx",
-                        lineNumber: 523,
+                        lineNumber: 540,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/spectrum-analyzer.tsx",
-                lineNumber: 510,
+                lineNumber: 527,
                 columnNumber: 7
             }, this),
             audioFile && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("audio", {
@@ -25184,7 +25319,7 @@ function SpectrumAnalyzer() {
                 loop: true
             }, audioFile, false, {
                 fileName: "[project]/components/spectrum-analyzer.tsx",
-                lineNumber: 527,
+                lineNumber: 544,
                 columnNumber: 21
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -25195,17 +25330,17 @@ function SpectrumAnalyzer() {
                 children: "DEPLOYED VERSION 0.2.0"
             }, void 0, false, {
                 fileName: "[project]/components/spectrum-analyzer.tsx",
-                lineNumber: 528,
+                lineNumber: 545,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/spectrum-analyzer.tsx",
-        lineNumber: 461,
+        lineNumber: 478,
         columnNumber: 6
     }, this);
 }
-_s(SpectrumAnalyzer, "tiXgx9G4uMPixoBR1nuthlztIyg=");
+_s(SpectrumAnalyzer, "uwjfivWZm/LaXA8b1JCDzipm5Vw=");
 _c = SpectrumAnalyzer;
 var _c;
 __turbopack_context__.k.register(_c, "SpectrumAnalyzer");

@@ -3382,3 +3382,530 @@ https://nextjs.org/docs/messages/module-not-found
 [14:10:54.541] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
 [14:10:54.541] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
 [14:10:54.541] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763564328350}
+[14:22:39.775] Server  LOG      ✓ Compiled in 53ms
+[14:25:42.657] Server  LOG      ✓ Compiled in 41ms
+[14:25:43.367] Browser ERROR   ./components/spectrum-analyzer.tsx:477:9
+Ecmascript file had an error
+  475 |   }
+  476 |
+> 477 |   const handleDispClick = () => {
+      |         ^^^^^^^^^^^^^^^
+  478 |     if (displayMode === 'TEXT') {
+  479 |       setDisplayMode('ANIMATION')
+  480 |     } else {
+
+the name `handleDispClick` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[14:27:34.790] Server  LOG      ✓ Compiled in 37ms
+[14:27:35.366] Browser ERROR   ./components/spectrum-analyzer.tsx:477:9
+Ecmascript file had an error
+  475 |   }
+  476 |
+> 477 |   const handleDispClick = () => {
+      |         ^^^^^^^^^^^^^^^
+  478 |     if (displayMode === 'TEXT') {
+  479 |       setDisplayMode('ANIMATION')
+  480 |     } else {
+
+the name `handleDispClick` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[14:27:42.140] Server  ERROR    ⨯ ./components/spectrum-analyzer.tsx:477:9
+Ecmascript file had an error
+  475 |   }
+  476 |
+> 477 |   const handleDispClick = () => {
+      |         ^^^^^^^^^^^^^^^
+  478 |     if (displayMode === 'TEXT') {
+  479 |       setDisplayMode('ANIMATION')
+  480 |     } else {
+
+the name `handleDispClick` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+
+[14:27:42.291] Browser ERROR   uncaughtError: Error: ./components/spectrum-analyzer.tsx:477:9
+Ecmascript file had an error
+  475 |   }
+  476 |
+> 477 |   const handleDispClick = () => {
+      |         ^^^^^^^^^^^^^^^
+  478 |     if (displayMode === 'TEXT') {
+  479 |       setDisplayMode('ANIMATION')
+  480 |     } else {
+
+the name `handleDispClick` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+
+[14:27:42.466] Browser ERROR   ./components/spectrum-analyzer.tsx:477:9
+Ecmascript file had an error
+  475 |   }
+  476 |
+> 477 |   const handleDispClick = () => {
+      |         ^^^^^^^^^^^^^^^
+  478 |     if (displayMode === 'TEXT') {
+  479 |       setDisplayMode('ANIMATION')
+  480 |     } else {
+
+the name `handleDispClick` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[14:27:42.466] Browser ERROR   ./components/spectrum-analyzer.tsx:477:9
+Ecmascript file had an error
+  475 |   }
+  476 |
+> 477 |   const handleDispClick = () => {
+      |         ^^^^^^^^^^^^^^^
+  478 |     if (displayMode === 'TEXT') {
+  479 |       setDisplayMode('ANIMATION')
+  480 |     } else {
+
+the name `handleDispClick` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[14:27:43.450] Server  ERROR    ⨯ ./components/spectrum-analyzer.tsx:477:9
+Ecmascript file had an error
+  475 |   }
+  476 |
+> 477 |   const handleDispClick = () => {
+      |         ^^^^^^^^^^^^^^^
+  478 |     if (displayMode === 'TEXT') {
+  479 |       setDisplayMode('ANIMATION')
+  480 |     } else {
+
+the name `handleDispClick` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+
+[14:27:43.563] Browser ERROR   uncaughtError: Error: ./components/spectrum-analyzer.tsx:477:9
+Ecmascript file had an error
+  475 |   }
+  476 |
+> 477 |   const handleDispClick = () => {
+      |         ^^^^^^^^^^^^^^^
+  478 |     if (displayMode === 'TEXT') {
+  479 |       setDisplayMode('ANIMATION')
+  480 |     } else {
+
+the name `handleDispClick` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+
+[14:27:43.701] Browser ERROR   ./components/spectrum-analyzer.tsx:477:9
+Ecmascript file had an error
+  475 |   }
+  476 |
+> 477 |   const handleDispClick = () => {
+      |         ^^^^^^^^^^^^^^^
+  478 |     if (displayMode === 'TEXT') {
+  479 |       setDisplayMode('ANIMATION')
+  480 |     } else {
+
+the name `handleDispClick` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[14:27:43.701] Browser ERROR   ./components/spectrum-analyzer.tsx:477:9
+Ecmascript file had an error
+  475 |   }
+  476 |
+> 477 |   const handleDispClick = () => {
+      |         ^^^^^^^^^^^^^^^
+  478 |     if (displayMode === 'TEXT') {
+  479 |       setDisplayMode('ANIMATION')
+  480 |     } else {
+
+the name `handleDispClick` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[14:27:44.338] Server  ERROR    ⨯ ./components/spectrum-analyzer.tsx:477:9
+Ecmascript file had an error
+  475 |   }
+  476 |
+> 477 |   const handleDispClick = () => {
+      |         ^^^^^^^^^^^^^^^
+  478 |     if (displayMode === 'TEXT') {
+  479 |       setDisplayMode('ANIMATION')
+  480 |     } else {
+
+the name `handleDispClick` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+
+[14:27:44.442] Browser ERROR   uncaughtError: Error: ./components/spectrum-analyzer.tsx:477:9
+Ecmascript file had an error
+  475 |   }
+  476 |
+> 477 |   const handleDispClick = () => {
+      |         ^^^^^^^^^^^^^^^
+  478 |     if (displayMode === 'TEXT') {
+  479 |       setDisplayMode('ANIMATION')
+  480 |     } else {
+
+the name `handleDispClick` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+
+[14:27:44.526] Browser ERROR   ./components/spectrum-analyzer.tsx:477:9
+Ecmascript file had an error
+  475 |   }
+  476 |
+> 477 |   const handleDispClick = () => {
+      |         ^^^^^^^^^^^^^^^
+  478 |     if (displayMode === 'TEXT') {
+  479 |       setDisplayMode('ANIMATION')
+  480 |     } else {
+
+the name `handleDispClick` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[14:27:44.526] Browser ERROR   ./components/spectrum-analyzer.tsx:477:9
+Ecmascript file had an error
+  475 |   }
+  476 |
+> 477 |   const handleDispClick = () => {
+      |         ^^^^^^^^^^^^^^^
+  478 |     if (displayMode === 'TEXT') {
+  479 |       setDisplayMode('ANIMATION')
+  480 |     } else {
+
+the name `handleDispClick` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[14:27:44.535] Server  ERROR    ⨯ ./components/spectrum-analyzer.tsx:477:9
+Ecmascript file had an error
+  475 |   }
+  476 |
+> 477 |   const handleDispClick = () => {
+      |         ^^^^^^^^^^^^^^^
+  478 |     if (displayMode === 'TEXT') {
+  479 |       setDisplayMode('ANIMATION')
+  480 |     } else {
+
+the name `handleDispClick` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+
+[14:27:44.644] Browser ERROR   uncaughtError: Error: ./components/spectrum-analyzer.tsx:477:9
+Ecmascript file had an error
+  475 |   }
+  476 |
+> 477 |   const handleDispClick = () => {
+      |         ^^^^^^^^^^^^^^^
+  478 |     if (displayMode === 'TEXT') {
+  479 |       setDisplayMode('ANIMATION')
+  480 |     } else {
+
+the name `handleDispClick` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+
+[14:27:44.783] Browser ERROR   ./components/spectrum-analyzer.tsx:477:9
+Ecmascript file had an error
+  475 |   }
+  476 |
+> 477 |   const handleDispClick = () => {
+      |         ^^^^^^^^^^^^^^^
+  478 |     if (displayMode === 'TEXT') {
+  479 |       setDisplayMode('ANIMATION')
+  480 |     } else {
+
+the name `handleDispClick` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[14:27:44.783] Browser ERROR   ./components/spectrum-analyzer.tsx:477:9
+Ecmascript file had an error
+  475 |   }
+  476 |
+> 477 |   const handleDispClick = () => {
+      |         ^^^^^^^^^^^^^^^
+  478 |     if (displayMode === 'TEXT') {
+  479 |       setDisplayMode('ANIMATION')
+  480 |     } else {
+
+the name `handleDispClick` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./components/spectrum-analyzer.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/spectrum-analyzer.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[14:28:41.813] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[14:28:42.367] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[14:28:42.367] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[14:28:42.367] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763565395799}
+[14:29:47.561] Server  LOG      ✓ Compiled in 36ms
+[14:29:49.253] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[14:29:49.419] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[14:29:49.419] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[14:29:49.419] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763565463222}
+[14:30:00.871] Server  LOG      ✓ Compiled in 32ms
+[14:30:02.407] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[14:30:02.539] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[14:30:02.539] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[14:30:02.539] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763565476343}
+[14:30:20.624] Server  LOG      ✓ Compiled in 32ms
+[14:30:21.893] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[14:30:22.023] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[14:30:22.023] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[14:30:22.023] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763565495827}
+[14:40:42.473] Server  LOG      ✓ Compiled in 46ms
+[14:40:45.449] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[14:40:45.617] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[14:40:45.617] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[14:40:45.617] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763566119427}
+[14:41:35.466] Server  LOG      ✓ Compiled in 35ms
+[14:41:36.989] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[14:41:37.144] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[14:41:37.144] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[14:41:37.144] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763566170954}
+[14:46:32.942] Server  LOG      ✓ Compiled in 36ms
+[14:46:36.946] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[14:46:37.106] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[14:46:37.106] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[14:46:37.106] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763566470915}
+[14:47:38.143] Server  LOG      ✓ Compiled in 33ms
+[14:47:39.682] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[14:47:39.840] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[14:47:39.840] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[14:47:39.840] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763566533650}
+[14:47:57.548] Server  LOG      ✓ Compiled in 35ms
+[14:47:59.430] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[14:47:59.594] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[14:47:59.594] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[14:47:59.594] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763566553403}
+[14:49:05.040] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[14:49:05.199] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[14:49:05.199] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[14:49:05.199] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763566619008}
+[14:50:25.172] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[14:50:25.336] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[14:50:25.336] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[14:50:25.336] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763566699145}
+[14:51:32.044] Server  LOG      ✓ Compiled in 39ms
+[14:51:33.958] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[14:51:34.129] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[14:51:34.129] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[14:51:34.129] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763566767938}
+[14:52:07.742] Server  LOG      ✓ Compiled in 37ms
+[14:52:09.222] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[14:52:09.384] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[14:52:09.384] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[14:52:09.384] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763566803192}
+[14:52:57.788] Server  LOG      ✓ Compiled in 36ms
+[14:53:00.448] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[14:53:00.610] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[14:53:00.610] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[14:53:00.610] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763566854418}
+[14:57:03.187] Server  LOG      ✓ Compiled in 33ms
+[14:57:09.043] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[14:57:09.187] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[14:57:09.187] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[14:57:09.187] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763567102995}
+[15:00:21.280] Server  LOG      ✓ Compiled in 33ms
+[15:00:24.644] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[15:00:24.806] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[15:00:24.806] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[15:00:24.806] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763567298614}
+[15:07:29.647] Server  LOG      ✓ Compiled in 39ms
+[15:07:33.662] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[15:07:33.832] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[15:07:33.832] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[15:07:33.832] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763567727639}
+[15:11:51.721] Server  LOG      ✓ Compiled in 34ms
+[15:11:57.313] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[15:11:57.488] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[15:11:57.488] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[15:11:57.488] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763567991293}
+[15:49:50.666] Server  LOG      ✓ Compiled in 95ms
+[15:49:53.646] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[15:49:53.809] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[15:49:53.810] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[15:49:53.810] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763570267616}
+[15:51:22.719] Server  LOG      ✓ Compiled in 49ms
+[15:51:26.083] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[15:51:26.220] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[15:51:26.220] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[15:51:26.220] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763570360027}
+[15:56:54.353] Server  LOG      ✓ Compiled in 79ms
+[15:56:56.810] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[15:56:56.991] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[15:56:56.991] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[15:56:56.991] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763570690795}
+[16:04:01.936] Server  LOG      ✓ Compiled in 71ms
+[16:04:05.629] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[16:04:05.808] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[16:04:05.808] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[16:04:05.808] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763571119614}
+[16:08:05.113] Server  LOG      ✓ Compiled in 69ms
+[16:08:08.936] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[16:08:09.117] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[16:08:09.117] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[16:08:09.117] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://192.168.64.70:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://192.168.64.70:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1763571362915}
