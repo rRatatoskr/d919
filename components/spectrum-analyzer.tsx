@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Play, Pause, Upload, Eye, EyeOff } from 'lucide-react'
+import { DotMatrixDisplay } from './dot-matrix-display' // Import DotMatrixDisplay
 
 // ============================================================================
 // 🎨 スペクトラムアナライザー設定
@@ -447,8 +448,14 @@ export function SpectrumAnalyzer() {
 
   return (
      <div className="w-full max-w-[1400px] mx-auto space-y-4">
-      <div className="bg-black rounded-none overflow-hidden">
+      <div className="bg-black rounded-none overflow-hidden relative"> {/* Add relative positioning */}
         <canvas ref={canvasRef} width={1400} height={400} className="w-full h-auto block" />
+        
+        <DotMatrixDisplay 
+          width={1400} 
+          height={400} 
+          className="absolute top-0 left-0 w-full h-full pointer-events-none z-10" 
+        />
       </div>
 
       <div className="w-full space-y-2">

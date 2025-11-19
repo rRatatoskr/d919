@@ -73,6 +73,139 @@ function Button({ className, variant, size, asChild = false, ...props }) {
 }
 ;
 }),
+"[project]/components/dot-matrix-display.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "DOT_MATRIX_CONFIG",
+    ()=>DOT_MATRIX_CONFIG,
+    "DotMatrixDisplay",
+    ()=>DotMatrixDisplay
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+"use client";
+;
+;
+const DOT_MATRIX_CONFIG = {
+    position: {
+        x: 542.7,
+        y: 96.8
+    },
+    // セル（1文字分）の設定
+    rows: 7,
+    cols: 5,
+    numCells: 12,
+    pixel: {
+        width: 5.7,
+        height: 9,
+        slantLR: 3,
+        slopeTB: 0.0,
+        stackSlant: 4.3
+    },
+    // ピクセル間の隙間
+    dotGapX: 3.65,
+    dotGapY: 4.45,
+    cellGap: 25,
+    // 見た目の設定
+    color: "#00ffffff",
+    offColor: "#231e2dff",
+    glowBlur: 4,
+    // デバッグ用: 全点灯させるかどうか
+    debugAllOn: false
+};
+function DotMatrixDisplay({ width = 600, height = 100, className }) {
+    const canvasRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
+        // 描画ループ
+        let animationFrameId;
+        const render = ()=>{
+            // キャンバスをクリア
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            // 設定の読み込み
+            const { position, rows, cols, numCells, pixel, dotGapX, dotGapY, cellGap, color, offColor, glowBlur, debugAllOn } = DOT_MATRIX_CONFIG;
+            ctx.shadowBlur = glowBlur;
+            ctx.shadowColor = color;
+            const cellWidth = cols * (pixel.width + dotGapX) - dotGapX;
+            const totalHeight = rows * (pixel.height + dotGapY) - dotGapY;
+            // 全セルを描画
+            for(let cellIndex = 0; cellIndex < numCells; cellIndex++){
+                const cellStartX = position.x + cellIndex * (cellWidth + cellGap);
+                const cellStartY = position.y - totalHeight;
+                // セル内のドットを描画 (5x7)
+                for(let r = 0; r < rows; r++){
+                    // 下からの行インデックス（0始まり）を計算
+                    // r=0が一番上、r=rows-1が一番下なので反転させる
+                    const rowIndexFromBottom = rows - 1 - r;
+                    // stackSlantによるX座標のズレを計算（上にいくほど右にずれる）
+                    const stackShift = rowIndexFromBottom * pixel.stackSlant;
+                    for(let c = 0; c < cols; c++){
+                        const x = cellStartX + c * (pixel.width + dotGapX) + stackShift;
+                        const y = cellStartY + r * (pixel.height + dotGapY);
+                        // 点灯状態の判定 (現在はデバッグ用またはプレーンなグリッドを表示)
+                        // 将来的にはここでイルカのパターンデータなどを参照する
+                        const isOn = debugAllOn || Math.random() > 0.9 // テスト用にランダム点灯
+                        ;
+                        ctx.fillStyle = isOn ? color : offColor;
+                        // 消灯ドットは発光させない
+                        ctx.shadowBlur = isOn ? glowBlur : 0;
+                        // ダブルスラントの描画ロジック
+                        const drawX = x;
+                        const drawY = y + pixel.height // 左下座標
+                        ;
+                        const p4 = {
+                            x: drawX,
+                            y: drawY
+                        } // 左下
+                        ;
+                        const p3 = {
+                            x: drawX + pixel.width,
+                            y: drawY - pixel.slopeTB
+                        } // 右下
+                        ;
+                        const p1 = {
+                            x: drawX + pixel.slantLR,
+                            y: drawY - pixel.height
+                        } // 左上
+                        ;
+                        const p2 = {
+                            x: drawX + pixel.width + pixel.slantLR,
+                            y: drawY - pixel.height - pixel.slopeTB
+                        } // 右上
+                        ;
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.lineTo(p3.x, p3.y);
+                        ctx.lineTo(p4.x, p4.y);
+                        ctx.closePath();
+                        ctx.fill();
+                    }
+                }
+            }
+            animationFrameId = requestAnimationFrame(render);
+        };
+        render();
+        return ()=>{
+            cancelAnimationFrame(animationFrameId);
+        };
+    }, []);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("canvas", {
+        ref: canvasRef,
+        width: width,
+        height: height,
+        className: className
+    }, void 0, false, {
+        fileName: "[project]/components/dot-matrix-display.tsx",
+        lineNumber: 140,
+        columnNumber: 10
+    }, this);
+}
+}),
 "[project]/components/spectrum-analyzer.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
@@ -89,11 +222,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$upload$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Upload$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/upload.js [app-ssr] (ecmascript) <export default as Upload>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Eye$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/eye.js [app-ssr] (ecmascript) <export default as Eye>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2d$off$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__EyeOff$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/eye-off.js [app-ssr] (ecmascript) <export default as EyeOff>");
-(()=>{
-    const e = new Error("Cannot find module './dot-matrix-display'");
-    e.code = 'MODULE_NOT_FOUND';
-    throw e;
-})();
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2d$display$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/dot-matrix-display.tsx [app-ssr] (ecmascript)"); // Import DotMatrixDisplay
 'use client';
 ;
 ;
@@ -480,7 +609,7 @@ function SpectrumAnalyzer() {
                         lineNumber: 452,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(DotMatrixDisplay, {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2d$display$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DotMatrixDisplay"], {
                         width: 1400,
                         height: 400,
                         className: "absolute top-0 left-0 w-full h-full pointer-events-none z-10"
@@ -753,4 +882,4 @@ function Home() {
 }),
 ];
 
-//# sourceMappingURL=_b12f50d1._.js.map
+//# sourceMappingURL=_feac8a80._.js.map
