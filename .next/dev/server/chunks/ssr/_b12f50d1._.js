@@ -96,28 +96,27 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 ;
 ;
 // ============================================================================
-// 🎨 スペクトラムアナライザーの調整用パラメータ
+// 🎨 スペクトラムアナライザー設定
 // ============================================================================
 const SPECTRUM_CONFIG = {
-    // バンド設定
     numBands: 17,
     segmentsPerBand: 26,
     levelsPerBand: 13,
-    // ブロックの寸法
+    // ブロック寸法
     blockWidth: 24.5,
     blockHeight: 6.0,
-    // 間隔調整
+    // 間隔
     gapX: 43.61,
     gapY1: 3.1,
     gapY2: 6,
-    // スラント・傾斜調整
+    // 傾斜
     slantLR: 2.0,
     slopeTB: 5.0,
     stackSlant: 3.35,
-    // 位置調整
+    // 位置
     offsetX: 186.6,
     offsetY: 8.2,
-    // 音声解析パラメータ
+    // 解析
     divisor: 1.8,
     fallSpeed: 0.03,
     fadeAlpha: 0,
@@ -126,86 +125,46 @@ const SPECTRUM_CONFIG = {
     minDecibels: -75,
     maxDecibels: -20,
     peakHoldTime: 200,
-    // ガイド画像設定
     showGuide: true,
     guideAlpha: 0.2
 };
 const SIDE_BAND_CONFIG = {
-    // サイドバンド設定
     enabled: true,
     segmentsPerBand: 26,
     levelsPerBand: 13,
-    // ブロックの寸法
     blockWidth: 7.5,
     blockHeight: 6.0,
-    // 間隔調整
     gapY1: 3.1,
     gapY2: 6.0,
-    // スラント・傾斜調整
     slantLR: 2.0,
     slopeTB: 2.0,
     stackSlant: 3.35,
-    // 位置調整（メインバンドからの相対位置）
     leftOffsetX: -11,
     rightOffsetX: 28,
     leftOffsetY: -2.5,
     rightOffsetY: 5,
-    // 連動設定
     linkToBand: 'same',
     levelMultiplier: 1
 };
-// 色設定（RGB値）
+// ============================================================================
+// 🎨 色設定（単色・ソリッドカラーに変更）
+// ============================================================================
 const COLORS = {
-    // アクティブなセグメントの色（グラデーション）
-    activeBottom: [
-        0,
-        255,
-        200
-    ],
-    activeTop: [
-        50,
-        50,
-        255
-    ],
-    // 非アクティブなセグメントの色（グラデーション）
-    inactiveBottom: [
-        0,
-        40,
-        30
-    ],
-    inactiveTop: [
-        10,
-        10,
-        50
-    ],
-    // サイドバンド用の色設定を追加
-    // サイドバンド用の色（メインと同じでも、別の色でも調整可能）
-    sideActiveBottom: [
-        0,
-        255,
-        200
-    ],
-    sideActiveTop: [
-        50,
-        50,
-        255
-    ],
-    sideInactiveBottom: [
-        0,
-        40,
-        30
-    ],
-    sideInactiveTop: [
-        10,
-        10,
-        50
-    ]
+    // ① 光っていない時の色（VFDの消灯色：暗い紫/グレー）
+    inactive: '#231e2dff',
+    // ③ 真ん中より下の色（水色）
+    activeBottom: '#1fd7f0ff',
+    // ② 真ん中の色（黄緑）
+    activeMiddle: '#baff75',
+    // ④ 真ん中より上の色（青）
+    activeTop: '#1876eaff',
+    // ⑤ サイドの色（③と同じ水色）
+    sideActive: '#b0f5ffff'
 };
 function SpectrumAnalyzer() {
     const [imageLoaded, setImageLoaded] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [isPlaying, setIsPlaying] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [audioFile, setAudioFile] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
-    // ファイル名用のStateを追加
     const [fileName, setFileName] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
     const [currentTime, setCurrentTime] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(0);
     const [duration, setDuration] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(0);
@@ -217,7 +176,6 @@ function SpectrumAnalyzer() {
     const sourceRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const animationRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const previousLevelsRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(new Array(SPECTRUM_CONFIG.numBands).fill(0));
-    // ピークホールド用のRef
     const peakHoldsRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(new Array(SPECTRUM_CONFIG.numBands).fill(null).map(()=>({
             level: 0,
             timestamp: 0
@@ -232,29 +190,18 @@ function SpectrumAnalyzer() {
         const img = new Image();
         img.crossOrigin = 'anonymous';
         const basePath = ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : '';
-        img.src = `${basePath}/images/guide.png`; // パスは環境に合わせて確認してください
+        img.src = `${basePath}/images/guide.png`;
         img.onload = ()=>{
             guideImageRef.current = img;
             setImageLoaded(true);
         };
         return ()=>{
-            if (animationRef.current) {
-                cancelAnimationFrame(animationRef.current);
-                animationRef.current = null;
-            }
-            if (audioContextRef.current && audioContextRef.current.state !== 'closed') {
-                audioContextRef.current.close().catch(()=>{});
-            }
-            audioInitializedRef.current = false;
-            audioContextRef.current = null;
-            sourceRef.current = null;
-            analyzerRef.current = null;
+            if (animationRef.current) cancelAnimationFrame(animationRef.current);
+            if (audioContextRef.current?.state !== 'closed') audioContextRef.current?.close();
         };
     }, []);
     const initializeAudio = ()=>{
-        if (!audioRef.current || audioInitializedRef.current) {
-            return;
-        }
+        if (!audioRef.current || audioInitializedRef.current) return;
         try {
             const audioContext = new AudioContext();
             const analyzer = audioContext.createAnalyser();
@@ -273,11 +220,16 @@ function SpectrumAnalyzer() {
             console.error('Failed to initialize audio:', error);
         }
     };
-    const getGradientColor = (colorStart, colorEnd, ratio)=>{
-        const r = Math.floor(colorStart[0] * (1 - ratio) + colorEnd[0] * ratio);
-        const g = Math.floor(colorStart[1] * (1 - ratio) + colorEnd[1] * ratio);
-        const b = Math.floor(colorStart[2] * (1 - ratio) + colorEnd[2] * ratio);
-        return `rgb(${r}, ${g}, ${b})`;
+    // 【変更点】グラデーション関数を廃止し、位置に応じた単色を返す関数を作成
+    const getSegmentColor = (levelIndex)=>{
+        const middleLevel = 6; // 0始まりの13レベル中、7番目(index 6)を真ん中とする
+        if (levelIndex < middleLevel) {
+            return COLORS.activeBottom; // 水色
+        } else if (levelIndex === middleLevel) {
+            return COLORS.activeMiddle; // 黄緑
+        } else {
+            return COLORS.activeTop; // 青
+        }
     };
     const drawDoubleSlantedPolygon = (ctx, color, x, y, w, h, slantLR, slopeTB)=>{
         const p4 = {
@@ -308,34 +260,26 @@ function SpectrumAnalyzer() {
     const getAudioLevels = (dataArray)=>{
         const levels = [];
         const totalBins = dataArray.length / 2;
-        const minFreq = 10;
-        const maxFreq = totalBins;
-        const logMin = Math.log(minFreq);
-        const logMax = Math.log(maxFreq);
+        const logMin = Math.log(10);
+        const logMax = Math.log(totalBins);
         const logStep = (logMax - logMin) / SPECTRUM_CONFIG.numBands;
         for(let i = 0; i < SPECTRUM_CONFIG.numBands; i++){
             const start = Math.floor(Math.exp(logMin + i * logStep));
             const end = Math.floor(Math.exp(logMin + (i + 1) * logStep));
-            let sum = 0;
-            let count = 0;
+            let sum = 0, count = 0;
             for(let j = start; j < end && j < dataArray.length; j++){
                 sum += dataArray[j];
                 count++;
             }
-            const magnitude = count > 0 ? sum / count : 0;
-            let val = magnitude / 255.0;
-            val = val * SPECTRUM_CONFIG.divisor;
-            val = Math.max(0.0, Math.min(val, 1.0));
-            levels.push(val);
+            const val = count > 0 ? sum / count / 255.0 * SPECTRUM_CONFIG.divisor : 0;
+            levels.push(Math.max(0.0, Math.min(val, 1.0)));
         }
         return levels;
     };
-    // サイドバンド描画関数（計算ロジックを除去し、描画のみに専念）
-    const drawSideBand = (ctx, bandIdx, currentLevelRatio, peakHold, baseX, baseY, now)=>{
+    const drawSideBand = (ctx, currentLevelRatio, peakHold, baseX, baseY, now)=>{
         if (!SIDE_BAND_CONFIG.enabled) return;
         const activeLevel = Math.floor(currentLevelRatio * SIDE_BAND_CONFIG.levelsPerBand);
         const activeSegments = activeLevel * 2;
-        // ピーク表示判定
         let peakLevel = 0;
         let showPeak = false;
         if (now - peakHold.timestamp < SPECTRUM_CONFIG.peakHoldTime) {
@@ -347,32 +291,27 @@ function SpectrumAnalyzer() {
             const xOffset = segIdx * SIDE_BAND_CONFIG.stackSlant;
             const xDraw = baseX + xOffset;
             const yDraw = currentYBottom;
-            const ratio = segIdx / SIDE_BAND_CONFIG.segmentsPerBand;
             const currentSegLevel = Math.floor(segIdx / 2);
-            let color;
             const isPeakSegment = showPeak && currentSegLevel === peakLevel;
+            let color;
             if (segIdx < activeSegments || isPeakSegment) {
-                color = getGradientColor(COLORS.sideActiveBottom, COLORS.sideActiveTop, ratio);
+                // サイドは③と同じ（水色）単色
+                color = COLORS.sideActive;
             } else {
-                color = getGradientColor(COLORS.sideInactiveBottom, COLORS.sideInactiveTop, ratio);
+                color = COLORS.inactive;
             }
             drawDoubleSlantedPolygon(ctx, color, xDraw, yDraw, SIDE_BAND_CONFIG.blockWidth, SIDE_BAND_CONFIG.blockHeight, SIDE_BAND_CONFIG.slantLR, SIDE_BAND_CONFIG.slopeTB);
             const currentGapY = segIdx % 2 === 0 ? SIDE_BAND_CONFIG.gapY1 : SIDE_BAND_CONFIG.gapY2;
             currentYBottom -= SIDE_BAND_CONFIG.blockHeight + currentGapY;
         }
     };
-    const updatePeakHold = (currentLevel, peakHold, now, configLevels)=>{
-        // ピークホールドのロジック（要件に準拠）
-        if (currentLevel > peakHold.level) {
-            // 上昇時：ピーク更新 & タイマーリセット
-            peakHold.level = currentLevel;
+    const updatePeakHold = (level, peakHold, now)=>{
+        if (level > peakHold.level) {
+            peakHold.level = level;
             peakHold.timestamp = now;
         } else if (now - peakHold.timestamp >= SPECTRUM_CONFIG.peakHoldTime) {
-            // 時間切れ時：現在値に追従（ホールド解除）
-            // ここを '0' にすると再上昇と判定されてしまうため 'currentLevel' にする
-            peakHold.level = currentLevel;
+            peakHold.level = level;
         }
-    // 時間内（下降中）は peakHold.level を維持
     };
     const drawSpectrum = ()=>{
         if (!canvasRef.current) return;
@@ -381,13 +320,8 @@ function SpectrumAnalyzer() {
             alpha: false
         });
         if (!ctx) return;
-        if (SPECTRUM_CONFIG.fadeAlpha > 0) {
-            ctx.fillStyle = `rgba(0, 0, 0, ${SPECTRUM_CONFIG.fadeAlpha / 255})`;
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-        } else {
-            ctx.fillStyle = '#000000';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-        }
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
         if (showGuide && guideImageRef.current) {
             ctx.globalAlpha = SPECTRUM_CONFIG.guideAlpha;
             ctx.drawImage(guideImageRef.current, 0, 0, canvas.width, canvas.height);
@@ -399,19 +333,12 @@ function SpectrumAnalyzer() {
             const bufferLength = analyzerRef.current.frequencyBinCount;
             const dataArray = new Uint8Array(bufferLength);
             analyzerRef.current.getByteFrequencyData(dataArray);
-            // 【修正4】シークバーをぬるぬるにするため、アニメーションフレーム内で時間を更新
-            if (audioRef.current) {
-                setCurrentTime(audioRef.current.currentTime);
-            }
+            if (audioRef.current) setCurrentTime(audioRef.current.currentTime);
             const rawLevels = getAudioLevels(dataArray);
             for(let i = 0; i < SPECTRUM_CONFIG.numBands; i++){
                 const newVal = rawLevels[i];
                 const prevVal = previousLevelsRef.current[i] || 0;
-                if (newVal > prevVal) {
-                    displayLevels[i] = newVal;
-                } else {
-                    displayLevels[i] = Math.max(0.0, prevVal - SPECTRUM_CONFIG.fallSpeed);
-                }
+                displayLevels[i] = newVal > prevVal ? newVal : Math.max(0.0, prevVal - SPECTRUM_CONFIG.fallSpeed);
             }
             previousLevelsRef.current = displayLevels;
         } else {
@@ -424,18 +351,13 @@ function SpectrumAnalyzer() {
         const sideLeftYBottom = canvas.height - SPECTRUM_CONFIG.offsetY - SIDE_BAND_CONFIG.leftOffsetY;
         const sideRightYBottom = canvas.height - SPECTRUM_CONFIG.offsetY - SIDE_BAND_CONFIG.rightOffsetY;
         for(let bandIdx = 0; bandIdx < SPECTRUM_CONFIG.numBands; bandIdx++){
-            // 1. メインバンドのレベル計算
             const mainLevel = displayLevels[bandIdx] || 0;
-            // 2. サイドバンドのレベル計算
             const sideLevel = mainLevel * SIDE_BAND_CONFIG.levelMultiplier;
-            // 3. メインバンドのピーク更新
-            updatePeakHold(mainLevel, peakHoldsRef.current[bandIdx], now, SPECTRUM_CONFIG.levelsPerBand);
-            // 4. サイドバンドのピーク更新（ここで計算を一回だけ行う）
-            updatePeakHold(sideLevel, sidePeakHoldsRef.current[bandIdx], now, SIDE_BAND_CONFIG.levelsPerBand);
+            updatePeakHold(mainLevel, peakHoldsRef.current[bandIdx], now);
+            updatePeakHold(sideLevel, sidePeakHoldsRef.current[bandIdx], now);
             const bandXBase = startX + bandIdx * (SPECTRUM_CONFIG.blockWidth + SPECTRUM_CONFIG.gapX);
-            // 5. サイドバンド（左）描画
-            drawSideBand(ctx, bandIdx, sideLevel, sidePeakHoldsRef.current[bandIdx], bandXBase + SIDE_BAND_CONFIG.leftOffsetX, sideLeftYBottom, now);
-            // 6. メインバンド描画
+            drawSideBand(ctx, sideLevel, sidePeakHoldsRef.current[bandIdx], bandXBase + SIDE_BAND_CONFIG.leftOffsetX, sideLeftYBottom, now);
+            // メインバンド描画
             const activeLevel = Math.floor(mainLevel * SPECTRUM_CONFIG.levelsPerBand);
             const activeSegments = activeLevel * 2;
             const mainPeakHold = peakHoldsRef.current[bandIdx];
@@ -450,21 +372,20 @@ function SpectrumAnalyzer() {
                 const xOffset = segIdx * SPECTRUM_CONFIG.stackSlant;
                 const xDraw = bandXBase + xOffset;
                 const yDraw = currentYBottom;
-                const ratio = segIdx / SPECTRUM_CONFIG.segmentsPerBand;
                 const currentSegLevel = Math.floor(segIdx / 2);
-                let color;
                 const isPeakSegment = showPeak && currentSegLevel === peakLevel;
+                let color;
                 if (segIdx < activeSegments || isPeakSegment) {
-                    color = getGradientColor(COLORS.activeBottom, COLORS.activeTop, ratio);
+                    // 【修正】セグメントの高さ（レベル）に応じて、単色を取得
+                    color = getSegmentColor(currentSegLevel);
                 } else {
-                    color = getGradientColor(COLORS.inactiveBottom, COLORS.inactiveTop, ratio);
+                    color = COLORS.inactive;
                 }
                 drawDoubleSlantedPolygon(ctx, color, xDraw, yDraw, SPECTRUM_CONFIG.blockWidth, SPECTRUM_CONFIG.blockHeight, SPECTRUM_CONFIG.slantLR, SPECTRUM_CONFIG.slopeTB);
                 const currentGapY = segIdx % 2 === 0 ? SPECTRUM_CONFIG.gapY1 : SPECTRUM_CONFIG.gapY2;
                 currentYBottom -= SPECTRUM_CONFIG.blockHeight + currentGapY;
             }
-            // 7. サイドバンド（右）描画
-            drawSideBand(ctx, bandIdx, sideLevel, sidePeakHoldsRef.current[bandIdx], bandXBase + SIDE_BAND_CONFIG.rightOffsetX, sideRightYBottom, now);
+            drawSideBand(ctx, sideLevel, sidePeakHoldsRef.current[bandIdx], bandXBase + SIDE_BAND_CONFIG.rightOffsetX, sideRightYBottom, now);
         }
         animationRef.current = requestAnimationFrame(drawSpectrum);
     };
@@ -497,46 +418,26 @@ function SpectrumAnalyzer() {
     ]);
     const handlePlay = async ()=>{
         if (!audioRef.current) return;
-        if (!audioInitializedRef.current) {
-            initializeAudio();
-        }
+        if (!audioInitializedRef.current) initializeAudio();
         try {
-            if (audioContextRef.current?.state === 'suspended') {
-                await audioContextRef.current.resume();
-            }
+            if (audioContextRef.current?.state === 'suspended') await audioContextRef.current.resume();
             await audioRef.current.play();
             setIsPlaying(true);
         } catch (error) {
-            console.error('Failed to play audio:', error);
+            console.error('Failed to play:', error);
         }
     };
     const handlePause = ()=>{
-        if (!audioRef.current) return;
-        audioRef.current.pause();
+        audioRef.current?.pause();
         setIsPlaying(false);
     };
     const handleFileUpload = (e)=>{
         const file = e.target.files?.[0];
         if (file) {
-            // 【修正2】ファイル名を取得してセット
             setFileName(file.name);
-            if (audioRef.current) {
-                audioRef.current.pause();
-                audioRef.current.currentTime = 0;
-            }
             setIsPlaying(false);
-            if (audioContextRef.current && audioContextRef.current.state !== 'closed') {
-                audioContextRef.current.close().catch(()=>{});
-            }
-            audioContextRef.current = null;
-            analyzerRef.current = null;
-            sourceRef.current = null;
-            audioInitializedRef.current = false;
-            if (audioFile) {
-                URL.revokeObjectURL(audioFile);
-            }
-            const url = URL.createObjectURL(file);
-            setAudioFile(url);
+            if (audioFile) URL.revokeObjectURL(audioFile);
+            setAudioFile(URL.createObjectURL(file));
             previousLevelsRef.current = new Array(SPECTRUM_CONFIG.numBands).fill(0);
             setCurrentTime(0);
             setDuration(0);
@@ -568,12 +469,12 @@ function SpectrumAnalyzer() {
                     className: "w-full h-auto block"
                 }, void 0, false, {
                     fileName: "[project]/components/spectrum-analyzer.tsx",
-                    lineNumber: 578,
+                    lineNumber: 451,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/spectrum-analyzer.tsx",
-                lineNumber: 577,
+                lineNumber: 450,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -582,7 +483,7 @@ function SpectrumAnalyzer() {
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
                             [
-                                "decdc123c2b34c44",
+                                "47cfbccbfea67f55",
                                 [
                                     currentTime / (duration || 1) * 100,
                                     currentTime / (duration || 1) * 100
@@ -599,7 +500,7 @@ function SpectrumAnalyzer() {
                                 disabled: !audioFile,
                                 className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
                                     [
-                                        "decdc123c2b34c44",
+                                        "47cfbccbfea67f55",
                                         [
                                             currentTime / (duration || 1) * 100,
                                             currentTime / (duration || 1) * 100
@@ -608,21 +509,21 @@ function SpectrumAnalyzer() {
                                 ]) + " " + "w-full h-0.5 bg-white/10 rounded-full appearance-none cursor-pointer disabled:opacity-20 disabled:cursor-not-allowed seek-slider"
                             }, void 0, false, {
                                 fileName: "[project]/components/spectrum-analyzer.tsx",
-                                lineNumber: 588,
+                                lineNumber: 456,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                id: "decdc123c2b34c44",
+                                id: "47cfbccbfea67f55",
                                 dynamic: [
                                     currentTime / (duration || 1) * 100,
                                     currentTime / (duration || 1) * 100
                                 ],
-                                children: `.seek-slider.__jsx-style-dynamic-selector::-webkit-slider-thumb{appearance:none;width:0;height:0}.seek-slider.__jsx-style-dynamic-selector::-moz-range-thumb{border:none;width:0;height:0}.seek-slider.__jsx-style-dynamic-selector::-webkit-slider-runnable-track{background:linear-gradient(to right,#fffc 0%,#fffc ${currentTime / (duration || 1) * 100}%,#ffffff1a ${currentTime / (duration || 1) * 100}%,#ffffff1a 100%);height:2px}.seek-slider.__jsx-style-dynamic-selector::-moz-range-track{background:#ffffff1a;height:2px}.seek-slider.__jsx-style-dynamic-selector::-moz-range-progress{background:#fffc;height:2px}`
+                                children: `.seek-slider.__jsx-style-dynamic-selector::-webkit-slider-thumb{appearance:none;width:0;height:0}.seek-slider.__jsx-style-dynamic-selector::-moz-range-thumb{border:none;width:0;height:0}.seek-slider.__jsx-style-dynamic-selector::-webkit-slider-runnable-track{background:linear-gradient(to right,#fffc 0%,#fffc ${currentTime / (duration || 1) * 100}%,#ffffff1a ${currentTime / (duration || 1) * 100}%,#ffffff1a 100%);height:2px}`
                             }, void 0, false, void 0, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/spectrum-analyzer.tsx",
-                        lineNumber: 587,
+                        lineNumber: 455,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -636,18 +537,18 @@ function SpectrumAnalyzer() {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/spectrum-analyzer.tsx",
-                            lineNumber: 628,
+                            lineNumber: 480,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/spectrum-analyzer.tsx",
-                        lineNumber: 627,
+                        lineNumber: 479,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/spectrum-analyzer.tsx",
-                lineNumber: 586,
+                lineNumber: 454,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -655,7 +556,7 @@ function SpectrumAnalyzer() {
                 children: fileName
             }, void 0, false, {
                 fileName: "[project]/components/spectrum-analyzer.tsx",
-                lineNumber: 635,
+                lineNumber: 486,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -669,7 +570,7 @@ function SpectrumAnalyzer() {
                         id: "audio-upload"
                     }, void 0, false, {
                         fileName: "[project]/components/spectrum-analyzer.tsx",
-                        lineNumber: 640,
+                        lineNumber: 491,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -677,7 +578,7 @@ function SpectrumAnalyzer() {
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                             size: "sm",
                             asChild: true,
-                            className: "bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/40 text-white transition-all duration-200 font-light tracking-wide text-xs px-4 py-2 cursor-pointer",
+                            className: "bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "flex items-center gap-2",
                                 children: [
@@ -685,41 +586,41 @@ function SpectrumAnalyzer() {
                                         className: "h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/components/spectrum-analyzer.tsx",
-                                        lineNumber: 655,
-                                        columnNumber: 15
+                                        lineNumber: 494,
+                                        columnNumber: 55
                                     }, this),
-                                    "UPLOAD AUDIO"
+                                    " UPLOAD AUDIO"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/spectrum-analyzer.tsx",
-                                lineNumber: 654,
+                                lineNumber: 494,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/spectrum-analyzer.tsx",
-                            lineNumber: 649,
+                            lineNumber: 493,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/spectrum-analyzer.tsx",
-                        lineNumber: 647,
+                        lineNumber: 492,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                         onClick: isPlaying ? handlePause : handlePlay,
                         size: "sm",
                         disabled: !audioFile,
-                        className: "bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/40 text-white disabled:opacity-20 disabled:cursor-not-allowed transition-all duration-200 font-light tracking-wide text-xs px-4 py-2",
+                        className: "bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2",
                         children: isPlaying ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$pause$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Pause$3e$__["Pause"], {
                                     className: "h-4 w-4 mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/components/spectrum-analyzer.tsx",
-                                    lineNumber: 669,
-                                    columnNumber: 15
+                                    lineNumber: 498,
+                                    columnNumber: 26
                                 }, this),
-                                "PAUSE"
+                                " PAUSE"
                             ]
                         }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                             children: [
@@ -727,31 +628,31 @@ function SpectrumAnalyzer() {
                                     className: "h-4 w-4 mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/components/spectrum-analyzer.tsx",
-                                    lineNumber: 674,
-                                    columnNumber: 15
+                                    lineNumber: 498,
+                                    columnNumber: 74
                                 }, this),
-                                "PLAY"
+                                " PLAY"
                             ]
                         }, void 0, true)
                     }, void 0, false, {
                         fileName: "[project]/components/spectrum-analyzer.tsx",
-                        lineNumber: 661,
+                        lineNumber: 497,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                         onClick: ()=>setShowGuide(!showGuide),
                         size: "sm",
-                        className: "bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/40 text-white transition-all duration-200 font-light tracking-wide text-xs px-4 py-2 cursor-pointer",
+                        className: "bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2",
                         children: showGuide ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2d$off$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__EyeOff$3e$__["EyeOff"], {
                                     className: "h-4 w-4 mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/components/spectrum-analyzer.tsx",
-                                    lineNumber: 687,
-                                    columnNumber: 15
+                                    lineNumber: 501,
+                                    columnNumber: 26
                                 }, this),
-                                "GUIDE OFF"
+                                " GUIDE OFF"
                             ]
                         }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                             children: [
@@ -759,21 +660,21 @@ function SpectrumAnalyzer() {
                                     className: "h-4 w-4 mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/components/spectrum-analyzer.tsx",
-                                    lineNumber: 692,
-                                    columnNumber: 15
+                                    lineNumber: 501,
+                                    columnNumber: 79
                                 }, this),
-                                "GUIDE ON"
+                                " GUIDE ON"
                             ]
                         }, void 0, true)
                     }, void 0, false, {
                         fileName: "[project]/components/spectrum-analyzer.tsx",
-                        lineNumber: 680,
+                        lineNumber: 500,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/spectrum-analyzer.tsx",
-                lineNumber: 639,
+                lineNumber: 490,
                 columnNumber: 7
             }, this),
             audioFile && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("audio", {
@@ -783,24 +684,24 @@ function SpectrumAnalyzer() {
                 loop: true
             }, audioFile, false, {
                 fileName: "[project]/components/spectrum-analyzer.tsx",
-                lineNumber: 700,
-                columnNumber: 9
+                lineNumber: 504,
+                columnNumber: 21
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 style: {
                     color: 'white',
                     fontSize: '10px'
                 },
-                children: "DEPLOYED VERSION 0.1.2"
+                children: "DEPLOYED VERSION 0.2.0"
             }, void 0, false, {
                 fileName: "[project]/components/spectrum-analyzer.tsx",
-                lineNumber: 709,
+                lineNumber: 505,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/spectrum-analyzer.tsx",
-        lineNumber: 575,
+        lineNumber: 449,
         columnNumber: 6
     }, this);
 }
