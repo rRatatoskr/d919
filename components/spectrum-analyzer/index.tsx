@@ -5,18 +5,20 @@ import { Button } from '@/components/ui/button'
 import { Play, Pause, Upload, Eye, EyeOff, Monitor } from 'lucide-react' 
 import { DotMatrixDisplay } from '@/components/dot-matrix' 
 import { DisplayMode, PeakHold } from './types'
-import { SPECTRUM_CONFIG, SIDE_BAND_CONFIG, ICON_CONFIG, COLORS } from './config'
+import { SPECTRUM_CONFIG, SIDE_BAND_CONFIG, COLORS } from './config' // ICON_CONFIG削除済み
 import { 
   drawDoubleSlantedPolygon, 
-  drawIcon, 
   drawSideBand, 
   formatTime, 
   getAudioLevels, 
   getSegmentColor, 
-  updatePeakHold 
+  updatePeakHold,
+  // drawIcon は削除
 } from './utils'
+import { IconsLayer } from './icons-layer' // 新規レイヤー読み込み
 
 export function SpectrumAnalyzer() {
+  // ... (状態定義などは変更なし)
   const [imageLoaded, setImageLoaded] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
   const [audioFile, setAudioFile] = useState<string | null>(null)
@@ -41,6 +43,8 @@ export function SpectrumAnalyzer() {
   
   const guideImageRef = useRef<HTMLImageElement | null>(null)
   const audioInitializedRef = useRef<boolean>(false)
+
+  // ... (useEffect, initializeAudio など変更なし) ...
 
   useEffect(() => {
     const img = new Image()
@@ -79,6 +83,7 @@ export function SpectrumAnalyzer() {
     }
   }
 
+
   const drawSpectrum = () => {
     if (!canvasRef.current) return
     const canvas = canvasRef.current
@@ -98,6 +103,7 @@ export function SpectrumAnalyzer() {
     const now = performance.now()
 
     if (analyzerRef.current && isPlaying) {
+      // ... (解析ロジック変更なし) ...
       const bufferLength = analyzerRef.current.frequencyBinCount
       const dataArray = new Uint8Array(bufferLength)
       analyzerRef.current.getByteFrequencyData(dataArray)
@@ -120,6 +126,7 @@ export function SpectrumAnalyzer() {
     const sideRightYBottom = canvas.height - SPECTRUM_CONFIG.offsetY - SIDE_BAND_CONFIG.rightOffsetY
 
     for (let bandIdx = 0; bandIdx < SPECTRUM_CONFIG.numBands; bandIdx++) {
+       // ... (バンド描画ロジック変更なし) ...
       const mainLevel = displayLevels[bandIdx] || 0
       const sideLevel = mainLevel * SIDE_BAND_CONFIG.levelMultiplier
 
@@ -128,13 +135,11 @@ export function SpectrumAnalyzer() {
 
       const bandXBase = startX + bandIdx * (SPECTRUM_CONFIG.blockWidth + SPECTRUM_CONFIG.gapX)
       
-      // Left Side Band
       drawSideBand(
         ctx, sideLevel, sidePeakHoldsRef.current[bandIdx],
         bandXBase + SIDE_BAND_CONFIG.leftOffsetX, sideLeftYBottom, now
       )
       
-      // Main Band
       const activeLevel = Math.floor(mainLevel * SPECTRUM_CONFIG.levelsPerBand)
       const activeSegments = activeLevel * 2
       const mainPeakHold = peakHoldsRef.current[bandIdx]
@@ -172,20 +177,17 @@ export function SpectrumAnalyzer() {
         currentYBottom -= (SPECTRUM_CONFIG.blockHeight + currentGapY)
       }
       
-      // Right Side Band
       drawSideBand(
         ctx, sideLevel, sidePeakHoldsRef.current[bandIdx],
         bandXBase + SIDE_BAND_CONFIG.rightOffsetX, sideRightYBottom, now
       )
     }
 
-    ICON_CONFIG.forEach(icon => {
-      drawIcon(ctx, icon, displayMode, isPlaying, audioFile)
-    })
+    // ICONの描画ループは削除 (IconsLayerコンポーネント側で行うため)
 
     animationRef.current = requestAnimationFrame(drawSpectrum)
   }
-
+  
   useEffect(() => {
     if (animationRef.current) {
       cancelAnimationFrame(animationRef.current)
@@ -194,6 +196,8 @@ export function SpectrumAnalyzer() {
     drawSpectrum()
   }, [isPlaying, imageLoaded, showGuide, displayMode, audioFile])
 
+  // ... (以下イベントハンドラなどは元のまま) ...
+  
   useEffect(() => {
     const audio = audioRef.current
     if (!audio) return
@@ -251,6 +255,7 @@ export function SpectrumAnalyzer() {
   }
 
   const handleDispClick = () => {
+     // ... (元のロジック)
     if (!audioFile) {
       switch (displayMode) {
         case 'UPLOAD_PROMPT': setDisplayMode('ANIMATION'); break
@@ -269,7 +274,7 @@ export function SpectrumAnalyzer() {
       }
     }
   }
-
+  
   let matrixText = "UPLOAD AUDIO"
   let matrixMode: 'TEXT' | 'ANIMATION' = 'TEXT'
 
@@ -292,11 +297,14 @@ export function SpectrumAnalyzer() {
       break
   }
 
+
   return (
      <div className="w-full max-w-[1400px] mx-auto space-y-4">
       <div className="bg-black rounded-none overflow-hidden relative">
+        {/* メインのスペアナCanvas */}
         <canvas ref={canvasRef} width={1400} height={400} className="w-full h-auto block" />
         
+        {/* ドットマトリクス表示 (中央の文字など) */}
         <DotMatrixDisplay 
           width={1400} 
           height={400} 
@@ -304,8 +312,18 @@ export function SpectrumAnalyzer() {
           text={matrixText}
           mode={matrixMode}
         />
+
+        {/* ★新規: カスタム形状アイコンレイヤー (MP3, 音符など) */}
+        <IconsLayer 
+          displayMode={displayMode} 
+          isPlaying={isPlaying} 
+          audioFile={audioFile} 
+          width={1400} 
+          height={400} 
+        />
       </div>
 
+      {/* ... (コントローラー部分は変更なし) ... */}
       <div className="w-full space-y-2">
         <div className="relative w-full">
           <input
@@ -360,7 +378,7 @@ export function SpectrumAnalyzer() {
         </Button>
       </div>
       {audioFile && <audio key={audioFile} ref={audioRef} src={audioFile} className="hidden" loop />}
-      <div style={{ color: 'white', fontSize: '10px' }}>DEPLOYED VERSION 0.2.0</div>
+      <div style={{ color: 'white', fontSize: '10px' }}>DEPLOYED VERSION 0.2.1</div>
     </div>
   )
 }

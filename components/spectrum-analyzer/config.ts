@@ -1,4 +1,4 @@
-import { DisplayMode, IconConfigItem } from './types'
+// components/spectrum-analyzer/config.ts
 
 export const SPECTRUM_CONFIG = {
   numBands: 17,
@@ -67,41 +67,3 @@ export const COLORS = {
   iconActive: '#1fd7f0ff',
   iconInactive: '#231e2d00',
 }
-
-export const ICON_CONFIG: IconConfigItem[] = [
-  { 
-    name: 'S.A', 
-    offsetX: 285, 
-    offsetY: 82, 
-    width: 25, 
-    height: 10, 
-    activeModes: ['PEAK_HOLD', 'ANIMATION', 'MUSIC'],
-    condition: (isPlaying) => isPlaying,
-  },
-  { 
-    name: 'MP3', 
-    offsetX: 320, 
-    offsetY: 82, 
-    width: 30, 
-    height: 10, 
-    activeModes: ['PEAK_HOLD', 'ANIMATION', 'MUSIC'],
-    condition: (_, audioFile) => !!audioFile,
-  },
-  { 
-    name: 'Note1', 
-    offsetX: 370, 
-    offsetY: 82, 
-    width: 15, 
-    height: 10, 
-    activeModes: ['PEAK_HOLD', 'ANIMATION', 'MUSIC'],
-    condition: (isPlaying) => isPlaying,
-  },
-  { 
-    name: 'Note2', 
-    offsetX: 395, 
-    offsetY: 82, 
-    width: 15, 
-    height: 10, 
-    activeModes: ['ANIMATION'],
-  },
-]

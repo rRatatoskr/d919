@@ -24729,11 +24729,10 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/components/spectrum-analyzer/config.ts [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+// components/spectrum-analyzer/config.ts
 __turbopack_context__.s([
     "COLORS",
     ()=>COLORS,
-    "ICON_CONFIG",
-    ()=>ICON_CONFIG,
     "SIDE_BAND_CONFIG",
     ()=>SIDE_BAND_CONFIG,
     "SPECTRUM_CONFIG",
@@ -24791,57 +24790,6 @@ const COLORS = {
     iconActive: '#1fd7f0ff',
     iconInactive: '#231e2d00'
 };
-const ICON_CONFIG = [
-    {
-        name: 'S.A',
-        offsetX: 285,
-        offsetY: 82,
-        width: 25,
-        height: 10,
-        activeModes: [
-            'PEAK_HOLD',
-            'ANIMATION',
-            'MUSIC'
-        ],
-        condition: (isPlaying)=>isPlaying
-    },
-    {
-        name: 'MP3',
-        offsetX: 320,
-        offsetY: 82,
-        width: 30,
-        height: 10,
-        activeModes: [
-            'PEAK_HOLD',
-            'ANIMATION',
-            'MUSIC'
-        ],
-        condition: (_, audioFile)=>!!audioFile
-    },
-    {
-        name: 'Note1',
-        offsetX: 370,
-        offsetY: 82,
-        width: 15,
-        height: 10,
-        activeModes: [
-            'PEAK_HOLD',
-            'ANIMATION',
-            'MUSIC'
-        ],
-        condition: (isPlaying)=>isPlaying
-    },
-    {
-        name: 'Note2',
-        offsetX: 395,
-        offsetY: 82,
-        width: 15,
-        height: 10,
-        activeModes: [
-            'ANIMATION'
-        ]
-    }
-];
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
