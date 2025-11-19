@@ -1,20 +1,23 @@
-module.exports = [
-"[project]/lib/utils.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+(globalThis.TURBOPACK || (globalThis.TURBOPACK = [])).push([typeof document === "object" ? document.currentScript : undefined,
+"[project]/lib/utils.ts [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s([
     "cn",
     ()=>cn
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/clsx/dist/clsx.mjs [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$tailwind$2d$merge$2f$dist$2f$bundle$2d$mjs$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/tailwind-merge/dist/bundle-mjs.mjs [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/clsx/dist/clsx.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$tailwind$2d$merge$2f$dist$2f$bundle$2d$mjs$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/tailwind-merge/dist/bundle-mjs.mjs [app-client] (ecmascript)");
 ;
 ;
 function cn(...inputs) {
-    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$tailwind$2d$merge$2f$dist$2f$bundle$2d$mjs$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["twMerge"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["clsx"])(inputs));
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$tailwind$2d$merge$2f$dist$2f$bundle$2d$mjs$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["twMerge"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["clsx"])(inputs));
+}
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
 }),
-"[project]/components/ui/button.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"[project]/components/ui/button.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s([
@@ -23,15 +26,15 @@ __turbopack_context__.s([
     "buttonVariants",
     ()=>buttonVariants
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@radix-ui/react-slot/dist/index.mjs [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$class$2d$variance$2d$authority$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/class-variance-authority/dist/index.mjs [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/utils.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@radix-ui/react-slot/dist/index.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$class$2d$variance$2d$authority$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/class-variance-authority/dist/index.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/utils.ts [app-client] (ecmascript)");
 ;
 ;
 ;
 ;
-const buttonVariants = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$class$2d$variance$2d$authority$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cva"])("inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive", {
+const buttonVariants = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$class$2d$variance$2d$authority$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cva"])("inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive", {
     variants: {
         variant: {
             default: 'bg-primary text-primary-foreground hover:bg-primary/90',
@@ -56,10 +59,10 @@ const buttonVariants = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_
     }
 });
 function Button({ className, variant, size, asChild = false, ...props }) {
-    const Comp = asChild ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Slot"] : 'button';
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Comp, {
+    const Comp = asChild ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Slot"] : 'button';
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Comp, {
         "data-slot": "button",
-        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])(buttonVariants({
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])(buttonVariants({
             variant,
             size,
             className
@@ -71,26 +74,22 @@ function Button({ className, variant, size, asChild = false, ...props }) {
         columnNumber: 5
     }, this);
 }
+_c = Button;
 ;
+var _c;
+__turbopack_context__.k.register(_c, "Button");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
 }),
-"[project]/components/dot-matrix-display.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"[project]/components/dot-matrix/config.ts [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+// 設定をエクスポート
 __turbopack_context__.s([
-    "CHAR_PATTERNS",
-    ()=>CHAR_PATTERNS,
-    "DOLPHIN_CUSTOM_FRAMES",
-    ()=>DOLPHIN_CUSTOM_FRAMES,
     "DOT_MATRIX_CONFIG",
-    ()=>DOT_MATRIX_CONFIG,
-    "DotMatrixDisplay",
-    ()=>DotMatrixDisplay
+    ()=>DOT_MATRIX_CONFIG
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
-"use client";
-;
-;
 const DOT_MATRIX_CONFIG = {
     position: {
         x: 542.7,
@@ -114,10 +113,21 @@ const DOT_MATRIX_CONFIG = {
     // 見た目の設定
     color: "#b0f5ffff",
     offColor: "#231e2dff",
-    glowBlur: 4,
+    glowBlur: 0,
     // デバッグ用: 全点灯させるかどうか
     debugAllOn: false
 };
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+"[project]/components/dot-matrix/frames.ts [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "DOLPHIN_CUSTOM_FRAMES",
+    ()=>DOLPHIN_CUSTOM_FRAMES
+]);
 const DOLPHIN_CUSTOM_FRAMES = [
     // Frame 1:
     [
@@ -22340,2141 +22350,184 @@ const DOLPHIN_CUSTOM_FRAMES = [
         ]
     ]
 ];
-const CHAR_PATTERNS = {
-    '0': [
-        [
-            0,
-            1,
-            1,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            1,
-            1
-        ],
-        [
-            1,
-            0,
-            1,
-            0,
-            1
-        ],
-        [
-            1,
-            1,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            0,
-            1,
-            1,
-            1,
-            0
-        ]
-    ],
-    '1': [
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            0,
-            1,
-            1,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            0,
-            1,
-            1,
-            1,
-            0
-        ]
-    ],
-    '2': [
-        [
-            0,
-            1,
-            1,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            0,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            0,
-            0,
-            0,
-            1,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            1,
-            1,
-            1,
-            1
-        ]
-    ],
-    '3': [
-        [
-            1,
-            1,
-            1,
-            1,
-            1
-        ],
-        [
-            0,
-            0,
-            0,
-            1,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            0,
-            1,
-            0
-        ],
-        [
-            0,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            0,
-            1,
-            1,
-            1,
-            0
-        ]
-    ],
-    '4': [
-        [
-            0,
-            0,
-            0,
-            1,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            1,
-            0
-        ],
-        [
-            0,
-            1,
-            0,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            1,
-            0
-        ],
-        [
-            1,
-            1,
-            1,
-            1,
-            1
-        ],
-        [
-            0,
-            0,
-            0,
-            1,
-            0
-        ],
-        [
-            0,
-            0,
-            0,
-            1,
-            0
-        ]
-    ],
-    '5': [
-        [
-            1,
-            1,
-            1,
-            1,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            1,
-            1,
-            1,
-            0
-        ],
-        [
-            0,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            0,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            0,
-            1,
-            1,
-            1,
-            0
-        ]
-    ],
-    '6': [
-        [
-            0,
-            0,
-            1,
-            1,
-            0
-        ],
-        [
-            0,
-            1,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            1,
-            1,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            0,
-            1,
-            1,
-            1,
-            0
-        ]
-    ],
-    '7': [
-        [
-            1,
-            1,
-            1,
-            1,
-            1
-        ],
-        [
-            0,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            0,
-            0,
-            0,
-            1,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            0,
-            1,
-            0,
-            0,
-            0
-        ],
-        [
-            0,
-            1,
-            0,
-            0,
-            0
-        ],
-        [
-            0,
-            1,
-            0,
-            0,
-            0
-        ]
-    ],
-    '8': [
-        [
-            0,
-            1,
-            1,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            0,
-            1,
-            1,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            0,
-            1,
-            1,
-            1,
-            0
-        ]
-    ],
-    '9': [
-        [
-            0,
-            1,
-            1,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            0,
-            1,
-            1,
-            1,
-            1
-        ],
-        [
-            0,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            0,
-            0,
-            0,
-            1,
-            0
-        ],
-        [
-            0,
-            1,
-            1,
-            0,
-            0
-        ]
-    ],
-    'A': [
-        [
-            0,
-            1,
-            1,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            1,
-            1,
-            1,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ]
-    ],
-    'B': [
-        [
-            1,
-            1,
-            1,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            1,
-            1,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            1,
-            1,
-            1,
-            0
-        ]
-    ],
-    'C': [
-        [
-            0,
-            1,
-            1,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            0,
-            1,
-            1,
-            1,
-            0
-        ]
-    ],
-    'D': [
-        [
-            1,
-            1,
-            1,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            1,
-            0
-        ],
-        [
-            1,
-            1,
-            1,
-            0,
-            0
-        ]
-    ],
-    'E': [
-        [
-            1,
-            1,
-            1,
-            1,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            1,
-            1,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            1,
-            1,
-            1,
-            1
-        ]
-    ],
-    'F': [
-        [
-            1,
-            1,
-            1,
-            1,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            1,
-            1,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ]
-    ],
-    'G': [
-        [
-            0,
-            1,
-            1,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            1,
-            1,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            0,
-            1,
-            1,
-            1,
-            0
-        ]
-    ],
-    'H': [
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            1,
-            1,
-            1,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ]
-    ],
-    'I': [
-        [
-            0,
-            1,
-            1,
-            1,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            0,
-            1,
-            1,
-            1,
-            0
-        ]
-    ],
-    'J': [
-        [
-            0,
-            0,
-            1,
-            1,
-            1
-        ],
-        [
-            0,
-            0,
-            0,
-            1,
-            0
-        ],
-        [
-            0,
-            0,
-            0,
-            1,
-            0
-        ],
-        [
-            0,
-            0,
-            0,
-            1,
-            0
-        ],
-        [
-            0,
-            0,
-            0,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            1,
-            0
-        ],
-        [
-            0,
-            1,
-            1,
-            0,
-            0
-        ]
-    ],
-    'K': [
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            1,
-            1,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ]
-    ],
-    'L': [
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            1,
-            1,
-            1,
-            1
-        ]
-    ],
-    'M': [
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            1,
-            0,
-            1,
-            1
-        ],
-        [
-            1,
-            0,
-            1,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            1,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ]
-    ],
-    'N': [
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            1,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            1,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            1,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ]
-    ],
-    'O': [
-        [
-            0,
-            1,
-            1,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            0,
-            1,
-            1,
-            1,
-            0
-        ]
-    ],
-    'P': [
-        [
-            1,
-            1,
-            1,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            1,
-            1,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ]
-    ],
-    'Q': [
-        [
-            0,
-            1,
-            1,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            1,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            1,
-            0
-        ],
-        [
-            0,
-            1,
-            1,
-            0,
-            1
-        ]
-    ],
-    'R': [
-        [
-            1,
-            1,
-            1,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            1,
-            1,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ]
-    ],
-    'S': [
-        [
-            0,
-            1,
-            1,
-            1,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            0,
-            1,
-            1,
-            1,
-            0
-        ],
-        [
-            0,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            0,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            1,
-            1,
-            1,
-            0
-        ]
-    ],
-    'T': [
-        [
-            1,
-            1,
-            1,
-            1,
-            1
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ]
-    ],
-    'U': [
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            0,
-            1,
-            1,
-            1,
-            0
-        ]
-    ],
-    'V': [
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            0,
-            1,
-            0,
-            1,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ]
-    ],
-    'W': [
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            1,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            1,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            1,
-            0,
-            1
-        ],
-        [
-            0,
-            1,
-            0,
-            1,
-            0
-        ]
-    ],
-    'X': [
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            0,
-            1,
-            0,
-            1,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            0,
-            1,
-            0,
-            1,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ]
-    ],
-    'Y': [
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            0,
-            1,
-            0,
-            1,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ]
-    ],
-    'Z': [
-        [
-            1,
-            1,
-            1,
-            1,
-            1
-        ],
-        [
-            0,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            0,
-            0,
-            0,
-            1,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            0,
-            1,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            1,
-            1,
-            1,
-            1
-        ]
-    ],
-    ' ': [
-        [
-            0,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    ],
-    '/': [
-        [
-            0,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            0,
-            0,
-            1
-        ],
-        [
-            0,
-            0,
-            0,
-            1,
-            0
-        ],
-        [
-            0,
-            0,
-            1,
-            0,
-            0
-        ],
-        [
-            0,
-            1,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    ],
-    '-': [
-        [
-            0,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            1,
-            1,
-            1,
-            1,
-            1
-        ],
-        [
-            0,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            0,
-            0,
-            0
-        ],
-        [
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    ]
-};
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+"[project]/components/dot-matrix/index.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "DotMatrixDisplay",
+    ()=>DotMatrixDisplay
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/dot-matrix/config.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$frames$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/dot-matrix/frames.ts [app-client] (ecmascript)");
+(()=>{
+    const e = new Error("Cannot find module './patterns'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})();
+;
+var _s = __turbopack_context__.k.signature();
+"use client";
+;
+;
+;
+;
 function DotMatrixDisplay({ width = 600, height = 100, className, text = "PEAK HOLD", mode = 'TEXT' }) {
-    const canvasRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const frameIndexRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(0);
-    const lastFrameTimeRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(0);
+    _s();
+    const canvasRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const frameIndexRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(0);
+    const lastFrameTimeRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(0);
     const ANIMATION_SPEED = 30 // ms per frame
     ;
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        const canvas = canvasRef.current;
-        if (!canvas) return;
-        const ctx = canvas.getContext("2d");
-        if (!ctx) return;
-        // 描画ループ
-        let animationFrameId;
-        const render = (timestamp)=>{
-            // キャンバスをクリア
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            // 設定の読み込み
-            const { position, rows, cols, numCells, pixel, dotGapX, dotGapY, cellGap, color, offColor, glowBlur, debugAllOn } = DOT_MATRIX_CONFIG;
-            if (mode === 'ANIMATION') {
-                if (timestamp - lastFrameTimeRef.current > ANIMATION_SPEED) {
-                    frameIndexRef.current = (frameIndexRef.current + 1) % DOLPHIN_CUSTOM_FRAMES.length;
-                    lastFrameTimeRef.current = timestamp;
-                }
-            } else {
-                frameIndexRef.current = 0; // Reset animation when in text mode
-            }
-            ctx.shadowBlur = glowBlur;
-            ctx.shadowColor = color;
-            const cellWidth = cols * (pixel.width + dotGapX) - dotGapX;
-            const totalHeight = rows * (pixel.height + dotGapY) - dotGapY;
-            // 全セルを描画
-            for(let cellIndex = 0; cellIndex < numCells; cellIndex++){
-                const cellStartX = position.x + cellIndex * (cellWidth + cellGap);
-                const cellStartY = position.y - totalHeight;
-                // セル内のドットを描画 (5x7)
-                for(let r = 0; r < rows; r++){
-                    // 下からの行インデックス（0始まり）を計算
-                    // r=0が一番上、r=rows-1が一番下なので反転させる
-                    const rowIndexFromBottom = rows - 1 - r;
-                    // stackSlantによるX座標のズレを計算（上にいくほど右にずれる）
-                    const stackShift = rowIndexFromBottom * pixel.stackSlant;
-                    for(let c = 0; c < cols; c++){
-                        const x = cellStartX + c * (pixel.width + dotGapX) + stackShift;
-                        const y = cellStartY + r * (pixel.height + dotGapY);
-                        // 点灯状態の判定
-                        let isOn = debugAllOn;
-                        if (!isOn) {
-                            if (mode === 'TEXT' && text) {
-                                const char = text[cellIndex] || ' ';
-                                const pattern = CHAR_PATTERNS[char.toUpperCase()] || CHAR_PATTERNS[' '];
-                                if (pattern && pattern[r] && pattern[r][c]) {
-                                    isOn = true;
-                                }
-                            } else if (mode === 'ANIMATION') {
-                                const currentFrame = DOLPHIN_CUSTOM_FRAMES[frameIndexRef.current];
-                                if (currentFrame) {
-                                    // currentFrame[r] は7行のうちの1行（12セル分の配列）
-                                    // currentFrame[r][cellIndex] は該当セルの5文字の文字列
-                                    const cellString = currentFrame[r][cellIndex];
-                                    if (cellString && cellString[c] === '1') {
-                                        isOn = true;
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "DotMatrixDisplay.useEffect": ()=>{
+            const canvas = canvasRef.current;
+            if (!canvas) return;
+            const ctx = canvas.getContext("2d");
+            if (!ctx) return;
+            // 描画ループ
+            let animationFrameId;
+            const render = {
+                "DotMatrixDisplay.useEffect.render": (timestamp)=>{
+                    // キャンバスをクリア
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    // 設定の読み込み
+                    const { position, rows, cols, numCells, pixel, dotGapX, dotGapY, cellGap, color, offColor, glowBlur, debugAllOn } = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DOT_MATRIX_CONFIG"];
+                    if (mode === 'ANIMATION') {
+                        if (timestamp - lastFrameTimeRef.current > ANIMATION_SPEED) {
+                            frameIndexRef.current = (frameIndexRef.current + 1) % __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$frames$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DOLPHIN_CUSTOM_FRAMES"].length;
+                            lastFrameTimeRef.current = timestamp;
+                        }
+                    } else {
+                        frameIndexRef.current = 0; // Reset animation when in text mode
+                    }
+                    ctx.shadowBlur = glowBlur;
+                    ctx.shadowColor = color;
+                    const cellWidth = cols * (pixel.width + dotGapX) - dotGapX;
+                    const totalHeight = rows * (pixel.height + dotGapY) - dotGapY;
+                    // 全セルを描画
+                    for(let cellIndex = 0; cellIndex < numCells; cellIndex++){
+                        const cellStartX = position.x + cellIndex * (cellWidth + cellGap);
+                        const cellStartY = position.y - totalHeight;
+                        // セル内のドットを描画 (5x7)
+                        for(let r = 0; r < rows; r++){
+                            // 下からの行インデックス（0始まり）を計算
+                            const rowIndexFromBottom = rows - 1 - r;
+                            // stackSlantによるX座標のズレを計算
+                            const stackShift = rowIndexFromBottom * pixel.stackSlant;
+                            for(let c = 0; c < cols; c++){
+                                const x = cellStartX + c * (pixel.width + dotGapX) + stackShift;
+                                const y = cellStartY + r * (pixel.height + dotGapY);
+                                // 点灯状態の判定
+                                let isOn = debugAllOn;
+                                if (!isOn) {
+                                    if (mode === 'TEXT' && text) {
+                                        const char = text[cellIndex] || ' ';
+                                        const pattern = CHAR_PATTERNS[char.toUpperCase()] || CHAR_PATTERNS[' '];
+                                        if (pattern && pattern[r] && pattern[r][c]) {
+                                            isOn = true;
+                                        }
+                                    } else if (mode === 'ANIMATION') {
+                                        const currentFrame = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$frames$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DOLPHIN_CUSTOM_FRAMES"][frameIndexRef.current];
+                                        if (currentFrame) {
+                                            const cellString = currentFrame[r][cellIndex];
+                                            if (cellString && cellString[c] === '1') {
+                                                isOn = true;
+                                            }
+                                        }
                                     }
                                 }
+                                ctx.fillStyle = isOn ? color : offColor;
+                                ctx.shadowBlur = isOn ? glowBlur : 0;
+                                // ダブルスラントの描画ロジック
+                                const drawX = x;
+                                const drawY = y + pixel.height;
+                                const p4 = {
+                                    x: drawX,
+                                    y: drawY
+                                };
+                                const p3 = {
+                                    x: drawX + pixel.width,
+                                    y: drawY - pixel.slopeTB
+                                };
+                                const p1 = {
+                                    x: drawX + pixel.slantLR,
+                                    y: drawY - pixel.height
+                                };
+                                const p2 = {
+                                    x: drawX + pixel.width + pixel.slantLR,
+                                    y: drawY - pixel.height - pixel.slopeTB
+                                };
+                                ctx.beginPath();
+                                ctx.moveTo(p1.x, p1.y);
+                                ctx.lineTo(p2.x, p2.y);
+                                ctx.lineTo(p3.x, p3.y);
+                                ctx.lineTo(p4.x, p4.y);
+                                ctx.closePath();
+                                ctx.fill();
                             }
                         }
-                        ctx.fillStyle = isOn ? color : offColor;
-                        // 消灯ドットは発光させない
-                        ctx.shadowBlur = isOn ? glowBlur : 0;
-                        // ダブルスラントの描画ロジック
-                        const drawX = x;
-                        const drawY = y + pixel.height // 左下座標
-                        ;
-                        const p4 = {
-                            x: drawX,
-                            y: drawY
-                        } // 左下
-                        ;
-                        const p3 = {
-                            x: drawX + pixel.width,
-                            y: drawY - pixel.slopeTB
-                        } // 右下
-                        ;
-                        const p1 = {
-                            x: drawX + pixel.slantLR,
-                            y: drawY - pixel.height
-                        } // 左上
-                        ;
-                        const p2 = {
-                            x: drawX + pixel.width + pixel.slantLR,
-                            y: drawY - pixel.height - pixel.slopeTB
-                        } // 右上
-                        ;
-                        ctx.beginPath();
-                        ctx.moveTo(p1.x, p1.y);
-                        ctx.lineTo(p2.x, p2.y);
-                        ctx.lineTo(p3.x, p3.y);
-                        ctx.lineTo(p4.x, p4.y);
-                        ctx.closePath();
-                        ctx.fill();
                     }
+                    animationFrameId = requestAnimationFrame(render);
                 }
-            }
-            animationFrameId = requestAnimationFrame(render);
-        };
-        render(0); // Pass initial timestamp
-        return ()=>{
-            cancelAnimationFrame(animationFrameId);
-        };
-    }, [
+            }["DotMatrixDisplay.useEffect.render"];
+            render(0);
+            return ({
+                "DotMatrixDisplay.useEffect": ()=>{
+                    cancelAnimationFrame(animationFrameId);
+                }
+            })["DotMatrixDisplay.useEffect"];
+        }
+    }["DotMatrixDisplay.useEffect"], [
         mode,
         text
-    ]); // Re-run effect when mode or text changes
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("canvas", {
+    ]);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("canvas", {
         ref: canvasRef,
         width: width,
         height: height,
         className: className
     }, void 0, false, {
-        fileName: "[project]/components/dot-matrix-display.tsx",
-        lineNumber: 2746,
+        fileName: "[project]/components/dot-matrix/index.tsx",
+        lineNumber: 140,
         columnNumber: 10
     }, this);
 }
+_s(DotMatrixDisplay, "rOY4ue/sMZ3jAKeCBeR30CTC58U=");
+_c = DotMatrixDisplay;
+var _c;
+__turbopack_context__.k.register(_c, "DotMatrixDisplay");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
 }),
-"[project]/components/spectrum-analyzer.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"[project]/components/spectrum-analyzer.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s([
     "SpectrumAnalyzer",
     ()=>SpectrumAnalyzer
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-jsx/style.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/button.tsx [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$play$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Play$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/play.js [app-ssr] (ecmascript) <export default as Play>"); // Added Monitor icon for DISP
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$pause$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Pause$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/pause.js [app-ssr] (ecmascript) <export default as Pause>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$upload$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Upload$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/upload.js [app-ssr] (ecmascript) <export default as Upload>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Eye$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/eye.js [app-ssr] (ecmascript) <export default as Eye>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2d$off$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__EyeOff$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/eye-off.js [app-ssr] (ecmascript) <export default as EyeOff>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$monitor$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Monitor$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/monitor.js [app-ssr] (ecmascript) <export default as Monitor>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2d$display$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/dot-matrix-display.tsx [app-ssr] (ecmascript)"); // Import DotMatrixDisplay
-'use client';
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-jsx/style.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/button.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$play$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Play$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/play.js [app-client] (ecmascript) <export default as Play>"); // Added Monitor icon for DISP
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$pause$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Pause$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/pause.js [app-client] (ecmascript) <export default as Pause>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$upload$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Upload$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/upload.js [app-client] (ecmascript) <export default as Upload>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Eye$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/eye.js [app-client] (ecmascript) <export default as Eye>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2d$off$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__EyeOff$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/eye-off.js [app-client] (ecmascript) <export default as EyeOff>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$monitor$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Monitor$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/monitor.js [app-client] (ecmascript) <export default as Monitor>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$index$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/dot-matrix/index.tsx [app-client] (ecmascript)"); // Import DotMatrixDisplay
 ;
+var _s = __turbopack_context__.k.signature();
+'use client';
 ;
 ;
 ;
@@ -24547,46 +22600,57 @@ const COLORS = {
     sideActive: '#b0f5ffff'
 };
 function SpectrumAnalyzer() {
-    const [imageLoaded, setImageLoaded] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [isPlaying, setIsPlaying] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [audioFile, setAudioFile] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [fileName, setFileName] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
-    const [currentTime, setCurrentTime] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(0);
-    const [duration, setDuration] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(0);
-    const [showGuide, setShowGuide] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(SPECTRUM_CONFIG.showGuide);
-    const [displayMode, setDisplayMode] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('TEXT');
-    const [displayText, setDisplayText] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("PEAK HOLD");
-    const canvasRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const audioRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const audioContextRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const analyzerRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const sourceRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const animationRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const previousLevelsRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(new Array(SPECTRUM_CONFIG.numBands).fill(0));
-    const peakHoldsRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(new Array(SPECTRUM_CONFIG.numBands).fill(null).map(()=>({
-            level: 0,
-            timestamp: 0
-        })));
-    const sidePeakHoldsRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(new Array(SPECTRUM_CONFIG.numBands).fill(null).map(()=>({
-            level: 0,
-            timestamp: 0
-        })));
-    const guideImageRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const audioInitializedRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(false);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        const img = new Image();
-        img.crossOrigin = 'anonymous';
-        const basePath = ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : '';
-        img.src = `${basePath}/images/guide.png`;
-        img.onload = ()=>{
-            guideImageRef.current = img;
-            setImageLoaded(true);
-        };
-        return ()=>{
-            if (animationRef.current) cancelAnimationFrame(animationRef.current);
-            if (audioContextRef.current?.state !== 'closed') audioContextRef.current?.close();
-        };
-    }, []);
+    _s();
+    const [imageLoaded, setImageLoaded] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [isPlaying, setIsPlaying] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [audioFile, setAudioFile] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [fileName, setFileName] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
+    const [currentTime, setCurrentTime] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
+    const [duration, setDuration] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
+    const [showGuide, setShowGuide] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(SPECTRUM_CONFIG.showGuide);
+    const [displayMode, setDisplayMode] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('TEXT');
+    const [displayText, setDisplayText] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("PEAK HOLD");
+    const canvasRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const audioRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const audioContextRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const analyzerRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const sourceRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const animationRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const previousLevelsRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(new Array(SPECTRUM_CONFIG.numBands).fill(0));
+    const peakHoldsRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(new Array(SPECTRUM_CONFIG.numBands).fill(null).map({
+        "SpectrumAnalyzer.useRef[peakHoldsRef]": ()=>({
+                level: 0,
+                timestamp: 0
+            })
+    }["SpectrumAnalyzer.useRef[peakHoldsRef]"]));
+    const sidePeakHoldsRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(new Array(SPECTRUM_CONFIG.numBands).fill(null).map({
+        "SpectrumAnalyzer.useRef[sidePeakHoldsRef]": ()=>({
+                level: 0,
+                timestamp: 0
+            })
+    }["SpectrumAnalyzer.useRef[sidePeakHoldsRef]"]));
+    const guideImageRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const audioInitializedRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(false);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "SpectrumAnalyzer.useEffect": ()=>{
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
+            const basePath = ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : '';
+            img.src = `${basePath}/images/guide.png`;
+            img.onload = ({
+                "SpectrumAnalyzer.useEffect": ()=>{
+                    guideImageRef.current = img;
+                    setImageLoaded(true);
+                }
+            })["SpectrumAnalyzer.useEffect"];
+            return ({
+                "SpectrumAnalyzer.useEffect": ()=>{
+                    if (animationRef.current) cancelAnimationFrame(animationRef.current);
+                    if (audioContextRef.current?.state !== 'closed') audioContextRef.current?.close();
+                }
+            })["SpectrumAnalyzer.useEffect"];
+        }
+    }["SpectrumAnalyzer.useEffect"], []);
     const initializeAudio = ()=>{
         if (!audioRef.current || audioInitializedRef.current) return;
         try {
@@ -24776,31 +22840,41 @@ function SpectrumAnalyzer() {
         }
         animationRef.current = requestAnimationFrame(drawSpectrum);
     };
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        if (animationRef.current) {
-            cancelAnimationFrame(animationRef.current);
-            animationRef.current = null;
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "SpectrumAnalyzer.useEffect": ()=>{
+            if (animationRef.current) {
+                cancelAnimationFrame(animationRef.current);
+                animationRef.current = null;
+            }
+            drawSpectrum();
         }
-        drawSpectrum();
-    }, [
+    }["SpectrumAnalyzer.useEffect"], [
         isPlaying,
         imageLoaded,
         showGuide
     ]);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        const audio = audioRef.current;
-        if (!audio) return;
-        const updateTime = ()=>setCurrentTime(audio.currentTime);
-        const updateDuration = ()=>setDuration(audio.duration);
-        audio.addEventListener('timeupdate', updateTime);
-        audio.addEventListener('loadedmetadata', updateDuration);
-        audio.addEventListener('durationchange', updateDuration);
-        return ()=>{
-            audio.removeEventListener('timeupdate', updateTime);
-            audio.removeEventListener('loadedmetadata', updateDuration);
-            audio.removeEventListener('durationchange', updateDuration);
-        };
-    }, [
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "SpectrumAnalyzer.useEffect": ()=>{
+            const audio = audioRef.current;
+            if (!audio) return;
+            const updateTime = {
+                "SpectrumAnalyzer.useEffect.updateTime": ()=>setCurrentTime(audio.currentTime)
+            }["SpectrumAnalyzer.useEffect.updateTime"];
+            const updateDuration = {
+                "SpectrumAnalyzer.useEffect.updateDuration": ()=>setDuration(audio.duration)
+            }["SpectrumAnalyzer.useEffect.updateDuration"];
+            audio.addEventListener('timeupdate', updateTime);
+            audio.addEventListener('loadedmetadata', updateDuration);
+            audio.addEventListener('durationchange', updateDuration);
+            return ({
+                "SpectrumAnalyzer.useEffect": ()=>{
+                    audio.removeEventListener('timeupdate', updateTime);
+                    audio.removeEventListener('loadedmetadata', updateDuration);
+                    audio.removeEventListener('durationchange', updateDuration);
+                }
+            })["SpectrumAnalyzer.useEffect"];
+        }
+    }["SpectrumAnalyzer.useEffect"], [
         audioFile
     ]);
     const handlePlay = async ()=>{
@@ -24852,14 +22926,14 @@ function SpectrumAnalyzer() {
             setDisplayText("PEAK HOLD"); // Reset text just in case
         }
     };
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "w-full max-w-[1400px] mx-auto space-y-4",
         children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "bg-black rounded-none overflow-hidden relative",
                 children: [
                     " ",
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("canvas", {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("canvas", {
                         ref: canvasRef,
                         width: 1400,
                         height: 400,
@@ -24869,7 +22943,7 @@ function SpectrumAnalyzer() {
                         lineNumber: 463,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2d$display$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DotMatrixDisplay"], {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$index$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DotMatrixDisplay"], {
                         width: 1400,
                         height: 400,
                         className: "absolute top-0 left-0 w-full h-full pointer-events-none z-10",
@@ -24886,11 +22960,11 @@ function SpectrumAnalyzer() {
                 lineNumber: 462,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "w-full space-y-2",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].dynamic([
                             [
                                 "47cfbccbfea67f55",
                                 [
@@ -24900,14 +22974,14 @@ function SpectrumAnalyzer() {
                             ]
                         ]) + " " + "relative w-full",
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                 type: "range",
                                 min: "0",
                                 max: duration || 0,
                                 value: currentTime,
                                 onChange: handleSeek,
                                 disabled: !audioFile,
-                                className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].dynamic([
                                     [
                                         "47cfbccbfea67f55",
                                         [
@@ -24921,7 +22995,7 @@ function SpectrumAnalyzer() {
                                 lineNumber: 476,
                                 columnNumber: 11
                             }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                 id: "47cfbccbfea67f55",
                                 dynamic: [
                                     currentTime / (duration || 1) * 100,
@@ -24935,9 +23009,9 @@ function SpectrumAnalyzer() {
                         lineNumber: 475,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex justify-end",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "text-xs text-white/50 font-mono tracking-wider",
                             children: [
                                 formatTime(currentTime),
@@ -24960,7 +23034,7 @@ function SpectrumAnalyzer() {
                 lineNumber: 474,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex justify-center items-center h-6 text-sm font-light tracking-widest text-white/70 font-mono",
                 children: fileName
             }, void 0, false, {
@@ -24968,10 +23042,10 @@ function SpectrumAnalyzer() {
                 lineNumber: 506,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex items-center gap-3",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                         type: "file",
                         accept: "audio/*",
                         onChange: handleFileUpload,
@@ -24982,16 +23056,16 @@ function SpectrumAnalyzer() {
                         lineNumber: 511,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                         htmlFor: "audio-upload",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                             size: "sm",
                             asChild: true,
                             className: "bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer",
-                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "flex items-center gap-2",
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$upload$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Upload$3e$__["Upload"], {
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$upload$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Upload$3e$__["Upload"], {
                                         className: "h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/components/spectrum-analyzer.tsx",
@@ -25015,14 +23089,14 @@ function SpectrumAnalyzer() {
                         lineNumber: 512,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                         onClick: isPlaying ? handlePause : handlePlay,
                         size: "sm",
                         disabled: !audioFile,
                         className: "bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer",
-                        children: isPlaying ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                        children: isPlaying ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$pause$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Pause$3e$__["Pause"], {
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$pause$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Pause$3e$__["Pause"], {
                                     className: "h-4 w-4 mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/components/spectrum-analyzer.tsx",
@@ -25031,9 +23105,9 @@ function SpectrumAnalyzer() {
                                 }, this),
                                 " PAUSE"
                             ]
-                        }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                        }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$play$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Play$3e$__["Play"], {
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$play$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Play$3e$__["Play"], {
                                     className: "h-4 w-4 mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/components/spectrum-analyzer.tsx",
@@ -25048,12 +23122,12 @@ function SpectrumAnalyzer() {
                         lineNumber: 517,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                         onClick: handleDispClick,
                         size: "sm",
                         className: "bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer",
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$monitor$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Monitor$3e$__["Monitor"], {
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$monitor$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Monitor$3e$__["Monitor"], {
                                 className: "h-4 w-4 mr-2"
                             }, void 0, false, {
                                 fileName: "[project]/components/spectrum-analyzer.tsx",
@@ -25067,13 +23141,13 @@ function SpectrumAnalyzer() {
                         lineNumber: 520,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                         onClick: ()=>setShowGuide(!showGuide),
                         size: "sm",
                         className: "bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer",
-                        children: showGuide ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                        children: showGuide ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2d$off$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__EyeOff$3e$__["EyeOff"], {
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2d$off$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__EyeOff$3e$__["EyeOff"], {
                                     className: "h-4 w-4 mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/components/spectrum-analyzer.tsx",
@@ -25082,9 +23156,9 @@ function SpectrumAnalyzer() {
                                 }, this),
                                 " GUIDE OFF"
                             ]
-                        }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                        }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Eye$3e$__["Eye"], {
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Eye$3e$__["Eye"], {
                                     className: "h-4 w-4 mr-2"
                                 }, void 0, false, {
                                     fileName: "[project]/components/spectrum-analyzer.tsx",
@@ -25105,7 +23179,7 @@ function SpectrumAnalyzer() {
                 lineNumber: 510,
                 columnNumber: 7
             }, this),
-            audioFile && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("audio", {
+            audioFile && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("audio", {
                 ref: audioRef,
                 src: audioFile,
                 className: "hidden",
@@ -25115,7 +23189,7 @@ function SpectrumAnalyzer() {
                 lineNumber: 527,
                 columnNumber: 21
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 style: {
                     color: 'white',
                     fontSize: '10px'
@@ -25133,23 +23207,30 @@ function SpectrumAnalyzer() {
         columnNumber: 6
     }, this);
 }
+_s(SpectrumAnalyzer, "tiXgx9G4uMPixoBR1nuthlztIyg=");
+_c = SpectrumAnalyzer;
+var _c;
+__turbopack_context__.k.register(_c, "SpectrumAnalyzer");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
 }),
-"[project]/app/page.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"[project]/app/page.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s([
     "default",
     ()=>Home
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/spectrum-analyzer.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/spectrum-analyzer.tsx [app-client] (ecmascript)");
 'use client';
 ;
 ;
 function Home() {
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
         className: "min-h-screen bg-black flex items-center justify-center p-4",
-        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SpectrumAnalyzer"], {}, void 0, false, {
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SpectrumAnalyzer"], {}, void 0, false, {
             fileName: "[project]/app/page.tsx",
             lineNumber: 8,
             columnNumber: 7
@@ -25160,7 +23241,13 @@ function Home() {
         columnNumber: 5
     }, this);
 }
+_c = Home;
+var _c;
+__turbopack_context__.k.register(_c, "Home");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
 }),
-];
+]);
 
-//# sourceMappingURL=_feac8a80._.js.map
+//# sourceMappingURL=_4b53b3e3._.js.map

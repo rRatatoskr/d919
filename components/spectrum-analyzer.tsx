@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Play, Pause, Upload, Eye, EyeOff, Monitor } from 'lucide-react' // Added Monitor icon for DISP
-import { DotMatrixDisplay } from './dot-matrix-display' // Import DotMatrixDisplay
+import { DotMatrixDisplay } from './dot-matrix' // Import DotMatrixDisplay
 
 // ============================================================================
 // 🎨 スペクトラムアナライザー設定

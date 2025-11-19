@@ -124,7 +124,7 @@ const DOT_MATRIX_CONFIG = {
     // 見た目の設定
     color: "#b0f5ffff",
     offColor: "#231e2dff",
-    glowBlur: 0,
+    glowBlur: 4,
     // デバッグ用: 全点灯させるかどうか
     debugAllOn: false
 };
