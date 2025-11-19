@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { Play, Pause, Upload, Eye, EyeOff } from 'lucide-react'
+import { Play, Pause, Upload, Eye, EyeOff, Monitor } from 'lucide-react' // Added Monitor icon for DISP
 import { DotMatrixDisplay } from './dot-matrix-display' // Import DotMatrixDisplay
 
 // ============================================================================
@@ -503,6 +503,9 @@ export function SpectrumAnalyzer() {
         </label>
         <Button onClick={isPlaying ? handlePause : handlePlay} size="sm" disabled={!audioFile} className="bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2">
           {isPlaying ? <><Pause className="h-4 w-4 mr-2" /> PAUSE</> : <><Play className="h-4 w-4 mr-2" /> PLAY</>}
+        </Button>
+        <Button size="sm" className="bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2">
+          <Monitor className="h-4 w-4 mr-2" /> DISP
         </Button>
         <Button onClick={() => setShowGuide(!showGuide)} size="sm" className="bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2">
           {showGuide ? <><EyeOff className="h-4 w-4 mr-2" /> GUIDE OFF</> : <><Eye className="h-4 w-4 mr-2" /> GUIDE ON</>}
