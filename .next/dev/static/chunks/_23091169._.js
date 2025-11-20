@@ -25059,38 +25059,36 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/components/spectrum-analyzer/icon-definitions.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// components/spectrum-analyzer/icon-definitions.tsx
 __turbopack_context__.s([
     "CUSTOM_ICONS",
     ()=>CUSTOM_ICONS
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
-(()=>{
-    const e = new Error("Cannot find module '@/components/icons/mp3-logo'");
-    e.code = 'MODULE_NOT_FOUND';
-    throw e;
-})();
-;
 const basePath = ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : '';
 const CUSTOM_ICONS = [
     {
         id: 'mp3-logo',
         name: 'MP3',
-        type: 'COMPONENT',
-        component: Mp3Logo,
+        type: 'IMAGE',
+        // ★ここを .svg に指定
+        maskSrc: `${basePath}/images/masks/mp3.svg`,
         activeModes: [
+            'UPLOAD_PROMPT',
             'PEAK_HOLD',
             'ANIMATION',
             'MUSIC'
         ],
-        condition: (_, hasFile)=>hasFile,
-        x: 1180,
-        y: 45,
-        width: 80,
-        height: 40,
-        color: '#ff0055' // ★ここで指定した色がSVGに渡されます
+        // ★デバッグのため常に表示 (確認できたら condition: (_, hasFile) => hasFile に戻してください)
+        condition: ()=>true,
+        // 配置と色
+        x: 204.245,
+        y: 55.45,
+        width: 100,
+        height: 20,
+        // ★この色でSVGが光ります
+        color: '#ff00557c'
     },
-    // ... 他のアイコン（DOT_MATRIXなど）はそのまま ...
+    // 他のアイコン設定...
     {
         id: 'note-1',
         name: '音符1',
@@ -25136,23 +25134,100 @@ function IconsLayer({ displayMode, isPlaying, audioFile, width, height }) {
             const isModeActive = icon.activeModes.includes(displayMode);
             const isConditionMet = icon.condition ? icon.condition(isPlaying, hasFile) : true;
             const isActive = isModeActive && isConditionMet;
-            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$masked$2d$display$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MaskedDotMatrix"], {
-                width: width,
-                height: height,
-                maskSrc: icon.maskSrc,
-                active: isActive,
-                // ★位置・サイズ・色を渡す
-                iconX: icon.x,
-                iconY: icon.y,
-                iconWidth: icon.width,
-                iconHeight: icon.height,
-                color: icon.color || __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["COLORS"].iconActive,
-                className: "absolute top-0 left-0 w-full h-full"
-            }, icon.id, false, {
-                fileName: "[project]/components/spectrum-analyzer/icons-layer.tsx",
-                lineNumber: 33,
-                columnNumber: 11
-            }, this);
+            // アイコンの基準位置（左下）を計算
+            const topPosition = icon.y - icon.height;
+            const stylePos = {
+                position: 'absolute',
+                left: `${icon.x}px`,
+                top: `${topPosition}px`,
+                width: `${icon.width}px`,
+                height: `${icon.height}px`,
+                transition: 'opacity 0.2s ease-in-out',
+                opacity: isActive ? 1 : 0.1
+            };
+            // 1. SVGコンポーネント
+            if (icon.type === 'COMPONENT' && icon.component) {
+                const SvgComponent = icon.component;
+                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: stylePos,
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(SvgComponent, {
+                        color: icon.color || __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["COLORS"].iconActive,
+                        active: isActive,
+                        width: icon.width,
+                        height: icon.height
+                    }, void 0, false, {
+                        fileName: "[project]/components/spectrum-analyzer/icons-layer.tsx",
+                        lineNumber: 50,
+                        columnNumber: 21
+                    }, this)
+                }, icon.id, false, {
+                    fileName: "[project]/components/spectrum-analyzer/icons-layer.tsx",
+                    lineNumber: 49,
+                    columnNumber: 17
+                }, this);
+            }
+            // 2. ドットマトリクス
+            if (icon.type === 'DOT_MATRIX' && icon.maskSrc) {
+                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$masked$2d$display$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MaskedDotMatrix"], {
+                    width: width,
+                    height: height,
+                    maskSrc: icon.maskSrc,
+                    active: isActive,
+                    iconX: icon.x,
+                    iconY: topPosition,
+                    iconWidth: icon.width,
+                    iconHeight: icon.height,
+                    color: icon.color || __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["COLORS"].iconActive,
+                    className: "absolute top-0 left-0 w-full h-full"
+                }, icon.id, false, {
+                    fileName: "[project]/components/spectrum-analyzer/icons-layer.tsx",
+                    lineNumber: 63,
+                    columnNumber: 13
+                }, this);
+            }
+            // 3. 画像 (SVG/PNG)
+            if (icon.type === 'IMAGE' && icon.maskSrc) {
+                // 色指定がある場合 => CSS Mask
+                if (icon.color) {
+                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            ...stylePos,
+                            backgroundColor: icon.color,
+                            // ★ここが修正ポイント
+                            maskImage: `url(${icon.maskSrc})`,
+                            WebkitMaskImage: `url(${icon.maskSrc})`,
+                            // アスペクト比を維持して、ボックス内に収める
+                            maskSize: 'contain',
+                            WebkitMaskSize: 'contain',
+                            // 左下を基準にする（これでサイズを変えても位置がずれない）
+                            maskPosition: 'left bottom',
+                            WebkitMaskPosition: 'left bottom',
+                            maskRepeat: 'no-repeat',
+                            WebkitMaskRepeat: 'no-repeat',
+                            filter: isActive ? `drop-shadow(0 0 8px ${icon.color})` : 'none'
+                        }
+                    }, icon.id, false, {
+                        fileName: "[project]/components/spectrum-analyzer/icons-layer.tsx",
+                        lineNumber: 84,
+                        columnNumber: 16
+                    }, this);
+                }
+                // 色指定なし => そのまま表示
+                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                    src: icon.maskSrc,
+                    alt: icon.name,
+                    style: {
+                        ...stylePos,
+                        objectFit: 'contain',
+                        objectPosition: 'left bottom' // 左下基準
+                    }
+                }, icon.id, false, {
+                    fileName: "[project]/components/spectrum-analyzer/icons-layer.tsx",
+                    lineNumber: 113,
+                    columnNumber: 13
+                }, this);
+            }
+            return null;
         })
     }, void 0, false, {
         fileName: "[project]/components/spectrum-analyzer/icons-layer.tsx",

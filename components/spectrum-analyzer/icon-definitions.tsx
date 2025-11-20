@@ -1,5 +1,4 @@
 import { IconDefinition } from './types'
-import { Mp3Logo } from '@/components/icons/mp3-logo' // ★手順1で作ったファイルを読み込む
 
 const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
 
@@ -7,19 +6,26 @@ export const CUSTOM_ICONS: IconDefinition[] = [
   {
     id: 'mp3-logo',
     name: 'MP3',
-    type: 'COMPONENT', // ★タイプをCOMPONENTに指定
-    component: Mp3Logo, // ★コンポーネントを割り当て
-    activeModes: ['PEAK_HOLD', 'ANIMATION', 'MUSIC'],
-    condition: (_, hasFile) => hasFile,
+    type: 'IMAGE', 
     
-    // 位置とサイズと色
-    x: 1180,
-    y: 45,
-    width: 80,
-    height: 40,
-    color: '#ff0055' // ピンク色に発光
+    // ★ここを .svg に指定
+    maskSrc: `${basePath}/images/masks/mp3.svg`, 
+    
+    activeModes: ['UPLOAD_PROMPT', 'PEAK_HOLD', 'ANIMATION', 'MUSIC'],
+    
+    // ★デバッグのため常に表示 (確認できたら condition: (_, hasFile) => hasFile に戻してください)
+    condition: () => true, 
+    
+    // 配置と色
+    x: 204.245,
+    y: 55.45,
+    width: 100, 
+    height: 20,
+    
+    // ★この色でSVGが光ります
+    color: '#ff00557c' 
   },
-  // 他のドット絵アイコン（今まで通り）
+  // 他のアイコン設定...
   {
     id: 'note-1',
     name: '音符1',
