@@ -6,18 +6,18 @@ export const SPECTRUM_CONFIG = {
   levelsPerBand: 13,
   
   blockWidth: 24.5,
-  blockHeight: 6.0,
+  blockHeight: 4.8,
   
-  gapX: 43.61,
-  gapY1: 3.1,
-  gapY2: 6,
+  gapX: 43.60,
+  gapY1: 2.2,
+  gapY2: 3.35,
   
   slantLR: 2.0,
-  slopeTB: 5.0,
+  slopeTB: 3.5,
   stackSlant: 3.35,
   
-  offsetX: 186.6,
-  offsetY: 8.2,
+  offsetX: 186.5,
+  offsetY: 62.2,
   
   divisor: 1.8,
   fallSpeed: 0.03,
@@ -40,19 +40,19 @@ export const SIDE_BAND_CONFIG = {
   levelsPerBand: 13,
   
   blockWidth: 7.5,
-  blockHeight: 6.0,
+  blockHeight: 4.8,
   
-  gapY1: 3.1,
-  gapY2: 6.0,
+  gapY1: 2.2,
+  gapY2: 3.35,
   
   slantLR: 2.0,
   slopeTB: 2.0,
   stackSlant: 3.35,
   
   leftOffsetX: -11,
-  rightOffsetX: 28,
-  leftOffsetY: -2.5,
-  rightOffsetY: 5,
+  rightOffsetX: 29,
+  leftOffsetY: -2.3,
+  rightOffsetY: 4,
   
   linkToBand: 'same',
   levelMultiplier: 1,

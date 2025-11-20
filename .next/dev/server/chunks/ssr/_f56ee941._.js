@@ -24894,6 +24894,7 @@ const drawIcon = (ctx, icon, currentDisplayMode, isPlaying, audioFile)=>{
 "[project]/components/dot-matrix/masked-display.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+// components/dot-matrix/masked-display.tsx
 __turbopack_context__.s([
     "MaskedDotMatrix",
     ()=>MaskedDotMatrix
@@ -24903,11 +24904,10 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 'use client';
 ;
 ;
-function MaskedDotMatrix({ width, height, maskSrc, active, color = '#1fd7f0', inactiveColor = 'rgba(35, 30, 45, 0.0)', dotSize = 3, gap = 2, className }) {
+function MaskedDotMatrix({ width, height, maskSrc, active, iconX = 0, iconY = 0, iconWidth, iconHeight, color = '#1fd7f0', inactiveColor = 'rgba(35, 30, 45, 0.0)', dotSize = 3, gap = 2, className }) {
     const canvasRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const [points, setPoints] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const [isLoaded, setIsLoaded] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
-    // マスク画像の解析（初回のみ）
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         const img = new Image();
         img.src = maskSrc;
@@ -24918,17 +24918,27 @@ function MaskedDotMatrix({ width, height, maskSrc, active, color = '#1fd7f0', in
             offCanvas.height = height;
             const ctx = offCanvas.getContext('2d');
             if (!ctx) return;
-            // 画像を描画してピクセルデータを取得
-            ctx.drawImage(img, 0, 0, width, height);
+            // 描画エリアをクリア
+            ctx.clearRect(0, 0, width, height);
+            // ★指定された位置とサイズでマスク画像を描画
+            const drawW = iconWidth || width;
+            const drawH = iconHeight || height;
+            ctx.drawImage(img, iconX, iconY, drawW, drawH);
             const imageData = ctx.getImageData(0, 0, width, height).data;
             const validPoints = [];
             const step = dotSize + gap;
-            // グリッドスキャン
-            for(let y = 0; y < height; y += step){
-                for(let x = 0; x < width; x += step){
-                    const index = (y * width + x) * 4 + 3 // アルファ値
+            // 画像が描画された範囲だけを重点的にスキャン（パフォーマンス最適化）
+            // ※念のため全体スキャンでも良いが、範囲指定した方が軽い
+            const startX = Math.max(0, Math.floor(iconX / step) * step);
+            const endX = Math.min(width, startX + drawW + step);
+            const startY = Math.max(0, Math.floor(iconY / step) * step);
+            const endY = Math.min(height, startY + drawH + step);
+            for(let y = startY; y < endY; y += step){
+                for(let x = startX; x < endX; x += step){
+                    const index = (y * width + x) * 4 + 3 // アルファチャンネル
                     ;
-                    if (imageData[index] > 128) {
+                    // 不透明度が一定以上なら「光るドット」とみなす
+                    if (imageData[index] > 100) {
                         validPoints.push({
                             x,
                             y
@@ -24944,24 +24954,25 @@ function MaskedDotMatrix({ width, height, maskSrc, active, color = '#1fd7f0', in
         width,
         height,
         dotSize,
-        gap
+        gap,
+        iconX,
+        iconY,
+        iconWidth,
+        iconHeight
     ]);
-    // 描画処理
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         const canvas = canvasRef.current;
         const ctx = canvas?.getContext('2d');
         if (!canvas || !ctx || !isLoaded) return;
         ctx.clearRect(0, 0, width, height);
-        // 点灯状態に応じた色設定
+        // 点灯時は指定色、消灯時は透明(または指定色)
         ctx.fillStyle = active ? color : inactiveColor;
-        // 影（光る演出）
         if (active) {
             ctx.shadowBlur = 5;
             ctx.shadowColor = color;
         } else {
             ctx.shadowBlur = 0;
         }
-        // ドット描画
         points.forEach((p)=>{
             ctx.fillRect(p.x, p.y, dotSize, dotSize);
         });
@@ -24982,7 +24993,7 @@ function MaskedDotMatrix({ width, height, maskSrc, active, color = '#1fd7f0', in
         className: className
     }, void 0, false, {
         fileName: "[project]/components/dot-matrix/masked-display.tsx",
-        lineNumber: 97,
+        lineNumber: 118,
         columnNumber: 10
     }, this);
 }
@@ -24990,24 +25001,29 @@ function MaskedDotMatrix({ width, height, maskSrc, active, color = '#1fd7f0', in
 "[project]/components/spectrum-analyzer/icons-layer.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+// components/spectrum-analyzer/icons-layer.tsx
 __turbopack_context__.s([
     "IconsLayer",
     ()=>IconsLayer
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dot$2d$matrix$2f$masked$2d$display$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/dot-matrix/masked-display.tsx [app-ssr] (ecmascript)");
+(()=>{
+    const e = new Error("Cannot find module './icon-definitions'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})();
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/spectrum-analyzer/config.ts [app-ssr] (ecmascript)");
 'use client';
 ;
 ;
 ;
-const CUSTOM_ICONS = [];
+;
 function IconsLayer({ displayMode, isPlaying, audioFile, width, height }) {
     const hasFile = !!audioFile;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "absolute top-0 left-0 w-full h-full pointer-events-none z-20",
         children: CUSTOM_ICONS.map((icon)=>{
-            // 点灯判定
             const isModeActive = icon.activeModes.includes(displayMode);
             const isConditionMet = icon.condition ? icon.condition(isPlaying, hasFile) : true;
             const isActive = isModeActive && isConditionMet;
@@ -25016,18 +25032,22 @@ function IconsLayer({ displayMode, isPlaying, audioFile, width, height }) {
                 height: height,
                 maskSrc: icon.maskSrc,
                 active: isActive,
-                color: __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["COLORS"].iconActive,
-                // canvasを重ね合わせるのでabsolute配置
+                // ★ここが変更点：定義ファイルから位置・サイズ・色を渡す
+                iconX: icon.x,
+                iconY: icon.y,
+                iconWidth: icon.width,
+                iconHeight: icon.height,
+                color: icon.color || __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["COLORS"].iconActive,
                 className: "absolute top-0 left-0 w-full h-full"
             }, icon.id, false, {
                 fileName: "[project]/components/spectrum-analyzer/icons-layer.tsx",
-                lineNumber: 40,
+                lineNumber: 34,
                 columnNumber: 11
             }, this);
         })
     }, void 0, false, {
         fileName: "[project]/components/spectrum-analyzer/icons-layer.tsx",
-        lineNumber: 32,
+        lineNumber: 27,
         columnNumber: 5
     }, this);
 }

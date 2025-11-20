@@ -94,8 +94,17 @@ export function SpectrumAnalyzer() {
     ctx.fillRect(0, 0, canvas.width, canvas.height)
 
     if (showGuide && guideImageRef.current) {
+      const img = guideImageRef.current
       ctx.globalAlpha = SPECTRUM_CONFIG.guideAlpha
-      ctx.drawImage(guideImageRef.current, 0, 0, canvas.width, canvas.height)
+      
+      // 縦横比を維持して収める計算 (object-fit: contain と同じロジック)
+      const scale = Math.min(canvas.width / img.width, canvas.height / img.height)
+      const w = img.width * scale
+      const h = img.height * scale
+      const x = (canvas.width - w) / 2
+      const y = (canvas.height - h) / 2
+
+      ctx.drawImage(img, x, y, w, h)
       ctx.globalAlpha = 1.0
     }
 
