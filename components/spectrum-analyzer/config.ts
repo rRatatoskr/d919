@@ -61,7 +61,7 @@ export const SIDE_BAND_CONFIG = {
 export const COLORS = {
   inactive: '#231e2dff',
   activeBottom: '#1fd7f0ff', 
-  activeMiddle: '#baff75',
+  activeMiddle: '#00ff15ff',
   activeTop: '#1876eaff',
   sideActive: '#b0f5ffff',
   iconActive: '#1fd7f0ff',
