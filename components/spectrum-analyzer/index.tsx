@@ -15,7 +15,8 @@ import {
   updatePeakHold,
   // drawIcon は削除
 } from './utils'
-import { IconsLayer } from './icons-layer' // 新規レイヤー読み込み
+import { IconsLayer } from './icons-layer'
+import { LevelizerLayer } from './LevelizerLayer'
 
 export function SpectrumAnalyzer() {
   // ... (状態定義などは変更なし)
@@ -330,7 +331,11 @@ export function SpectrumAnalyzer() {
           width={1400} 
           height={400} 
         />
+
+        <LevelizerLayer width={1400} height={400} />
       </div>
+
+        
 
       {/* ... (コントローラー部分は変更なし) ... */}
       <div className="w-full space-y-2">
