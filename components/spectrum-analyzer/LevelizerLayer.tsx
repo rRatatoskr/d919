@@ -4,6 +4,8 @@ import React from "react";
 import { RingLevelizer, RingConfig } from "./RingLevelizer";
 import { VFD_COLORS } from '@/lib/constants';
 
+const basePath = process.env.NODE_ENV === 'production' ? '/d919' : '';
+
 const BASE_CONFIG: RingConfig = {
   rotationSpeed: 0.2,
   numSets: 2,
@@ -23,14 +25,6 @@ export const LevelizerLayer: React.FC<LevelizerLayerProps> = ({ width, height })
     <div 
       className="absolute top-0 left-0 pointer-events-none z-20 w-full h-full"
     >
-      {/* === レスポンシブ対応の位置指定 ===
-        画面サイズ (1400x400) に対する割合(%)で指定することで、
-        画面が拡大縮小しても位置とサイズが完璧に追従します。
-        
-        計算式: (対象のpx / 全体のpx) * 100
-      */}
-
-      {/* --- Ring 7 (一番内側) --- */}
       <div 
         className="absolute"
         style={{ 
@@ -41,7 +35,7 @@ export const LevelizerLayer: React.FC<LevelizerLayerProps> = ({ width, height })
         }}
       >
         <RingLevelizer
-          src="/images/masks/ring-level7.svg"
+          src={`${basePath}/images/masks/ring-level7.svg`}
           config={{ ...BASE_CONFIG, rotationSpeed: 0.15, direction: 1 }}
         />
       </div>
@@ -55,7 +49,7 @@ export const LevelizerLayer: React.FC<LevelizerLayerProps> = ({ width, height })
         }}
       >
         <RingLevelizer
-          src="/images/masks/ring-level6.svg"
+          src={`${basePath}/images/masks/ring-level6.svg`}
           config={{ ...BASE_CONFIG, rotationSpeed: 0.15, direction: 1 }}
         />
       </div>
@@ -69,7 +63,7 @@ export const LevelizerLayer: React.FC<LevelizerLayerProps> = ({ width, height })
         }}
       >
         <RingLevelizer
-          src="/images/masks/ring-level5.svg"
+          src={`${basePath}/images/masks/ring-level5.svg`}
           config={{ ...BASE_CONFIG, rotationSpeed: 0.15, direction: 1 }}
         />
       </div>
@@ -83,7 +77,7 @@ export const LevelizerLayer: React.FC<LevelizerLayerProps> = ({ width, height })
         }}
       >
         <RingLevelizer
-          src="/images/masks/ring-level4.svg"
+          src={`${basePath}/images/masks/ring-level4.svg`}
           config={{ ...BASE_CONFIG, rotationSpeed: 0.15, direction: 1 }}
         />
       </div>
@@ -97,7 +91,7 @@ export const LevelizerLayer: React.FC<LevelizerLayerProps> = ({ width, height })
         }}
       >
         <RingLevelizer
-          src="/images/masks/ring-level3.svg"
+          src={`${basePath}/images/masks/ring-level3.svg`}
           config={{ ...BASE_CONFIG, rotationSpeed: 0.15, direction: 1 }}
         />
       </div>
@@ -111,7 +105,7 @@ export const LevelizerLayer: React.FC<LevelizerLayerProps> = ({ width, height })
         }}
       >
         <RingLevelizer
-          src="/images/masks/ring-level2.svg"
+          src={`${basePath}/images/masks/ring-level2.svg`}
           config={{ ...BASE_CONFIG, rotationSpeed: 0.15, direction: 1 }}
         />
       </div>
@@ -125,7 +119,7 @@ export const LevelizerLayer: React.FC<LevelizerLayerProps> = ({ width, height })
         }}
       >
         <RingLevelizer
-          src="/images/masks/ring-level1.svg"
+          src={`${basePath}/images/masks/ring-level1.svg`}
           config={{ ...BASE_CONFIG, rotationSpeed: 0.15, direction: 1 }}
         />
       </div>
