@@ -29,9 +29,6 @@ export const SPECTRUM_CONFIG = {
   maxDecibels: -20,
   
   peakHoldTime: 200,
-  
-  showGuide: true,
-  guideAlpha: 0.2,
 }
 
 export const SIDE_BAND_CONFIG = {
@@ -59,11 +56,11 @@ export const SIDE_BAND_CONFIG = {
 }
 
 export const COLORS = {
-  inactive: VFD_COLORS.OFF,       // #231e2dff
-  activeBottom: VFD_COLORS.CYAN,  // #1fd8f0ff
-  activeMiddle: VFD_COLORS.GREEN, // #00ff15ff
-  activeTop: VFD_COLORS.BLUE,     // #1876eaff
-  sideActive: VFD_COLORS.CYAN_LIGHT, // #b0f5ffff
-  iconActive: VFD_COLORS.CYAN,    // #1fd8f0ff
-  iconInactive: VFD_COLORS.OFF,   // #231e2dff
+  inactive: VFD_COLORS.OFF,       
+  activeBottom: VFD_COLORS.CYAN,  
+  activeMiddle: VFD_COLORS.GREEN, 
+  activeTop: VFD_COLORS.BLUE,     
+  sideActive: VFD_COLORS.CYAN_LIGHT, 
+  iconActive: VFD_COLORS.CYAN,    
+  iconInactive: VFD_COLORS.OFF,   
 }

@@ -2,10 +2,10 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { Play, Pause, Upload, Eye, EyeOff, Monitor } from 'lucide-react' 
+import { Play, Pause, Upload, Monitor } from 'lucide-react' // Eye, EyeOff を削除
 import { DotMatrixDisplay } from '@/components/dot-matrix' 
 import { DisplayMode, PeakHold } from './types'
-import { SPECTRUM_CONFIG, SIDE_BAND_CONFIG, COLORS } from './config' // ICON_CONFIG削除済み
+import { SPECTRUM_CONFIG, SIDE_BAND_CONFIG, COLORS } from './config'
 import { 
   drawDoubleSlantedPolygon, 
   drawSideBand, 
@@ -13,21 +13,17 @@ import {
   getAudioLevels, 
   getSegmentColor, 
   updatePeakHold,
-  // drawIcon は削除
 } from './utils'
 import { IconsLayer } from './icons-layer'
 import { LevelizerLayer } from './LevelizerLayer'
 
 export function SpectrumAnalyzer() {
-  // ... (状態定義などは変更なし)
-  const [imageLoaded, setImageLoaded] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
   const [audioFile, setAudioFile] = useState<string | null>(null)
   const [fileName, setFileName] = useState<string>('')
   
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
-  const [showGuide, setShowGuide] = useState(SPECTRUM_CONFIG.showGuide)
 
   const [displayMode, setDisplayMode] = useState<DisplayMode>('UPLOAD_PROMPT')
   
@@ -42,21 +38,11 @@ export function SpectrumAnalyzer() {
   const peakHoldsRef = useRef<PeakHold[]>(new Array(SPECTRUM_CONFIG.numBands).fill(null).map(() => ({ level: 0, timestamp: 0 })))
   const sidePeakHoldsRef = useRef<PeakHold[]>(new Array(SPECTRUM_CONFIG.numBands).fill(null).map(() => ({ level: 0, timestamp: 0 })))
   
-  const guideImageRef = useRef<HTMLImageElement | null>(null)
   const audioInitializedRef = useRef<boolean>(false)
 
-  // ... (useEffect, initializeAudio など変更なし) ...
 
+  // コンポーネントのクリーンアップ
   useEffect(() => {
-    const img = new Image()
-    img.crossOrigin = 'anonymous'
-    const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
-    img.src=`${basePath}/images/guide.png`
-    img.onload = () => {
-      guideImageRef.current = img
-      setImageLoaded(true)
-    }
-    
     return () => {
       if (animationRef.current) cancelAnimationFrame(animationRef.current)
       if (audioContextRef.current?.state !== 'closed') audioContextRef.current?.close()
@@ -94,26 +80,10 @@ export function SpectrumAnalyzer() {
     ctx.fillStyle = '#000000'
     ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-    if (showGuide && guideImageRef.current) {
-      const img = guideImageRef.current
-      ctx.globalAlpha = SPECTRUM_CONFIG.guideAlpha
-      
-      // 縦横比を維持して収める計算 (object-fit: contain と同じロジック)
-      const scale = Math.min(canvas.width / img.width, canvas.height / img.height)
-      const w = img.width * scale
-      const h = img.height * scale
-      const x = (canvas.width - w) / 2
-      const y = (canvas.height - h) / 2
-
-      ctx.drawImage(img, x, y, w, h)
-      ctx.globalAlpha = 1.0
-    }
-
     let displayLevels: number[] = []
     const now = performance.now()
 
     if (analyzerRef.current && isPlaying) {
-      // ... (解析ロジック変更なし) ...
       const bufferLength = analyzerRef.current.frequencyBinCount
       const dataArray = new Uint8Array(bufferLength)
       analyzerRef.current.getByteFrequencyData(dataArray)
@@ -136,7 +106,6 @@ export function SpectrumAnalyzer() {
     const sideRightYBottom = canvas.height - SPECTRUM_CONFIG.offsetY - SIDE_BAND_CONFIG.rightOffsetY
 
     for (let bandIdx = 0; bandIdx < SPECTRUM_CONFIG.numBands; bandIdx++) {
-       // ... (バンド描画ロジック変更なし) ...
       const mainLevel = displayLevels[bandIdx] || 0
       const sideLevel = mainLevel * SIDE_BAND_CONFIG.levelMultiplier
 
@@ -193,8 +162,6 @@ export function SpectrumAnalyzer() {
       )
     }
 
-    // ICONの描画ループは削除 (IconsLayerコンポーネント側で行うため)
-
     animationRef.current = requestAnimationFrame(drawSpectrum)
   }
   
@@ -204,9 +171,8 @@ export function SpectrumAnalyzer() {
       animationRef.current = null
     }
     drawSpectrum()
-  }, [isPlaying, imageLoaded, showGuide, displayMode, audioFile])
+  }, [isPlaying, displayMode, audioFile])
 
-  // ... (以下イベントハンドラなどは元のまま) ...
   
   useEffect(() => {
     const audio = audioRef.current
@@ -245,13 +211,13 @@ export function SpectrumAnalyzer() {
     if (file) {
       setFileName(file.name)
       setIsPlaying(false)
+      
       if (audioContextRef.current) {
         audioContextRef.current.close()
         audioContextRef.current = null
       }
+      audioInitializedRef.current = false 
 
-      audioInitializedRef.current = false
-      
       if (audioFile) URL.revokeObjectURL(audioFile)
       setAudioFile(URL.createObjectURL(file))
 
@@ -276,7 +242,6 @@ export function SpectrumAnalyzer() {
   }
 
   const handleDispClick = () => {
-     // ... (元のロジック)
     if (!audioFile) {
       switch (displayMode) {
         case 'UPLOAD_PROMPT': setDisplayMode('ANIMATION'); break
@@ -322,10 +287,8 @@ export function SpectrumAnalyzer() {
   return (
      <div className="w-full max-w-[1400px] mx-auto space-y-4">
       <div className="bg-black rounded-none overflow-hidden relative">
-        {/* メインのスペアナCanvas */}
         <canvas ref={canvasRef} width={1400} height={400} className="w-full h-auto block" />
         
-        {/* ドットマトリクス表示 (中央の文字など) */}
         <DotMatrixDisplay 
           width={1400} 
           height={400} 
@@ -334,7 +297,6 @@ export function SpectrumAnalyzer() {
           mode={matrixMode}
         />
 
-        {/* ★新規: カスタム形状アイコンレイヤー (MP3, 音符など) */}
         <IconsLayer 
           displayMode={displayMode} 
           isPlaying={isPlaying} 
@@ -346,9 +308,6 @@ export function SpectrumAnalyzer() {
         <LevelizerLayer width={1400} height={400} />
       </div>
 
-        
-
-      {/* ... (コントローラー部分は変更なし) ... */}
       <div className="w-full space-y-2">
         <div className="relative w-full">
           <input
@@ -398,12 +357,9 @@ export function SpectrumAnalyzer() {
         <Button onClick={handleDispClick} size="sm" className="bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer">
           <Monitor className="h-4 w-4 mr-2" /> DISP
         </Button>
-        <Button onClick={() => setShowGuide(!showGuide)} size="sm" className="bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer">
-          {showGuide ? <><EyeOff className="h-4 w-4 mr-2" /> GUIDE OFF</> : <><Eye className="h-4 w-4 mr-2" /> GUIDE ON</>}
-        </Button>
       </div>
       {audioFile && <audio key={audioFile} ref={audioRef} src={audioFile} className="hidden" loop />}
-      <div style={{ color: 'white', fontSize: '10px' }}>DEPLOYED VERSION 0.2.1</div>
+      <div style={{ color: 'white', fontSize: '10px' }}>DEPLOYED VERSION 0.2.2</div>
     </div>
   )
 }

@@ -24752,7 +24752,7 @@ const SPECTRUM_CONFIG = {
     minDecibels: -75,
     maxDecibels: -20,
     peakHoldTime: 200,
-    showGuide: true,
+    showGuide: false,
     guideAlpha: 0.2
 };
 const SIDE_BAND_CONFIG = {
