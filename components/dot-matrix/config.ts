@@ -1,30 +1,33 @@
+// 作成した定数ファイルをインポートしてください
+import { VFD_COLORS } from '@/lib/constants'
+
 // 設定をエクスポート
 export const DOT_MATRIX_CONFIG = {
-  position: { x: 542.7, y: 126 }, // (x, y) = ドットマトリクス全体の左下の座標
+  position: { x: 542.7, y: 126 }, 
 
   // セル（1文字分）の設定
-  rows: 7, // 縦のドット数
-  cols: 5, // 横のドット数
-  numCells: 12, // セル（文字）の数
+  rows: 7, 
+  cols: 5, 
+  numCells: 12, 
 
   pixel: {
-    width: 5.7, // ピクセルの横幅
-    height: 6.8, // ピクセルの縦幅
-    slantLR: 3, // 左右の傾斜（平行四辺形の変形：上にいくほど右にずれる量）
-    slopeTB: 0.0, // 上下の傾斜（平行四辺形の変形：右にいくほど上に上がる量）
-    stackSlant: 4.3, // 積み上げ時の傾斜（上の行ほど右にずらす量）
+    width: 5.7, 
+    height: 6.8, 
+    slantLR: 3, 
+    slopeTB: 0.0, 
+    stackSlant: 4.3, 
   },
 
   // ピクセル間の隙間
-  dotGapX: 3.65, // ドット間の横の隙間
-  dotGapY: 2.8, // ドット間の縦の隙間
-  cellGap: 25, // セル（文字）間の隙間
+  dotGapX: 3.65, 
+  dotGapY: 2.8, 
+  cellGap: 25, 
 
-  // 見た目の設定
-  color: "#1fd8f0ff", // ドットの色
-  offColor: "#231e2dff", // 消灯時のドットの色
-  glowBlur: 0, // 発光エフェクトの強さ
+  // 見た目の設定：定数を使用
+  color: VFD_COLORS.CYAN,      // #1fd8f0ff
+  offColor: VFD_COLORS.OFF,    // #231e2dff
+  glowBlur: 0, 
 
-  // デバッグ用: 全点灯させるかどうか
+  // デバッグ用
   debugAllOn: false,
 }

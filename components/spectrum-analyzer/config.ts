@@ -1,4 +1,4 @@
-// components/spectrum-analyzer/config.ts
+import { VFD_COLORS } from '@/lib/constants'
 
 export const SPECTRUM_CONFIG = {
   numBands: 17,
@@ -59,11 +59,11 @@ export const SIDE_BAND_CONFIG = {
 }
 
 export const COLORS = {
-  inactive: '#231e2dff',
-  activeBottom: '#1fd7f0ff', 
-  activeMiddle: '#00ff15ff',
-  activeTop: '#1876eaff',
-  sideActive: '#b0f5ffff',
-  iconActive: '#1fd7f0ff',
-  iconInactive: '#231e2d00',
+  inactive: VFD_COLORS.OFF,       // #231e2dff
+  activeBottom: VFD_COLORS.CYAN,  // #1fd8f0ff
+  activeMiddle: VFD_COLORS.GREEN, // #00ff15ff
+  activeTop: VFD_COLORS.BLUE,     // #1876eaff
+  sideActive: VFD_COLORS.CYAN_LIGHT, // #b0f5ffff
+  iconActive: VFD_COLORS.CYAN,    // #1fd8f0ff
+  iconInactive: VFD_COLORS.OFF,   // #231e2dff
 }

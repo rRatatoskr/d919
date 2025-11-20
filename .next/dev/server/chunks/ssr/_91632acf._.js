@@ -24998,7 +24998,7 @@ function MaskedDotMatrix({ width, height, maskSrc, active, iconX = 0, iconY = 0,
     }, this);
 }
 }),
-"[project]/components/spectrum-analyzer/icon-definitions.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"[project]/lib/constants.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 /**
@@ -25008,7 +25008,7 @@ function MaskedDotMatrix({ width, height, maskSrc, active, iconX = 0, iconY = 0,
     ()=>VFD_COLORS
 ]);
 const VFD_COLORS = {
-    // 1. VFD消灯 (紫) - 背景色として使用
+    // 1. VFD消灯 (紫)
     OFF: '#231e2dff',
     // 2. 蛍光緑
     GREEN: '#00ff15ff',
@@ -25023,6 +25023,362 @@ const VFD_COLORS = {
     // 補助: 透明 (消灯アイコン用など)
     TRANSPARENT: '#231e2d00'
 };
+}),
+"[project]/components/spectrum-analyzer/icon-definitions.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "CUSTOM_ICONS",
+    ()=>CUSTOM_ICONS
+]);
+// 作成した定数ファイルをインポートしてください
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/constants.ts [app-ssr] (ecmascript)");
+;
+const basePath = ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : '';
+const CUSTOM_ICONS = [
+    {
+        id: 'mp3-logo',
+        name: 'MP3',
+        type: 'IMAGE',
+        maskSrc: `${basePath}/images/masks/mp3.svg`,
+        activeModes: [
+            'UPLOAD_PROMPT',
+            'PEAK_HOLD',
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: ()=>true,
+        x: 348,
+        y: 106.5,
+        width: 100,
+        height: 18,
+        color: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VFD_COLORS"].RED
+    },
+    {
+        id: 'mp3-guide',
+        name: 'MP3GUIDE',
+        type: 'IMAGE',
+        maskSrc: `${basePath}/images/masks/mp3-guide.svg`,
+        activeModes: [
+            'UPLOAD_PROMPT',
+            'PEAK_HOLD',
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: ()=>true,
+        x: 312.5,
+        y: 133.15,
+        width: 233,
+        height: 150,
+        color: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VFD_COLORS"].GREEN
+    },
+    {
+        id: 'balance-center',
+        name: 'CENTER',
+        type: 'IMAGE',
+        maskSrc: `${basePath}/images/masks/balance-center.svg`,
+        activeModes: [
+            'UPLOAD_PROMPT',
+            'PEAK_HOLD',
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: ()=>true,
+        x: 1368.5,
+        y: 279.8,
+        width: 233,
+        height: 9.3,
+        color: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VFD_COLORS"].RED
+    },
+    {
+        id: 'balance-guide',
+        name: 'BALANCEGUIDE',
+        type: 'IMAGE',
+        maskSrc: `${basePath}/images/masks/balance-guide.svg`,
+        activeModes: [
+            'UPLOAD_PROMPT',
+            'PEAK_HOLD',
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: ()=>true,
+        x: 1325,
+        y: 341,
+        width: 233,
+        height: 157,
+        color: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VFD_COLORS"].GREEN
+    },
+    {
+        id: 'balance-seat',
+        name: 'BALANCESEAT',
+        type: 'IMAGE',
+        maskSrc: `${basePath}/images/masks/balance-seat.svg`,
+        activeModes: [
+            'UPLOAD_PROMPT',
+            'PEAK_HOLD',
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: ()=>true,
+        x: 1334.5,
+        y: 317,
+        width: 233,
+        height: 73,
+        color: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VFD_COLORS"].GREEN
+    },
+    {
+        id: 'cd-circle',
+        name: 'CDCIRCLE',
+        type: 'IMAGE',
+        maskSrc: `${basePath}/images/masks/cd-circle.svg`,
+        activeModes: [
+            'UPLOAD_PROMPT',
+            'PEAK_HOLD',
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: ()=>true,
+        x: 92,
+        y: 260.5,
+        width: 233,
+        height: 80,
+        color: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VFD_COLORS"].GREEN
+    },
+    {
+        id: 'cd-in',
+        name: 'CDIN',
+        type: 'IMAGE',
+        maskSrc: `${basePath}/images/masks/cd-in.svg`,
+        activeModes: [
+            'UPLOAD_PROMPT',
+            'PEAK_HOLD',
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: ()=>true,
+        x: 1359.6,
+        y: 128.9,
+        width: 233,
+        height: 43,
+        color: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VFD_COLORS"].RED
+    },
+    {
+        id: 'corner-ring',
+        name: 'CORNERRING',
+        type: 'IMAGE',
+        maskSrc: `${basePath}/images/masks/corner-ring.svg`,
+        activeModes: [
+            'UPLOAD_PROMPT',
+            'PEAK_HOLD',
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: ()=>true,
+        x: 16,
+        y: 337.5,
+        width: 233,
+        height: 28,
+        color: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VFD_COLORS"].GREEN
+    },
+    {
+        id: 'corner',
+        name: 'CORNER',
+        type: 'IMAGE',
+        maskSrc: `${basePath}/images/masks/corner.svg`,
+        activeModes: [
+            'UPLOAD_PROMPT',
+            'PEAK_HOLD',
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: ()=>true,
+        x: 4,
+        y: 340.7,
+        width: 233,
+        height: 78.2,
+        color: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VFD_COLORS"].BLUE
+    },
+    {
+        id: 'folder',
+        name: 'FOLDER',
+        type: 'IMAGE',
+        maskSrc: `${basePath}/images/masks/folder.svg`,
+        activeModes: [
+            'UPLOAD_PROMPT',
+            'PEAK_HOLD',
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: ()=>true,
+        x: 410.2,
+        y: 131.5,
+        width: 233,
+        height: 60,
+        color: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VFD_COLORS"].CYAN
+    },
+    {
+        id: 'folder-in',
+        name: 'FOLDERIN',
+        type: 'IMAGE',
+        maskSrc: `${basePath}/images/masks/folder-in.svg`,
+        activeModes: [
+            'UPLOAD_PROMPT',
+            'PEAK_HOLD',
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: ()=>true,
+        x: 416,
+        y: 121,
+        width: 233,
+        height: 40,
+        color: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VFD_COLORS"].BLUE
+    },
+    {
+        id: 'note-1',
+        name: 'NOTE1',
+        type: 'IMAGE',
+        maskSrc: `${basePath}/images/masks/note-1.svg`,
+        activeModes: [
+            'UPLOAD_PROMPT',
+            'PEAK_HOLD',
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: ()=>true,
+        x: 490.9,
+        y: 97,
+        width: 233,
+        height: 34,
+        color: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VFD_COLORS"].CYAN
+    },
+    {
+        id: 'note-2',
+        name: 'NOTE2',
+        type: 'IMAGE',
+        maskSrc: `${basePath}/images/masks/note-2.svg`,
+        activeModes: [
+            'UPLOAD_PROMPT',
+            'PEAK_HOLD',
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: ()=>true,
+        x: 459,
+        y: 102,
+        width: 233,
+        height: 34,
+        color: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VFD_COLORS"].CYAN
+    },
+    {
+        id: 'note-3',
+        name: 'NOTE3',
+        type: 'IMAGE',
+        maskSrc: `${basePath}/images/masks/note-3.svg`,
+        activeModes: [
+            'UPLOAD_PROMPT',
+            'PEAK_HOLD',
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: ()=>true,
+        x: 456.7,
+        y: 131.3,
+        width: 233,
+        height: 34,
+        color: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VFD_COLORS"].CYAN
+    },
+    {
+        id: 'note-ring',
+        name: 'NOTERING',
+        type: 'IMAGE',
+        maskSrc: `${basePath}/images/masks/note-ring.svg`,
+        activeModes: [
+            'UPLOAD_PROMPT',
+            'PEAK_HOLD',
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: ()=>true,
+        x: 461.5,
+        y: 125,
+        width: 233,
+        height: 62,
+        color: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VFD_COLORS"].BLUE
+    },
+    {
+        id: 'posi',
+        name: 'POSI',
+        type: 'IMAGE',
+        maskSrc: `${basePath}/images/masks/posi.svg`,
+        activeModes: [
+            'UPLOAD_PROMPT',
+            'PEAK_HOLD',
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: ()=>true,
+        x: 1348,
+        y: 340,
+        width: 233,
+        height: 18,
+        color: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VFD_COLORS"].RED
+    },
+    {
+        id: 'sa',
+        name: 'SA',
+        type: 'IMAGE',
+        maskSrc: `${basePath}/images/masks/sa.svg`,
+        activeModes: [
+            'UPLOAD_PROMPT',
+            'PEAK_HOLD',
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: ()=>true,
+        x: 298.5,
+        y: 82.5,
+        width: 233,
+        height: 21,
+        color: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VFD_COLORS"].CYAN
+    },
+    {
+        id: 'cd',
+        name: 'CD',
+        type: 'IMAGE',
+        maskSrc: `${basePath}/images/masks/cd.svg`,
+        activeModes: [
+            'UPLOAD_PROMPT',
+            'PEAK_HOLD',
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: ()=>true,
+        x: 107.8,
+        y: 216.5,
+        width: 233,
+        height: 22,
+        color: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VFD_COLORS"].CYAN
+    },
+    {
+        id: 'rom',
+        name: 'ROM',
+        type: 'IMAGE',
+        maskSrc: `${basePath}/images/masks/rom.svg`,
+        activeModes: [
+            'UPLOAD_PROMPT',
+            'PEAK_HOLD',
+            'ANIMATION',
+            'MUSIC'
+        ],
+        condition: ()=>true,
+        x: 107,
+        y: 244,
+        width: 233,
+        height: 45,
+        color: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VFD_COLORS"].CYAN
+    }
+];
 }),
 "[project]/components/spectrum-analyzer/icons-layer.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -25779,4 +26135,4 @@ function Home() {
 }),
 ];
 
-//# sourceMappingURL=_86f09460._.js.map
+//# sourceMappingURL=_91632acf._.js.map
