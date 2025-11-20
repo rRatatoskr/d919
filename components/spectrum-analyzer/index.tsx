@@ -245,9 +245,20 @@ export function SpectrumAnalyzer() {
     if (file) {
       setFileName(file.name)
       setIsPlaying(false)
+      if (audioContextRef.current) {
+        audioContextRef.current.close()
+        audioContextRef.current = null
+      }
+
+      audioInitializedRef.current = false
+      
       if (audioFile) URL.revokeObjectURL(audioFile)
       setAudioFile(URL.createObjectURL(file))
+
       previousLevelsRef.current = new Array(SPECTRUM_CONFIG.numBands).fill(0)
+      peakHoldsRef.current = new Array(SPECTRUM_CONFIG.numBands).fill(null).map(() => ({ level: 0, timestamp: 0 }))
+      sidePeakHoldsRef.current = new Array(SPECTRUM_CONFIG.numBands).fill(null).map(() => ({ level: 0, timestamp: 0 }))
+      
       setCurrentTime(0)
       setDuration(0)
       e.target.value = ''
