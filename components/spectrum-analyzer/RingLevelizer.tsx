@@ -1,7 +1,30 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
-import { parseAndSortPaths } from "@/lib/svg-utils";
+import React, { useEffect, useState, useRef, useMemo } from "react";
+
+// サーバーサイドでも動くシンプルな解析関数
+// DOMParserを使わず、文字列から d="..." を抜き出します
+const extractPathsFromSvg = (svgContent: string, center: { x: number, y: number }) => {
+  const paths: { d: string; angle: number }[] = [];
+  // 正規表現で d属性の中身を探す
+  const regex = /d="([^"]+)"/g;
+  let match;
+
+  while ((match = regex.exec(svgContent)) !== null) {
+    const d = match[1];
+    // 重心を簡易計算 (M x y ... の最初の座標を取得)
+    const numbers = d.match(/-?[\d.]+/g)?.map(Number) || [];
+    if (numbers.length >= 2) {
+      const x = numbers[0];
+      const y = numbers[1];
+      const angle = Math.atan2(y - center.y, x - center.x);
+      paths.push({ d, angle });
+    }
+  }
+  // 角度でソート
+  paths.sort((a, b) => a.angle - b.angle);
+  return paths.map(p => p.d);
+};
 
 export interface RingConfig {
   rotationSpeed: number;
@@ -13,11 +36,12 @@ export interface RingConfig {
 }
 
 interface RingLevelizerProps {
-  svgContent: string; 
+  svgContent: string;
   config: RingConfig;
   width?: string | number;
   height?: string | number;
   debug?: boolean;
+  fullLit?: boolean;
 }
 
 export const RingLevelizer: React.FC<RingLevelizerProps> = ({
@@ -26,21 +50,23 @@ export const RingLevelizer: React.FC<RingLevelizerProps> = ({
   width = "100%",
   height = "100%",
   debug = false,
+  fullLit = false,
 }) => {
-  const [paths, setPaths] = useState<string[]>([]);
   const [offset, setOffset] = useState(0);
-  
-  const requestRef = useRef<number>();
-  const prevTimeRef = useRef<number>();
 
-  const VIEW_BOX = "0 0 134 117";
+  // 固定サイズ (位置ズレ防止)
+  const VIEW_BOX = "0 0 134 117"; 
   const CENTER = { x: 67, y: 58.5 };
 
-  useEffect(() => {
-    if (!svgContent) return;
-    const sorted = parseAndSortPaths(svgContent, CENTER);
-    setPaths(sorted);
+  // ★修正: useMemoを使ってレンダリング中に同期的に解析
+  // これならサーバーでも実行され、初期HTMLにパスが含まれます
+  const paths = useMemo(() => {
+    if (!svgContent) return [];
+    return extractPathsFromSvg(svgContent, CENTER);
   }, [svgContent]);
+
+  const requestRef = useRef<number>();
+  const prevTimeRef = useRef<number>();
 
   const animate = (time: number) => {
     if (prevTimeRef.current !== undefined) {
@@ -58,7 +84,6 @@ export const RingLevelizer: React.FC<RingLevelizerProps> = ({
   };
 
   useEffect(() => {
-    // パスがあれば即アニメーション開始
     if (paths.length > 0) {
       requestRef.current = requestAnimationFrame(animate);
     }
@@ -68,21 +93,29 @@ export const RingLevelizer: React.FC<RingLevelizerProps> = ({
   }, [paths, config.rotationSpeed, config.direction]);
 
   const isLit = (index: number) => {
+    if (fullLit) return true;
     if (paths.length === 0) return false;
+
     const total = paths.length;
     const currentBase = Math.floor(offset) % total;
-    const dist = Math.floor(total / config.numSets);
+    // const dist = Math.floor(total / config.numSets); // 未使用なら削除可
+
+    // セット間の距離
+    const distanceBetweenSets = Math.floor(total / config.numSets);
 
     for (let i = 0; i < config.numSets; i++) {
-      const start = (currentBase + i * dist) % total;
+      const start = (currentBase + i * distanceBetweenSets) % total;
+      
+      // 環状の距離計算
       let rel = index - start;
       if (rel < 0) rel += total;
+      
       if (rel < config.setSize) return true;
     }
     return false;
   };
 
-  // パスがまだない場合（一瞬）は何も表示しない
+  // データがない場合は空を返す
   if (paths.length === 0) return null;
 
   return (
@@ -95,16 +128,18 @@ export const RingLevelizer: React.FC<RingLevelizerProps> = ({
         style={{ overflow: "visible" }}
       >
         {debug && (
-          <rect x="0" y="0" width="134" height="117" fill="none" stroke="red" strokeWidth="1" />
+          <rect width="100%" height="100%" fill="none" stroke="red" strokeWidth="1" />
         )}
         <g>
           {paths.map((d, i) => (
             <path
               key={i}
               d={d}
+              // 初期状態(Hydration前)でも色がつくようにCSS変数は使わず直接指定
               fill={isLit(i) ? config.litColor : config.dimColor}
               stroke="none"
-              style={{ transition: "fill 0.05s linear" }}
+              // アニメーション時のみtransitionを有効にする
+              style={{ transition: "fill 0 linear" }}
             />
           ))}
         </g>

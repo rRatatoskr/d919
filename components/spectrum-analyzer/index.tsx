@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { Play, Pause, Upload, Monitor, Eye, EyeOff } from 'lucide-react' // ★Eye, EyeOffを復活
+import { Play, Pause, Upload, Monitor, Eye, EyeOff, Power } from 'lucide-react'
 import { DotMatrixDisplay } from '@/components/dot-matrix' 
 import { DisplayMode, PeakHold } from './types'
 import { SPECTRUM_CONFIG, SIDE_BAND_CONFIG, COLORS } from './config'
@@ -16,18 +16,20 @@ import {
 } from './utils'
 import { IconsLayer } from './icons-layer'
 import { LevelizerLayer } from './LevelizerLayer'
+import { VFD_COLORS } from '@/lib/constants' // 忘れずインポート
 
 export function SpectrumAnalyzer() {
+  // --- State & Refs ---
+  const [isPoweredOn, setIsPoweredOn] = useState(false)
+  const [bootStep, setBootStep] = useState(0) // 起動アニメーションのステップ(0:完了/通常, 1~16:アニメ中)
+
   const [isPlaying, setIsPlaying] = useState(false)
   const [audioFile, setAudioFile] = useState<string | null>(null)
   const [fileName, setFileName] = useState<string>('')
-  
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
-
   const [showGuide, setShowGuide] = useState(SPECTRUM_CONFIG.showGuide)
   const [imageLoaded, setImageLoaded] = useState(false)
-
   const [displayMode, setDisplayMode] = useState<DisplayMode>('UPLOAD_PROMPT')
   
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -36,13 +38,17 @@ export function SpectrumAnalyzer() {
   const analyzerRef = useRef<AnalyserNode | null>(null)
   const sourceRef = useRef<MediaElementAudioSourceNode | null>(null)
   const animationRef = useRef<number | null>(null)
-  const previousLevelsRef = useRef<number[]>(new Array(SPECTRUM_CONFIG.numBands).fill(0))
   
+  // アニメーション用のインターバルRef
+  const bootTimerRef = useRef<ReturnType<typeof setInterval> | null>(null)
+
+  const previousLevelsRef = useRef<number[]>(new Array(SPECTRUM_CONFIG.numBands).fill(0))
   const peakHoldsRef = useRef<PeakHold[]>(new Array(SPECTRUM_CONFIG.numBands).fill(null).map(() => ({ level: 0, timestamp: 0 })))
   const sidePeakHoldsRef = useRef<PeakHold[]>(new Array(SPECTRUM_CONFIG.numBands).fill(null).map(() => ({ level: 0, timestamp: 0 })))
-  
   const guideImageRef = useRef<HTMLImageElement | null>(null)
   const audioInitializedRef = useRef<boolean>(false)
+
+  // --- Effects ---
 
   useEffect(() => {
     const img = new Image()
@@ -57,10 +63,13 @@ export function SpectrumAnalyzer() {
     return () => {
       if (animationRef.current) cancelAnimationFrame(animationRef.current)
       if (audioContextRef.current?.state !== 'closed') audioContextRef.current?.close()
+      if (bootTimerRef.current) clearInterval(bootTimerRef.current)
     }
   }, [])
 
-  const initializeAudio = () => {
+  // --- Functions ---
+
+  const initializeAudio = () => { /* ... (変更なし) ... */ 
     if (!audioRef.current || audioInitializedRef.current) return
     try {
       const audioContext = new AudioContext()
@@ -81,7 +90,123 @@ export function SpectrumAnalyzer() {
     }
   }
 
+  // ★電源操作ハンドラ
+  const handlePowerToggle = () => {
+    if (isPoweredOn) {
+      // OFFにする
+      if (isPlaying) handlePause()
+      setIsPoweredOn(false)
+      setBootStep(0)
+      if (bootTimerRef.current) clearInterval(bootTimerRef.current)
+    } else {
+      // ONにする (起動アニメーション開始)
+      setIsPoweredOn(true)
+      setBootStep(1)
+      
+      // アニメーションタイマー (1フレーム 80ms くらいで回す)
+      bootTimerRef.current = setInterval(() => {
+        setBootStep((prev) => {
+          if (prev >= 31) { // 16フレームで終了
+            if (bootTimerRef.current) clearInterval(bootTimerRef.current)
+            return 0 // 0に戻して通常モードへ
+          }
+          return prev + 1
+        })
+      }, 20) // 速度調整: ここの数値を小さくすると速く、大きくすると遅くなる
+    }
+  }
 
+  // ★起動シーケンスの判定ロジック
+  // 現在の bootStep に応じて、各パーツの状態を決定する
+  
+  // 1. SL (リング) の点灯状態 [index 0は未使用, 1~7]
+  // 累積的に点灯していく (例: step4なら SL1, SL2 がON)
+  const getBootActiveLevels = () => {
+    if (bootStep === 0) return [false, true, true, true, true, true, true, true]; // 通常時: 全点灯
+    
+    const flags = [false, false, false, false, false, false, false, false];
+    // シーケンス定義に従って点灯
+    if (bootStep >= 3) flags[1] = true; // SL1
+    if (bootStep >= 4) flags[2] = true; // SL2
+    if (bootStep >= 5) { flags[3] = true; flags[4] = true; } // SL3, SL4
+    if (bootStep >= 6) flags[5] = true; // SL5
+    if (bootStep >= 7) flags[6] = true; // SL6
+    if (bootStep >= 8) flags[7] = true; // SL7
+    return flags;
+  }
+
+  // 2. SA (スペアナバンド) の点灯状態 (0~16)
+  const getBootActiveBands = () => {
+    if (bootStep === 0) return null; // 通常モード
+    const bands = new Array(17).fill(false);
+    
+    // 累積点灯
+    if (bootStep >= 3) { bands[0] = true; bands[1] = true; }
+    if (bootStep >= 4) bands[2] = true;
+    if (bootStep >= 5) bands[3] = true;
+    if (bootStep >= 6) { bands[4] = true; bands[5] = true; }
+    if (bootStep >= 7) bands[6] = true;
+    if (bootStep >= 8) { bands[7] = true; bands[8] = true; }
+    if (bootStep >= 9) bands[9] = true;
+    if (bootStep >= 10) bands[10] = true;
+    if (bootStep >= 11) bands[11] = true;
+    if (bootStep >= 12) bands[12] = true;
+    if (bootStep >= 13) bands[13] = true;
+    if (bootStep >= 14) bands[14] = true;
+    if (bootStep >= 15) bands[15] = true;
+    if (bootStep >= 16) bands[16] = true;
+    if (bootStep >= 19) bands[16] = false;
+    if (bootStep >= 20) { bands[15] = false; bands[14] = false; }
+    if (bootStep >= 21) bands[13] = false;
+    if (bootStep >= 22) { bands[12] = false; bands[11] = false; }
+    if (bootStep >= 23) bands[10] = false;
+    if (bootStep >= 24) { bands[9] = false; bands[8] = false; }
+    if (bootStep >= 25) bands[7] = false;
+    if (bootStep >= 26) bands[6] = false;
+    if (bootStep >= 27) { bands[5] = false; bands[4] = false; }
+    if (bootStep >= 28) bands[3] = false;
+    if (bootStep >= 29) bands[2] = false;
+    if (bootStep >= 30) { bands[1] = false; bands[0] = false; }
+    return bands;
+  }
+
+  // 3. D (ドットブロック) の点灯状態 (D1=0 ~ D12=11)
+  const getBootBlockFlags = () => {
+    if (bootStep === 0) return []; // 通常モード
+    const blocks = new Array(12).fill(false);
+    
+    if (bootStep >= 6) { blocks[0] = true; blocks[1] = true; }
+    if (bootStep >= 7) blocks[2] = true;
+    if (bootStep >= 8) { blocks[3] = true; blocks[4] = true; }
+    if (bootStep >= 9) blocks[5] = true;
+    if (bootStep >= 10) blocks[6] = true;
+    if (bootStep >= 11) blocks[7] = true;
+    if (bootStep >= 12) blocks[8] = true;
+    if (bootStep >= 13) blocks[9] = true;
+    if (bootStep >= 14) blocks[10] = true;
+    if (bootStep >= 15) blocks[11] = true;
+    if (bootStep >= 20) { blocks[11] = false; blocks[10] = false; }
+    if (bootStep >= 21) blocks[9] = false;
+    if (bootStep >= 22) { blocks[8] = false; blocks[7] = false; }
+    if (bootStep >= 23) blocks[6] = false;
+    if (bootStep >= 24) { blocks[5] = false; blocks[4] = false; }
+    if (bootStep >= 25) blocks[3] = false;
+    if (bootStep >= 26) blocks[2] = false;
+    if (bootStep >= 27) {blocks[1] = false; blocks[0] = false; }
+    return blocks;
+  }
+
+  // 4. アイコンの除外リスト
+  const getHiddenIconIds = () => {
+    if (bootStep === 0) return [];
+    // step 1～7 まではこれらを隠す
+    if (bootStep < 8) {
+      return ['cd-circle', 'cd', 'rom', 'cd-in']; 
+    }
+    return []; // step 8以降は全表示
+  }
+
+  // メインループ (描画)
   const drawSpectrum = () => {
     if (!canvasRef.current) return
     const canvas = canvasRef.current
@@ -91,30 +216,35 @@ export function SpectrumAnalyzer() {
     ctx.fillStyle = '#000000'
     ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-    // ★復活: ガイド画像の描画
     if (showGuide && guideImageRef.current) {
+      // ガイド描画 (省略なし)
       const img = guideImageRef.current
       ctx.globalAlpha = SPECTRUM_CONFIG.guideAlpha
-      
       const scale = Math.min(canvas.width / img.width, canvas.height / img.height)
       const w = img.width * scale
       const h = img.height * scale
       const x = (canvas.width - w) / 2
       const y = (canvas.height - h) / 2
-
       ctx.drawImage(img, x, y, w, h)
       ctx.globalAlpha = 1.0
     }
 
+    // --- スペアナ描画データの準備 ---
     let displayLevels: number[] = []
     const now = performance.now()
+    
+    // ★起動アニメーション中のオーバーライド
+    const bootBands = getBootActiveBands();
 
-    if (analyzerRef.current && isPlaying) {
+    if (bootStep > 0 && bootBands) {
+      // アニメーション中: bootBands が true のところを MAXレベル(1.0) にする
+      displayLevels = bootBands.map(isOn => isOn ? 1.0 : 0);
+    } else if (isPoweredOn && analyzerRef.current && isPlaying) {
+      // 通常再生中
       const bufferLength = analyzerRef.current.frequencyBinCount
       const dataArray = new Uint8Array(bufferLength)
       analyzerRef.current.getByteFrequencyData(dataArray)
       if (audioRef.current) setCurrentTime(audioRef.current.currentTime)
-
       const rawLevels = getAudioLevels(dataArray)
       for (let i = 0; i < SPECTRUM_CONFIG.numBands; i++) {
         const newVal = rawLevels[i]
@@ -123,7 +253,12 @@ export function SpectrumAnalyzer() {
       }
       previousLevelsRef.current = displayLevels
     } else {
-      displayLevels = [...previousLevelsRef.current]
+      // 停止中 or 電源OFF
+      if (!isPoweredOn) {
+        displayLevels = new Array(SPECTRUM_CONFIG.numBands).fill(0)
+      } else {
+        displayLevels = [...previousLevelsRef.current]
+      }
     }
 
     const startX = SPECTRUM_CONFIG.offsetX
@@ -135,8 +270,10 @@ export function SpectrumAnalyzer() {
       const mainLevel = displayLevels[bandIdx] || 0
       const sideLevel = mainLevel * SIDE_BAND_CONFIG.levelMultiplier
 
-      updatePeakHold(mainLevel, peakHoldsRef.current[bandIdx], now)
-      updatePeakHold(sideLevel, sidePeakHoldsRef.current[bandIdx], now)
+      if (isPoweredOn) {
+        updatePeakHold(mainLevel, peakHoldsRef.current[bandIdx], now)
+        updatePeakHold(sideLevel, sidePeakHoldsRef.current[bandIdx], now)
+      }
 
       const bandXBase = startX + bandIdx * (SPECTRUM_CONFIG.blockWidth + SPECTRUM_CONFIG.gapX)
       
@@ -197,10 +334,13 @@ export function SpectrumAnalyzer() {
       animationRef.current = null
     }
     drawSpectrum()
-    // ★依存配列に imageLoaded と showGuide を追加
-  }, [isPlaying, displayMode, audioFile, imageLoaded, showGuide])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isPlaying, displayMode, audioFile, imageLoaded, showGuide, isPoweredOn, bootStep]) // bootStepを追加
 
-  
+  // ... (Audio, Play, Pause, Seek, FileUpload, DispClick は変更なし) ...
+  // handlePlay, handlePause, handleFileUpload, handleSeek, handleDispClick をここに記述
+
+  // 既存の関数群 (省略なしで記述してください)
   useEffect(() => {
     const audio = audioRef.current
     if (!audio) return
@@ -238,24 +378,19 @@ export function SpectrumAnalyzer() {
     if (file) {
       setFileName(file.name)
       setIsPlaying(false)
-      
       if (audioContextRef.current) {
         audioContextRef.current.close()
         audioContextRef.current = null
       }
       audioInitializedRef.current = false 
-
       if (audioFile) URL.revokeObjectURL(audioFile)
       setAudioFile(URL.createObjectURL(file))
-
       previousLevelsRef.current = new Array(SPECTRUM_CONFIG.numBands).fill(0)
       peakHoldsRef.current = new Array(SPECTRUM_CONFIG.numBands).fill(null).map(() => ({ level: 0, timestamp: 0 }))
       sidePeakHoldsRef.current = new Array(SPECTRUM_CONFIG.numBands).fill(null).map(() => ({ level: 0, timestamp: 0 }))
-      
       setCurrentTime(0)
       setDuration(0)
       e.target.value = ''
-      
       setDisplayMode('PEAK_HOLD')
     }
   }
@@ -287,29 +422,35 @@ export function SpectrumAnalyzer() {
       }
     }
   }
-  
+
+
+  // --- Render ---
+
   let matrixText = ""
   let matrixMode: 'TEXT' | 'ANIMATION' = 'TEXT'
 
-  switch (displayMode) {
-    case 'ANIMATION':
-      matrixMode = 'ANIMATION'
-      break
-    case 'MUSIC':
-      matrixMode = 'TEXT'
-      matrixText = fileName ? fileName.replace(/\.[^/.]+$/, "") : "NO FILE"
-      break
-    case 'PEAK_HOLD':
-      matrixMode = 'TEXT'
-      matrixText = "PEAK HOLD"
-      break
-    case 'UPLOAD_PROMPT':
-    default:
-      matrixMode = 'TEXT'
-      matrixText = ""
-      break
+  if (isPoweredOn && bootStep === 0) {
+    switch (displayMode) {
+      case 'ANIMATION': matrixMode = 'ANIMATION'; break
+      case 'MUSIC':
+        matrixMode = 'TEXT'
+        matrixText = fileName ? fileName.replace(/\.[^/.]+$/, "") : "NO FILE"
+        break
+      case 'PEAK_HOLD':
+        matrixMode = 'TEXT'
+        matrixText = "PEAK HOLD"
+        break
+      case 'UPLOAD_PROMPT':
+      default:
+        matrixMode = 'TEXT'
+        matrixText = "UPLOAD AUDIO"
+        break
+    }
   }
-
+  // アニメーション中は文字を表示しない（全点灯演出のため）
+  if (bootStep > 0) {
+    matrixText = "";
+  }
 
   return (
      <div className="w-full max-w-[1400px] mx-auto space-y-4">
@@ -322,6 +463,7 @@ export function SpectrumAnalyzer() {
           className="absolute top-0 left-0 w-full h-full pointer-events-none z-10" 
           text={matrixText}
           mode={matrixMode}
+          bootBlockFlags={getBootBlockFlags()} // ★追加: 起動演出フラグ
         />
 
         <IconsLayer 
@@ -330,12 +472,21 @@ export function SpectrumAnalyzer() {
           audioFile={audioFile} 
           width={1400} 
           height={400} 
-          active={!!audioFile} 
+          active={isPoweredOn}
+          hiddenIconIds={getHiddenIconIds()}
+          isBooting={bootStep > 0}
         />
 
-        <LevelizerLayer width={1400} height={400} active={!!audioFile}/>
+        <LevelizerLayer 
+          width={1400} 
+          height={400} 
+          active={isPoweredOn}
+          activeLevels={getBootActiveLevels()} // ★追加: リングごとの制御
+          isBooting={bootStep > 0}
+        />
       </div>
 
+      {/* UI Controls */}
       <div className="w-full space-y-2">
         <div className="relative w-full">
           <input
@@ -344,9 +495,10 @@ export function SpectrumAnalyzer() {
             max={duration || 0}
             value={currentTime}
             onChange={handleSeek}
-            disabled={!audioFile}
-            className="w-full h-0.5 bg-white/10 rounded-full appearance-none cursor-pointer disabled:opacity-20 disabled:cursor-not-allowed seek-slider"
+            disabled={!isPoweredOn || !audioFile || bootStep > 0}
+            className="w-full h-0.5 bg-white/10 rounded-full appearance-none cursor-pointer disabled:opacity-20 seek-slider"
           />
+          {/* style jsx 省略...元のまま */}
           <style jsx>{`
             .seek-slider::-webkit-slider-thumb {
               appearance: none;
@@ -362,37 +514,69 @@ export function SpectrumAnalyzer() {
           `}</style>
         </div>
         <div className="flex justify-end">
-          <div className="text-xs text-white/50 font-mono tracking-wider">
+          <div className={`text-xs font-mono tracking-wider ${isPoweredOn ? 'text-white/50' : 'text-white/10'}`}>
             {formatTime(currentTime)} / {formatTime(duration)}
           </div>
         </div>
       </div>
 
       <div className="flex justify-center items-center h-6 text-sm font-light tracking-widest text-white/70 font-mono">
-        {fileName}
+        {(isPoweredOn && bootStep === 0) ? fileName : ''}
       </div>
 
       <div className="flex items-center gap-3">
-        <input type="file" accept="audio/*" onChange={handleFileUpload} className="hidden" id="audio-upload" />
+        
+        {/* ON/OFF Button */}
+        <Button 
+          onClick={handlePowerToggle} 
+          size="sm" 
+          className={`bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer ${isPoweredOn ? 'text-cyan-400 border-cyan-500' : 'text-red-500 border-red-500'}`}
+        >
+          <Power className="h-4 w-4 mr-2" /> {isPoweredOn ? 'OFF' : 'ON'}
+        </Button>
+
+        <input type="file" accept="audio/*" onChange={handleFileUpload} className="hidden" id="audio-upload" disabled={!isPoweredOn || bootStep > 0} />
         <label htmlFor="audio-upload">
-          <Button size="sm" asChild className="bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer">
+          <Button 
+            size="sm" 
+            asChild 
+            disabled={!isPoweredOn || bootStep > 0}
+            className="bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer disabled:opacity-50"
+          >
             <span className="flex items-center gap-2"><Upload className="h-4 w-4" /> UPLOAD AUDIO</span>
           </Button>
         </label>
-        <Button onClick={isPlaying ? handlePause : handlePlay} size="sm" disabled={!audioFile} className="bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer">
+
+        <Button 
+          onClick={isPlaying ? handlePause : handlePlay} 
+          size="sm" 
+          disabled={!isPoweredOn || !audioFile || bootStep > 0}
+          className="bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer disabled:opacity-50"
+        >
           {isPlaying ? <><Pause className="h-4 w-4 mr-2" /> PAUSE</> : <><Play className="h-4 w-4 mr-2" /> PLAY</>}
         </Button>
-        <Button onClick={handleDispClick} size="sm" className="bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer">
+
+        <Button 
+          onClick={handleDispClick} 
+          size="sm" 
+          disabled={!isPoweredOn || bootStep > 0}
+          className="bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer disabled:opacity-50"
+        >
           <Monitor className="h-4 w-4 mr-2" /> DISP
         </Button>
-        
-        <Button onClick={() => setShowGuide(!showGuide)} size="sm" className="bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer">
+
+        <Button 
+          onClick={() => setShowGuide(!showGuide)} 
+          size="sm" 
+          disabled={!isPoweredOn || bootStep > 0}
+          className="bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer disabled:opacity-50"
+        >
           {showGuide ? <><EyeOff className="h-4 w-4 mr-2" /> GUIDE OFF</> : <><Eye className="h-4 w-4 mr-2" /> GUIDE ON</>}
         </Button>
 
       </div>
       {audioFile && <audio key={audioFile} ref={audioRef} src={audioFile} className="hidden" loop />}
-      <div style={{ color: 'white', fontSize: '10px' }}>DEPLOYED VERSION 0.2.3</div>
+      <div style={{ color: 'white', fontSize: '10px' }}>DEPLOYED VERSION 0.2.6</div>
     </div>
   )
 }
