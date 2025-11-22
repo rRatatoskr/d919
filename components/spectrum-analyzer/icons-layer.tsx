@@ -1,131 +1,87 @@
-'use client'
+"use client";
 
-import { MaskedDotMatrix } from '@/components/dot-matrix/masked-display'
-import { CUSTOM_ICONS } from './icon-definitions'
-import { DisplayMode } from './types'
-import { COLORS } from './config'
+import React from "react";
+import { DisplayMode } from "./types";
+import { COLORS } from "./config";
+import { CUSTOM_ICONS } from "./icon-definitions";
 
 interface IconsLayerProps {
-  displayMode: DisplayMode
-  isPlaying: boolean
-  audioFile: string | null
-  width: number
-  height: number
+  displayMode: DisplayMode;
+  isPlaying: boolean;
+  audioFile: string | null;
+  width: number;
+  height: number;
+  active?: boolean; // ON/OFF制御
 }
 
-export function IconsLayer({
+export const IconsLayer: React.FC<IconsLayerProps> = ({
   displayMode,
   isPlaying,
   audioFile,
-  width,
-  height
-}: IconsLayerProps) {
-  const hasFile = !!audioFile
+  active = false, // デフォルトOFF
+}) => {
+  const hasFile = !!audioFile;
+  const [noteStep, setNoteStep] = React.useState(0);
+
+  React.useEffect(() => {
+    if (!active || !isPlaying) {
+      setNoteStep(0);
+      return;
+    }
+    const interval = setInterval(() => {
+      setNoteStep((prev) => (prev + 1) % 4);
+    }, 500);
+    return () => clearInterval(interval);
+  }, [isPlaying, active]);
 
   return (
-    <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-20">
+    <div className="absolute top-0 left-0 pointer-events-none z-20 w-full h-full">
       {CUSTOM_ICONS.map((icon) => {
-        const isModeActive = icon.activeModes.includes(displayMode)
-        const isConditionMet = icon.condition ? icon.condition(isPlaying, hasFile) : true
-        const isActive = isModeActive && isConditionMet
+        if (!icon.activeModes.includes(displayMode)) return null;
 
-        // アイコンの基準位置（左下）を計算 (px単位)
-        const topPositionPx = icon.y - icon.height
+        // activeがfalseなら強制的にOFF扱い
+        let isActive = active && (icon.condition ? icon.condition(isPlaying, hasFile) : true);
 
-        // ★ここが修正ポイント：ピクセルをパーセントに変換する
-        const leftPct = (icon.x / width) * 100
-        const topPct = (topPositionPx / height) * 100
-        const widthPct = (icon.width / width) * 100
-        const heightPct = (icon.height / height) * 100
-
-        const stylePos: React.CSSProperties = {
-            position: 'absolute',
-            left: `${leftPct}%`,   // %指定に変更
-            top: `${topPct}%`,     // %指定に変更
-            width: `${widthPct}%`, // %指定に変更
-            height: `${heightPct}%`, // %指定に変更
-            transition: 'opacity 0.2s ease-in-out',
-            opacity: isActive ? 1 : 0.1, 
+        if (icon.id.startsWith('note-') && icon.id !== 'note-ring') {
+            const noteNum = parseInt(icon.id.split('-')[1]);
+            if (!isNaN(noteNum)) {
+              isActive = isActive && isPlaying && noteStep >= noteNum;
+            }
         }
 
-        // 1. SVGコンポーネント
-        if (icon.type === 'COMPONENT' && icon.component) {
-            const SvgComponent = icon.component
-            return (
-                <div key={icon.id} style={stylePos}>
-                    {/* コンポーネントには親divいっぱいに広がるよう指示 */}
-                    <SvgComponent 
-                        color={icon.color || COLORS.iconActive} 
-                        active={isActive}
-                        // width/height は stylePos で制御するので、
-                        // SVG自体は viewBox に合わせて 100% 表示させるためのダミー値を渡すか、
-                        // あるいはコンポーネント側で width="100%" height="100%" とする
-                        width={100} // ※ここはパーセント計算には影響しません
-                        height={100} 
-                    />
-                </div>
-            )
-        }
-
-        // 2. ドットマトリクス
-        if (icon.type === 'DOT_MATRIX' && icon.maskSrc) {
-          return (
-            <MaskedDotMatrix
-              key={icon.id}
-              // Canvas全体を描画領域とするため、width/heightは親のpropsをそのまま使う
-              width={width}
-              height={height}
-              maskSrc={icon.maskSrc}
-              active={isActive}
-              // 描画位置はCanvas内部の座標系(px)で指定する必要があるため、元の値を渡す
-              iconX={icon.x}
-              iconY={topPositionPx}
-              iconWidth={icon.width}
-              iconHeight={icon.height}
-              color={icon.color || COLORS.iconActive}
-              className="absolute top-0 left-0 w-full h-full"
-            />
-          );
-        } 
+        // OFFなら暗い色、ONなら指定色
+        const currentColor = isActive ? (icon.color || COLORS.iconActive) : COLORS.iconInactive;
         
-        // 3. 画像 (SVG/PNG)
-        if (icon.type === 'IMAGE' && icon.maskSrc) {
-           if (icon.color) {
-             return (
-               <div 
-                 key={icon.id}
-                 style={{
-                   ...stylePos,
-                   backgroundColor: icon.color,
-                   maskImage: `url(${icon.maskSrc})`,
-                   WebkitMaskImage: `url(${icon.maskSrc})`,
-                   maskSize: 'contain',       
-                   WebkitMaskSize: 'contain',
-                   maskPosition: 'left bottom', 
-                   WebkitMaskPosition: 'left bottom',
-                   maskRepeat: 'no-repeat',
-                   WebkitMaskRepeat: 'no-repeat',
-                   filter: isActive ? `drop-shadow(0 0 8px ${icon.color})` : 'none' 
-                 }}
-               />
-             )
-           }
+        // 1400x400 に対する%位置計算
+        const leftPct = (icon.x / 1400) * 100;
+        const topPct = (icon.y / 400) * 100;
+        const widthPct = (icon.width / 1400) * 100;
+        const heightPct = (icon.height / 400) * 100;
 
-           return (
-            <img 
-              key={icon.id}
-              src={icon.maskSrc} 
-              alt={icon.name} 
-              style={{
-                ...stylePos,
-                objectFit: 'contain',
-                objectPosition: 'left bottom'
-              }}
-            />
-          );
-        }
-        return null;
+        return (
+          <div 
+            key={icon.id} 
+            style={{
+              position: 'absolute',
+              left: `${leftPct}%`,
+              top: `${topPct}%`,
+              width: `${widthPct}%`,
+              height: `${heightPct}%`,
+              maskImage: `url(${icon.maskSrc})`,
+              WebkitMaskImage: `url(${icon.maskSrc})`,
+              maskSize: 'contain',
+              WebkitMaskSize: 'contain',
+              maskRepeat: 'no-repeat',
+              WebkitMaskRepeat: 'no-repeat',
+              maskPosition: 'center',
+              WebkitMaskPosition: 'center',
+              backgroundColor: currentColor,
+              opacity: isActive ? 1 : 1, // 消灯時は薄くする
+              transition: 'all 0s ease',
+            }} 
+          />
+        );
       })}
     </div>
-  )
-}
+  );
+};

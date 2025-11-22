@@ -29,6 +29,9 @@ export const SPECTRUM_CONFIG = {
   maxDecibels: -20,
   
   peakHoldTime: 200,
+  
+  showGuide: false,
+  guideAlpha: 0.2,
 }
 
 export const SIDE_BAND_CONFIG = {

@@ -25654,50 +25654,26 @@ var _s = __turbopack_context__.k.signature();
 "use client";
 ;
 ;
-const RingLevelizer = ({ src, config, width = "100%", height = "100%", debug = false })=>{
+const RingLevelizer = ({ svgContent, config, width = "100%", height = "100%", debug = false })=>{
     _s();
     const [paths, setPaths] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [offset, setOffset] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
-    const [status, setStatus] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("loading");
-    const [errorMessage, setErrorMessage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const requestRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])();
     const prevTimeRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])();
-    // 位置調整用（134x117の中心）
     const VIEW_BOX = "0 0 134 117";
     const CENTER = {
         x: 67,
         y: 58.5
     };
-    // 1. SVG読み込み
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "RingLevelizer.useEffect": ()=>{
-            const loadSvg = {
-                "RingLevelizer.useEffect.loadSvg": async ()=>{
-                    try {
-                        setStatus("loading");
-                        const res = await fetch(src);
-                        if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
-                        const text = await res.text();
-                        const sorted = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$svg$2d$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["parseAndSortPaths"])(text, CENTER);
-                        if (sorted.length === 0) {
-                            setStatus("empty");
-                        } else {
-                            setPaths(sorted);
-                            setStatus("success");
-                        }
-                    } catch (e) {
-                        console.error(e);
-                        setStatus("error");
-                        setErrorMessage(e.message);
-                    }
-                }
-            }["RingLevelizer.useEffect.loadSvg"];
-            loadSvg();
+            if (!svgContent) return;
+            const sorted = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$svg$2d$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["parseAndSortPaths"])(svgContent, CENTER);
+            setPaths(sorted);
         }
     }["RingLevelizer.useEffect"], [
-        src
+        svgContent
     ]);
-    // 2. アニメーション
     const animate = (time)=>{
         if (prevTimeRef.current !== undefined) {
             setOffset((prev)=>{
@@ -25714,7 +25690,8 @@ const RingLevelizer = ({ src, config, width = "100%", height = "100%", debug = f
     };
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "RingLevelizer.useEffect": ()=>{
-            if (status === "success") {
+            // パスがあれば即アニメーション開始
+            if (paths.length > 0) {
                 requestRef.current = requestAnimationFrame(animate);
             }
             return ({
@@ -25724,12 +25701,10 @@ const RingLevelizer = ({ src, config, width = "100%", height = "100%", debug = f
             })["RingLevelizer.useEffect"];
         }
     }["RingLevelizer.useEffect"], [
-        status,
+        paths,
         config.rotationSpeed,
-        config.direction,
-        paths.length
+        config.direction
     ]);
-    // 3. 点灯判定
     const isLit = (index)=>{
         if (paths.length === 0) return false;
         const total = paths.length;
@@ -25743,160 +25718,67 @@ const RingLevelizer = ({ src, config, width = "100%", height = "100%", debug = f
         }
         return false;
     };
-    // 表示ロジック（エラー時の表示を追加）
-    if (status === "error") {
-        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "w-full h-full flex items-center justify-center bg-red-900/20 border border-red-500 text-red-500 text-[10px] p-2",
-            children: [
-                "Load Error: ",
-                errorMessage
-            ]
-        }, void 0, true, {
-            fileName: "[project]/components/spectrum-analyzer/RingLevelizer.tsx",
-            lineNumber: 112,
-            columnNumber: 7
-        }, ("TURBOPACK compile-time value", void 0));
-    }
-    if (status === "empty") {
-        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "w-full h-full flex flex-col items-center justify-center bg-gray-900 border border-yellow-500 text-yellow-500 text-[10px] p-2",
-            children: [
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                    children: "SVG Loaded but 0 paths found."
-                }, void 0, false, {
-                    fileName: "[project]/components/spectrum-analyzer/RingLevelizer.tsx",
-                    lineNumber: 121,
-                    columnNumber: 9
-                }, ("TURBOPACK compile-time value", void 0)),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                    children: "Check console for details."
-                }, void 0, false, {
-                    fileName: "[project]/components/spectrum-analyzer/RingLevelizer.tsx",
-                    lineNumber: 122,
-                    columnNumber: 9
-                }, ("TURBOPACK compile-time value", void 0))
-            ]
-        }, void 0, true, {
-            fileName: "[project]/components/spectrum-analyzer/RingLevelizer.tsx",
-            lineNumber: 120,
-            columnNumber: 7
-        }, ("TURBOPACK compile-time value", void 0));
-    }
-    if (status === "loading") {
-        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "w-full h-full flex items-center justify-center bg-gray-900 text-gray-500 text-[10px]",
-            children: "Loading SVG..."
-        }, void 0, false, {
-            fileName: "[project]/components/spectrum-analyzer/RingLevelizer.tsx",
-            lineNumber: 129,
-            columnNumber: 7
-        }, ("TURBOPACK compile-time value", void 0));
-    }
+    // パスがまだない場合（一瞬）は何も表示しない
+    if (paths.length === 0) return null;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         style: {
             width,
             height,
             position: "relative"
         },
-        children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                width: "100%",
-                height: "100%",
-                viewBox: VIEW_BOX,
-                preserveAspectRatio: "xMidYMid meet",
-                style: {
-                    overflow: "visible"
-                },
-                children: [
-                    debug && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
-                        pointerEvents: "none",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
-                                x: "0",
-                                y: "0",
-                                width: "134",
-                                height: "117",
-                                fill: "none",
-                                stroke: "red",
-                                strokeWidth: "0.5"
-                            }, void 0, false, {
-                                fileName: "[project]/components/spectrum-analyzer/RingLevelizer.tsx",
-                                lineNumber: 147,
-                                columnNumber: 13
-                            }, ("TURBOPACK compile-time value", void 0)),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
-                                x1: CENTER.x,
-                                y1: "0",
-                                x2: CENTER.x,
-                                y2: "117",
-                                stroke: "#0f0",
-                                strokeWidth: "0.5"
-                            }, void 0, false, {
-                                fileName: "[project]/components/spectrum-analyzer/RingLevelizer.tsx",
-                                lineNumber: 148,
-                                columnNumber: 13
-                            }, ("TURBOPACK compile-time value", void 0)),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
-                                x1: "0",
-                                y1: CENTER.y,
-                                x2: "134",
-                                y2: CENTER.y,
-                                stroke: "#0f0",
-                                strokeWidth: "0.5"
-                            }, void 0, false, {
-                                fileName: "[project]/components/spectrum-analyzer/RingLevelizer.tsx",
-                                lineNumber: 149,
-                                columnNumber: 13
-                            }, ("TURBOPACK compile-time value", void 0))
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/spectrum-analyzer/RingLevelizer.tsx",
-                        lineNumber: 146,
-                        columnNumber: 11
-                    }, ("TURBOPACK compile-time value", void 0)),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
-                        children: paths.map((d, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                d: d,
-                                fill: isLit(i) ? config.litColor : config.dimColor,
-                                stroke: "none",
-                                style: {
-                                    transition: "fill 0.05s linear"
-                                }
-                            }, i, false, {
-                                fileName: "[project]/components/spectrum-analyzer/RingLevelizer.tsx",
-                                lineNumber: 155,
-                                columnNumber: 13
-                            }, ("TURBOPACK compile-time value", void 0)))
-                    }, void 0, false, {
-                        fileName: "[project]/components/spectrum-analyzer/RingLevelizer.tsx",
-                        lineNumber: 153,
-                        columnNumber: 9
-                    }, ("TURBOPACK compile-time value", void 0))
-                ]
-            }, void 0, true, {
-                fileName: "[project]/components/spectrum-analyzer/RingLevelizer.tsx",
-                lineNumber: 137,
-                columnNumber: 7
-            }, ("TURBOPACK compile-time value", void 0)),
-            debug && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute bottom-0 right-0 bg-black/80 text-white text-[9px] p-1",
-                children: [
-                    "Cells: ",
-                    paths.length
-                ]
-            }, void 0, true, {
-                fileName: "[project]/components/spectrum-analyzer/RingLevelizer.tsx",
-                lineNumber: 168,
-                columnNumber: 9
-            }, ("TURBOPACK compile-time value", void 0))
-        ]
-    }, void 0, true, {
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+            width: "100%",
+            height: "100%",
+            viewBox: VIEW_BOX,
+            preserveAspectRatio: "xMidYMid meet",
+            style: {
+                overflow: "visible"
+            },
+            children: [
+                debug && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                    x: "0",
+                    y: "0",
+                    width: "134",
+                    height: "117",
+                    fill: "none",
+                    stroke: "red",
+                    strokeWidth: "1"
+                }, void 0, false, {
+                    fileName: "[project]/components/spectrum-analyzer/RingLevelizer.tsx",
+                    lineNumber: 98,
+                    columnNumber: 11
+                }, ("TURBOPACK compile-time value", void 0)),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
+                    children: paths.map((d, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                            d: d,
+                            fill: isLit(i) ? config.litColor : config.dimColor,
+                            stroke: "none",
+                            style: {
+                                transition: "fill 0.05s linear"
+                            }
+                        }, i, false, {
+                            fileName: "[project]/components/spectrum-analyzer/RingLevelizer.tsx",
+                            lineNumber: 102,
+                            columnNumber: 13
+                        }, ("TURBOPACK compile-time value", void 0)))
+                }, void 0, false, {
+                    fileName: "[project]/components/spectrum-analyzer/RingLevelizer.tsx",
+                    lineNumber: 100,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            ]
+        }, void 0, true, {
+            fileName: "[project]/components/spectrum-analyzer/RingLevelizer.tsx",
+            lineNumber: 90,
+            columnNumber: 7
+        }, ("TURBOPACK compile-time value", void 0))
+    }, void 0, false, {
         fileName: "[project]/components/spectrum-analyzer/RingLevelizer.tsx",
-        lineNumber: 136,
+        lineNumber: 89,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(RingLevelizer, "rK06g/RnKRVq+3ZtCAB0o7KCSX4=");
+_s(RingLevelizer, "RYj0MekJ8mh2ZWNBAph9R1k1Y7k=");
 _c = RingLevelizer;
 var _c;
 __turbopack_context__.k.register(_c, "RingLevelizer");
@@ -25928,7 +25810,13 @@ const BASE_CONFIG = {
     dimColor: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["VFD_COLORS"].OFF,
     direction: 1
 };
-const LevelizerLayer = ({ width, height })=>{
+const LevelizerLayer = ({ width, height, active = false })=>{
+    // activeがfalse(初期状態)なら、回転を止め(speed: 0)、色を消灯色(dimColor)にする
+    const currentConfig = active ? BASE_CONFIG : {
+        ...BASE_CONFIG,
+        rotationSpeed: 0,
+        litColor: BASE_CONFIG.dimColor
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "absolute top-0 left-0 pointer-events-none z-20 w-full h-full",
         children: [
@@ -25943,18 +25831,17 @@ const LevelizerLayer = ({ width, height })=>{
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$RingLevelizer$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RingLevelizer"], {
                     src: `${basePath}/images/masks/ring-level7.svg`,
                     config: {
-                        ...BASE_CONFIG,
-                        rotationSpeed: 0.15,
-                        direction: 1
+                        ...currentConfig,
+                        rotationSpeed: active ? 0.15 : 0
                     }
                 }, void 0, false, {
                     fileName: "[project]/components/spectrum-analyzer/LevelizerLayer.tsx",
-                    lineNumber: 37,
+                    lineNumber: 44,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/components/spectrum-analyzer/LevelizerLayer.tsx",
-                lineNumber: 28,
+                lineNumber: 40,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -25968,18 +25855,17 @@ const LevelizerLayer = ({ width, height })=>{
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$RingLevelizer$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RingLevelizer"], {
                     src: `${basePath}/images/masks/ring-level6.svg`,
                     config: {
-                        ...BASE_CONFIG,
-                        rotationSpeed: 0.15,
-                        direction: 1
+                        ...currentConfig,
+                        rotationSpeed: active ? 0.15 : 0
                     }
                 }, void 0, false, {
                     fileName: "[project]/components/spectrum-analyzer/LevelizerLayer.tsx",
-                    lineNumber: 51,
+                    lineNumber: 55,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/components/spectrum-analyzer/LevelizerLayer.tsx",
-                lineNumber: 42,
+                lineNumber: 51,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -25993,18 +25879,17 @@ const LevelizerLayer = ({ width, height })=>{
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$RingLevelizer$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RingLevelizer"], {
                     src: `${basePath}/images/masks/ring-level5.svg`,
                     config: {
-                        ...BASE_CONFIG,
-                        rotationSpeed: 0.15,
-                        direction: 1
+                        ...currentConfig,
+                        rotationSpeed: active ? 0.15 : 0
                     }
                 }, void 0, false, {
                     fileName: "[project]/components/spectrum-analyzer/LevelizerLayer.tsx",
-                    lineNumber: 65,
+                    lineNumber: 66,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/components/spectrum-analyzer/LevelizerLayer.tsx",
-                lineNumber: 56,
+                lineNumber: 62,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -26018,18 +25903,17 @@ const LevelizerLayer = ({ width, height })=>{
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$RingLevelizer$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RingLevelizer"], {
                     src: `${basePath}/images/masks/ring-level4.svg`,
                     config: {
-                        ...BASE_CONFIG,
-                        rotationSpeed: 0.15,
-                        direction: 1
+                        ...currentConfig,
+                        rotationSpeed: active ? 0.15 : 0
                     }
                 }, void 0, false, {
                     fileName: "[project]/components/spectrum-analyzer/LevelizerLayer.tsx",
-                    lineNumber: 79,
+                    lineNumber: 77,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/components/spectrum-analyzer/LevelizerLayer.tsx",
-                lineNumber: 70,
+                lineNumber: 73,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -26043,13 +25927,12 @@ const LevelizerLayer = ({ width, height })=>{
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$RingLevelizer$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RingLevelizer"], {
                     src: `${basePath}/images/masks/ring-level3.svg`,
                     config: {
-                        ...BASE_CONFIG,
-                        rotationSpeed: 0.15,
-                        direction: 1
+                        ...currentConfig,
+                        rotationSpeed: active ? 0.15 : 0
                     }
                 }, void 0, false, {
                     fileName: "[project]/components/spectrum-analyzer/LevelizerLayer.tsx",
-                    lineNumber: 93,
+                    lineNumber: 88,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
@@ -26068,18 +25951,17 @@ const LevelizerLayer = ({ width, height })=>{
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$RingLevelizer$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RingLevelizer"], {
                     src: `${basePath}/images/masks/ring-level2.svg`,
                     config: {
-                        ...BASE_CONFIG,
-                        rotationSpeed: 0.15,
-                        direction: 1
+                        ...currentConfig,
+                        rotationSpeed: active ? 0.15 : 0
                     }
                 }, void 0, false, {
                     fileName: "[project]/components/spectrum-analyzer/LevelizerLayer.tsx",
-                    lineNumber: 107,
+                    lineNumber: 99,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/components/spectrum-analyzer/LevelizerLayer.tsx",
-                lineNumber: 98,
+                lineNumber: 95,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -26093,24 +25975,23 @@ const LevelizerLayer = ({ width, height })=>{
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$RingLevelizer$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RingLevelizer"], {
                     src: `${basePath}/images/masks/ring-level1.svg`,
                     config: {
-                        ...BASE_CONFIG,
-                        rotationSpeed: 0.15,
-                        direction: 1
+                        ...currentConfig,
+                        rotationSpeed: active ? 0.15 : 0
                     }
                 }, void 0, false, {
                     fileName: "[project]/components/spectrum-analyzer/LevelizerLayer.tsx",
-                    lineNumber: 121,
+                    lineNumber: 110,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/components/spectrum-analyzer/LevelizerLayer.tsx",
-                lineNumber: 112,
+                lineNumber: 106,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/components/spectrum-analyzer/LevelizerLayer.tsx",
-        lineNumber: 25,
+        lineNumber: 34,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -26406,7 +26287,7 @@ function SpectrumAnalyzer() {
             }
         }
     };
-    let matrixText = "UPLOAD AUDIO";
+    let matrixText = "";
     let matrixMode = 'TEXT';
     switch(displayMode){
         case 'ANIMATION':
@@ -26423,7 +26304,7 @@ function SpectrumAnalyzer() {
         case 'UPLOAD_PROMPT':
         default:
             matrixMode = 'TEXT';
-            matrixText = "UPLOAD AUDIO";
+            matrixText = "";
             break;
     }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -26466,7 +26347,8 @@ function SpectrumAnalyzer() {
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$spectrum$2d$analyzer$2f$LevelizerLayer$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["LevelizerLayer"], {
                         width: 1400,
-                        height: 400
+                        height: 400,
+                        active: !!audioFile
                     }, void 0, false, {
                         fileName: "[project]/components/spectrum-analyzer/index.tsx",
                         lineNumber: 308,

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { Play, Pause, Upload, Monitor } from 'lucide-react' // Eye, EyeOff を削除
+import { Play, Pause, Upload, Monitor, Eye, EyeOff } from 'lucide-react' // ★Eye, EyeOffを復活
 import { DotMatrixDisplay } from '@/components/dot-matrix' 
 import { DisplayMode, PeakHold } from './types'
 import { SPECTRUM_CONFIG, SIDE_BAND_CONFIG, COLORS } from './config'
@@ -25,6 +25,9 @@ export function SpectrumAnalyzer() {
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
 
+  const [showGuide, setShowGuide] = useState(SPECTRUM_CONFIG.showGuide)
+  const [imageLoaded, setImageLoaded] = useState(false)
+
   const [displayMode, setDisplayMode] = useState<DisplayMode>('UPLOAD_PROMPT')
   
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -38,11 +41,19 @@ export function SpectrumAnalyzer() {
   const peakHoldsRef = useRef<PeakHold[]>(new Array(SPECTRUM_CONFIG.numBands).fill(null).map(() => ({ level: 0, timestamp: 0 })))
   const sidePeakHoldsRef = useRef<PeakHold[]>(new Array(SPECTRUM_CONFIG.numBands).fill(null).map(() => ({ level: 0, timestamp: 0 })))
   
+  const guideImageRef = useRef<HTMLImageElement | null>(null)
   const audioInitializedRef = useRef<boolean>(false)
 
-
-  // コンポーネントのクリーンアップ
   useEffect(() => {
+    const img = new Image()
+    img.crossOrigin = 'anonymous'
+    const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+    img.src=`${basePath}/images/guide.png`
+    img.onload = () => {
+      guideImageRef.current = img
+      setImageLoaded(true)
+    }
+    
     return () => {
       if (animationRef.current) cancelAnimationFrame(animationRef.current)
       if (audioContextRef.current?.state !== 'closed') audioContextRef.current?.close()
@@ -79,6 +90,21 @@ export function SpectrumAnalyzer() {
 
     ctx.fillStyle = '#000000'
     ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+    // ★復活: ガイド画像の描画
+    if (showGuide && guideImageRef.current) {
+      const img = guideImageRef.current
+      ctx.globalAlpha = SPECTRUM_CONFIG.guideAlpha
+      
+      const scale = Math.min(canvas.width / img.width, canvas.height / img.height)
+      const w = img.width * scale
+      const h = img.height * scale
+      const x = (canvas.width - w) / 2
+      const y = (canvas.height - h) / 2
+
+      ctx.drawImage(img, x, y, w, h)
+      ctx.globalAlpha = 1.0
+    }
 
     let displayLevels: number[] = []
     const now = performance.now()
@@ -171,7 +197,8 @@ export function SpectrumAnalyzer() {
       animationRef.current = null
     }
     drawSpectrum()
-  }, [isPlaying, displayMode, audioFile])
+    // ★依存配列に imageLoaded と showGuide を追加
+  }, [isPlaying, displayMode, audioFile, imageLoaded, showGuide])
 
   
   useEffect(() => {
@@ -261,7 +288,7 @@ export function SpectrumAnalyzer() {
     }
   }
   
-  let matrixText = "UPLOAD AUDIO"
+  let matrixText = ""
   let matrixMode: 'TEXT' | 'ANIMATION' = 'TEXT'
 
   switch (displayMode) {
@@ -279,7 +306,7 @@ export function SpectrumAnalyzer() {
     case 'UPLOAD_PROMPT':
     default:
       matrixMode = 'TEXT'
-      matrixText = "UPLOAD AUDIO"
+      matrixText = ""
       break
   }
 
@@ -303,9 +330,10 @@ export function SpectrumAnalyzer() {
           audioFile={audioFile} 
           width={1400} 
           height={400} 
+          active={!!audioFile} 
         />
 
-        <LevelizerLayer width={1400} height={400} />
+        <LevelizerLayer width={1400} height={400} active={!!audioFile}/>
       </div>
 
       <div className="w-full space-y-2">
@@ -357,9 +385,14 @@ export function SpectrumAnalyzer() {
         <Button onClick={handleDispClick} size="sm" className="bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer">
           <Monitor className="h-4 w-4 mr-2" /> DISP
         </Button>
+        
+        <Button onClick={() => setShowGuide(!showGuide)} size="sm" className="bg-white/10 border border-white/20 hover:bg-white/20 text-white text-xs px-4 py-2 cursor-pointer">
+          {showGuide ? <><EyeOff className="h-4 w-4 mr-2" /> GUIDE OFF</> : <><Eye className="h-4 w-4 mr-2" /> GUIDE ON</>}
+        </Button>
+
       </div>
       {audioFile && <audio key={audioFile} ref={audioRef} src={audioFile} className="hidden" loop />}
-      <div style={{ color: 'white', fontSize: '10px' }}>DEPLOYED VERSION 0.2.2</div>
+      <div style={{ color: 'white', fontSize: '10px' }}>DEPLOYED VERSION 0.2.3</div>
     </div>
   )
 }

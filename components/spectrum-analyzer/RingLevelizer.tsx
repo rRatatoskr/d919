@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { parseAndSortPaths } from "../../lib/svg-utils";
+import { parseAndSortPaths } from "@/lib/svg-utils";
 
 export interface RingConfig {
   rotationSpeed: number;
@@ -13,7 +13,7 @@ export interface RingConfig {
 }
 
 interface RingLevelizerProps {
-  src: string;
+  svgContent: string; 
   config: RingConfig;
   width?: string | number;
   height?: string | number;
@@ -21,7 +21,7 @@ interface RingLevelizerProps {
 }
 
 export const RingLevelizer: React.FC<RingLevelizerProps> = ({
-  src,
+  svgContent,
   config,
   width = "100%",
   height = "100%",
@@ -29,43 +29,19 @@ export const RingLevelizer: React.FC<RingLevelizerProps> = ({
 }) => {
   const [paths, setPaths] = useState<string[]>([]);
   const [offset, setOffset] = useState(0);
-  const [status, setStatus] = useState<"loading" | "success" | "error" | "empty">("loading");
-  const [errorMessage, setErrorMessage] = useState<string>("");
-
+  
   const requestRef = useRef<number>();
   const prevTimeRef = useRef<number>();
 
-  // 位置調整用（134x117の中心）
   const VIEW_BOX = "0 0 134 117";
   const CENTER = { x: 67, y: 58.5 };
 
-  // 1. SVG読み込み
   useEffect(() => {
-    const loadSvg = async () => {
-      try {
-        setStatus("loading");
-        const res = await fetch(src);
-        if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
-        const text = await res.text();
+    if (!svgContent) return;
+    const sorted = parseAndSortPaths(svgContent, CENTER);
+    setPaths(sorted);
+  }, [svgContent]);
 
-        const sorted = parseAndSortPaths(text, CENTER);
-
-        if (sorted.length === 0) {
-          setStatus("empty");
-        } else {
-          setPaths(sorted);
-          setStatus("success");
-        }
-      } catch (e: any) {
-        console.error(e);
-        setStatus("error");
-        setErrorMessage(e.message);
-      }
-    };
-    loadSvg();
-  }, [src]);
-
-  // 2. アニメーション
   const animate = (time: number) => {
     if (prevTimeRef.current !== undefined) {
       setOffset((prev) => {
@@ -82,15 +58,15 @@ export const RingLevelizer: React.FC<RingLevelizerProps> = ({
   };
 
   useEffect(() => {
-    if (status === "success") {
+    // パスがあれば即アニメーション開始
+    if (paths.length > 0) {
       requestRef.current = requestAnimationFrame(animate);
     }
     return () => {
       if (requestRef.current) cancelAnimationFrame(requestRef.current);
     };
-  }, [status, config.rotationSpeed, config.direction, paths.length]);
+  }, [paths, config.rotationSpeed, config.direction]);
 
-  // 3. 点灯判定
   const isLit = (index: number) => {
     if (paths.length === 0) return false;
     const total = paths.length;
@@ -106,31 +82,8 @@ export const RingLevelizer: React.FC<RingLevelizerProps> = ({
     return false;
   };
 
-  // 表示ロジック（エラー時の表示を追加）
-  if (status === "error") {
-    return (
-      <div className="w-full h-full flex items-center justify-center bg-red-900/20 border border-red-500 text-red-500 text-[10px] p-2">
-        Load Error: {errorMessage}
-      </div>
-    );
-  }
-
-  if (status === "empty") {
-    return (
-      <div className="w-full h-full flex flex-col items-center justify-center bg-gray-900 border border-yellow-500 text-yellow-500 text-[10px] p-2">
-        <p>SVG Loaded but 0 paths found.</p>
-        <p>Check console for details.</p>
-      </div>
-    );
-  }
-
-  if (status === "loading") {
-    return (
-      <div className="w-full h-full flex items-center justify-center bg-gray-900 text-gray-500 text-[10px]">
-        Loading SVG...
-      </div>
-    );
-  }
+  // パスがまだない場合（一瞬）は何も表示しない
+  if (paths.length === 0) return null;
 
   return (
     <div style={{ width, height, position: "relative" }}>
@@ -141,15 +94,9 @@ export const RingLevelizer: React.FC<RingLevelizerProps> = ({
         preserveAspectRatio="xMidYMid meet"
         style={{ overflow: "visible" }}
       >
-        {/* デバッグモード: 赤枠と中心線を表示 */}
         {debug && (
-          <g pointerEvents="none">
-            <rect x="0" y="0" width="134" height="117" fill="none" stroke="red" strokeWidth="0.5" />
-            <line x1={CENTER.x} y1="0" x2={CENTER.x} y2="117" stroke="#0f0" strokeWidth="0.5" />
-            <line x1="0" y1={CENTER.y} x2="134" y2={CENTER.y} stroke="#0f0" strokeWidth="0.5" />
-          </g>
+          <rect x="0" y="0" width="134" height="117" fill="none" stroke="red" strokeWidth="1" />
         )}
-
         <g>
           {paths.map((d, i) => (
             <path
@@ -162,13 +109,6 @@ export const RingLevelizer: React.FC<RingLevelizerProps> = ({
           ))}
         </g>
       </svg>
-      
-      {/* デバッグ情報: パス数 */}
-      {debug && (
-        <div className="absolute bottom-0 right-0 bg-black/80 text-white text-[9px] p-1">
-          Cells: {paths.length}
-        </div>
-      )}
     </div>
   );
 };
