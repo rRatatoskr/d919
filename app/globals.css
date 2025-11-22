@@ -123,3 +123,19 @@
     @apply bg-background text-foreground;
   }
 }
+
+.seek-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 0;
+  height: 0;
+  -webkit-appearance: none;
+}
+.seek-slider::-moz-range-thumb {
+  width: 0;
+  height: 0;
+  border: none;
+}
+.seek-slider::-webkit-slider-runnable-track {
+  height: 2px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) var(--seek-ratio, 0%), rgba(255, 255, 255, 0.1) var(--seek-ratio, 0%), rgba(255, 255, 255, 0.1) 100%);
+}

@@ -167,7 +167,7 @@ export function SpectrumAnalyzer() {
           }
           return prev + 1
         })
-      }, 20) 
+      }, 30) 
     }
   }
 
@@ -545,19 +545,6 @@ export function SpectrumAnalyzer() {
             disabled={!isPoweredOn || !audioFile || bootStep > 0}
             className="w-full h-0.5 bg-white/10 rounded-full appearance-none cursor-pointer disabled:opacity-20 seek-slider"
           />
-          <style jsx>{`
-            .seek-slider::-webkit-slider-thumb {
-              appearance: none;
-              width: 0; height: 0;
-            }
-            .seek-slider::-moz-range-thumb {
-              width: 0; height: 0; border: none;
-            }
-            .seek-slider::-webkit-slider-runnable-track {
-              height: 2px;
-              background: linear-gradient(to right, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) ${(currentTime / (duration || 1)) * 100}%, rgba(255, 255, 255, 0.1) ${(currentTime / (duration || 1)) * 100}%, rgba(255, 255, 255, 0.1) 100%);
-            }
-          `}</style>
         </div>
         <div className="flex justify-end">
           <div className={`text-xs font-mono tracking-wider ${isPoweredOn ? 'text-white/50' : 'text-white/10'}`}>
