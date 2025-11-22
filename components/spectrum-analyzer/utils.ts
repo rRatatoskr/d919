@@ -44,6 +44,19 @@ export const drawDoubleSlantedPolygon = (
   ctx.fill()
 }
 
+// SVGパス生成用のヘルパー関数 (index.tsxで使用)
+export const createPolyPath = (x: number, y: number, w: number, h: number, slantLR: number, slopeTB: number) => {
+  const p1x = x + slantLR;
+  const p1y = y - h;
+  const p2x = x + w + slantLR;
+  const p2y = y - h - slopeTB;
+  const p3x = x + w;
+  const p3y = y - slopeTB;
+  const p4x = x;
+  const p4y = y;
+  return `M${p1x},${p1y} L${p2x},${p2y} L${p3x},${p3y} L${p4x},${p4y} Z`
+}
+
 export const getAudioLevels = (dataArray: Uint8Array): number[] => {
   const levels: number[] = []
   const totalBins = dataArray.length / 2
@@ -80,7 +93,8 @@ export const drawSideBand = (
   peakHold: PeakHold,
   baseX: number,
   baseY: number,
-  now: number
+  now: number,
+  onlyLit: boolean = false // ★追加: 点灯部分のみ描画するフラグ
 ) => {
   if (!SIDE_BAND_CONFIG.enabled) return
   
@@ -103,8 +117,18 @@ export const drawSideBand = (
     const currentSegLevel = Math.floor(segIdx / 2)
     const isPeakSegment = showPeak && currentSegLevel === peakLevel
     
+    // 点灯判定
+    const isLit = segIdx < activeSegments || isPeakSegment
+
+    // onlyLitモードで消灯ならスキップ (背景SVGが見える)
+    if (onlyLit && !isLit) {
+      const currentGapY = segIdx % 2 === 0 ? SIDE_BAND_CONFIG.gapY1 : SIDE_BAND_CONFIG.gapY2
+      currentYBottom -= (SIDE_BAND_CONFIG.blockHeight + currentGapY)
+      continue
+    }
+
     let color: string
-    if (segIdx < activeSegments || isPeakSegment) {
+    if (isLit) {
       color = COLORS.sideActive
     } else {
       color = COLORS.inactive

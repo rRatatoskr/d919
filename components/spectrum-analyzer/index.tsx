@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useMemo } from 'react'
 import { Button } from '@/components/ui/button'
 import { Play, Pause, Upload, Monitor, Eye, EyeOff, Power } from 'lucide-react'
 import { DotMatrixDisplay } from '@/components/dot-matrix' 
@@ -13,15 +13,16 @@ import {
   getAudioLevels, 
   getSegmentColor, 
   updatePeakHold,
+  createPolyPath // ★追加
 } from './utils'
 import { IconsLayer } from './icons-layer'
 import { LevelizerLayer } from './LevelizerLayer'
-import { VFD_COLORS } from '@/lib/constants' // 忘れずインポート
+import { VFD_COLORS } from '@/lib/constants'
 
 export function SpectrumAnalyzer() {
   // --- State & Refs ---
   const [isPoweredOn, setIsPoweredOn] = useState(false)
-  const [bootStep, setBootStep] = useState(0) // 起動アニメーションのステップ(0:完了/通常, 1~16:アニメ中)
+  const [bootStep, setBootStep] = useState(0) 
 
   const [isPlaying, setIsPlaying] = useState(false)
   const [audioFile, setAudioFile] = useState<string | null>(null)
@@ -39,7 +40,6 @@ export function SpectrumAnalyzer() {
   const sourceRef = useRef<MediaElementAudioSourceNode | null>(null)
   const animationRef = useRef<number | null>(null)
   
-  // アニメーション用のインターバルRef
   const bootTimerRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   const previousLevelsRef = useRef<number[]>(new Array(SPECTRUM_CONFIG.numBands).fill(0))
@@ -67,9 +67,68 @@ export function SpectrumAnalyzer() {
     }
   }, [])
 
+  // ★背景（消灯状態）のSVGパスを生成
+  const backgroundPath = useMemo(() => {
+    let d = "";
+    const startX = SPECTRUM_CONFIG.offsetX
+    const startYBottom = 400 - SPECTRUM_CONFIG.offsetY // Canvas height is 400
+    const sideLeftYBottom = 400 - SPECTRUM_CONFIG.offsetY - SIDE_BAND_CONFIG.leftOffsetY
+    const sideRightYBottom = 400 - SPECTRUM_CONFIG.offsetY - SIDE_BAND_CONFIG.rightOffsetY
+
+    for (let bandIdx = 0; bandIdx < SPECTRUM_CONFIG.numBands; bandIdx++) {
+      const bandXBase = startX + bandIdx * (SPECTRUM_CONFIG.blockWidth + SPECTRUM_CONFIG.gapX)
+
+      // 1. メインバンドの背景パス
+      let currentYBottom = startYBottom
+      for (let segIdx = 0; segIdx < SPECTRUM_CONFIG.segmentsPerBand; segIdx++) {
+        const xOffset = segIdx * SPECTRUM_CONFIG.stackSlant
+        const xDraw = bandXBase + xOffset
+        const yDraw = currentYBottom
+        
+        d += createPolyPath(
+          xDraw, yDraw,
+          SPECTRUM_CONFIG.blockWidth, SPECTRUM_CONFIG.blockHeight,
+          SPECTRUM_CONFIG.slantLR, SPECTRUM_CONFIG.slopeTB
+        ) + " ";
+
+        const currentGapY = segIdx % 2 === 0 ? SPECTRUM_CONFIG.gapY1 : SPECTRUM_CONFIG.gapY2
+        currentYBottom -= (SPECTRUM_CONFIG.blockHeight + currentGapY)
+      }
+
+      // 2. サイドバンド（左）の背景パス
+      if (SIDE_BAND_CONFIG.enabled) {
+        let sideY = sideLeftYBottom;
+        for (let segIdx = 0; segIdx < SIDE_BAND_CONFIG.segmentsPerBand; segIdx++) {
+          const xDraw = bandXBase + SIDE_BAND_CONFIG.leftOffsetX + segIdx * SIDE_BAND_CONFIG.stackSlant;
+          d += createPolyPath(
+            xDraw, sideY,
+            SIDE_BAND_CONFIG.blockWidth, SIDE_BAND_CONFIG.blockHeight,
+            SIDE_BAND_CONFIG.slantLR, SIDE_BAND_CONFIG.slopeTB
+          ) + " ";
+          const currentGapY = segIdx % 2 === 0 ? SIDE_BAND_CONFIG.gapY1 : SIDE_BAND_CONFIG.gapY2
+          sideY -= (SIDE_BAND_CONFIG.blockHeight + currentGapY)
+        }
+
+        // 3. サイドバンド（右）の背景パス
+        let sideYRight = sideRightYBottom;
+        for (let segIdx = 0; segIdx < SIDE_BAND_CONFIG.segmentsPerBand; segIdx++) {
+          const xDraw = bandXBase + SIDE_BAND_CONFIG.rightOffsetX + segIdx * SIDE_BAND_CONFIG.stackSlant;
+          d += createPolyPath(
+            xDraw, sideYRight,
+            SIDE_BAND_CONFIG.blockWidth, SIDE_BAND_CONFIG.blockHeight,
+            SIDE_BAND_CONFIG.slantLR, SIDE_BAND_CONFIG.slopeTB
+          ) + " ";
+          const currentGapY = segIdx % 2 === 0 ? SIDE_BAND_CONFIG.gapY1 : SIDE_BAND_CONFIG.gapY2
+          sideYRight -= (SIDE_BAND_CONFIG.blockHeight + currentGapY)
+        }
+      }
+    }
+    return d;
+  }, []);
+
   // --- Functions ---
 
-  const initializeAudio = () => { /* ... (変更なし) ... */ 
+  const initializeAudio = () => {
     if (!audioRef.current || audioInitializedRef.current) return
     try {
       const audioContext = new AudioContext()
@@ -90,57 +149,45 @@ export function SpectrumAnalyzer() {
     }
   }
 
-  // ★電源操作ハンドラ
   const handlePowerToggle = () => {
     if (isPoweredOn) {
-      // OFFにする
       if (isPlaying) handlePause()
       setIsPoweredOn(false)
       setBootStep(0)
       if (bootTimerRef.current) clearInterval(bootTimerRef.current)
     } else {
-      // ONにする (起動アニメーション開始)
       setIsPoweredOn(true)
       setBootStep(1)
       
-      // アニメーションタイマー (1フレーム 80ms くらいで回す)
       bootTimerRef.current = setInterval(() => {
         setBootStep((prev) => {
-          if (prev >= 31) { // 16フレームで終了
+          if (prev >= 31) { 
             if (bootTimerRef.current) clearInterval(bootTimerRef.current)
-            return 0 // 0に戻して通常モードへ
+            return 0 
           }
           return prev + 1
         })
-      }, 20) // 速度調整: ここの数値を小さくすると速く、大きくすると遅くなる
+      }, 20) 
     }
   }
 
-  // ★起動シーケンスの判定ロジック
-  // 現在の bootStep に応じて、各パーツの状態を決定する
-  
-  // 1. SL (リング) の点灯状態 [index 0は未使用, 1~7]
-  // 累積的に点灯していく (例: step4なら SL1, SL2 がON)
   const getBootActiveLevels = () => {
-    if (bootStep === 0) return [false, true, true, true, true, true, true, true]; // 通常時: 全点灯
+    if (bootStep === 0) return [false, true, true, true, true, true, true, true];
     
     const flags = [false, false, false, false, false, false, false, false];
-    // シーケンス定義に従って点灯
-    if (bootStep >= 3) flags[1] = true; // SL1
-    if (bootStep >= 4) flags[2] = true; // SL2
-    if (bootStep >= 5) { flags[3] = true; flags[4] = true; } // SL3, SL4
-    if (bootStep >= 6) flags[5] = true; // SL5
-    if (bootStep >= 7) flags[6] = true; // SL6
-    if (bootStep >= 8) flags[7] = true; // SL7
+    if (bootStep >= 3) flags[1] = true; 
+    if (bootStep >= 4) flags[2] = true; 
+    if (bootStep >= 5) { flags[3] = true; flags[4] = true; } 
+    if (bootStep >= 6) flags[5] = true; 
+    if (bootStep >= 7) flags[6] = true; 
+    if (bootStep >= 8) flags[7] = true; 
     return flags;
   }
 
-  // 2. SA (スペアナバンド) の点灯状態 (0~16)
   const getBootActiveBands = () => {
-    if (bootStep === 0) return null; // 通常モード
+    if (bootStep === 0) return null; 
     const bands = new Array(17).fill(false);
     
-    // 累積点灯
     if (bootStep >= 3) { bands[0] = true; bands[1] = true; }
     if (bootStep >= 4) bands[2] = true;
     if (bootStep >= 5) bands[3] = true;
@@ -170,9 +217,8 @@ export function SpectrumAnalyzer() {
     return bands;
   }
 
-  // 3. D (ドットブロック) の点灯状態 (D1=0 ~ D12=11)
   const getBootBlockFlags = () => {
-    if (bootStep === 0) return []; // 通常モード
+    if (bootStep === 0) return []; 
     const blocks = new Array(12).fill(false);
     
     if (bootStep >= 6) { blocks[0] = true; blocks[1] = true; }
@@ -196,28 +242,25 @@ export function SpectrumAnalyzer() {
     return blocks;
   }
 
-  // 4. アイコンの除外リスト
   const getHiddenIconIds = () => {
     if (bootStep === 0) return [];
-    // step 1～7 まではこれらを隠す
     if (bootStep < 8) {
       return ['cd-circle', 'cd', 'rom', 'cd-in']; 
     }
-    return []; // step 8以降は全表示
+    return []; 
   }
 
-  // メインループ (描画)
   const drawSpectrum = () => {
     if (!canvasRef.current) return
     const canvas = canvasRef.current
-    const ctx = canvas.getContext('2d', { alpha: false })
+    // ★変更: alpha: true にして背景を透過させる
+    const ctx = canvas.getContext('2d', { alpha: true }) 
     if (!ctx) return
 
-    ctx.fillStyle = '#000000'
-    ctx.fillRect(0, 0, canvas.width, canvas.height)
+    // ★変更: 黒塗りつぶしを削除し、クリアのみにする
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
 
     if (showGuide && guideImageRef.current) {
-      // ガイド描画 (省略なし)
       const img = guideImageRef.current
       ctx.globalAlpha = SPECTRUM_CONFIG.guideAlpha
       const scale = Math.min(canvas.width / img.width, canvas.height / img.height)
@@ -229,18 +272,14 @@ export function SpectrumAnalyzer() {
       ctx.globalAlpha = 1.0
     }
 
-    // --- スペアナ描画データの準備 ---
     let displayLevels: number[] = []
     const now = performance.now()
     
-    // ★起動アニメーション中のオーバーライド
     const bootBands = getBootActiveBands();
 
     if (bootStep > 0 && bootBands) {
-      // アニメーション中: bootBands が true のところを MAXレベル(1.0) にする
       displayLevels = bootBands.map(isOn => isOn ? 1.0 : 0);
     } else if (isPoweredOn && analyzerRef.current && isPlaying) {
-      // 通常再生中
       const bufferLength = analyzerRef.current.frequencyBinCount
       const dataArray = new Uint8Array(bufferLength)
       analyzerRef.current.getByteFrequencyData(dataArray)
@@ -253,7 +292,6 @@ export function SpectrumAnalyzer() {
       }
       previousLevelsRef.current = displayLevels
     } else {
-      // 停止中 or 電源OFF
       if (!isPoweredOn) {
         displayLevels = new Array(SPECTRUM_CONFIG.numBands).fill(0)
       } else {
@@ -277,9 +315,11 @@ export function SpectrumAnalyzer() {
 
       const bandXBase = startX + bandIdx * (SPECTRUM_CONFIG.blockWidth + SPECTRUM_CONFIG.gapX)
       
+      // ★変更: onlyLit=true を渡す
       drawSideBand(
         ctx, sideLevel, sidePeakHoldsRef.current[bandIdx],
-        bandXBase + SIDE_BAND_CONFIG.leftOffsetX, sideLeftYBottom, now
+        bandXBase + SIDE_BAND_CONFIG.leftOffsetX, sideLeftYBottom, now,
+        true // active only
       )
       
       const activeLevel = Math.floor(mainLevel * SPECTRUM_CONFIG.levelsPerBand)
@@ -302,26 +342,28 @@ export function SpectrumAnalyzer() {
         const currentSegLevel = Math.floor(segIdx / 2)
         const isPeakSegment = showPeak && currentSegLevel === peakLevel
         
-        let color: string
-        if (segIdx < activeSegments || isPeakSegment) {
-          color = getSegmentColor(currentSegLevel)
-        } else {
-          color = COLORS.inactive
+        const currentGapY = segIdx % 2 === 0 ? SPECTRUM_CONFIG.gapY1 : SPECTRUM_CONFIG.gapY2
+        
+        // ★変更: 点灯している場合のみ描画、消灯時はスキップ（背景SVGが見える）
+        const isLit = segIdx < activeSegments || isPeakSegment;
+        
+        if (isLit) {
+            const color = getSegmentColor(currentSegLevel)
+            drawDoubleSlantedPolygon(
+              ctx, color, xDraw, yDraw,
+              SPECTRUM_CONFIG.blockWidth, SPECTRUM_CONFIG.blockHeight,
+              SPECTRUM_CONFIG.slantLR, SPECTRUM_CONFIG.slopeTB
+            )
         }
 
-        drawDoubleSlantedPolygon(
-          ctx, color, xDraw, yDraw,
-          SPECTRUM_CONFIG.blockWidth, SPECTRUM_CONFIG.blockHeight,
-          SPECTRUM_CONFIG.slantLR, SPECTRUM_CONFIG.slopeTB
-        )
-
-        const currentGapY = segIdx % 2 === 0 ? SPECTRUM_CONFIG.gapY1 : SPECTRUM_CONFIG.gapY2
         currentYBottom -= (SPECTRUM_CONFIG.blockHeight + currentGapY)
       }
       
+      // ★変更: onlyLit=true を渡す
       drawSideBand(
         ctx, sideLevel, sidePeakHoldsRef.current[bandIdx],
-        bandXBase + SIDE_BAND_CONFIG.rightOffsetX, sideRightYBottom, now
+        bandXBase + SIDE_BAND_CONFIG.rightOffsetX, sideRightYBottom, now,
+        true // active only
       )
     }
 
@@ -335,12 +377,8 @@ export function SpectrumAnalyzer() {
     }
     drawSpectrum()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isPlaying, displayMode, audioFile, imageLoaded, showGuide, isPoweredOn, bootStep]) // bootStepを追加
+  }, [isPlaying, displayMode, audioFile, imageLoaded, showGuide, isPoweredOn, bootStep])
 
-  // ... (Audio, Play, Pause, Seek, FileUpload, DispClick は変更なし) ...
-  // handlePlay, handlePause, handleFileUpload, handleSeek, handleDispClick をここに記述
-
-  // 既存の関数群 (省略なしで記述してください)
   useEffect(() => {
     const audio = audioRef.current
     if (!audio) return
@@ -423,9 +461,6 @@ export function SpectrumAnalyzer() {
     }
   }
 
-
-  // --- Render ---
-
   let matrixText = ""
   let matrixMode: 'TEXT' | 'ANIMATION' = 'TEXT'
 
@@ -447,7 +482,7 @@ export function SpectrumAnalyzer() {
         break
     }
   }
-  // アニメーション中は文字を表示しない（全点灯演出のため）
+  
   if (bootStep > 0) {
     matrixText = "";
   }
@@ -455,7 +490,19 @@ export function SpectrumAnalyzer() {
   return (
      <div className="w-full max-w-[1400px] mx-auto space-y-4">
       <div className="bg-black rounded-none overflow-hidden relative">
-        <canvas ref={canvasRef} width={1400} height={400} className="w-full h-auto block" />
+        
+        {/* ★変更: SVG背景 (消灯状態) を追加 */}
+        <svg 
+          width="1400" 
+          height="400" 
+          viewBox="0 0 1400 400" 
+          className="w-full h-auto block absolute top-0 left-0 z-0 pointer-events-none"
+        >
+          <path d={backgroundPath} fill={COLORS.inactive} />
+        </svg>
+
+        {/* Canvas (点灯状態) は手前に配置 */}
+        <canvas ref={canvasRef} width={1400} height={400} className="w-full h-auto block relative z-10" />
         
         <DotMatrixDisplay 
           width={1400} 
@@ -463,7 +510,7 @@ export function SpectrumAnalyzer() {
           className="absolute top-0 left-0 w-full h-full pointer-events-none z-10" 
           text={matrixText}
           mode={matrixMode}
-          bootBlockFlags={getBootBlockFlags()} // ★追加: 起動演出フラグ
+          bootBlockFlags={getBootBlockFlags()} 
         />
 
         <IconsLayer 
@@ -481,12 +528,12 @@ export function SpectrumAnalyzer() {
           width={1400} 
           height={400} 
           active={isPoweredOn}
-          activeLevels={getBootActiveLevels()} // ★追加: リングごとの制御
+          activeLevels={getBootActiveLevels()} 
           isBooting={bootStep > 0}
         />
       </div>
 
-      {/* UI Controls */}
+      {/* UI Controls (変更なし) */}
       <div className="w-full space-y-2">
         <div className="relative w-full">
           <input
@@ -498,7 +545,6 @@ export function SpectrumAnalyzer() {
             disabled={!isPoweredOn || !audioFile || bootStep > 0}
             className="w-full h-0.5 bg-white/10 rounded-full appearance-none cursor-pointer disabled:opacity-20 seek-slider"
           />
-          {/* style jsx 省略...元のまま */}
           <style jsx>{`
             .seek-slider::-webkit-slider-thumb {
               appearance: none;
@@ -525,8 +571,6 @@ export function SpectrumAnalyzer() {
       </div>
 
       <div className="flex items-center gap-3">
-        
-        {/* ON/OFF Button */}
         <Button 
           onClick={handlePowerToggle} 
           size="sm" 
@@ -576,7 +620,7 @@ export function SpectrumAnalyzer() {
 
       </div>
       {audioFile && <audio key={audioFile} ref={audioRef} src={audioFile} className="hidden" loop />}
-      <div style={{ color: 'white', fontSize: '10px' }}>DEPLOYED VERSION 0.2.6</div>
+      <div style={{ color: 'white', fontSize: '10px' }}>DEPLOYED VERSION 0.2.7</div>
     </div>
   )
 }
