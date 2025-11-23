@@ -26,6 +26,22 @@ export const IconsLayer: React.FC<IconsLayerProps> = ({
 }) => {
   const hasFile = !!audioFile;
   const [noteStep, setNoteStep] = React.useState(0);
+  
+  // 10秒遅延用のステート
+  const [isDelayedActive, setIsDelayedActive] = React.useState(false);
+
+  // ファイル読み込みを監視して10秒タイマーを作動
+  React.useEffect(() => {
+    if (hasFile) {
+      setIsDelayedActive(false); // まず消灯
+      const timer = setTimeout(() => {
+        setIsDelayedActive(true); // 10秒後に点灯
+      }, 10000);
+      return () => clearTimeout(timer);
+    } else {
+      setIsDelayedActive(false);
+    }
+  }, [hasFile]);
 
   React.useEffect(() => {
     if (!active || !isPlaying) {
@@ -33,7 +49,8 @@ export const IconsLayer: React.FC<IconsLayerProps> = ({
       return;
     }
     const interval = setInterval(() => {
-      setNoteStep((prev) => (prev + 1) % 4);
+      // 1 -> 2 -> 3 のループ
+      setNoteStep((prev) => (prev % 3) + 1);
     }, 500);
     return () => clearInterval(interval);
   }, [isPlaying, active]);
@@ -43,21 +60,29 @@ export const IconsLayer: React.FC<IconsLayerProps> = ({
       {CUSTOM_ICONS.map((icon) => {
         if (!icon.activeModes.includes(displayMode)) return null;
 
-        let isActive = active && (icon.condition ? icon.condition(isPlaying, hasFile) : true);
+        const conditionMet = icon.condition ? icon.condition(isPlaying, hasFile) : true;
+        // ベースの点灯状態（起動中は強制ON）
+        let isActive = active && (conditionMet || isBooting);
 
+        // 起動アニメーションのステップ制御で隠されている場合はOFF
         if (hiddenIconIds.includes(icon.id)) {
           isActive = false;
         }
 
+        // MP3とROMアイコンの遅延処理
+        if (['mp3-logo', 'rom'].includes(icon.id)) {
+          if (!isBooting) {
+             isActive = isActive && isDelayedActive;
+          }
+        }
+
+        // 音符アイコンのアニメーション処理
         if (icon.id.startsWith('note-') && icon.id !== 'note-ring') {
-            if (isBooting) {
-              if (!hiddenIconIds.includes(icon.id)) {
-                 isActive = true; 
-              }
-            } else {
+            if (!isBooting) {
               const noteNum = parseInt(icon.id.split('-')[1]);
               if (!isNaN(noteNum)) {
-                isActive = isActive && isPlaying && noteStep >= noteNum;
+                // ★修正: >= ではなく === にすることで、現在ステップの音符のみを点灯させる
+                isActive = isActive && isPlaying && noteStep === noteNum;
               }
             }
         }
@@ -88,7 +113,6 @@ export const IconsLayer: React.FC<IconsLayerProps> = ({
               WebkitMaskPosition: 'center',
               backgroundColor: currentColor,
               opacity: 1, 
-              
               transition: 'all 0.2s ease',
             }} 
           />

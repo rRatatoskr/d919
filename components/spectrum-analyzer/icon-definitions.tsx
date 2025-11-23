@@ -1,5 +1,4 @@
 import { IconDefinition } from './types'
-// 作成した定数ファイルをインポートしてください
 import { VFD_COLORS } from '@/lib/constants' 
 
 const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
@@ -11,7 +10,8 @@ export const CUSTOM_ICONS: IconDefinition[] = [
     type: 'IMAGE', 
     maskSrc: `${basePath}/images/masks/mp3.svg`, 
     activeModes: ['UPLOAD_PROMPT', 'PEAK_HOLD', 'ANIMATION', 'MUSIC'],
-    condition: () => true, 
+    // ★変更: ファイルがあるときだけ点灯
+    condition: (_isPlaying, hasFile) => hasFile, 
     x: 326,
     y: 89.6,
     width: 100, 
@@ -76,7 +76,7 @@ export const CUSTOM_ICONS: IconDefinition[] = [
     type: 'IMAGE', 
     maskSrc: `${basePath}/images/masks/cd-circle.svg`, 
     activeModes: ['UPLOAD_PROMPT', 'PEAK_HOLD', 'ANIMATION', 'MUSIC'],
-    condition: () => true, 
+    condition: (_isPlaying, hasFile) => hasFile, 
     x: 21,
     y: 180,
     width: 233, 
@@ -89,7 +89,7 @@ export const CUSTOM_ICONS: IconDefinition[] = [
     type: 'IMAGE', 
     maskSrc: `${basePath}/images/masks/cd-in.svg`, 
     activeModes: ['UPLOAD_PROMPT', 'PEAK_HOLD', 'ANIMATION', 'MUSIC'],
-    condition: () => true, 
+    condition: (_isPlaying, hasFile) => hasFile, 
     x: 1262,
     y: 85,
     width: 233, 
@@ -232,7 +232,7 @@ export const CUSTOM_ICONS: IconDefinition[] = [
     type: 'IMAGE', 
     maskSrc: `${basePath}/images/masks/cd.svg`, 
     activeModes: ['UPLOAD_PROMPT', 'PEAK_HOLD', 'ANIMATION', 'MUSIC'],
-    condition: () => true, 
+    condition: (_isPlaying, hasFile) => hasFile, 
     x: 11,
     y: 195,
     width: 233, 
@@ -245,7 +245,7 @@ export const CUSTOM_ICONS: IconDefinition[] = [
     type: 'IMAGE', 
     maskSrc: `${basePath}/images/masks/rom.svg`, 
     activeModes: ['UPLOAD_PROMPT', 'PEAK_HOLD', 'ANIMATION', 'MUSIC'],
-    condition: () => true, 
+    condition: (_isPlaying, hasFile) => hasFile, 
     x: 22,
     y: 201,
     width: 233, 

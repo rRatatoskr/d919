@@ -126,8 +126,8 @@
 
 .seek-slider::-webkit-slider-thumb {
   appearance: none;
-  width: 0;
-  height: 0;
+  width: 20px;
+  height: 20px;
   -webkit-appearance: none;
 }
 .seek-slider::-moz-range-thumb {

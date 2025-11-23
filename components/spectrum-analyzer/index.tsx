@@ -13,7 +13,7 @@ import {
   getAudioLevels, 
   getSegmentColor, 
   updatePeakHold,
-  createPolyPath // ★追加
+  createPolyPath
 } from './utils'
 import { IconsLayer } from './icons-layer'
 import { LevelizerLayer } from './LevelizerLayer'
@@ -67,7 +67,6 @@ export function SpectrumAnalyzer() {
     }
   }, [])
 
-  // ★背景（消灯状態）のSVGパスを生成
   const backgroundPath = useMemo(() => {
     let d = "";
     const startX = SPECTRUM_CONFIG.offsetX
@@ -161,7 +160,7 @@ export function SpectrumAnalyzer() {
       
       bootTimerRef.current = setInterval(() => {
         setBootStep((prev) => {
-          if (prev >= 31) { 
+          if (prev >= 30) { 
             if (bootTimerRef.current) clearInterval(bootTimerRef.current)
             return 0 
           }
@@ -180,14 +179,19 @@ export function SpectrumAnalyzer() {
     if (bootStep >= 5) { flags[3] = true; flags[4] = true; } 
     if (bootStep >= 6) flags[5] = true; 
     if (bootStep >= 7) flags[6] = true; 
-    if (bootStep >= 8) flags[7] = true; 
+    if (bootStep >= 8) flags[7] = true;
+    if (bootStep >= 19) flags[7] = false; 
+    if (bootStep >= 20) { flags[6] = false; flags[5] = false; } 
+    if (bootStep >= 21) flags[4] = false; 
+    if (bootStep >= 22) { flags[3] = false; flags[2] = false; } 
+    if (bootStep >= 23) flags[1] = false; 
+    
     return flags;
   }
 
   const getBootActiveBands = () => {
     if (bootStep === 0) return null; 
     const bands = new Array(17).fill(false);
-    
     if (bootStep >= 3) { bands[0] = true; bands[1] = true; }
     if (bootStep >= 4) bands[2] = true;
     if (bootStep >= 5) bands[3] = true;
@@ -253,11 +257,9 @@ export function SpectrumAnalyzer() {
   const drawSpectrum = () => {
     if (!canvasRef.current) return
     const canvas = canvasRef.current
-    // ★変更: alpha: true にして背景を透過させる
     const ctx = canvas.getContext('2d', { alpha: true }) 
     if (!ctx) return
 
-    // ★変更: 黒塗りつぶしを削除し、クリアのみにする
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
     if (showGuide && guideImageRef.current) {
@@ -315,7 +317,6 @@ export function SpectrumAnalyzer() {
 
       const bandXBase = startX + bandIdx * (SPECTRUM_CONFIG.blockWidth + SPECTRUM_CONFIG.gapX)
       
-      // ★変更: onlyLit=true を渡す
       drawSideBand(
         ctx, sideLevel, sidePeakHoldsRef.current[bandIdx],
         bandXBase + SIDE_BAND_CONFIG.leftOffsetX, sideLeftYBottom, now,
@@ -359,7 +360,6 @@ export function SpectrumAnalyzer() {
         currentYBottom -= (SPECTRUM_CONFIG.blockHeight + currentGapY)
       }
       
-      // ★変更: onlyLit=true を渡す
       drawSideBand(
         ctx, sideLevel, sidePeakHoldsRef.current[bandIdx],
         bandXBase + SIDE_BAND_CONFIG.rightOffsetX, sideRightYBottom, now,
@@ -491,7 +491,6 @@ export function SpectrumAnalyzer() {
      <div className="w-full max-w-[1400px] mx-auto space-y-4">
       <div className="bg-black rounded-none overflow-hidden relative">
         
-        {/* ★変更: SVG背景 (消灯状態) を追加 */}
         <svg 
           width="1400" 
           height="400" 
@@ -533,7 +532,7 @@ export function SpectrumAnalyzer() {
         />
       </div>
 
-      {/* UI Controls (変更なし) */}
+      {/* UI Controls */}
       <div className="w-full space-y-2">
         <div className="relative w-full">
           <input
@@ -544,6 +543,9 @@ export function SpectrumAnalyzer() {
             onChange={handleSeek}
             disabled={!isPoweredOn || !audioFile || bootStep > 0}
             className="w-full h-0.5 bg-white/10 rounded-full appearance-none cursor-pointer disabled:opacity-20 seek-slider"
+            style={{
+              '--seek-ratio': `${(currentTime / (duration || 1)) * 100}%`
+            } as React.CSSProperties}
           />
         </div>
         <div className="flex justify-end">
