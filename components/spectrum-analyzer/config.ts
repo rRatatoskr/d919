@@ -34,6 +34,49 @@ export const SPECTRUM_CONFIG = {
   guideAlpha: 0.2,
 }
 
+// マイク入力 (Apple Music / Spotify / MIC) 用の設定
+// スピーカーの音をマイクで拾うと直接解析より小さくなるので、自動ゲインで持ち上げる
+export const MIC_CONFIG = {
+  autoGain: true,
+  // 一番大きいバンドがこのレベルに来るようにゲインを決める
+  targetLevel: 0.95,
+  // これ以下の入力ではゲインを上げない (無音時にノイズを持ち上げない)
+  noiseFloor: 0.08,
+  // ピークの減衰 (1 フレームあたり)
+  peakDecay: 0.997,
+  minGain: 0.8,
+  maxGain: 2.2,
+  // ネイティブからスペクトルを受け取る回数 (回/秒)
+  updateRate: 30,
+}
+
+// S.A (スペアナ表示パターン) の設定
+export const PATTERN_CONFIG = {
+  // S.A ボタンを押したときにドットマトリクスへパターン名を出す時間 (ms)
+  nameDisplayTime: 2000,
+  // DEMO モードでパターンを切り替える間隔 (ms)
+  demoInterval: 6000,
+
+  prominence: {
+    gravity: 38, // レベル/秒^2
+    launchScale: 0.55, // 立ち上がりの速さ → 打ち上げ速度
+    maxVelocity: 40,
+  },
+  blizzard: {
+    fallSpeed: 9, // セグメント/秒
+    drift: 0.9, // バンド/秒 (右向きの風)
+    ambientRate: 10, // 平均レベル 1.0 のときの 1 秒あたりの発生数
+    kickThreshold: 0.08,
+    maxFlakes: 90,
+  },
+  explosion: {
+    kickThreshold: 0.12,
+    sparkSpeed: 11, // バンド/秒
+    sparkLife: 0.9, // 秒
+    maxSparks: 60,
+  },
+}
+
 export const SIDE_BAND_CONFIG = {
   enabled: true,
   segmentsPerBand: 26,

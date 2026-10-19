@@ -1,34 +1,64 @@
 "use client";
 
 import React from "react";
-import { DisplayMode } from "./types";
+import { DisplayMode, ListeningPosition } from "./types";
 import { COLORS } from "./config";
 import { CUSTOM_ICONS } from "./icon-definitions";
 
 interface IconsLayerProps {
   displayMode: DisplayMode;
   isPlaying: boolean;
-  audioFile: string | null;
+  // 曲 (ファイル / 再生中アイテム) があるか
+  hasMedia: boolean;
+  // MP3 ロゴはファイル再生のときだけ
+  isFileSource?: boolean;
   width: number;
   height: number;
   active?: boolean;
   hiddenIconIds?: string[];
   isBooting?: boolean;
+  posi?: ListeningPosition;
+  // 曲が変わるたびに増える (フォルダアイコンの読み込み点滅)
+  trackId?: number;
 }
+
+const SEATS_BY_POSITION: Record<ListeningPosition, string[]> = {
+  ALL: ['seat-fl', 'seat-fr', 'seat-rl', 'seat-rr'],
+  FRONT_L: ['seat-fl'],
+  FRONT_R: ['seat-fr'],
+  FRONT: ['seat-fl', 'seat-fr'],
+};
+
+// 中央の赤い点を選んだ席の方へずらす (1400x400 座標)
+const CENTER_OFFSET: Record<ListeningPosition, { x: number; y: number }> = {
+  ALL: { x: 0, y: 0 },
+  FRONT_L: { x: -5, y: -6 },
+  FRONT_R: { x: 5, y: -8 },
+  FRONT: { x: 0, y: -7 },
+};
+
+const FOLDER_BLINK_MS = 1200;
+const FOLDER_BLINK_INTERVAL = 150;
 
 export const IconsLayer: React.FC<IconsLayerProps> = ({
   displayMode,
   isPlaying,
-  audioFile,
+  hasMedia,
+  isFileSource = true,
   active = false,
   hiddenIconIds = [],
   isBooting = false,
+  posi = 'ALL',
+  trackId = 0,
 }) => {
-  const hasFile = !!audioFile;
+  const hasFile = hasMedia;
   const [noteStep, setNoteStep] = React.useState(0);
-  
+
   // 10秒遅延用のステート
   const [isDelayedActive, setIsDelayedActive] = React.useState(false);
+
+  // 曲の読み込み中はフォルダの中身を点滅させる
+  const [folderBlink, setFolderBlink] = React.useState<boolean | null>(null);
 
   // ファイル読み込みを監視して10秒タイマーを作動
   React.useEffect(() => {
@@ -42,6 +72,25 @@ export const IconsLayer: React.FC<IconsLayerProps> = ({
       setIsDelayedActive(false);
     }
   }, [hasFile]);
+
+  React.useEffect(() => {
+    if (!active || trackId === 0) return;
+    let on = false;
+    setFolderBlink(on);
+    const interval = setInterval(() => {
+      on = !on;
+      setFolderBlink(on);
+    }, FOLDER_BLINK_INTERVAL);
+    const timer = setTimeout(() => {
+      clearInterval(interval);
+      setFolderBlink(null);
+    }, FOLDER_BLINK_MS);
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timer);
+      setFolderBlink(null);
+    };
+  }, [trackId, active]);
 
   React.useEffect(() => {
     if (!active || !isPlaying) {
@@ -76,6 +125,19 @@ export const IconsLayer: React.FC<IconsLayerProps> = ({
           }
         }
 
+        if (icon.id === 'mp3-logo' && !isBooting) {
+          isActive = isActive && isFileSource;
+        }
+
+        // POSI: 選んだ席だけ点灯
+        if (icon.id.startsWith('seat-') && !isBooting) {
+          isActive = isActive && SEATS_BY_POSITION[posi].includes(icon.id);
+        }
+
+        if (icon.id === 'folder-in' && !isBooting && folderBlink !== null) {
+          isActive = isActive && folderBlink;
+        }
+
         // 音符アイコンのアニメーション処理
         if (icon.id.startsWith('note-') && icon.id !== 'note-ring') {
             if (!isBooting) {
@@ -88,15 +150,17 @@ export const IconsLayer: React.FC<IconsLayerProps> = ({
         }
 
         const currentColor = isActive ? (icon.color || COLORS.iconActive) : COLORS.iconInactive;
-        
-        const leftPct = (icon.x / 1400) * 100;
-        const topPct = (icon.y / 400) * 100;
+
+        const offset = icon.id === 'balance-center' && !isBooting ? CENTER_OFFSET[posi] : { x: 0, y: 0 };
+
+        const leftPct = ((icon.x + offset.x) / 1400) * 100;
+        const topPct = ((icon.y + offset.y) / 400) * 100;
         const widthPct = (icon.width / 1400) * 100;
         const heightPct = (icon.height / 400) * 100;
 
         return (
-          <div 
-            key={icon.id} 
+          <div
+            key={icon.id}
             style={{
               position: 'absolute',
               left: `${leftPct}%`,
@@ -112,9 +176,10 @@ export const IconsLayer: React.FC<IconsLayerProps> = ({
               maskPosition: 'center',
               WebkitMaskPosition: 'center',
               backgroundColor: currentColor,
-              opacity: 1, 
-              transition: 'all 0.2s ease',
-            }} 
+              opacity: 1,
+              // 点滅させるアイコンは即時に切り替える
+              transition: icon.id === 'folder-in' ? 'none' : 'all 0.2s ease',
+            }}
           />
         );
       })}

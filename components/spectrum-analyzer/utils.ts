@@ -1,5 +1,5 @@
 import { COLORS, SIDE_BAND_CONFIG, SPECTRUM_CONFIG } from './config'
-import { DisplayMode, IconConfigItem, PeakHold } from './types'
+import { PeakHold } from './types'
 
 export const formatTime = (seconds: number) => {
   if (!isFinite(seconds)) return '0:00'
@@ -57,9 +57,13 @@ export const createPolyPath = (x: number, y: number, w: number, h: number, slant
   return `M${p1x},${p1y} L${p2x},${p2y} L${p3x},${p3y} L${p4x},${p4y} Z`
 }
 
-export const getAudioLevels = (dataArray: Uint8Array): number[] => {
-  const levels: number[] = []
-  const totalBins = dataArray.length / 2
+/**
+ * 周波数データ (0-255) を対数間隔の各バンドの平均値 (0-1) にする。
+ * `maxBin` までのビンを使う。AnalyserNode のデータでは半分 (〜11kHz) まで。
+ */
+export const getBandAverages = (dataArray: Uint8Array, maxBin: number = dataArray.length / 2): number[] => {
+  const averages: number[] = []
+  const totalBins = maxBin
   const logMin = Math.log(10)
   const logMax = Math.log(totalBins)
   const logStep = (logMax - logMin) / SPECTRUM_CONFIG.numBands
@@ -72,11 +76,17 @@ export const getAudioLevels = (dataArray: Uint8Array): number[] => {
       sum += dataArray[j]
       count++
     }
-    const val = count > 0 ? (sum / count) / 255.0 * SPECTRUM_CONFIG.divisor : 0
-    levels.push(Math.max(0.0, Math.min(val, 1.0)))
+    averages.push(count > 0 ? (sum / count) / 255.0 : 0)
   }
-  return levels
+  return averages
 }
+
+/** バンド平均値を表示レベル (0-1) にする */
+export const toDisplayLevels = (averages: number[], gain: number = 1): number[] =>
+  averages.map((avg) => Math.max(0.0, Math.min(avg * SPECTRUM_CONFIG.divisor * gain, 1.0)))
+
+export const getAudioLevels = (dataArray: Uint8Array, maxBin?: number): number[] =>
+  toDisplayLevels(getBandAverages(dataArray, maxBin))
 
 export const updatePeakHold = (level: number, peakHold: PeakHold, now: number) => {
   if (level > peakHold.level) {
@@ -143,31 +153,4 @@ export const drawSideBand = (
     const currentGapY = segIdx % 2 === 0 ? SIDE_BAND_CONFIG.gapY1 : SIDE_BAND_CONFIG.gapY2
     currentYBottom -= (SIDE_BAND_CONFIG.blockHeight + currentGapY)
   }
-}
-
-export const drawIcon = (
-  ctx: CanvasRenderingContext2D, 
-  icon: IconConfigItem, 
-  currentDisplayMode: DisplayMode, 
-  isPlaying: boolean,
-  audioFile: string | null
-) => {
-  const isActiveMode = icon.activeModes.includes(currentDisplayMode)
-  const meetsCondition = icon.condition ? icon.condition(isPlaying, audioFile) : true
-  
-  const isLit = isActiveMode && meetsCondition
-
-  const scaleX = ctx.canvas.width / 1400
-  const scaleY = ctx.canvas.height / 400
-
-  const x = icon.offsetX * scaleX
-  const y = icon.offsetY * scaleY
-  const w = icon.width * scaleX
-  const h = icon.height * scaleY
-
-  ctx.fillStyle = isLit ? COLORS.iconActive : COLORS.iconInactive
-  ctx.shadowBlur = isLit ? 10 : 0
-  ctx.shadowColor = COLORS.iconActive
-  ctx.fillRect(x, y, w, h)
-  ctx.shadowBlur = 0
 }

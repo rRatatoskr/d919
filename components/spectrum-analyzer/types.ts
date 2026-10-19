@@ -2,6 +2,17 @@ import { ComponentType } from 'react'
 
 export type DisplayMode = 'UPLOAD_PROMPT' | 'PEAK_HOLD' | 'ANIMATION' | 'MUSIC'
 
+// リスニングポジション (POSI)。点灯する席が変わる
+export const LISTENING_POSITIONS = ['ALL', 'FRONT_L', 'FRONT_R', 'FRONT'] as const
+export type ListeningPosition = (typeof LISTENING_POSITIONS)[number]
+
+export const LISTENING_POSITION_LABELS: Record<ListeningPosition, string> = {
+  ALL: 'POSI ALL',
+  FRONT_L: 'POSI FRONT L',
+  FRONT_R: 'POSI FRONT R',
+  FRONT: 'POSI FRONT',
+}
+
 export interface PeakHold {
   level: number
   timestamp: number

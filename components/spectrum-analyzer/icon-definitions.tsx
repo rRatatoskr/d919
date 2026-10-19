@@ -1,7 +1,6 @@
 import { IconDefinition } from './types'
 import { VFD_COLORS } from '@/lib/constants' 
-
-const basePath = process.env.NODE_ENV === 'production' ? '/d919' : ''
+import { BASE_PATH as basePath } from '@/lib/base-path'
 
 export const CUSTOM_ICONS: IconDefinition[] = [
   {
@@ -58,10 +57,53 @@ export const CUSTOM_ICONS: IconDefinition[] = [
     color: VFD_COLORS.GREEN 
   },
   {
-    id: 'balance-seat',
-    name: 'BALANCESEAT',
+    // balance-seat.svg を 1 席ずつに分けたもの (POSI の設定で点灯する席が変わる)
+    id: 'seat-fl',
+    name: 'SEATFL',
     type: 'IMAGE', 
-    maskSrc: `${basePath}/images/masks/balance-seat.svg`, 
+    maskSrc: `${basePath}/images/masks/seat-fl.svg`, 
+    activeModes: ['UPLOAD_PROMPT', 'PEAK_HOLD', 'ANIMATION', 'MUSIC'],
+    condition: () => true, 
+    x: 1250,
+    y: 244,
+    width: 233, 
+    height: 73,
+    color: VFD_COLORS.GREEN 
+  },
+  {
+    // balance-seat.svg を 1 席ずつに分けたもの (POSI の設定で点灯する席が変わる)
+    id: 'seat-fr',
+    name: 'SEATFR',
+    type: 'IMAGE', 
+    maskSrc: `${basePath}/images/masks/seat-fr.svg`, 
+    activeModes: ['UPLOAD_PROMPT', 'PEAK_HOLD', 'ANIMATION', 'MUSIC'],
+    condition: () => true, 
+    x: 1250,
+    y: 244,
+    width: 233, 
+    height: 73,
+    color: VFD_COLORS.GREEN 
+  },
+  {
+    // balance-seat.svg を 1 席ずつに分けたもの (POSI の設定で点灯する席が変わる)
+    id: 'seat-rl',
+    name: 'SEATRL',
+    type: 'IMAGE', 
+    maskSrc: `${basePath}/images/masks/seat-rl.svg`, 
+    activeModes: ['UPLOAD_PROMPT', 'PEAK_HOLD', 'ANIMATION', 'MUSIC'],
+    condition: () => true, 
+    x: 1250,
+    y: 244,
+    width: 233, 
+    height: 73,
+    color: VFD_COLORS.GREEN 
+  },
+  {
+    // balance-seat.svg を 1 席ずつに分けたもの (POSI の設定で点灯する席が変わる)
+    id: 'seat-rr',
+    name: 'SEATRR',
+    type: 'IMAGE', 
+    maskSrc: `${basePath}/images/masks/seat-rr.svg`, 
     activeModes: ['UPLOAD_PROMPT', 'PEAK_HOLD', 'ANIMATION', 'MUSIC'],
     condition: () => true, 
     x: 1250,

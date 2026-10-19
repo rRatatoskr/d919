@@ -52,7 +52,9 @@ export const RingLevelizer: React.FC<RingLevelizerProps> = ({
   debug = false,
   fullLit = false,
 }) => {
+  // 点灯位置 (整数) が変わったときだけ再描画する。小数の回転量は ref で持つ
   const [offset, setOffset] = useState(0);
+  const offsetRef = useRef(0);
 
   // 固定サイズ (位置ズレ防止)
   const VIEW_BOX = "0 0 134 117"; 
@@ -65,28 +67,20 @@ export const RingLevelizer: React.FC<RingLevelizerProps> = ({
     return extractPathsFromSvg(svgContent, CENTER);
   }, [svgContent]);
 
-  const requestRef = useRef<number>();
-  const prevTimeRef = useRef<number>();
-
-  const animate = (time: number) => {
-    if (prevTimeRef.current !== undefined) {
-      setOffset((prev) => {
-        const next = prev + config.direction * config.rotationSpeed;
-        if (paths.length > 0) {
-          if (next >= paths.length) return next - paths.length;
-          if (next < 0) return next + paths.length;
-        }
-        return next;
-      });
-    }
-    prevTimeRef.current = time;
-    requestRef.current = requestAnimationFrame(animate);
-  };
+  const requestRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
-    if (paths.length > 0) {
+    if (paths.length === 0 || config.rotationSpeed === 0) return;
+    const animate = () => {
+      let next = offsetRef.current + config.direction * config.rotationSpeed;
+      if (next >= paths.length) next -= paths.length;
+      if (next < 0) next += paths.length;
+      offsetRef.current = next;
+      const step = Math.floor(next);
+      setOffset((prev) => (prev === step ? prev : step));
       requestRef.current = requestAnimationFrame(animate);
-    }
+    };
+    requestRef.current = requestAnimationFrame(animate);
     return () => {
       if (requestRef.current) cancelAnimationFrame(requestRef.current);
     };
