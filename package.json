@@ -1,14 +1,20 @@
 {
-  "name": "my-v0-project",
+  "name": "d919",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "build": "next build",
+    "build:app": "BUILD_TARGET=app next build",
     "dev": "next dev",
     "lint": "eslint .",
-    "start": "next start"
+    "start": "next start",
+    "ios:sync": "npm run build:app && cap sync ios",
+    "ios:open": "cap open ios",
+    "ios": "npm run ios:sync && cap open ios"
   },
   "dependencies": {
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/ios": "^8.5.3",
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "1.2.2",
     "@radix-ui/react-alert-dialog": "1.1.4",
@@ -42,6 +48,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "1.0.4",
+    "d919-native": "file:plugins/d919-native",
     "date-fns": "4.1.0",
     "embla-carousel-react": "8.5.1",
     "input-otp": "1.4.1",
@@ -60,6 +67,7 @@
     "zod": "3.25.76"
   },
   "devDependencies": {
+    "@capacitor/cli": "^8.5.3",
     "@tailwindcss/postcss": "^4.1.9",
     "@types/node": "^22",
     "@types/react": "^19",

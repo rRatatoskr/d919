@@ -1,0 +1,14 @@
+{
+  "name": "d919-native",
+  "version": "0.1.0",
+  "private": true,
+  "description": "D919 app native helpers for iOS (mic spectrum, Apple Music, web auth, keep awake)",
+  "capacitor": {
+    "ios": {
+      "src": "ios"
+    }
+  },
+  "peerDependencies": {
+    "@capacitor/core": ">=8.0.0"
+  }
+}
