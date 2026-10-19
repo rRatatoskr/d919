@@ -159,3 +159,11 @@ body {
   -webkit-user-select: none;
   user-select: none;
 }
+
+/* 横向きの小さい iPhone (SE など) でもボタンまで画面に収める */
+@media (max-height: 420px) {
+  .ctl-btn {
+    height: 2rem;
+    min-width: 2rem;
+  }
+}

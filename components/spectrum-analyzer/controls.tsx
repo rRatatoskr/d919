@@ -38,7 +38,7 @@ const CtlButton = ({ onClick, disabled, active, label, title, children, classNam
     disabled={disabled}
     title={title ?? label}
     aria-label={title ?? label}
-    className={`inline-flex h-9 min-w-9 items-center justify-center gap-1.5 rounded-md border px-2.5 font-mono text-[11px] tracking-wider text-white transition-colors select-none disabled:opacity-30 sm:px-3 ${
+    className={`ctl-btn inline-flex h-9 min-w-9 items-center justify-center gap-1.5 rounded-md border px-2.5 font-mono text-[11px] tracking-wider text-white transition-colors select-none disabled:opacity-30 sm:px-3 ${
       active ? 'border-cyan-500 bg-cyan-500/15 text-cyan-300' : 'border-white/20 bg-white/10 active:bg-white/25 hover:bg-white/20'
     } ${className}`}
   >
@@ -143,7 +143,7 @@ export function Controls({
             <label
               htmlFor="audio-upload"
               aria-disabled={!controlsEnabled}
-              className={`inline-flex h-9 items-center gap-1.5 rounded-md border border-white/20 bg-white/10 px-2.5 font-mono text-[11px] tracking-wider text-white sm:px-3 ${
+              className={`ctl-btn inline-flex h-9 items-center gap-1.5 rounded-md border border-white/20 bg-white/10 px-2.5 font-mono text-[11px] tracking-wider text-white sm:px-3 ${
                 controlsEnabled ? 'cursor-pointer hover:bg-white/20 active:bg-white/25' : 'pointer-events-none opacity-30'
               }`}
             >
@@ -207,8 +207,10 @@ export function Controls({
         </CtlButton>
       </div>
 
-      <div className="min-h-4 font-mono text-[11px] tracking-wide text-amber-300/80">{player.message}</div>
-      <div style={{ color: 'white', fontSize: '10px' }}>DEPLOYED VERSION 0.3.0</div>
+      <div className="flex min-h-4 items-start justify-between gap-3">
+        <div className="font-mono text-[11px] tracking-wide text-amber-300/80">{player.message}</div>
+        <div className="shrink-0" style={{ color: 'white', fontSize: '10px' }}>DEPLOYED VERSION 0.3.0</div>
+      </div>
     </div>
   )
 }
